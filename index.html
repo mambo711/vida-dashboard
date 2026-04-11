@@ -616,9 +616,13 @@ document.getElementById("headerDate").textContent = `Alberto Rodriguez · ${fmtD
 // ── HELPERS ───────────────────────────────────────────────────────────
 function scoreColor(v) {
   if (!v) return "#30363d";
-  if (v >= 8) return "#3fb950";
-  if (v >= 5) return "#f0883e";
-  return "#f85149";
+  if (v >= 9) return "#2ea043";  // excelente — verde fuerte
+  if (v >= 8) return "#3fb950";  // bien — verde
+  if (v >= 7) return "#7ee787";  // aceptable — verde claro
+  if (v >= 6) return "#d4a72c";  // atención — amarillo
+  if (v >= 5) return "#f0883e";  // bajo — naranja
+  if (v >= 4) return "#e5534b";  // urgente — rojo-naranja
+  return "#f85149";              // crítico — rojo
 }
 function scoreLabel(avg) {
   if (!avg) return "Sin datos";
