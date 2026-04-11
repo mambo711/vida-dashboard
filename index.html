@@ -16,6 +16,22 @@
     --muted:   #8b949e;
     --accent:  #58a6ff;
   }
+  [data-theme="light"] {
+    --bg:      #f6f8fa;
+    --surface: #ffffff;
+    --surf2:   #f0f2f5;
+    --border:  #d0d7de;
+    --text:    #1f2328;
+    --muted:   #656d76;
+    --accent:  #0969da;
+  }
+  [data-theme="light"] .btn-primary { color: #fff; }
+  [data-theme="light"] .delta-up   { background: #dafbe1; color: #1a7f37; }
+  [data-theme="light"] .delta-down { background: #ffebe9; color: #cf222e; }
+  [data-theme="light"] .delta-same { background: #f0f2f5; color: #656d76; }
+  [data-theme="light"] .slider-row input[type=range]::-webkit-slider-thumb {
+    background: #fff; box-shadow: 0 0 4px rgba(0,0,0,0.25);
+  }
   body {
     background: var(--bg);
     color: var(--text);
@@ -62,6 +78,18 @@
   }
   .nav-link:hover { border-color: var(--accent); color: var(--accent); }
   .nav-link.active { border-color: var(--accent); color: var(--accent); background: #58a6ff11; }
+  .theme-toggle {
+    padding: 5px 12px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    color: var(--muted);
+    background: var(--surface);
+    transition: border-color 0.15s, color 0.15s;
+  }
+  .theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
 
   /* ── CRITICAL AREA BANNER ── */
   .critical-banner {
@@ -384,6 +412,7 @@
       <a class="nav-link" href="https://mambo711.github.io/wealth-dashboard/" target="_blank">📈 Macro Wealth</a>
       <a class="nav-link" href="https://mambo711.github.io/michalitas-dashboard/" target="_blank">🍽️ Michalitas</a>
       <a class="nav-link" href="https://mambo711.github.io/dec-dashboard/" target="_blank">👁️ DEC</a>
+      <button class="theme-toggle" id="themeBtn" onclick="toggleTheme()">☀️ Claro</button>
     </div>
   </div>
 </div>
@@ -515,6 +544,32 @@ const AREAS = [
 ];
 
 const KEY = "vida_balance_v2";
+
+// ── THEME ────────────────────────────────────────────────────────────
+(function initTheme() {
+  try {
+    const saved = localStorage.getItem("vida_theme");
+    if (saved === "light") {
+      document.documentElement.setAttribute("data-theme", "light");
+      const btn = document.getElementById("themeBtn");
+      if (btn) btn.textContent = "🌙 Oscuro";
+    }
+  } catch(e) {}
+})();
+function toggleTheme() {
+  const isLight = document.documentElement.getAttribute("data-theme") === "light";
+  if (isLight) {
+    document.documentElement.removeAttribute("data-theme");
+    document.getElementById("themeBtn").textContent = "☀️ Claro";
+    try { localStorage.setItem("vida_theme", "dark"); } catch(e) {}
+  } else {
+    document.documentElement.setAttribute("data-theme", "light");
+    document.getElementById("themeBtn").textContent = "🌙 Oscuro";
+    try { localStorage.setItem("vida_theme", "light"); } catch(e) {}
+  }
+  // Rebuild charts with new colors
+  if (typeof buildRadar === 'function') buildRadar();
+}
 
 function loadData() {
   try { return JSON.parse(localStorage.getItem(KEY)) || { scores:{}, notes:{}, history:[] }; }
