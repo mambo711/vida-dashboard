@@ -276,7 +276,7 @@
     letter-spacing: 0.8px;
     margin-bottom: 12px;
   }
-  .radar-wrap { position: relative; height: 240px; }
+  .radar-wrap { position: relative; height: 320px; }
   /* ── SCORE HERO (top-level) ── */
   .score-hero {
     background: var(--surface);
@@ -528,13 +528,17 @@ const AREAS = [
     defaultNote:"Sleep ~5.3h · HbA1c 5.9% · LDL 125 · Meta: 160 lbs",
     actions:["Dormir antes de las 11pm","30 min de ejercicio","Controlar carbohidratos"],
     link: null },
-  { id:"finanzas",    label:"Finanzas",            icon:"💰", color:"#f0883e",
-    defaultNote:"Mazda $10,837 · Renta $2,100/mo · LOC $47,887",
-    actions:["Plan para reducir LOC Wells Fargo","Revisar surplus mensual","Reducir gasto discrecional"],
-    link: "https://mambo711.github.io/wealth-dashboard/" },
+  { id:"trabajo",     label:"Trabajo / Negocios",  icon:"💼", color:"#79c0ff",
+    defaultNote:"DEC + Michalitas Guayaquil",
+    actions:["Revisar metas semanales DEC","Check Michalitas POS y ventas","Identificar 1 acción de crecimiento"],
+    link: "https://mambo711.github.io/dec-dashboard/" },
   { id:"inversiones", label:"Inversiones",         icon:"📈", color:"#58a6ff",
     defaultNote:"Net Worth $340,656 · Bruto $398,543 · FI meta: 68%",
     actions:["Revisar allocations TradeStation","Abrir Macro Wealth dashboard","Revisar contribuciones SEP IRA"],
+    link: "https://mambo711.github.io/wealth-dashboard/" },
+  { id:"finanzas",    label:"Finanzas",            icon:"💰", color:"#f0883e",
+    defaultNote:"Mazda $10,837 · Renta $2,100/mo · LOC $47,887",
+    actions:["Plan para reducir LOC Wells Fargo","Revisar surplus mensual","Reducir gasto discrecional"],
     link: "https://mambo711.github.io/wealth-dashboard/" },
   { id:"marian",      label:"Marian & Relaciones", icon:"❤️", color:"#f85149",
     defaultNote:"Contacto activo · Sia · Michalitas",
@@ -544,14 +548,6 @@ const AREAS = [
     defaultNote:"Ecuador: Jorge, Víctor, Esperanza · Miguel Miami",
     actions:["Llamar a Esperanza (salud)","WhatsApp a hermanos Ecuador","Verificar cuentas bancarias Ecuador"],
     link: null },
-  { id:"trabajo",     label:"Trabajo / Negocios",  icon:"💼", color:"#79c0ff",
-    defaultNote:"DEC + Michalitas Guayaquil",
-    actions:["Revisar metas semanales DEC","Check Michalitas POS y ventas","Identificar 1 acción de crecimiento"],
-    link: "https://mambo711.github.io/dec-dashboard/" },
-  { id:"legal",       label:"Legal / Ecuador",     icon:"⚖️", color:"#e3b341",
-    defaultNote:"Ciudadanía española en trámite · LITRANSA · INMOROYDU",
-    actions:["Follow-up con Carlos Cadena","Status ciudadanía Consulado Miami","Revisar estate LITRANSA/INMOROYDU"],
-    link: null },
   { id:"descanso",    label:"Descanso / Ocio",     icon:"🌴", color:"#56d364",
     defaultNote:"Hobbies · tiempo libre · viajes · recreación",
     actions:["Planear 1 actividad recreativa","Desconectarse 1 tarde completa","Tiempo sin pantallas ni trabajo"],
@@ -559,6 +555,10 @@ const AREAS = [
   { id:"crecimiento", label:"Crecimiento Personal", icon:"📚", color:"#d2a8ff",
     defaultNote:"Lectura · aprendizaje · nuevas habilidades",
     actions:["Leer 20 min al día","Identificar 1 habilidad a desarrollar","Podcast o curso esta semana"],
+    link: null },
+  { id:"legal",       label:"Legal / Ecuador",     icon:"⚖️", color:"#e3b341",
+    defaultNote:"Ciudadanía española en trámite · LITRANSA · INMOROYDU",
+    actions:["Follow-up con Carlos Cadena","Status ciudadanía Consulado Miami","Revisar estate LITRANSA/INMOROYDU"],
     link: null },
 ];
 
@@ -742,7 +742,14 @@ function buildSparkline(id) {
 function buildCards() {
   const grid = document.getElementById("areasGrid");
   grid.innerHTML = "";
-  AREAS.forEach(a => {
+  // Dynamic sort: lowest scores first (most urgent on top), then by weight desc
+  const sorted = [...AREAS].sort((a, b) => {
+    const sa = data.scores[a.id] || 0;
+    const sb = data.scores[b.id] || 0;
+    if (sa !== sb) return sa - sb; // lowest first
+    return (WEIGHTS[b.id] || 1) - (WEIGHTS[a.id] || 1); // then by weight
+  });
+  sorted.forEach(a => {
     const v = data.scores[a.id] || 0;
     const col = scoreColor(v);
     const note = data.notes[a.id] || (SUGGESTED[a.id] ? SUGGESTED[a.id].evidence : a.defaultNote);
@@ -953,10 +960,10 @@ function buildRadar() {
       responsive: true, maintainAspectRatio: false,
       scales: { r: {
         min: 0, max: 10,
-        ticks: { stepSize:2, color:"#8b949e", font:{size:9}, backdropColor:"transparent" },
+        ticks: { stepSize:2, color:"#8b949e", font:{size:11}, backdropColor:"transparent" },
         grid: { color:"#30363d" },
         angleLines: { color:"#30363d" },
-        pointLabels: { color:"#c9d1d9", font:{size:9.5} }
+        pointLabels: { color:"#c9d1d9", font:{size:12, weight:"bold"} }
       }},
       plugins: {
         legend: {
@@ -1089,8 +1096,8 @@ function buildTrend() {
     options:{
       responsive:true, maintainAspectRatio:false,
       scales:{
-        y:{ min:0, max:10, ticks:{color:"#8b949e",font:{size:9}}, grid:{color:"#30363d"} },
-        x:{ ticks:{color:"#8b949e",font:{size:9}}, grid:{color:"#30363d"} }
+        y:{ min:0, max:10, ticks:{color:"#8b949e",font:{size:11}}, grid:{color:"#30363d"} },
+        x:{ ticks:{color:"#8b949e",font:{size:11}}, grid:{color:"#30363d"} }
       },
       plugins:{ legend:{display:false} }
     }
