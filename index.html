@@ -29,9 +29,6 @@
   [data-theme="light"] .delta-up   { background: #dafbe1; color: #1a7f37; }
   [data-theme="light"] .delta-down { background: #ffebe9; color: #cf222e; }
   [data-theme="light"] .delta-same { background: #f0f2f5; color: #656d76; }
-  [data-theme="light"] .slider-row input[type=range]::-webkit-slider-thumb {
-    background: #fff; box-shadow: 0 0 4px rgba(0,0,0,0.25);
-  }
   body {
     background: var(--bg);
     color: var(--text);
@@ -230,34 +227,18 @@
   .note-hint { font-size: 0.72rem; color: var(--muted); margin-top: 3px; display: none; }
   .area-note-wrap:hover .note-hint { display: block; }
 
-  .slider-row {
-    display: flex;
+  .auto-badge {
+    display: inline-flex;
     align-items: center;
-    gap: 10px;
-  }
-  .slider-row input[type=range] {
-    flex: 1;
-    -webkit-appearance: none;
-    height: 6px;
-    border-radius: 3px;
-    outline: none;
-    cursor: pointer;
-  }
-  .slider-row input[type=range]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    width: 18px; height: 18px;
-    border-radius: 50%;
-    background: white;
-    cursor: pointer;
-    box-shadow: 0 0 4px rgba(0,0,0,0.4);
-  }
-  .slider-labels {
-    display: flex;
-    justify-content: space-between;
-    font-size: 0.63rem;
-    color: var(--muted);
+    gap: 4px;
+    font-size: 0.65rem;
+    font-weight: 600;
+    color: var(--accent);
+    background: var(--surf2);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 2px 8px;
     margin-top: 4px;
-    padding: 0 2px;
   }
 
   /* ── RIGHT PANEL ── */
@@ -409,6 +390,26 @@
     margin-top: 7px;
   }
   .sparkline-label { font-size: 0.62rem; color: var(--muted); white-space: nowrap; }
+
+  /* ── METRICS TOGGLE ── */
+  .metrics-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .metrics-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    color: var(--muted);
+    padding: 2px 6px;
+    border-radius: 6px;
+    transition: color 0.15s, background 0.15s;
+  }
+  .metrics-toggle:hover { color: var(--accent); background: var(--surf2); }
+  .metrics-body { transition: max-height 0.3s ease, opacity 0.3s ease; overflow: hidden; }
+  .metrics-body.collapsed { max-height: 0 !important; opacity: 0; }
 </style>
 </head>
 <body>
@@ -446,7 +447,7 @@
     </div>
     <div class="avg-info">
       <h3 id="avgLabel">Sin datos</h3>
-      <p id="avgSub">Mueve los sliders para ver tu balance</p>
+      <p id="avgSub">Scores actualizados automáticamente</p>
       <p style="font-size:0.68rem;color:var(--muted);margin-top:2px">Promedio ponderado</p>
     </div>
   </div>
@@ -455,9 +456,8 @@
 
 <!-- ACTIONS -->
 <div class="actions-bar">
-  <button class="btn btn-primary" onclick="saveWeek()">💾 Guardar esta semana</button>
-  <button class="btn btn-ghost" onclick="clearScores()">↺ Limpiar</button>
-  <span class="save-msg" id="saveMsg">✓ Guardado correctamente</span>
+  <span class="save-msg" id="saveMsg" style="display:none">✓ Guardado correctamente</span>
+  <span style="font-size:0.72rem;color:var(--muted)">🤖 Scores auto-generados por datos reales — actualización diaria 8am</span>
 </div>
 
 <!-- MAIN GRID -->
@@ -471,9 +471,13 @@
     </div>
 
     <div class="metrics-card">
-      <div class="card-title">Métricas Clave</div>
+      <div class="metrics-header">
+        <div class="card-title" style="margin-bottom:0">Métricas Clave</div>
+        <button class="metrics-toggle" id="metricsToggle" onclick="toggleMetrics()" title="Mostrar/Ocultar métricas">👁️</button>
+      </div>
+      <div class="metrics-body" id="metricsBody" style="max-height:2000px;opacity:1">
 
-      <div class="metric-section-title">Patrimonio · Macro Wealth (11/04/2026)</div>
+      <div class="metric-section-title" style="padding-top:12px">Patrimonio · Macro Wealth (11/04/2026)</div>
       <div class="metric-row"><span class="mlbl">Net Worth Neto</span><span class="mval" style="color:#58a6ff;font-size:1rem">$340,656</span></div>
       <div class="metric-row"><span class="mlbl">Total Bruto</span><span class="mval">$398,543</span></div>
       <div class="metric-row"><span class="mlbl">Deuda total</span><span class="mval" style="color:#f85149">-$75,185</span></div>
@@ -508,6 +512,7 @@
           ⌚ <em>Instala Health Auto Export para conectar Apple Watch</em>
         </p>
       </div>
+      </div><!-- /metrics-body -->
     </div>
   </div>
 </div>
@@ -558,7 +563,7 @@ const AREAS = [
     link: null },
   { id:"legal",       label:"Legal / Ecuador",     icon:"⚖️", color:"#e3b341",
     defaultNote:"Ciudadanía española en trámite · LITRANSA · INMOROYDU",
-    actions:["Follow-up con Carlos Cadena","Status ciudadanía Consulado Miami","Revisar estate LITRANSA/INMOROYDU"],
+    actions:["Status ciudadanía Consulado Miami","Revisar estate LITRANSA/INMOROYDU","Follow-up trámites legales Ecuador"],
     link: null },
 ];
 
@@ -632,7 +637,7 @@ function scoreLabel(avg) {
   return "Desbalance crítico";
 }
 function scoreSub(avg) {
-  if (!avg) return "Mueve los sliders para ver tu balance";
+  if (!avg) return "Esperando datos automáticos";
   if (avg >= 8) return "Sigue así — estás en la zona verde";
   if (avg >= 6) return "Identifica las áreas más bajas para mejorar";
   if (avg >= 4) return "Varias áreas requieren atención activa";
@@ -675,10 +680,10 @@ function updateCriticalBanner() {
       <div class="critical-banner orange">
         <span class="critical-icon">👆</span>
         <div class="critical-body">
-          <div class="critical-title" style="color:#f0883e">EMPIEZA AQUÍ</div>
-          <div class="critical-area" style="color:var(--text)">Mueve los sliders para ver tu área crítica</div>
+          <div class="critical-title" style="color:#f0883e">ESPERANDO DATOS</div>
+          <div class="critical-area" style="color:var(--text)">Los scores se actualizan automáticamente cada mañana</div>
           <div class="critical-actions">
-            <span class="action-chip">→ Puntúa cada área del 1 al 10</span>
+            <span class="action-chip">🤖 Datos de Gmail, Calendar, TradeStation, Apple Watch</span>
             <span class="action-chip">→ El dashboard detecta donde enfocar energía</span>
           </div>
         </div>
@@ -798,17 +803,7 @@ function buildCards() {
           title="Haz clic para editar">${note}</div>
         <div class="note-hint">✏️ Haz clic para editar esta nota</div>
       </div>
-      <div class="slider-row">
-        <span style="font-size:0.7rem;color:var(--muted)">1</span>
-        <input type="range" min="1" max="10" value="${v||5}"
-          id="slider_${a.id}"
-          style="background:linear-gradient(to right,${a.color} 0%,${a.color} ${(v||5)*10}%,#30363d ${(v||5)*10}%,#30363d 100%)"
-          oninput="onSlider('${a.id}',this.value)">
-        <span style="font-size:0.7rem;color:var(--muted)">10</span>
-      </div>
-      <div class="slider-labels">
-        <span>Crítico</span><span>Regular</span><span>Bien</span><span>Óptimo</span>
-      </div>
+      <div class="auto-badge">🤖 Auto</div>
       ${v && v < (TARGETS[a.id]||10) ? `<div style="font-size:0.72rem;color:var(--accent);margin-top:6px;padding-top:6px;border-top:1px solid var(--border)">💡 ${a.actions[0]}</div>` : ''}
       ${SCORE_HISTORY_DAILY.length >= 2 ? `<div class="card-sparkline"><span class="sparkline-label">14d</span>${buildSparkline(a.id)}</div>` : ''}`;
     grid.appendChild(card);
@@ -840,21 +835,26 @@ function editNote(id) {
   ta.addEventListener("keydown", e => { if (e.key === "Escape") ta.blur(); });
 }
 
-function onSlider(id, val) {
-  val = parseInt(val);
-  data.scores[id] = val;
-  const area = AREAS.find(a => a.id === id);
-  const col = scoreColor(val);
-  const card = document.querySelector(`#badge_${id}`).closest(".area-card");
-  card.style.borderColor = col+"88";
-  document.getElementById(`badge_${id}`).textContent = val;
-  document.getElementById(`badge_${id}`).style.color = col;
-  const sl = document.getElementById(`slider_${id}`);
-  sl.style.background = `linear-gradient(to right,${area.color} 0%,${area.color} ${val*10}%,#30363d ${val*10}%,#30363d 100%)`;
-  updateAvg();
-  updateRadar();
-  updateCriticalBanner();
+// toggleMetrics — show/hide Métricas Clave
+function toggleMetrics() {
+  const body = document.getElementById("metricsBody");
+  const btn = document.getElementById("metricsToggle");
+  const collapsed = body.classList.toggle("collapsed");
+  btn.textContent = collapsed ? "👁️‍🗨️" : "👁️";
+  btn.title = collapsed ? "Mostrar métricas" : "Ocultar métricas";
+  try { localStorage.setItem("vida_metrics_collapsed", collapsed ? "1" : "0"); } catch(e) {}
 }
+// Restore metrics toggle state
+(function() {
+  try {
+    if (localStorage.getItem("vida_metrics_collapsed") === "1") {
+      const body = document.getElementById("metricsBody");
+      const btn = document.getElementById("metricsToggle");
+      if (body) { body.classList.add("collapsed"); body.style.maxHeight = "0"; body.style.opacity = "0"; }
+      if (btn) { btn.textContent = "👁️‍🗨️"; btn.title = "Mostrar métricas"; }
+    }
+  } catch(e) {}
+})();
 
 // ── AVERAGE (weighted) ────────────────────────────────────────────────
 function updateAvg() {
@@ -862,7 +862,7 @@ function updateAvg() {
   if (!active.length) {
     document.getElementById("avgNum").textContent = "—";
     document.getElementById("avgLabel").textContent = "Sin datos";
-    document.getElementById("avgSub").textContent = "Mueve los sliders para ver tu balance";
+    document.getElementById("avgSub").textContent = "Esperando datos automáticos";
     const ring = document.getElementById("avgCircle");
     ring.style.borderColor = "#30363d";
     ring.style.color = "var(--muted)";
@@ -984,10 +984,7 @@ function updateRadar() {
 // ── SAVE ──────────────────────────────────────────────────────────────
 function saveWeek(silent) {
   const vals = AREAS.map(a=>data.scores[a.id]||0);
-  if (!vals.some(v=>v>0)) {
-    if (!silent) alert("Mueve al menos un slider antes de guardar.");
-    return;
-  }
+  if (!vals.some(v=>v>0)) { return; }
   const scored = vals.filter(v=>v>0);
   const avg = scored.reduce((a,b)=>a+b,0)/scored.length;
   const curWeek = getWeekNum(today);
@@ -1029,15 +1026,6 @@ function autoSaveIfNewWeek() {
   buildRadar(); // rebuild radar to show ghost of previous week
 }
 
-function clearScores() {
-  if (!confirm("¿Limpiar scores de esta semana?")) return;
-  data.scores = {};
-  saveData(data);
-  buildCards();
-  updateAvg();
-  updateRadar();
-  updateCriticalBanner();
-}
 
 // ── HISTORY ───────────────────────────────────────────────────────────
 function renderHistory() {
@@ -1128,25 +1116,15 @@ const SUGGESTED = {
   marian:      { score: 7, evidence: "Email Apr 7 (4 días) · Transferencias Apr 2 y 6 activas" },
   familia:     { score: 5, evidence: "Miguel transfirió $300 Apr 2 · Sin señales Esperanza/Jorge/Víctor" },
   trabajo:     { score: 6, evidence: "DEC: $19K Abr 1-10 (+59% YoY) · Proy $57K · Margen 50.8% · Health 80/100 ✓ | Michalitas: $1,084 en 7d · Proy $3,458 (82% PE) · Déficit -$758 · 5 meses bajo PE · Mesera vacante ⚠️" },
-  legal:       { score: 4, evidence: "Sin emails de Carlos Cadena · Cancillería doc reenviado por Marian Apr 7" },
+  legal:       { score: 4, evidence: "Ciudadanía española en trámite · Cancillería doc reenviado por Marian Apr 7 · LITRANSA/INMOROYDU pendiente" },
   descanso:    { score: 4, evidence: "Sueño 7d avg 4.7h · Noche Apr11: 8.25h REM 2.15h ✓ · Deep 0.43h (bajo) · Sin actividades ocio detectadas en datos · Stand hours irregular" },
   crecimiento: { score: 5, evidence: "Newsletter 'Sistemas Especulación Bolsa' J.L.Cava (Apr 7, starred) · Dashboards activos = aprendizaje aplicado · Sin cursos formales detectados en Gmail" },
 };
 
-// Pre-load suggested scores if no current scores; always apply salud from Apple Watch data
-const SUGGESTED_VERSION = "2026-04-11-v4";
-const hasSavedScores = Object.keys(data.scores).some(k => data.scores[k] > 0);
-if (!hasSavedScores) {
-  Object.entries(SUGGESTED).forEach(([id, {score}]) => {
-    data.scores[id] = score;
-  });
-} else if (data._suggestedVersion !== SUGGESTED_VERSION) {
-  // Force-update all scores refreshed from live data sources
-  ['salud', 'trabajo', 'descanso', 'crecimiento'].forEach(id => {
-    if (SUGGESTED[id]) data.scores[id] = SUGGESTED[id].score;
-  });
-}
-data._suggestedVersion = SUGGESTED_VERSION;
+// Fully automatic — always load ALL scores from SUGGESTED (data-driven)
+Object.entries(SUGGESTED).forEach(([id, {score}]) => {
+  data.scores[id] = score;
+});
 saveData(data);
 
 // Seed weekly localStorage history from embedded daily data (fresh browsers / GitHub Pages)
