@@ -341,6 +341,18 @@
     line-height: 1.8;
   }
   .trend-wrap { position: relative; height: 160px; margin-top: 12px; }
+
+  /* ── SPARKLINE ── */
+  .card-sparkline {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 6px;
+    padding-top: 7px;
+    border-top: 1px solid var(--border);
+    margin-top: 7px;
+  }
+  .sparkline-label { font-size: 0.62rem; color: var(--muted); white-space: nowrap; }
 </style>
 </head>
 <body>
@@ -601,6 +613,30 @@ function updateCriticalBanner() {
     </div>`;
 }
 
+// ── SPARKLINE (SVG, 14-day daily trend) ──────────────────────────────
+function buildSparkline(id) {
+  if (!SCORE_HISTORY_DAILY.length) return '';
+  const entries = [...SCORE_HISTORY_DAILY].slice(0, 14).reverse(); // oldest first
+  if (entries.length < 2) return '';
+  const vals = entries.map(e => (e.scores && e.scores[id]) ? e.scores[id] : 0);
+  if (!vals.some(v => v > 0)) return '';
+  const w = 80, h = 22, pad = 2;
+  const points = vals.map((v, i) => {
+    const x = pad + (i / Math.max(vals.length - 1, 1)) * (w - pad * 2);
+    const y = v > 0
+      ? (h - pad - ((v - 1) / 9) * (h - pad * 2)).toFixed(1)
+      : (h / 2).toFixed(1);
+    return `${x.toFixed(1)},${y}`;
+  }).join(' ');
+  const lastV = vals[vals.length - 1] || vals.filter(v => v > 0).pop() || 5;
+  const col = scoreColor(lastV);
+  const lastPt = points.split(' ').pop().split(',');
+  return `<svg viewBox="0 0 ${w} ${h}" width="${w}" height="${h}" style="overflow:visible;display:block">
+    <polyline points="${points}" fill="none" stroke="${col}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.65"/>
+    <circle cx="${lastPt[0]}" cy="${lastPt[1]}" r="2.5" fill="${col}"/>
+  </svg>`;
+}
+
 // ── AREA CARDS ────────────────────────────────────────────────────────
 function buildCards() {
   const grid = document.getElementById("areasGrid");
@@ -660,7 +696,8 @@ function buildCards() {
       </div>
       <div class="slider-labels">
         <span>Crítico</span><span>Regular</span><span>Bien</span><span>Óptimo</span>
-      </div>`;
+      </div>
+      ${SCORE_HISTORY_DAILY.length >= 2 ? `<div class="card-sparkline"><span class="sparkline-label">14d</span>${buildSparkline(a.id)}</div>` : ''}`;
     grid.appendChild(card);
   });
 }
@@ -911,6 +948,9 @@ function buildTrend() {
   });
 }
 
+// ── DAILY SCORE HISTORY (last 30 days, updated by scheduled task) ────
+const SCORE_HISTORY_DAILY = [];
+
 // ── SUGGESTED SCORES (data-driven, Apr 11 2026) ───────────────────────
 const SUGGESTED = {
   salud:       { score: 3, evidence: "Sueño 7d avg 4.7h (meta: 7h) · Noche Apr11: 8.25h ✓ · Pasos: 0–5k irregular · Ejercicio: 0–22min/día · HbA1c 5.9% · LDL 125 · RHR 53–69bpm ✓" },
@@ -939,6 +979,24 @@ if (!hasSavedScores) {
 }
 data._suggestedVersion = SUGGESTED_VERSION;
 saveData(data);
+
+// Seed weekly localStorage history from embedded daily data (fresh browsers / GitHub Pages)
+if (!data.history.length && SCORE_HISTORY_DAILY.length > 6) {
+  const weekGroups = {};
+  SCORE_HISTORY_DAILY.forEach(entry => {
+    const d = new Date(entry.date + 'T12:00:00');
+    const wk = getWeekNum(d);
+    if (!weekGroups[wk]) weekGroups[wk] = { entry, wk };
+  });
+  Object.values(weekGroups).forEach(({ entry, wk }) => {
+    const sc = entry.scores || {};
+    const vals = Object.values(sc).filter(v => v > 0);
+    const avg = vals.length ? parseFloat((vals.reduce((a, b) => a + b, 0) / vals.length).toFixed(1)) : 0;
+    data.history.push({ date: entry.date, week: wk, scores: { ...sc }, avg, autoSaved: true });
+  });
+  data.history.sort((a, b) => b.week - a.week);
+  saveData(data);
+}
 
 // ── INIT ──────────────────────────────────────────────────────────────
 autoSaveIfNewWeek(); // silently snapshot scores if new week started
