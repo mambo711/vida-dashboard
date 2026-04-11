@@ -404,14 +404,17 @@
 
   <div class="right-panel">
     <div class="avg-ring" id="avgRing">
-      <div class="avg-circle" id="avgCircle">
-        <span class="avg-num" id="avgNum">—</span>
-        <span class="avg-lbl">/ 10</span>
+      <div style="display:flex;align-items:center;gap:16px">
+        <div class="avg-circle" id="avgCircle">
+          <span class="avg-num" id="avgNum">—</span>
+          <span class="avg-lbl">/ 10</span>
+        </div>
+        <div class="avg-info">
+          <h3 id="avgLabel">Sin datos</h3>
+          <p id="avgSub">Mueve los sliders para ver tu balance</p>
+        </div>
       </div>
-      <div class="avg-info">
-        <h3 id="avgLabel">Sin datos</h3>
-        <p id="avgSub">Mueve los sliders para ver tu balance</p>
-      </div>
+      <div id="avgDetail" style="display:none;padding-top:12px;border-top:1px solid var(--border);margin-top:14px"></div>
     </div>
 
     <div class="radar-card">
@@ -475,31 +478,40 @@
 const AREAS = [
   { id:"salud",       label:"Salud",              icon:"🏥", color:"#3fb950",
     defaultNote:"Sleep ~5.3h · HbA1c 5.9% · LDL 125 · Meta: 160 lbs",
-    actions:["Dormir antes de las 11pm","30 min de ejercicio","Controlar carbohidratos"] },
+    actions:["Dormir antes de las 11pm","30 min de ejercicio","Controlar carbohidratos"],
+    link: null },
   { id:"finanzas",    label:"Finanzas",            icon:"💰", color:"#f0883e",
     defaultNote:"Mazda $10,837 · Renta $2,100/mo · LOC $47,887",
-    actions:["Plan para reducir LOC Wells Fargo","Revisar surplus mensual","Reducir gasto discrecional"] },
+    actions:["Plan para reducir LOC Wells Fargo","Revisar surplus mensual","Reducir gasto discrecional"],
+    link: "https://mambo711.github.io/wealth-dashboard/" },
   { id:"inversiones", label:"Inversiones",         icon:"📈", color:"#58a6ff",
     defaultNote:"Net Worth $340,656 · Bruto $398,543 · FI meta: 68%",
-    actions:["Revisar allocations TradeStation","Abrir Macro Wealth dashboard","Revisar contribuciones SEP IRA"] },
+    actions:["Revisar allocations TradeStation","Abrir Macro Wealth dashboard","Revisar contribuciones SEP IRA"],
+    link: "https://mambo711.github.io/wealth-dashboard/" },
   { id:"marian",      label:"Marian & Relaciones", icon:"❤️", color:"#f85149",
     defaultNote:"Contacto activo · Sia · Michalitas",
-    actions:["Llamada o visita esta semana","Tiempo de calidad (no trabajo)","Mensaje a Sia"] },
+    actions:["Llamada o visita esta semana","Tiempo de calidad (no trabajo)","Mensaje a Sia"],
+    link: "https://mambo711.github.io/michalitas-dashboard/" },
   { id:"familia",     label:"Familia",             icon:"👨‍👩‍👧", color:"#bc8cff",
     defaultNote:"Ecuador: Jorge, Víctor, Esperanza · Miguel Miami",
-    actions:["Llamar a Esperanza (salud)","WhatsApp a hermanos Ecuador","Verificar cuentas bancarias Ecuador"] },
+    actions:["Llamar a Esperanza (salud)","WhatsApp a hermanos Ecuador","Verificar cuentas bancarias Ecuador"],
+    link: null },
   { id:"trabajo",     label:"Trabajo / Negocios",  icon:"💼", color:"#79c0ff",
-    defaultNote:"Rodalt Solutions (principal) · Michalitas Guayaquil",
-    actions:["Revisar metas semanales Rodalt","Check Michalitas POS y ventas","Identificar 1 acción de crecimiento"] },
+    defaultNote:"DEC + Michalitas Guayaquil",
+    actions:["Revisar metas semanales DEC","Check Michalitas POS y ventas","Identificar 1 acción de crecimiento"],
+    link: "https://mambo711.github.io/dec-dashboard/" },
   { id:"legal",       label:"Legal / Ecuador",     icon:"⚖️", color:"#e3b341",
     defaultNote:"Ciudadanía española en trámite · LITRANSA · INMOROYDU",
-    actions:["Follow-up con Carlos Cadena","Status ciudadanía Consulado Miami","Revisar estate LITRANSA/INMOROYDU"] },
+    actions:["Follow-up con Carlos Cadena","Status ciudadanía Consulado Miami","Revisar estate LITRANSA/INMOROYDU"],
+    link: null },
   { id:"descanso",    label:"Descanso / Ocio",     icon:"🌴", color:"#56d364",
     defaultNote:"Hobbies · tiempo libre · viajes · recreación",
-    actions:["Planear 1 actividad recreativa","Desconectarse 1 tarde completa","Tiempo sin pantallas ni trabajo"] },
+    actions:["Planear 1 actividad recreativa","Desconectarse 1 tarde completa","Tiempo sin pantallas ni trabajo"],
+    link: null },
   { id:"crecimiento", label:"Crecimiento Personal", icon:"📚", color:"#d2a8ff",
     defaultNote:"Lectura · aprendizaje · nuevas habilidades",
-    actions:["Leer 20 min al día","Identificar 1 habilidad a desarrollar","Podcast o curso esta semana"] },
+    actions:["Leer 20 min al día","Identificar 1 habilidad a desarrollar","Podcast o curso esta semana"],
+    link: null },
 ];
 
 const KEY = "vida_balance_v2";
@@ -688,7 +700,7 @@ function buildCards() {
       <div class="card-top">
         <div class="area-label">
           <span class="area-icon">${a.icon}</span>
-          <span style="color:${v ? col : 'var(--text)'}">${a.label}</span>
+          ${a.link ? `<a href="${a.link}" target="_blank" style="color:${v ? col : 'var(--text)'};text-decoration:none" title="Abrir dashboard">${a.label} <span style="font-size:0.65rem;opacity:0.5">↗</span></a>` : `<span style="color:${v ? col : 'var(--text)'}">${a.label}</span>`}
         </div>
         <div class="score-right" style="display:flex;flex-direction:column;align-items:flex-end;gap:1px">
           <div style="display:flex;align-items:center;gap:4px">${deltaHtml}<span class="area-score-badge" id="badge_${a.id}" style="color:${col}">${v||"—"}</span>${momentumHtml}</div>
@@ -712,6 +724,7 @@ function buildCards() {
       <div class="slider-labels">
         <span>Crítico</span><span>Regular</span><span>Bien</span><span>Óptimo</span>
       </div>
+      ${v && v < (TARGETS[a.id]||10) ? `<div style="font-size:0.72rem;color:var(--accent);margin-top:6px;padding-top:6px;border-top:1px solid var(--border)">💡 ${a.actions[0]}</div>` : ''}
       ${SCORE_HISTORY_DAILY.length >= 2 ? `<div class="card-sparkline"><span class="sparkline-label">14d</span>${buildSparkline(a.id)}</div>` : ''}`;
     grid.appendChild(card);
   });
@@ -758,10 +771,10 @@ function onSlider(id, val) {
   updateCriticalBanner();
 }
 
-// ── AVERAGE ───────────────────────────────────────────────────────────
+// ── AVERAGE (weighted) ────────────────────────────────────────────────
 function updateAvg() {
-  const vals = AREAS.map(a => data.scores[a.id]||0).filter(v=>v>0);
-  if (!vals.length) {
+  const active = AREAS.filter(a => (data.scores[a.id] || 0) > 0);
+  if (!active.length) {
     document.getElementById("avgNum").textContent = "—";
     document.getElementById("avgLabel").textContent = "Sin datos";
     document.getElementById("avgSub").textContent = "Mueve los sliders para ver tu balance";
@@ -770,7 +783,13 @@ function updateAvg() {
     ring.style.color = "var(--muted)";
     return;
   }
-  const avg = vals.reduce((a,b)=>a+b,0)/vals.length;
+  let wSum = 0, wTotal = 0;
+  active.forEach(a => {
+    const w = WEIGHTS[a.id] || 1;
+    wSum += data.scores[a.id] * w;
+    wTotal += w;
+  });
+  const avg = wSum / wTotal;
   const col = scoreColor(avg);
   document.getElementById("avgNum").textContent = avg.toFixed(1);
   document.getElementById("avgLabel").textContent = scoreLabel(avg);
@@ -778,6 +797,43 @@ function updateAvg() {
   const ring = document.getElementById("avgCircle");
   ring.style.borderColor = col;
   ring.style.color = col;
+
+  // Detail breakdown
+  const detail = document.getElementById("avgDetail");
+  const onTarget = active.filter(a => data.scores[a.id] >= (TARGETS[a.id]||10));
+  const critical = active.filter(a => data.scores[a.id] <= 4);
+  const gaps = active.map(a => ({
+    id: a.id, label: a.label, icon: a.icon,
+    score: data.scores[a.id],
+    target: TARGETS[a.id]||7,
+    gap: (TARGETS[a.id]||7) - data.scores[a.id],
+    action: a.actions[0]
+  })).filter(g => g.gap > 0).sort((a,b) => b.gap - a.gap);
+  const top3 = gaps.slice(0, 3);
+
+  let html = `<div style="font-size:0.75rem;color:var(--muted);line-height:1.8">`;
+  html += `<div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:8px">`;
+  html += `<span style="color:#3fb950;font-weight:600">✓ En meta: ${onTarget.length}/${active.length}</span>`;
+  if (critical.length) html += `<span style="color:#f85149;font-weight:600">⚠ Críticos: ${critical.length}</span>`;
+  html += `<span>Bajo meta: ${gaps.length}</span>`;
+  html += `</div>`;
+
+  if (top3.length) {
+    html += `<div style="font-size:0.72rem;font-weight:600;color:var(--text);margin-bottom:6px">🎯 Prioridad hoy</div>`;
+    top3.forEach(g => {
+      const gc = scoreColor(g.score);
+      html += `<div style="display:flex;align-items:center;gap:6px;margin-bottom:4px">`;
+      html += `<span style="font-size:0.9rem">${g.icon}</span>`;
+      html += `<span style="color:${gc};font-weight:700;min-width:18px">${g.score}</span>`;
+      html += `<span style="color:var(--muted)">→</span>`;
+      html += `<span style="color:var(--accent);font-weight:600;min-width:18px">${g.target}</span>`;
+      html += `<span style="font-size:0.72rem;color:var(--text)">${g.action}</span>`;
+      html += `</div>`;
+    });
+  }
+  html += `</div>`;
+  detail.innerHTML = html;
+  detail.style.display = active.length ? "block" : "none";
 }
 
 // ── RADAR ─────────────────────────────────────────────────────────────
@@ -967,6 +1023,13 @@ function buildTrend() {
 const TARGETS = {
   salud: 7, finanzas: 7, inversiones: 8, marian: 8,
   familia: 7, trabajo: 8, legal: 6, descanso: 7, crecimiento: 7
+};
+
+// ── AREA WEIGHTS (higher = more impact on weighted average) ──────────
+// Total does not need to equal 1 — weights are auto-normalized
+const WEIGHTS = {
+  salud: 1.5, finanzas: 1.3, inversiones: 1.5, marian: 1.2,
+  familia: 1.0, trabajo: 1.4, legal: 0.7, descanso: 1.0, crecimiento: 0.8
 };
 
 // ── DAILY SCORE HISTORY (last 30 days, updated by scheduled task) ────
