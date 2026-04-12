@@ -241,6 +241,94 @@
     margin-top: 4px;
   }
 
+  /* ── PROGRESS BAR ── */
+  .progress-bar-wrap {
+    margin-top: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .progress-bar {
+    flex: 1;
+    height: 6px;
+    border-radius: 3px;
+    background: var(--surf2);
+    overflow: hidden;
+  }
+  .progress-bar-fill {
+    height: 100%;
+    border-radius: 3px;
+    transition: width 0.4s ease;
+  }
+  .progress-pct {
+    font-size: 0.62rem;
+    font-weight: 700;
+    min-width: 28px;
+    text-align: right;
+  }
+
+  /* ── STREAK BADGE ── */
+  .streak-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    font-size: 0.62rem;
+    font-weight: 700;
+    color: #f0883e;
+    margin-left: 6px;
+  }
+  .streak-badge.hot { color: #f85149; }
+
+  /* ── FRESHNESS ── */
+  .freshness {
+    font-size: 0.68rem;
+    color: var(--muted);
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .freshness.stale { color: #f0883e; }
+  .freshness.fresh { color: #3fb950; }
+
+  /* ── DAY PATTERN ── */
+  .day-pattern-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px;
+    margin-top: 16px;
+  }
+  .day-bar-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 4px;
+  }
+  .day-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--muted);
+    min-width: 28px;
+  }
+  .day-bar {
+    flex: 1;
+    height: 10px;
+    border-radius: 5px;
+    background: var(--surf2);
+    overflow: hidden;
+  }
+  .day-bar-fill {
+    height: 100%;
+    border-radius: 5px;
+    transition: width 0.4s ease;
+  }
+  .day-avg {
+    font-size: 0.68rem;
+    font-weight: 700;
+    min-width: 24px;
+    text-align: right;
+  }
+
   /* ── RIGHT PANEL ── */
   .right-panel { display: flex; flex-direction: column; gap: 16px; }
   .radar-card, .metrics-card {
@@ -457,7 +545,8 @@
 <!-- ACTIONS -->
 <div class="actions-bar">
   <span class="save-msg" id="saveMsg" style="display:none">✓ Guardado correctamente</span>
-  <span style="font-size:0.72rem;color:var(--muted)">🤖 Scores auto-generados por datos reales — actualización diaria 8am</span>
+  <span style="font-size:0.72rem;color:var(--muted)">🤖 Scores auto-generados por datos reales</span>
+  <span id="freshnessIndicator" class="freshness"></span>
 </div>
 
 <!-- MAIN GRID -->
@@ -476,45 +565,17 @@
         <button class="metrics-toggle" id="metricsToggle" onclick="toggleMetrics()" title="Mostrar/Ocultar métricas">👁️</button>
       </div>
       <div class="metrics-body" id="metricsBody" style="max-height:2000px;opacity:1">
-
-      <div class="metric-section-title" style="padding-top:12px">Patrimonio · Macro Wealth (11/04/2026)</div>
-      <div class="metric-row"><span class="mlbl">Net Worth Neto</span><span class="mval" style="color:#58a6ff;font-size:1rem">$340,656</span></div>
-      <div class="metric-row"><span class="mlbl">Total Bruto</span><span class="mval">$398,543</span></div>
-      <div class="metric-row"><span class="mlbl">Deuda total</span><span class="mval" style="color:#f85149">-$75,185</span></div>
-      <div class="metric-row"><span class="mlbl">Meta FI ($500K)</span><span class="mval">68% <span style="color:#3fb950">▰▰▰▰▰▰▰░░░</span></span></div>
-
-      <div class="metric-section-title">Retiro</div>
-      <div class="metric-row"><span class="mlbl">SEP IRA (TradeStation)</span><span class="mval">$130,524</span></div>
-      <div class="metric-row"><span class="mlbl">Roth IRA (Betterment)</span><span class="mval">$61,658</span></div>
-      <div class="metric-row"><span class="mlbl">Traditional IRA (Betterment)</span><span class="mval">$28,187</span></div>
-
-      <div class="metric-section-title">Trading & Ahorro</div>
-      <div class="metric-row"><span class="mlbl">Emergency Fund</span><span class="mval">$31,151</span></div>
-      <div class="metric-row"><span class="mlbl">CDs Ecuador</span><span class="mval">$35,000</span></div>
-      <div class="metric-row"><span class="mlbl">Tactical ETFs</span><span class="mval">$32,847</span></div>
-      <div class="metric-row"><span class="mlbl">Options (tastytrade)</span><span class="mval">$16,790</span></div>
-      <div class="metric-row"><span class="mlbl">IBKR + Robinhood + Futures</span><span class="mval">$12,416</span></div>
-
-      <div class="metric-section-title">Salud</div>
-      <div class="metric-row"><span class="mlbl">HbA1c</span><span class="mval" style="color:#f0883e">5.9% (meta &lt;5.7%)</span></div>
-      <div class="metric-row"><span class="mlbl">LDL</span><span class="mval" style="color:#f0883e">125 mg/dL (meta &lt;100)</span></div>
-      <div class="metric-row"><span class="mlbl">Sueño promedio</span><span class="mval" style="color:#f85149">~5.3 h (meta: 7+)</span></div>
-      <div class="metric-row"><span class="mlbl">Peso meta</span><span class="mval">160 lbs</span></div>
-
-      <div class="metric-section-title">Finanzas Personales</div>
-      <div class="metric-row"><span class="mlbl">Renta mensual</span><span class="mval">$2,100</span></div>
-      <div class="metric-row"><span class="mlbl">Wells Fargo LOC</span><span class="mval" style="color:#f85149">$47,887 @ 8.5%</span></div>
-      <div class="metric-row"><span class="mlbl">Mazda (restante)</span><span class="mval">$10,837</span></div>
-      <div class="metric-row"><span class="mlbl">Surplus mensual</span><span class="mval" style="color:#f85149">$0</span></div>
-
-      <div style="margin-top:10px;padding-top:10px;border-top:1px solid var(--border)">
-        <p style="font-size:0.7rem;color:var(--muted);line-height:1.5">
-          ⌚ <em>Instala Health Auto Export para conectar Apple Watch</em>
-        </p>
-      </div>
+        <div id="metricsContent"></div>
       </div><!-- /metrics-body -->
     </div>
   </div>
+</div>
+
+<!-- DAY PATTERNS -->
+<div class="day-pattern-card" id="dayPatternCard" style="display:none">
+  <div class="card-title">📊 Patrones por Día de la Semana</div>
+  <div id="dayPatternBody"></div>
+  <p id="dayPatternInsight" style="font-size:0.72rem;color:var(--accent);margin-top:8px;line-height:1.4"></p>
 </div>
 
 <!-- HISTORY -->
@@ -803,7 +864,14 @@ function buildCards() {
           title="Haz clic para editar">${note}</div>
         <div class="note-hint">✏️ Haz clic para editar esta nota</div>
       </div>
-      <div class="auto-badge">🤖 Auto</div>
+      <div style="display:flex;align-items:center;gap:6px;margin-top:4px">
+        <span class="auto-badge">🤖 Auto</span>
+        ${(() => { const s = getStreak(a.id); return s >= 2 ? `<span class="streak-badge${s>=5?' hot':''}" title="${s} días consecutivos en meta">🔥 ${s}d</span>` : ''; })()}
+      </div>
+      ${target && v ? `<div class="progress-bar-wrap">
+        <div class="progress-bar"><div class="progress-bar-fill" style="width:${Math.min(v/target*100,100).toFixed(0)}%;background:${col}"></div></div>
+        <span class="progress-pct" style="color:${col}">${Math.round(v/target*100)}%</span>
+      </div>` : ''}
       ${v && v < (TARGETS[a.id]||10) ? `<div style="font-size:0.72rem;color:var(--accent);margin-top:6px;padding-top:6px;border-top:1px solid var(--border)">💡 ${a.actions[0]}</div>` : ''}
       ${SCORE_HISTORY_DAILY.length >= 2 ? `<div class="card-sparkline"><span class="sparkline-label">14d</span>${buildSparkline(a.id)}</div>` : ''}`;
     grid.appendChild(card);
@@ -1145,6 +1213,153 @@ if (!data.history.length && SCORE_HISTORY_DAILY.length > 6) {
   saveData(data);
 }
 
+// ── METRICS DATA (auto-updated by daily briefing task) ──────────────
+const METRICS_DATA = {
+  date: "2026-04-11",
+  patrimonio: {
+    nwNeto: 340656, totalBruto: 398543, deuda: 75185, fiPct: 68
+  },
+  retiro: {
+    sepIra: 130524, rothIra: 61658, tradIra: 28187
+  },
+  trading: {
+    emergency: 31151, cdsEcuador: 35000, tacticalEtf: 32847,
+    options: 16790, ibkrRhFutures: 12416
+  },
+  salud: {
+    hba1c: 5.9, ldl: 125, sleepAvg: 5.3, pesoMeta: 160
+  },
+  finanzas: {
+    renta: 2100, wellsFargoLoc: 47887, locRate: 8.5,
+    mazda: 10837, surplus: 0
+  }
+};
+
+function buildMetrics() {
+  const d = METRICS_DATA;
+  const fmtK = v => v >= 1000 ? '$' + (v/1000).toFixed(v >= 100000 ? 0 : 1) + 'K' : '$' + v.toLocaleString();
+  const fmt$ = v => '$' + v.toLocaleString();
+  const fiBar = '▰'.repeat(Math.round(d.patrimonio.fiPct/10)) + '░'.repeat(10 - Math.round(d.patrimonio.fiPct/10));
+
+  let html = `<div class="metric-section-title" style="padding-top:12px">Patrimonio · Macro Wealth (${d.date})</div>`;
+  html += `<div class="metric-row"><span class="mlbl">Net Worth Neto</span><span class="mval" style="color:#58a6ff;font-size:1rem">${fmt$(d.patrimonio.nwNeto)}</span></div>`;
+  html += `<div class="metric-row"><span class="mlbl">Total Bruto</span><span class="mval">${fmt$(d.patrimonio.totalBruto)}</span></div>`;
+  html += `<div class="metric-row"><span class="mlbl">Deuda total</span><span class="mval" style="color:#f85149">-${fmt$(d.patrimonio.deuda)}</span></div>`;
+  html += `<div class="metric-row"><span class="mlbl">Meta FI ($500K)</span><span class="mval">${d.patrimonio.fiPct}% <span style="color:#3fb950">${fiBar}</span></span></div>`;
+
+  html += `<div class="metric-section-title">Retiro</div>`;
+  html += `<div class="metric-row"><span class="mlbl">SEP IRA (TradeStation)</span><span class="mval">${fmt$(d.retiro.sepIra)}</span></div>`;
+  html += `<div class="metric-row"><span class="mlbl">Roth IRA (Betterment)</span><span class="mval">${fmt$(d.retiro.rothIra)}</span></div>`;
+  html += `<div class="metric-row"><span class="mlbl">Traditional IRA (Betterment)</span><span class="mval">${fmt$(d.retiro.tradIra)}</span></div>`;
+
+  html += `<div class="metric-section-title">Trading &amp; Ahorro</div>`;
+  html += `<div class="metric-row"><span class="mlbl">Emergency Fund</span><span class="mval">${fmt$(d.trading.emergency)}</span></div>`;
+  html += `<div class="metric-row"><span class="mlbl">CDs Ecuador</span><span class="mval">${fmt$(d.trading.cdsEcuador)}</span></div>`;
+  html += `<div class="metric-row"><span class="mlbl">Tactical ETFs</span><span class="mval">${fmt$(d.trading.tacticalEtf)}</span></div>`;
+  html += `<div class="metric-row"><span class="mlbl">Options (tastytrade)</span><span class="mval">${fmt$(d.trading.options)}</span></div>`;
+  html += `<div class="metric-row"><span class="mlbl">IBKR + Robinhood + Futures</span><span class="mval">${fmt$(d.trading.ibkrRhFutures)}</span></div>`;
+
+  html += `<div class="metric-section-title">Salud</div>`;
+  const hba1cCol = d.salud.hba1c > 5.7 ? '#f0883e' : '#3fb950';
+  const ldlCol = d.salud.ldl > 100 ? '#f0883e' : '#3fb950';
+  const sleepCol = d.salud.sleepAvg < 7 ? '#f85149' : '#3fb950';
+  html += `<div class="metric-row"><span class="mlbl">HbA1c</span><span class="mval" style="color:${hba1cCol}">${d.salud.hba1c}% (meta &lt;5.7%)</span></div>`;
+  html += `<div class="metric-row"><span class="mlbl">LDL</span><span class="mval" style="color:${ldlCol}">${d.salud.ldl} mg/dL (meta &lt;100)</span></div>`;
+  html += `<div class="metric-row"><span class="mlbl">Sueño promedio</span><span class="mval" style="color:${sleepCol}">~${d.salud.sleepAvg} h (meta: 7+)</span></div>`;
+  html += `<div class="metric-row"><span class="mlbl">Peso meta</span><span class="mval">${d.salud.pesoMeta} lbs</span></div>`;
+
+  html += `<div class="metric-section-title">Finanzas Personales</div>`;
+  html += `<div class="metric-row"><span class="mlbl">Renta mensual</span><span class="mval">${fmt$(d.finanzas.renta)}</span></div>`;
+  html += `<div class="metric-row"><span class="mlbl">Wells Fargo LOC</span><span class="mval" style="color:#f85149">${fmt$(d.finanzas.wellsFargoLoc)} @ ${d.finanzas.locRate}%</span></div>`;
+  html += `<div class="metric-row"><span class="mlbl">Mazda (restante)</span><span class="mval">${fmt$(d.finanzas.mazda)}</span></div>`;
+  const surplusCol = d.finanzas.surplus <= 0 ? '#f85149' : '#3fb950';
+  html += `<div class="metric-row"><span class="mlbl">Surplus mensual</span><span class="mval" style="color:${surplusCol}">${fmt$(d.finanzas.surplus)}</span></div>`;
+
+  document.getElementById("metricsContent").innerHTML = html;
+}
+
+// ── STREAK TRACKER ───────────────────────────────────────────────────
+function getStreak(id) {
+  if (SCORE_HISTORY_DAILY.length < 2) return 0;
+  const target = TARGETS[id] || 7;
+  let streak = 0;
+  for (const entry of SCORE_HISTORY_DAILY) {
+    const s = entry.scores && entry.scores[id];
+    if (s && s >= target) streak++;
+    else break;
+  }
+  return streak;
+}
+
+// ── FRESHNESS INDICATOR ──────────────────────────────────────────────
+function updateFreshness() {
+  const el = document.getElementById("freshnessIndicator");
+  if (!SCORE_HISTORY_DAILY.length) { el.innerHTML = ""; return; }
+  const lastDate = SCORE_HISTORY_DAILY[0].date;
+  const last = new Date(lastDate + 'T12:00:00');
+  const now = new Date();
+  const diffH = Math.floor((now - last) / 3600000);
+  let text, cls;
+  if (diffH < 18) { text = `✅ Actualizado hoy (${lastDate})`; cls = "fresh"; }
+  else if (diffH < 42) { text = `🕐 Datos de ayer (${lastDate})`; cls = ""; }
+  else { const d = Math.floor(diffH / 24); text = `⚠️ Datos de hace ${d} días (${lastDate})`; cls = "stale"; }
+  el.className = `freshness ${cls}`;
+  el.innerHTML = text;
+}
+
+// ── DAY OF WEEK PATTERNS ─────────────────────────────────────────────
+function buildDayPatterns() {
+  if (SCORE_HISTORY_DAILY.length < 7) {
+    document.getElementById("dayPatternCard").style.display = "none";
+    return;
+  }
+  document.getElementById("dayPatternCard").style.display = "block";
+  const dayNames = ['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'];
+  const dayData = Array(7).fill(null).map(() => ({ sum: 0, count: 0 }));
+  SCORE_HISTORY_DAILY.forEach(entry => {
+    const d = new Date(entry.date + 'T12:00:00');
+    const dow = d.getDay();
+    const scores = Object.values(entry.scores || {}).filter(v => v > 0);
+    if (scores.length) {
+      const avg = scores.reduce((a, b) => a + b, 0) / scores.length;
+      dayData[dow].sum += avg;
+      dayData[dow].count++;
+    }
+  });
+  const dayAvgs = dayData.map(d => d.count ? d.sum / d.count : 0);
+  const maxAvg = Math.max(...dayAvgs.filter(v => v > 0), 10);
+  let worst = { day: -1, avg: 11 };
+  let best = { day: -1, avg: 0 };
+  dayAvgs.forEach((a, i) => {
+    if (a > 0 && a < worst.avg) worst = { day: i, avg: a };
+    if (a > best.avg) best = { day: i, avg: a };
+  });
+
+  let html = '';
+  // Show Mon-Sun order
+  const order = [1,2,3,4,5,6,0];
+  order.forEach(i => {
+    const avg = dayAvgs[i];
+    if (!avg) return;
+    const pct = (avg / 10 * 100).toFixed(0);
+    const col = scoreColor(avg);
+    const isWorst = i === worst.day;
+    const isBest = i === best.day;
+    html += `<div class="day-bar-row">
+      <span class="day-label" style="${isWorst ? 'color:#f85149' : isBest ? 'color:#3fb950' : ''}">${dayNames[i]}</span>
+      <div class="day-bar"><div class="day-bar-fill" style="width:${pct}%;background:${col}"></div></div>
+      <span class="day-avg" style="color:${col}">${avg.toFixed(1)}</span>
+    </div>`;
+  });
+  document.getElementById("dayPatternBody").innerHTML = html;
+
+  let insight = '';
+  if (worst.day >= 0 && best.day >= 0 && worst.day !== best.day) {
+    insight = `💡 Tu día más débil es <strong>${dayNames[worst.day]}</strong> (${worst.avg.toFixed(1)}) — planea acciones preventivas. Mejor día: <strong>${dayNames[best.day]}</strong> (${best.avg.toFixed(1)})`;
+  }
+  document.getElementById("dayPatternInsight").innerHTML = insight;
+}
+
 // ── INIT ──────────────────────────────────────────────────────────────
 autoSaveIfNewWeek(); // silently snapshot scores if new week started
 buildCards();
@@ -1152,6 +1367,9 @@ updateAvg();
 buildRadar();
 updateCriticalBanner();
 renderHistory();
+buildMetrics();
+updateFreshness();
+buildDayPatterns();
 </script>
 </body>
 </html>
