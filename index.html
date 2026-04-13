@@ -1174,19 +1174,19 @@ const WEIGHTS = {
 };
 
 // ── DAILY SCORE HISTORY (last 30 days, updated by scheduled task) ────
-const SCORE_HISTORY_DAILY = [{"date":"2026-04-11","scores":{"salud":3,"finanzas":5,"inversiones":7,"marian":7,"familia":5,"trabajo":6,"legal":4,"descanso":4,"crecimiento":5}},{"date":"2026-04-10","scores":{"salud":3,"finanzas":5,"inversiones":7,"marian":7,"familia":5,"trabajo":6,"legal":4,"descanso":4,"crecimiento":5}},{"date":"2026-04-09","scores":{"salud":3,"finanzas":5,"inversiones":7,"marian":7,"familia":5,"trabajo":6,"legal":4,"descanso":4,"crecimiento":5}},{"date":"2026-04-08","scores":{"salud":3,"finanzas":5,"inversiones":7,"marian":7,"familia":5,"trabajo":6,"legal":4,"descanso":4,"crecimiento":5}},{"date":"2026-04-07","scores":{"salud":3,"finanzas":4,"inversiones":6,"marian":8,"familia":4,"trabajo":6,"legal":4,"descanso":4,"crecimiento":4}},{"date":"2026-04-06","scores":{"salud":4,"finanzas":4,"inversiones":8,"marian":6,"familia":5,"trabajo":6,"legal":4,"descanso":3,"crecimiento":4}},{"date":"2026-04-05","scores":{"salud":3,"finanzas":5,"inversiones":6,"marian":7,"familia":4,"trabajo":7,"legal":4,"descanso":5,"crecimiento":5}}];
+const SCORE_HISTORY_DAILY = [{"date":"2026-04-13","scores":{"trabajo":6,"salud":3,"descanso":4,"inversiones":7,"finanzas":6,"marian":7,"crecimiento":7,"familia":4,"legal":4}},{"date":"2026-04-11","scores":{"salud":3,"finanzas":5,"inversiones":7,"marian":7,"familia":5,"trabajo":6,"legal":4,"descanso":4,"crecimiento":5}},{"date":"2026-04-10","scores":{"salud":3,"finanzas":5,"inversiones":7,"marian":7,"familia":5,"trabajo":6,"legal":4,"descanso":4,"crecimiento":5}},{"date":"2026-04-09","scores":{"salud":3,"finanzas":5,"inversiones":7,"marian":7,"familia":5,"trabajo":6,"legal":4,"descanso":4,"crecimiento":5}},{"date":"2026-04-08","scores":{"salud":3,"finanzas":5,"inversiones":7,"marian":7,"familia":5,"trabajo":6,"legal":4,"descanso":4,"crecimiento":5}},{"date":"2026-04-07","scores":{"salud":3,"finanzas":4,"inversiones":6,"marian":8,"familia":4,"trabajo":6,"legal":4,"descanso":4,"crecimiento":4}},{"date":"2026-04-06","scores":{"salud":4,"finanzas":4,"inversiones":8,"marian":6,"familia":5,"trabajo":6,"legal":4,"descanso":3,"crecimiento":4}},{"date":"2026-04-05","scores":{"salud":3,"finanzas":5,"inversiones":6,"marian":7,"familia":4,"trabajo":7,"legal":4,"descanso":5,"crecimiento":5}}];
 
 // ── SUGGESTED SCORES (data-driven, Apr 11 2026) ───────────────────────
 const SUGGESTED = {
-  salud:       { score: 3, evidence: "Sueño 7d avg 4.7h (meta: 7h) · Noche Apr11: 8.25h ✓ · Pasos: 0–5k irregular · Ejercicio: 0–22min/día · HbA1c 5.9% · LDL 125 · RHR 53–69bpm ✓" },
-  finanzas:    { score: 5, evidence: "Renta pagada Apr 1 ✓ · AmEx $4,990 vence Apr 21 · Surplus $0 · LOC $47,887" },
-  inversiones: { score: 7, evidence: "NW $340,656 · FI 68% · TradeStation +$157 hoy" },
-  marian:      { score: 7, evidence: "Email Apr 7 (4 días) · Transferencias Apr 2 y 6 activas" },
-  familia:     { score: 5, evidence: "Miguel transfirió $300 Apr 2 · Sin señales Esperanza/Jorge/Víctor" },
-  trabajo:     { score: 6, evidence: "DEC: $19K Abr 1-10 (+59% YoY) · Proy $57K · Margen 50.8% · Health 80/100 ✓ | Michalitas: $1,084 en 7d · Proy $3,458 (82% PE) · Déficit -$758 · 5 meses bajo PE · Mesera vacante ⚠️" },
-  legal:       { score: 4, evidence: "Ciudadanía española en trámite · Cancillería doc reenviado por Marian Apr 7 · LITRANSA/INMOROYDU pendiente" },
-  descanso:    { score: 4, evidence: "Sueño 7d avg 4.7h · Noche Apr11: 8.25h REM 2.15h ✓ · Deep 0.43h (bajo) · Sin actividades ocio detectadas en datos · Stand hours irregular" },
-  crecimiento: { score: 5, evidence: "Newsletter 'Sistemas Especulación Bolsa' J.L.Cava (Apr 7, starred) · Dashboards activos = aprendizaje aplicado · Sin cursos formales detectados en Gmail" },
+  salud:       { score: 3, evidence: "Sueño 7d avg 4.7h (meta: 7h) · HbA1c 5.9% prediabético · LDL 125 (meta <100) · sin Apple Watch data hoy" },
+  finanzas:    { score: 6, evidence: "Sueldo vía DEC · DEC Health 80/100 · AmEx $4,990 vence Apr 21 · Claude Pro reactivado $20/mes" },
+  inversiones: { score: 7, evidence: "NW $340.7K · FI 68.1% · TWR +23% · totalBruto $398.5K · Deuda $57.9K" },
+  marian:      { score: 7, evidence: "Cloze 7d: 135 interacciones · 19 llamadas (Apr 7) · email horario activo Apr 12 · última llamada: Apr 7" },
+  familia:     { score: 4, evidence: "Sin contacto familiar detectado · Cumpleaños Tía Vale Apr 14 · últimos 7d" },
+  trabajo:     { score: 6, evidence: "DEC: ~$57K proy · Margen 50.8% · Health 80/100 | Michalitas: $3,461 proy (82% PE) · Déficit -$755 · Pago UberEats -$1.08 · 5 meses bajo PE" },
+  legal:       { score: 4, evidence: "Ciudadanía española en trámite · LITRANSA/INMOROYDU pendiente · Sin señales activas esta semana" },
+  descanso:    { score: 4, evidence: "Deep sleep irregular · Promedio sueño 4.7h · Meta: 7h+ · sin Apple Watch data hoy" },
+  crecimiento: { score: 7, evidence: "Claude Mastery Week 4 activo (Tool Use) · Market Briefs · Visualping Ecuador · últimos 7d" },
 };
 
 // Fully automatic — always load ALL scores from SUGGESTED (data-driven)
