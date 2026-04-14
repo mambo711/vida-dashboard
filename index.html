@@ -479,6 +479,58 @@
   }
   .sparkline-label { font-size: 0.62rem; color: var(--muted); white-space: nowrap; }
 
+  /* ── RUNWAY BAR (finanzas sub-indicator) ── */
+  .runway-wrap {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid var(--border);
+  }
+  .runway-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 5px;
+  }
+  .runway-title {
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+    color: var(--muted);
+  }
+  .runway-badge {
+    font-size: 0.7rem;
+    font-weight: 700;
+  }
+  .runway-track {
+    position: relative;
+    height: 8px;
+    border-radius: 4px;
+    background: var(--surf2);
+    overflow: visible;
+  }
+  .runway-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.5s ease;
+  }
+  .runway-tick {
+    position: absolute;
+    top: -3px;
+    width: 1px;
+    height: 14px;
+    background: var(--border);
+    transform: translateX(-50%);
+  }
+  .runway-scale {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 4px;
+    font-size: 0.58rem;
+    color: var(--muted);
+    padding: 0 0px;
+  }
+
   /* ── METRICS TOGGLE ── */
   .metrics-header {
     display: flex;
@@ -804,6 +856,38 @@ function buildSparkline(id) {
   </svg>`;
 }
 
+// ── RUNWAY BAR (finanzas sub-indicator) ──────────────────────────────
+function buildRunwayBar(months) {
+  if (months == null) return '';
+  const pct = Math.min(months / 4 * 100, 100).toFixed(1);
+  const col = months < 1  ? '#f85149'
+            : months < 2  ? '#f0883e'
+            : months < 3  ? '#d4a72c'
+            : months < 4  ? '#7ee787'
+            :                '#3fb950';
+  const emoji = months < 1 ? '🔴' : months < 2 ? '🟠' : months < 3 ? '🟡' : '🟢';
+  const label = months < 1 ? 'Crítico'
+              : months < 2 ? 'Bajo'
+              : months < 3 ? 'Precaución'
+              : months < 4 ? 'Aceptable'
+              :               'Seguro';
+  return `<div class="runway-wrap">
+    <div class="runway-header">
+      <span class="runway-title">Runway DEC</span>
+      <span class="runway-badge" style="color:${col}">${emoji} ${label} · ${months.toFixed(1)} mo</span>
+    </div>
+    <div class="runway-track">
+      <div class="runway-fill" style="width:${pct}%;background:${col}"></div>
+      <div class="runway-tick" style="left:25%" title="1 mes"></div>
+      <div class="runway-tick" style="left:50%" title="2 meses"></div>
+      <div class="runway-tick" style="left:75%" title="3 meses"></div>
+    </div>
+    <div class="runway-scale">
+      <span>0</span><span>1mo</span><span>2mo</span><span>3mo</span><span>4mo+</span>
+    </div>
+  </div>`;
+}
+
 // ── AREA CARDS ────────────────────────────────────────────────────────
 function buildCards() {
   const grid = document.getElementById("areasGrid");
@@ -873,7 +957,8 @@ function buildCards() {
         <span class="progress-pct" style="color:${col}">${Math.round(v/target*100)}%</span>
       </div>` : ''}
       ${v && v < (TARGETS[a.id]||10) ? `<div style="font-size:0.72rem;color:var(--accent);margin-top:6px;padding-top:6px;border-top:1px solid var(--border)">💡 ${a.actions[0]}</div>` : ''}
-      ${SCORE_HISTORY_DAILY.length >= 2 ? `<div class="card-sparkline"><span class="sparkline-label">14d</span>${buildSparkline(a.id)}</div>` : ''}`;
+      ${SCORE_HISTORY_DAILY.length >= 2 ? `<div class="card-sparkline"><span class="sparkline-label">14d</span>${buildSparkline(a.id)}</div>` : ''}
+      ${a.id === 'finanzas' ? buildRunwayBar(METRICS_DATA.finanzas.runway) : ''}`;
     grid.appendChild(card);
   });
 }
@@ -1231,7 +1316,7 @@ const METRICS_DATA = {
   },
   finanzas: {
     renta: 2100, wellsFargoLoc: 47887, locRate: 8.5,
-    mazda: 10837, surplus: 0
+    mazda: 10837, surplus: 0, runway: 1.9
   }
 };
 
