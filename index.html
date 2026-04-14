@@ -530,6 +530,38 @@
     color: var(--muted);
     padding: 0 0px;
   }
+  @keyframes runwayPulse {
+    0%,100% { opacity: 1; }
+    50%      { opacity: 0.45; }
+  }
+  .runway-fill.critical { animation: runwayPulse 1.6s ease-in-out infinite; }
+
+  /* ── RUNWAY BANNER (secondary alert strip) ── */
+  .runway-alert {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 10px;
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: 1px solid;
+  }
+  .runway-alert.red    { background: #f8514911; border-color: #f8514966; }
+  .runway-alert.orange { background: #f0883e11; border-color: #f0883e66; }
+  .runway-alert.yellow { background: #d4a72c11; border-color: #d4a72c66; }
+  .runway-alert-icon { font-size: 1.2rem; flex-shrink: 0; }
+  .runway-alert-body { flex: 1; }
+  .runway-alert-title { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.6px; margin-bottom: 3px; }
+  .runway-alert-bar-row { display: flex; align-items: center; gap: 8px; margin-top: 5px; }
+  .runway-alert-track {
+    flex: 1; height: 7px; border-radius: 4px; background: var(--surf2); overflow: hidden; position: relative;
+  }
+  .runway-alert-fill { height: 100%; border-radius: 4px; transition: width 0.5s ease; }
+  .runway-alert-scale {
+    display: flex; justify-content: space-between;
+    font-size: 0.56rem; color: var(--muted); margin-top: 3px;
+  }
+  .runway-val { font-size: 0.82rem; font-weight: 700; white-space: nowrap; }
 
   /* ── METRICS TOGGLE ── */
   .metrics-header {
@@ -819,6 +851,36 @@ function updateCriticalBanner() {
   if (isFromHistory) prefix += " (semana anterior)";
   let prefixColor = v <= 3 ? "#f85149" : v <= 5 ? "#f0883e" : "#3fb950";
 
+  // Runway sub-alert (always show when runway < 3 months, regardless of lowest area)
+  const runway = METRICS_DATA && METRICS_DATA.finanzas && METRICS_DATA.finanzas.runway;
+  let runwayAlertHtml = '';
+  if (runway != null && runway < 3) {
+    const rpct = Math.min(runway / 4 * 100, 100).toFixed(1);
+    const rcls  = runway < 1 ? 'red' : runway < 2 ? 'orange' : 'yellow';
+    const rcol  = runway < 1 ? '#f85149' : runway < 2 ? '#f0883e' : '#d4a72c';
+    const ricon = runway < 1 ? '🚨' : runway < 2 ? '⚠️' : '🔔';
+    const rmsg  = runway < 1
+      ? `DEC se queda sin caja en menos de 1 mes — acción inmediata`
+      : runway < 2
+      ? `DEC tiene ${runway.toFixed(1)} meses de runway — revisar ingresos urgente`
+      : `DEC runway en ${runway.toFixed(1)} meses — mantener foco en ingresos`;
+    runwayAlertHtml = `
+      <div class="runway-alert ${rcls}">
+        <span class="runway-alert-icon">${ricon}</span>
+        <div class="runway-alert-body">
+          <div class="runway-alert-title" style="color:${rcol}">Runway DEC — Liquidez del Negocio</div>
+          <div style="font-size:0.78rem;color:var(--text)">${rmsg}</div>
+          <div class="runway-alert-bar-row">
+            <div class="runway-alert-track">
+              <div class="runway-alert-fill${runway < 1 ? ' critical' : ''}" style="width:${rpct}%;background:${rcol}"></div>
+            </div>
+            <span class="runway-val" style="color:${rcol}">${runway.toFixed(1)} mo</span>
+          </div>
+          <div class="runway-alert-scale"><span>0</span><span>1mo</span><span>2mo</span><span>3mo</span><span>4mo+</span></div>
+        </div>
+      </div>`;
+  }
+
   el.innerHTML = `
     <div class="critical-banner ${cls}">
       <span class="critical-icon">${lowest.icon}</span>
@@ -829,7 +891,8 @@ function updateCriticalBanner() {
           ${lowest.actions.map(a => `<span class="action-chip">→ ${a}</span>`).join("")}
         </div>
       </div>
-    </div>`;
+    </div>
+    ${runwayAlertHtml}`;
 }
 
 // ── SPARKLINE (SVG, 14-day daily trend) ──────────────────────────────
@@ -877,7 +940,7 @@ function buildRunwayBar(months) {
       <span class="runway-badge" style="color:${col}">${emoji} ${label} · ${months.toFixed(1)} mo</span>
     </div>
     <div class="runway-track">
-      <div class="runway-fill" style="width:${pct}%;background:${col}"></div>
+      <div class="runway-fill${months < 1 ? ' critical' : ''}" style="width:${pct}%;background:${col}"></div>
       <div class="runway-tick" style="left:25%" title="1 mes"></div>
       <div class="runway-tick" style="left:50%" title="2 meses"></div>
       <div class="runway-tick" style="left:75%" title="3 meses"></div>
