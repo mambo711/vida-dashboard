@@ -951,6 +951,43 @@ function buildRunwayBar(months) {
   </div>`;
 }
 
+// ── FAMILIA NEXT CONTACT WIDGET ──────────────────────────────────────
+function buildFamiliaNextContact() {
+  if (!FAMILIA_NEXT_CONTACTS || !FAMILIA_NEXT_CONTACTS.length) {
+    return `<div class="runway-wrap">
+      <div class="runway-header">
+        <span class="runway-title">📞 Próxima llamada familiar</span>
+        <span class="runway-badge" style="color:var(--muted)">Sin eventos programados</span>
+      </div>
+    </div>`;
+  }
+  const today = new Date().toISOString().slice(0,10);
+  const upcoming = FAMILIA_NEXT_CONTACTS.filter(e => e.date >= today).slice(0, 3);
+  if (!upcoming.length) {
+    return `<div class="runway-wrap">
+      <div class="runway-header">
+        <span class="runway-title">📞 Próxima llamada familiar</span>
+        <span class="runway-badge" style="color:var(--muted)">Sin eventos próximos</span>
+      </div>
+    </div>`;
+  }
+  const rows = upcoming.map(e => {
+    const days = Math.ceil((new Date(e.date) - new Date(today)) / 86400000);
+    const col = days === 0 ? '#3fb950' : days <= 2 ? '#7ee787' : days <= 7 ? '#d4a72c' : '#8b949e';
+    const label = days === 0 ? 'Hoy' : days === 1 ? 'Mañana' : `${days}d`;
+    return `<div style="display:flex;justify-content:space-between;align-items:center;font-size:0.72rem;color:var(--text);padding:2px 0">
+      <span style="opacity:0.85">${e.name}</span>
+      <span style="color:${col};font-weight:600;flex-shrink:0;margin-left:8px">${label}</span>
+    </div>`;
+  }).join('');
+  return `<div class="runway-wrap">
+    <div class="runway-header" style="margin-bottom:4px">
+      <span class="runway-title">📞 Próxima llamada familiar</span>
+    </div>
+    ${rows}
+  </div>`;
+}
+
 // ── AREA CARDS ────────────────────────────────────────────────────────
 function buildCards() {
   const grid = document.getElementById("areasGrid");
@@ -1021,7 +1058,8 @@ function buildCards() {
       </div>` : ''}
       ${v && v < (TARGETS[a.id]||10) ? `<div style="font-size:0.72rem;color:var(--accent);margin-top:6px;padding-top:6px;border-top:1px solid var(--border)">💡 ${a.actions[0]}</div>` : ''}
       ${SCORE_HISTORY_DAILY.length >= 2 ? `<div class="card-sparkline"><span class="sparkline-label">14d</span>${buildSparkline(a.id)}</div>` : ''}
-      ${a.id === 'finanzas' ? buildRunwayBar(METRICS_DATA.finanzas.runway) : ''}`;
+      ${a.id === 'finanzas' ? buildRunwayBar(METRICS_DATA.finanzas.runway) : ''}
+      ${a.id === 'familia' ? buildFamiliaNextContact() : ''}`;
     grid.appendChild(card);
   });
 }
@@ -1382,6 +1420,9 @@ const METRICS_DATA = {
     mazda: 10837, surplus: 0, runway: 1.9
   }
 };
+
+// ── FAMILIA NEXT CONTACTS (auto-updated by daily briefing task — Step C6) ───
+const FAMILIA_NEXT_CONTACTS = [];
 
 function buildMetrics() {
   const d = METRICS_DATA;
