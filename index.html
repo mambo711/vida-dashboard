@@ -757,7 +757,12 @@ function getWeekNum(d) {
   return Math.ceil((((d2 - y) / 86400000) + 1) / 7);
 }
 function fmtDate(d) {
-  return d.toLocaleDateString("es-ES",{day:"2-digit",month:"2-digit",year:"numeric"});
+  if (typeof d === 'string') {
+    const [y,m,dy] = d.split('-'); return `${m}/${dy}/${y}`;
+  }
+  const mo = String(d.getMonth()+1).padStart(2,'0');
+  const day = String(d.getDate()).padStart(2,'0');
+  return `${mo}/${day}/${d.getFullYear()}`;
 }
 const today = new Date();
 document.getElementById("weekNum").textContent = `Sem ${getWeekNum(today)}`;
@@ -1028,6 +1033,14 @@ function buildCards() {
     const onTrack = target && v >= target;
     const targetHtml = (target && v) ? `<div class="target-badge ${onTrack ? 'target-on' : 'target-off'}">${onTrack ? `✓ meta ${target}` : `meta ${target} (−${target - v})`}</div>` : '';
 
+    let healthFreshnessHtml = "";
+    if ((a.id === 'salud' || a.id === 'descanso') && HEALTH_LAST_REAL_DATE) {
+      const daysAgo = Math.floor((new Date() - new Date(HEALTH_LAST_REAL_DATE + 'T12:00:00')) / 86400000);
+      const cls = daysAgo === 0 ? 'fresh' : daysAgo >= 3 ? 'stale' : '';
+      const label = daysAgo === 0 ? 'hoy' : daysAgo === 1 ? 'ayer' : `hace ${daysAgo} días`;
+      healthFreshnessHtml = `<div class="freshness ${cls}" style="margin-top:6px">📡 Datos Apple Watch: ${label}</div>`;
+    }
+
     const card = document.createElement("div");
     card.className = "area-card";
     card.style.borderColor = v ? col+"66" : "var(--border)";
@@ -1059,7 +1072,8 @@ function buildCards() {
       ${v && v < (TARGETS[a.id]||10) ? `<div style="font-size:0.72rem;color:var(--accent);margin-top:6px;padding-top:6px;border-top:1px solid var(--border)">💡 ${a.actions[0]}</div>` : ''}
       ${SCORE_HISTORY_DAILY.length >= 2 ? `<div class="card-sparkline"><span class="sparkline-label">14d</span>${buildSparkline(a.id)}</div>` : ''}
       ${a.id === 'finanzas' ? buildRunwayBar(METRICS_DATA.finanzas.runway) : ''}
-      ${a.id === 'familia' ? buildFamiliaNextContact() : ''}`;
+      ${a.id === 'familia' ? buildFamiliaNextContact() : ''}
+      ${healthFreshnessHtml}`;
     grid.appendChild(card);
   });
 }
@@ -1300,7 +1314,7 @@ function renderHistory() {
   </tr></thead><tbody>`;
   data.history.forEach((h, hi) => {
     const prev = data.history[hi+1];
-    html += `<tr><td>${h.date}</td><td style="color:var(--muted)">${h.week}</td>`;
+    html += `<tr><td>${fmtDate(h.date)}</td><td style="color:var(--muted)">${h.week}</td>`;
     AREAS.forEach(a => {
       const v = h.scores[a.id]||0;
       const col = scoreColor(v);
@@ -1361,6 +1375,9 @@ const WEIGHTS = {
 
 // ── DAILY SCORE HISTORY (last 30 days, updated by scheduled task) ────
 const SCORE_HISTORY_DAILY = [{"date":"2026-04-17","scores":{"trabajo":6,"salud":2,"descanso":3,"inversiones":7,"finanzas":5,"marian":9,"crecimiento":5,"familia":6,"legal":6}},{"date":"2026-04-16","scores":{"trabajo":6,"salud":3,"descanso":3,"inversiones":7,"finanzas":5,"marian":9,"crecimiento":5,"familia":4,"legal":6}},{"date":"2026-04-15","scores":{"trabajo":6,"salud":3,"descanso":3,"inversiones":7,"finanzas":4,"marian":9,"crecimiento":6,"familia":5,"legal":4}},{"date":"2026-04-14","scores":{"trabajo":6,"salud":3,"descanso":4,"inversiones":7,"finanzas":4,"marian":7,"crecimiento":6,"familia":5,"legal":4}},{"date":"2026-04-13","scores":{"trabajo":6,"salud":3,"descanso":4,"inversiones":7,"finanzas":6,"marian":7,"crecimiento":7,"familia":4,"legal":4}},{"date":"2026-04-11","scores":{"salud":3,"finanzas":5,"inversiones":7,"marian":7,"familia":5,"trabajo":6,"legal":4,"descanso":4,"crecimiento":5}},{"date":"2026-04-10","scores":{"salud":3,"finanzas":5,"inversiones":7,"marian":7,"familia":5,"trabajo":6,"legal":4,"descanso":4,"crecimiento":5}},{"date":"2026-04-09","scores":{"salud":3,"finanzas":5,"inversiones":7,"marian":7,"familia":5,"trabajo":6,"legal":4,"descanso":4,"crecimiento":5}},{"date":"2026-04-08","scores":{"salud":3,"finanzas":5,"inversiones":7,"marian":7,"familia":5,"trabajo":6,"legal":4,"descanso":4,"crecimiento":5}},{"date":"2026-04-07","scores":{"salud":3,"finanzas":4,"inversiones":6,"marian":8,"familia":4,"trabajo":6,"legal":4,"descanso":4,"crecimiento":4}},{"date":"2026-04-06","scores":{"salud":4,"finanzas":4,"inversiones":8,"marian":6,"familia":5,"trabajo":6,"legal":4,"descanso":3,"crecimiento":4}},{"date":"2026-04-05","scores":{"salud":3,"finanzas":5,"inversiones":6,"marian":7,"familia":4,"trabajo":7,"legal":4,"descanso":5,"crecimiento":5}}];
+
+// ── HEALTH DATA FRESHNESS (updated by daily task when real Apple Watch data obtained) ──
+const HEALTH_LAST_REAL_DATE = "2026-04-16";
 
 // ── SUGGESTED SCORES (data-driven, Apr 11 2026) ───────────────────────
 const SUGGESTED = {
@@ -1430,7 +1447,7 @@ function buildMetrics() {
   const fmt$ = v => '$' + v.toLocaleString();
   const fiBar = '▰'.repeat(Math.round(d.patrimonio.fiPct/10)) + '░'.repeat(10 - Math.round(d.patrimonio.fiPct/10));
 
-  let html = `<div class="metric-section-title" style="padding-top:12px">Patrimonio · Macro Wealth (${d.date})</div>`;
+  let html = `<div class="metric-section-title" style="padding-top:12px">Patrimonio · Macro Wealth (${fmtDate(d.date)})</div>`;
   html += `<div class="metric-row"><span class="mlbl">Net Worth Neto</span><span class="mval" style="color:#58a6ff;font-size:1rem">${fmt$(d.patrimonio.nwNeto)}</span></div>`;
   html += `<div class="metric-row"><span class="mlbl">Total Bruto</span><span class="mval">${fmt$(d.patrimonio.totalBruto)}</span></div>`;
   html += `<div class="metric-row"><span class="mlbl">Deuda total</span><span class="mval" style="color:#f85149">-${fmt$(d.patrimonio.deuda)}</span></div>`;
@@ -1489,9 +1506,9 @@ function updateFreshness() {
   const now = new Date();
   const diffH = Math.floor((now - last) / 3600000);
   let text, cls;
-  if (diffH < 18) { text = `✅ Actualizado hoy (${lastDate})`; cls = "fresh"; }
-  else if (diffH < 42) { text = `🕐 Datos de ayer (${lastDate})`; cls = ""; }
-  else { const d = Math.floor(diffH / 24); text = `⚠️ Datos de hace ${d} días (${lastDate})`; cls = "stale"; }
+  if (diffH < 18) { text = `✅ Actualizado hoy (${fmtDate(lastDate)})`; cls = "fresh"; }
+  else if (diffH < 42) { text = `🕐 Datos de ayer (${fmtDate(lastDate)})`; cls = ""; }
+  else { const d = Math.floor(diffH / 24); text = `⚠️ Datos de hace ${d} días (${fmtDate(lastDate)})`; cls = "stale"; }
   el.className = `freshness ${cls}`;
   el.innerHTML = text;
 }
