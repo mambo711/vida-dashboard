@@ -290,6 +290,23 @@
   .freshness.stale { color: #f0883e; }
   .freshness.fresh { color: #3fb950; }
 
+  /* ── STALENESS BADGE (9C, 2026-04-21) ── */
+  .stale-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    font-size: 0.6rem;
+    font-weight: 600;
+    padding: 1px 5px;
+    border-radius: 4px;
+    margin-left: 4px;
+    line-height: 1.1;
+    letter-spacing: 0.02em;
+    vertical-align: middle;
+  }
+  .stale-badge.warn { background: rgba(240,136,62,0.15); color: #f0883e; border: 1px solid rgba(240,136,62,0.3); }
+  .stale-badge.danger { background: rgba(248,81,73,0.15); color: #f85149; border: 1px solid rgba(248,81,73,0.35); }
+
   /* ── DAY PATTERN ── */
   .day-pattern-card {
     background: var(--surface);
@@ -1041,6 +1058,18 @@ function buildCards() {
       healthFreshnessHtml = `<div class="freshness ${cls}" style="margin-top:6px">📡 Datos Apple Watch: ${label}</div>`;
     }
 
+    // ── Staleness badge (9C): warn if >1d, danger if >3d since last FRESH value ──
+    let staleBadgeHtml = "";
+    if (typeof STALENESS_DATA !== 'undefined' && STALENESS_DATA[a.id]) {
+      const stDate = new Date(STALENESS_DATA[a.id] + 'T12:00:00');
+      const stDays = Math.floor((new Date() - stDate) / 86400000);
+      if (stDays > 3) {
+        staleBadgeHtml = `<span class="stale-badge danger" title="Último valor fresco hace ${stDays} días (${STALENESS_DATA[a.id]})">⏱️ ${stDays}d</span>`;
+      } else if (stDays > 1) {
+        staleBadgeHtml = `<span class="stale-badge warn" title="Último valor fresco hace ${stDays} días (${STALENESS_DATA[a.id]})">⏱️ ${stDays}d</span>`;
+      }
+    }
+
     const card = document.createElement("div");
     card.className = "area-card";
     card.style.borderColor = v ? col+"66" : "var(--border)";
@@ -1051,7 +1080,7 @@ function buildCards() {
           ${a.link ? `<a href="${a.link}" target="_blank" style="color:${v ? col : 'var(--text)'};text-decoration:none" title="Abrir dashboard">${a.label} <span style="font-size:0.65rem;opacity:0.5">↗</span></a>` : `<span style="color:${v ? col : 'var(--text)'}">${a.label}</span>`}
         </div>
         <div class="score-right" style="display:flex;flex-direction:column;align-items:flex-end;gap:1px">
-          <div style="display:flex;align-items:center;gap:4px">${deltaHtml}<span class="area-score-badge" id="badge_${a.id}" style="color:${col}">${v||"—"}</span>${momentumHtml}</div>
+          <div style="display:flex;align-items:center;gap:4px">${deltaHtml}<span class="area-score-badge" id="badge_${a.id}" style="color:${col}">${v||"—"}</span>${momentumHtml}${staleBadgeHtml}</div>
           ${targetHtml}
         </div>
       </div>
@@ -1437,6 +1466,9 @@ const METRICS_DATA = {
     mazda: 10837, surplus: 0, runway: 1.9
   }
 };
+
+// ── STALENESS_DATA (per-area date of last FRESH value — auto-updated by daily briefing Step E, 9C) ──
+const STALENESS_DATA = {"trabajo":"2026-04-21","salud":"2026-04-20","descanso":"2026-04-20","inversiones":"2026-04-21","finanzas":"2026-04-21","marian":"2026-04-21","crecimiento":"2026-04-21","familia":"2026-04-21","legal":"2026-04-21"};
 
 // ── FAMILIA NEXT CONTACTS (auto-updated by daily briefing task — Step C6) ───
 const FAMILIA_NEXT_CONTACTS = [{"name":"Llamada con Sia — Martes","date":"2026-04-21"},{"name":"Llamada con Sia — Jueves","date":"2026-04-23"},{"name":"Llamada con Sia — Sábado","date":"2026-04-25"}];
