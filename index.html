@@ -974,6 +974,42 @@ function buildRunwayBar(months) {
 }
 
 // ── FAMILIA NEXT CONTACT WIDGET ──────────────────────────────────────
+
+// ── CRECIMIENTO STREAK & SMOOTHING BADGE ──
+function buildCrecimientoStreak() {
+  const hist = [...SCORE_HISTORY_DAILY]; // newest first
+  // Count consecutive "active" days (score > 3) from most recent
+  let streak = 0;
+  for (const entry of hist) {
+    if (entry.scores && entry.scores.crecimiento > 3) streak++;
+    else break;
+  }
+  // Days since last active day
+  let gap = 0;
+  for (const entry of hist) {
+    if (entry.scores && entry.scores.crecimiento > 3) break;
+    gap++;
+  }
+  // Smoothing note: show raw vs smoothed if they differ
+  const today = hist[0];
+  const yesterday = hist[1];
+  let smoothNote = '';
+  if (today && yesterday) {
+    const raw = today.scores.crecimiento;
+    const prev = yesterday.scores.crecimiento;
+    const maxAllowed = prev - 1;
+    if (raw < maxAllowed) {
+      smoothNote = `<span style="font-size:0.58rem;color:var(--muted);margin-left:4px">(raw ${raw}, suavizado)</span>`;
+    }
+  }
+  if (streak === 0) {
+    const label = gap === 1 ? '1d sin aprendizaje' : `${gap}d sin aprendizaje`;
+    return `<div class="runway-wrap"><div class="runway-header"><span class="runway-label">📚 Racha</span><span class="streak-badge" style="color:#6e7681">💤 ${label}</span>${smoothNote}</div></div>`;
+  }
+  const cls = streak >= 3 ? 'hot' : '';
+  return `<div class="runway-wrap"><div class="runway-header"><span class="runway-label">📚 Racha de aprendizaje</span><span class="streak-badge ${cls}">🔥 ${streak}d</span>${smoothNote}</div></div>`;
+}
+
 function buildFamiliaNextContact() {
   if (!FAMILIA_NEXT_CONTACTS || !FAMILIA_NEXT_CONTACTS.length) {
     return `<div class="runway-wrap">
@@ -1101,7 +1137,8 @@ function buildCards() {
       ${v && v < (TARGETS[a.id]||10) ? `<div style="font-size:0.72rem;color:var(--accent);margin-top:6px;padding-top:6px;border-top:1px solid var(--border)">💡 ${a.actions[0]}</div>` : ''}
       ${SCORE_HISTORY_DAILY.length >= 2 ? `<div class="card-sparkline"><span class="sparkline-label">14d</span>${buildSparkline(a.id)}</div>` : ''}
       ${a.id === 'finanzas' ? buildRunwayBar(METRICS_DATA.finanzas.runway) : ''}
-      ${a.id === 'familia' ? buildFamiliaNextContact() : ''}
+      ${a.id === 'crecimiento' ? buildCrecimientoStreak() : ''}
+                 ${a.id === 'familia' ? buildFamiliaNextContact() : ''}
       ${healthFreshnessHtml}`;
     grid.appendChild(card);
   });
@@ -1403,7 +1440,7 @@ const WEIGHTS = {
 };
 
 // ── DAILY SCORE HISTORY (last 30 days, updated by scheduled task) ────
-const SCORE_HISTORY_DAILY = [{"date":"2026-04-22","scores":{"trabajo":7,"salud":3,"descanso":4,"inversiones":7,"finanzas":5,"marian":9,"crecimiento":3,"familia":7,"legal":4}},{"date":"2026-04-21","scores":{"trabajo":5,"salud":3,"descanso":4,"inversiones":7,"finanzas":4,"marian":9,"crecimiento":6,"familia":7,"legal":4}},{"date":"2026-04-20","scores":{"trabajo":5,"salud":3,"descanso":4,"inversiones":7,"finanzas":4,"marian":9,"crecimiento":6,"familia":7,"legal":4}},{"date":"2026-04-17","scores":{"trabajo":6,"salud":2,"descanso":3,"inversiones":7,"finanzas":5,"marian":9,"crecimiento":5,"familia":6,"legal":6}},{"date":"2026-04-16","scores":{"trabajo":6,"salud":3,"descanso":3,"inversiones":7,"finanzas":5,"marian":9,"crecimiento":5,"familia":4,"legal":6}},{"date":"2026-04-15","scores":{"trabajo":6,"salud":3,"descanso":3,"inversiones":7,"finanzas":4,"marian":9,"crecimiento":6,"familia":5,"legal":4}},{"date":"2026-04-14","scores":{"trabajo":6,"salud":3,"descanso":4,"inversiones":7,"finanzas":4,"marian":7,"crecimiento":6,"familia":5,"legal":4}},{"date":"2026-04-13","scores":{"trabajo":6,"salud":3,"descanso":4,"inversiones":7,"finanzas":6,"marian":7,"crecimiento":7,"familia":4,"legal":4}},{"date":"2026-04-11","scores":{"salud":3,"finanzas":5,"inversiones":7,"marian":7,"familia":5,"trabajo":6,"legal":4,"descanso":4,"crecimiento":5}},{"date":"2026-04-10","scores":{"salud":3,"finanzas":5,"inversiones":7,"marian":7,"familia":5,"trabajo":6,"legal":4,"descanso":4,"crecimiento":5}},{"date":"2026-04-09","scores":{"salud":3,"finanzas":5,"inversiones":7,"marian":7,"familia":5,"trabajo":6,"legal":4,"descanso":4,"crecimiento":5}},{"date":"2026-04-08","scores":{"salud":3,"finanzas":5,"inversiones":7,"marian":7,"familia":5,"trabajo":6,"legal":4,"descanso":4,"crecimiento":5}},{"date":"2026-04-07","scores":{"salud":3,"finanzas":4,"inversiones":6,"marian":8,"familia":4,"trabajo":6,"legal":4,"descanso":4,"crecimiento":4}},{"date":"2026-04-06","scores":{"salud":4,"finanzas":4,"inversiones":8,"marian":6,"familia":5,"trabajo":6,"legal":4,"descanso":3,"crecimiento":4}},{"date":"2026-04-05","scores":{"salud":3,"finanzas":5,"inversiones":6,"marian":7,"familia":4,"trabajo":7,"legal":4,"descanso":5,"crecimiento":5}}];
+const SCORE_HISTORY_DAILY = [{"date":"2026-04-22","scores":{"trabajo":7,"salud":3,"descanso":4,"inversiones":7,"finanzas":5,"marian":9,"crecimiento":5,"familia":7,"legal":4}},{"date":"2026-04-21","scores":{"trabajo":5,"salud":3,"descanso":4,"inversiones":7,"finanzas":4,"marian":9,"crecimiento":6,"familia":7,"legal":4}},{"date":"2026-04-20","scores":{"trabajo":5,"salud":3,"descanso":4,"inversiones":7,"finanzas":4,"marian":9,"crecimiento":6,"familia":7,"legal":4}},{"date":"2026-04-17","scores":{"trabajo":6,"salud":2,"descanso":3,"inversiones":7,"finanzas":5,"marian":9,"crecimiento":5,"familia":6,"legal":6}},{"date":"2026-04-16","scores":{"trabajo":6,"salud":3,"descanso":3,"inversiones":7,"finanzas":5,"marian":9,"crecimiento":5,"familia":4,"legal":6}},{"date":"2026-04-15","scores":{"trabajo":6,"salud":3,"descanso":3,"inversiones":7,"finanzas":4,"marian":9,"crecimiento":6,"familia":5,"legal":4}},{"date":"2026-04-14","scores":{"trabajo":6,"salud":3,"descanso":4,"inversiones":7,"finanzas":4,"marian":7,"crecimiento":6,"familia":5,"legal":4}},{"date":"2026-04-13","scores":{"trabajo":6,"salud":3,"descanso":4,"inversiones":7,"finanzas":6,"marian":7,"crecimiento":7,"familia":4,"legal":4}},{"date":"2026-04-11","scores":{"salud":3,"finanzas":5,"inversiones":7,"marian":7,"familia":5,"trabajo":6,"legal":4,"descanso":4,"crecimiento":5}},{"date":"2026-04-10","scores":{"salud":3,"finanzas":5,"inversiones":7,"marian":7,"familia":5,"trabajo":6,"legal":4,"descanso":4,"crecimiento":5}},{"date":"2026-04-09","scores":{"salud":3,"finanzas":5,"inversiones":7,"marian":7,"familia":5,"trabajo":6,"legal":4,"descanso":4,"crecimiento":5}},{"date":"2026-04-08","scores":{"salud":3,"finanzas":5,"inversiones":7,"marian":7,"familia":5,"trabajo":6,"legal":4,"descanso":4,"crecimiento":5}},{"date":"2026-04-07","scores":{"salud":3,"finanzas":4,"inversiones":6,"marian":8,"familia":4,"trabajo":6,"legal":4,"descanso":4,"crecimiento":4}},{"date":"2026-04-06","scores":{"salud":4,"finanzas":4,"inversiones":8,"marian":6,"familia":5,"trabajo":6,"legal":4,"descanso":3,"crecimiento":4}},{"date":"2026-04-05","scores":{"salud":3,"finanzas":5,"inversiones":6,"marian":7,"familia":4,"trabajo":7,"legal":4,"descanso":5,"crecimiento":5}}];
 
 // ── HEALTH DATA FRESHNESS (updated by daily task when real Apple Watch data obtained) ──
 const HEALTH_LAST_REAL_DATE = "2026-04-20";
@@ -1418,7 +1455,7 @@ const SUGGESTED = {
   trabajo:     { score: 7, evidence: "DEC: $57K proj 50.8% margin Health ~86/100 | Michalitas: $1.6K acum (36% PE) -$816 deficit" },
   legal:       { score: 4, evidence: "Sin Cancilleria sin abogado esta semana default" },
   descanso:    { score: 4, evidence: "Stale (Apr 20) - Chrome tab ausente Apple Watch no disponible" },
-  crecimiento: { score: 3, evidence: "0 items de aprendizaje en Gmail 48h sin curso/libro detectado" },
+  crecimiento: { score: 5, evidence: "0 items de aprendizaje en Gmail 48h sin curso/libro detectado" },
 };
 
 // Fully automatic — always load ALL scores from SUGGESTED (data-driven)
