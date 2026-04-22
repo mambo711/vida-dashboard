@@ -1403,22 +1403,22 @@ const WEIGHTS = {
 };
 
 // ── DAILY SCORE HISTORY (last 30 days, updated by scheduled task) ────
-const SCORE_HISTORY_DAILY = [{"date":"2026-04-21","scores":{"trabajo":5,"salud":3,"descanso":4,"inversiones":7,"finanzas":4,"marian":9,"crecimiento":6,"familia":7,"legal":4}},{"date":"2026-04-20","scores":{"trabajo":5,"salud":3,"descanso":4,"inversiones":7,"finanzas":4,"marian":9,"crecimiento":6,"familia":7,"legal":4}},{"date":"2026-04-17","scores":{"trabajo":6,"salud":2,"descanso":3,"inversiones":7,"finanzas":5,"marian":9,"crecimiento":5,"familia":6,"legal":6}},{"date":"2026-04-16","scores":{"trabajo":6,"salud":3,"descanso":3,"inversiones":7,"finanzas":5,"marian":9,"crecimiento":5,"familia":4,"legal":6}},{"date":"2026-04-15","scores":{"trabajo":6,"salud":3,"descanso":3,"inversiones":7,"finanzas":4,"marian":9,"crecimiento":6,"familia":5,"legal":4}},{"date":"2026-04-14","scores":{"trabajo":6,"salud":3,"descanso":4,"inversiones":7,"finanzas":4,"marian":7,"crecimiento":6,"familia":5,"legal":4}},{"date":"2026-04-13","scores":{"trabajo":6,"salud":3,"descanso":4,"inversiones":7,"finanzas":6,"marian":7,"crecimiento":7,"familia":4,"legal":4}},{"date":"2026-04-11","scores":{"salud":3,"finanzas":5,"inversiones":7,"marian":7,"familia":5,"trabajo":6,"legal":4,"descanso":4,"crecimiento":5}},{"date":"2026-04-10","scores":{"salud":3,"finanzas":5,"inversiones":7,"marian":7,"familia":5,"trabajo":6,"legal":4,"descanso":4,"crecimiento":5}},{"date":"2026-04-09","scores":{"salud":3,"finanzas":5,"inversiones":7,"marian":7,"familia":5,"trabajo":6,"legal":4,"descanso":4,"crecimiento":5}},{"date":"2026-04-08","scores":{"salud":3,"finanzas":5,"inversiones":7,"marian":7,"familia":5,"trabajo":6,"legal":4,"descanso":4,"crecimiento":5}},{"date":"2026-04-07","scores":{"salud":3,"finanzas":4,"inversiones":6,"marian":8,"familia":4,"trabajo":6,"legal":4,"descanso":4,"crecimiento":4}},{"date":"2026-04-06","scores":{"salud":4,"finanzas":4,"inversiones":8,"marian":6,"familia":5,"trabajo":6,"legal":4,"descanso":3,"crecimiento":4}},{"date":"2026-04-05","scores":{"salud":3,"finanzas":5,"inversiones":6,"marian":7,"familia":4,"trabajo":7,"legal":4,"descanso":5,"crecimiento":5}}];
+const SCORE_HISTORY_DAILY = [{"date":"2026-04-22","scores":{"trabajo":7,"salud":3,"descanso":4,"inversiones":7,"finanzas":5,"marian":9,"crecimiento":3,"familia":7,"legal":4}},{"date":"2026-04-21","scores":{"trabajo":5,"salud":3,"descanso":4,"inversiones":7,"finanzas":4,"marian":9,"crecimiento":6,"familia":7,"legal":4}},{"date":"2026-04-20","scores":{"trabajo":5,"salud":3,"descanso":4,"inversiones":7,"finanzas":4,"marian":9,"crecimiento":6,"familia":7,"legal":4}},{"date":"2026-04-17","scores":{"trabajo":6,"salud":2,"descanso":3,"inversiones":7,"finanzas":5,"marian":9,"crecimiento":5,"familia":6,"legal":6}},{"date":"2026-04-16","scores":{"trabajo":6,"salud":3,"descanso":3,"inversiones":7,"finanzas":5,"marian":9,"crecimiento":5,"familia":4,"legal":6}},{"date":"2026-04-15","scores":{"trabajo":6,"salud":3,"descanso":3,"inversiones":7,"finanzas":4,"marian":9,"crecimiento":6,"familia":5,"legal":4}},{"date":"2026-04-14","scores":{"trabajo":6,"salud":3,"descanso":4,"inversiones":7,"finanzas":4,"marian":7,"crecimiento":6,"familia":5,"legal":4}},{"date":"2026-04-13","scores":{"trabajo":6,"salud":3,"descanso":4,"inversiones":7,"finanzas":6,"marian":7,"crecimiento":7,"familia":4,"legal":4}},{"date":"2026-04-11","scores":{"salud":3,"finanzas":5,"inversiones":7,"marian":7,"familia":5,"trabajo":6,"legal":4,"descanso":4,"crecimiento":5}},{"date":"2026-04-10","scores":{"salud":3,"finanzas":5,"inversiones":7,"marian":7,"familia":5,"trabajo":6,"legal":4,"descanso":4,"crecimiento":5}},{"date":"2026-04-09","scores":{"salud":3,"finanzas":5,"inversiones":7,"marian":7,"familia":5,"trabajo":6,"legal":4,"descanso":4,"crecimiento":5}},{"date":"2026-04-08","scores":{"salud":3,"finanzas":5,"inversiones":7,"marian":7,"familia":5,"trabajo":6,"legal":4,"descanso":4,"crecimiento":5}},{"date":"2026-04-07","scores":{"salud":3,"finanzas":4,"inversiones":6,"marian":8,"familia":4,"trabajo":6,"legal":4,"descanso":4,"crecimiento":4}},{"date":"2026-04-06","scores":{"salud":4,"finanzas":4,"inversiones":8,"marian":6,"familia":5,"trabajo":6,"legal":4,"descanso":3,"crecimiento":4}},{"date":"2026-04-05","scores":{"salud":3,"finanzas":5,"inversiones":6,"marian":7,"familia":4,"trabajo":7,"legal":4,"descanso":5,"crecimiento":5}}];
 
 // ── HEALTH DATA FRESHNESS (updated by daily task when real Apple Watch data obtained) ──
 const HEALTH_LAST_REAL_DATE = "2026-04-20";
 
 // ── SUGGESTED SCORES (data-driven, Apr 11 2026) ───────────────────────
 const SUGGESTED = {
-  salud:       { score: 3, evidence: "Apple Watch 4/20: 1,048 pasos · 2 min ejercicio · Stand 8/12 · RestHR 50 · HRV 50ms · 226 kcal activos" },
-  finanzas:    { score: 4, evidence: "Sueldo vía DEC · Runway 1.9mo · DEC Health ~65/100" },
-  inversiones: { score: 7, evidence: "NW $343.7K · FI 68.7% · Bruto $401.6K · Deuda $57.9K" },
-  marian:      { score: 9, evidence: "Cloze 7d: 84 interacciones · 8 reuniones Zoom · última actividad 2026-04-20" },
-  familia:     { score: 7, evidence: "Marian (Zoom Apr 18-20) + Sia (3 llamadas semana) · Sin señales Ecuador (rodalt offline)" },
-  trabajo:     { score: 5, evidence: "DEC: $16.2K MTD · margin 50.8% · Runway 1.9mo · Health ~65 | Michalitas: $1.6K (36% PE) · déficit -$816 · UE off 5d" },
-  legal:       { score: 4, evidence: "Sin señales esta semana · Cancillería pendiente · LITRANSA pendiente · ES ciudadanía pendiente" },
-  descanso:    { score: 4, evidence: "Apple Watch 4/20: 5.44h sueño (2:03AM→7:35AM) · Deep 0.57h · REM 0.74h · Core 4.13h" },
-  crecimiento: { score: 6, evidence: "Calendario: CLAUDE Emails + Course + Options book (estudio recurrente sábados)" },
+  salud:       { score: 3, evidence: "Stale (Apr 20) - Chrome tab ausente Apple Watch no disponible" },
+  finanzas:    { score: 5, evidence: "Sueldo via DEC Runway 1.9mo DEC Health ~86/100" },
+  inversiones: { score: 7, evidence: "NW $343.7K FI 68.7% TWR N/A" },
+  marian:      { score: 9, evidence: "183 interacciones 7d (calls+msgs+meetings) activa Apr 16-20 quiet Apr 21-22" },
+  familia:     { score: 7, evidence: "Sia calls Thu/Sat/Tue Marian activa Ecuador family sin email" },
+  trabajo:     { score: 7, evidence: "DEC: $57K proj 50.8% margin Health ~86/100 | Michalitas: $1.6K acum (36% PE) -$816 deficit" },
+  legal:       { score: 4, evidence: "Sin Cancilleria sin abogado esta semana default" },
+  descanso:    { score: 4, evidence: "Stale (Apr 20) - Chrome tab ausente Apple Watch no disponible" },
+  crecimiento: { score: 3, evidence: "0 items de aprendizaje en Gmail 48h sin curso/libro detectado" },
 };
 
 // Fully automatic — always load ALL scores from SUGGESTED (data-driven)
@@ -1447,7 +1447,7 @@ if (!data.history.length && SCORE_HISTORY_DAILY.length > 6) {
 
 // ── METRICS DATA (auto-updated by daily briefing task) ──────────────
 const METRICS_DATA = {
-  date: "2026-04-21",
+  date: "2026-04-22",
   patrimonio: {
     nwNeto: 343715, totalBruto: 401602, deuda: 57887, fiPct: 68.7
   },
@@ -1468,10 +1468,10 @@ const METRICS_DATA = {
 };
 
 // ── STALENESS_DATA (per-area date of last FRESH value — auto-updated by daily briefing Step E, 9C) ──
-const STALENESS_DATA = {"trabajo":"2026-04-21","salud":"2026-04-20","descanso":"2026-04-20","inversiones":"2026-04-21","finanzas":"2026-04-21","marian":"2026-04-21","crecimiento":"2026-04-21","familia":"2026-04-21","legal":"2026-04-21"};
+const STALENESS_DATA = {"trabajo":"2026-04-22","salud":"2026-04-20","descanso":"2026-04-20","inversiones":"2026-04-22","finanzas":"2026-04-22","marian":"2026-04-22","crecimiento":"2026-04-22","familia":"2026-04-22","legal":"2026-04-22"};
 
 // ── FAMILIA NEXT CONTACTS (auto-updated by daily briefing task — Step C6) ───
-const FAMILIA_NEXT_CONTACTS = [{"name":"Llamada con Sia — Martes","date":"2026-04-21"},{"name":"Llamada con Sia — Jueves","date":"2026-04-23"},{"name":"Llamada con Sia — Sábado","date":"2026-04-25"}];
+const FAMILIA_NEXT_CONTACTS = [{"name":"Sia","date":"2026-04-23","type":"Llamada (15 min)","note":"Jueves"},{"name":"Sia","date":"2026-04-25","type":"Llamada larga (30 min)","note":"Sabado"},{"name":"Sia","date":"2026-04-28","type":"Llamada (15 min)","note":"Martes"}];
 
 function buildMetrics() {
   const d = METRICS_DATA;
