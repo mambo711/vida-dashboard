@@ -3,9 +3,9 @@
     {
       "id": "salud",
       "label": "Salud",
-      "icon": "🏥",
+      "icon": "\ud83c\udfe5",
       "color": "#3fb950",
-      "defaultNote": "Sleep ~5.3h · HbA1c 5.9% · LDL 125 · Meta: 160 lbs",
+      "defaultNote": "Sleep ~5.3h \u00b7 HbA1c 5.9% \u00b7 LDL 125 \u00b7 Meta: 160 lbs",
       "actions": [
         "Dormir antes de las 11pm",
         "30 min de ejercicio",
@@ -16,22 +16,22 @@
     {
       "id": "trabajo",
       "label": "Trabajo / Negocios",
-      "icon": "💼",
+      "icon": "\ud83d\udcbc",
       "color": "#79c0ff",
       "defaultNote": "DEC + Michalitas Guayaquil",
       "actions": [
         "Revisar metas semanales DEC",
         "Check Michalitas POS y ventas",
-        "Identificar 1 acción de crecimiento"
+        "Identificar 1 acci\u00f3n de crecimiento"
       ],
       "link": "https://mambo711.github.io/dec-dashboard/"
     },
     {
       "id": "inversiones",
       "label": "Inversiones",
-      "icon": "📈",
+      "icon": "\ud83d\udcc8",
       "color": "#58a6ff",
-      "defaultNote": "Net Worth $340,656 · Bruto $398,543 · FI meta: 68%",
+      "defaultNote": "Net Worth $340,656 \u00b7 Bruto $398,543 \u00b7 FI meta: 68%",
       "actions": [
         "Revisar allocations TradeStation",
         "Abrir Macro Wealth dashboard",
@@ -42,9 +42,9 @@
     {
       "id": "finanzas",
       "label": "Finanzas",
-      "icon": "💰",
+      "icon": "\ud83d\udcb0",
       "color": "#f0883e",
-      "defaultNote": "Mazda $10,837 · Renta $2,100/mo · LOC $47,887",
+      "defaultNote": "Mazda $10,837 \u00b7 Renta $2,100/mo \u00b7 LOC $47,887",
       "actions": [
         "Plan para reducir LOC Wells Fargo",
         "Revisar surplus mensual",
@@ -55,9 +55,9 @@
     {
       "id": "marian",
       "label": "Marian & Relaciones",
-      "icon": "❤️",
+      "icon": "\u2764\ufe0f",
       "color": "#f85149",
-      "defaultNote": "Contacto activo · Sia · Michalitas",
+      "defaultNote": "Contacto activo \u00b7 Sia \u00b7 Michalitas",
       "actions": [
         "Llamada o visita esta semana",
         "Tiempo de calidad (no trabajo)",
@@ -68,9 +68,9 @@
     {
       "id": "familia",
       "label": "Familia",
-      "icon": "👨‍👩‍👧",
+      "icon": "\ud83d\udc68\u200d\ud83d\udc69\u200d\ud83d\udc67",
       "color": "#bc8cff",
-      "defaultNote": "Ecuador: Jorge, Víctor, Esperanza · Miguel Miami",
+      "defaultNote": "Ecuador: Jorge, V\u00edctor, Esperanza \u00b7 Miguel Miami",
       "actions": [
         "Llamar a Esperanza (salud)",
         "WhatsApp a hermanos Ecuador",
@@ -81,9 +81,9 @@
     {
       "id": "descanso",
       "label": "Descanso / Ocio",
-      "icon": "🌴",
+      "icon": "\ud83c\udf34",
       "color": "#56d364",
-      "defaultNote": "Hobbies · tiempo libre · viajes · recreación",
+      "defaultNote": "Hobbies \u00b7 tiempo libre \u00b7 viajes \u00b7 recreaci\u00f3n",
       "actions": [
         "Planear 1 actividad recreativa",
         "Desconectarse 1 tarde completa",
@@ -94,11 +94,11 @@
     {
       "id": "crecimiento",
       "label": "Crecimiento Personal",
-      "icon": "📚",
+      "icon": "\ud83d\udcda",
       "color": "#d2a8ff",
-      "defaultNote": "Lectura · aprendizaje · nuevas habilidades",
+      "defaultNote": "Lectura \u00b7 aprendizaje \u00b7 nuevas habilidades",
       "actions": [
-        "Leer 20 min al día",
+        "Leer 20 min al d\u00eda",
         "Identificar 1 habilidad a desarrollar",
         "Podcast o curso esta semana"
       ],
@@ -107,13 +107,13 @@
     {
       "id": "legal",
       "label": "Legal / Ecuador",
-      "icon": "⚖️",
+      "icon": "\u2696\ufe0f",
       "color": "#e3b341",
-      "defaultNote": "Ciudadanía española en trámite · LITRANSA · INMOROYDU",
+      "defaultNote": "Ciudadan\u00eda espa\u00f1ola en tr\u00e1mite \u00b7 LITRANSA \u00b7 INMOROYDU",
       "actions": [
-        "Status ciudadanía Consulado Miami",
+        "Status ciudadan\u00eda Consulado Miami",
         "Revisar estate LITRANSA/INMOROYDU",
-        "Follow-up trámites legales Ecuador"
+        "Follow-up tr\u00e1mites legales Ecuador"
       ],
       "link": null
     }
@@ -366,7 +366,7 @@
       }
     }
   ],
-  "healthLastRealDate": "2026-04-20",
+  "healthLastRealDate": "2026-04-23",
   "suggested": {
     "trabajo": {
       "score": 6,
@@ -378,7 +378,7 @@
     },
     "descanso": {
       "score": 4,
-      "evidence": "Sueno 5.38h insuficiente · deep 1.13h (calidad ok) · sin tarde libre"
+      "evidence": "Sueno 5.38h insuficiente \u00b7 deep 1.13h (calidad ok) \u00b7 sin tarde libre"
     },
     "inversiones": {
       "score": 7,
@@ -455,7 +455,7 @@
     {
       "name": "Sia (llamada larga)",
       "date": "2026-04-25",
-      "note": "Sábado 2pm ET - 30 min"
+      "note": "S\u00e1bado 2pm ET - 30 min"
     },
     {
       "name": "Sia (llamada)",
