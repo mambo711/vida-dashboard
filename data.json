@@ -368,50 +368,50 @@
   ],
   "healthLastRealDate": "2026-04-20",
   "suggested": {
-    "salud": {
-      "score": 3,
-      "evidence": "Stale Apr 20 - Chrome tab ausente Apple Watch no disponible"
-    },
-    "finanzas": {
-      "score": 5,
-      "evidence": "Sueldo via DEC Runway 1.9mo DEC Health 80/100"
-    },
-    "inversiones": {
-      "score": 7,
-      "evidence": "NW $343.7K FI 68.7% TWR N/A"
-    },
-    "marian": {
-      "score": 8,
-      "evidence": "163 interacciones 7d calls+msgs+meetings Apr 22-23 quiet"
-    },
-    "familia": {
-      "score": 7,
-      "evidence": "Sia llamadas Thu/Sat/Tue Marian activa Ecuador family sin email"
-    },
     "trabajo": {
       "score": 6,
-      "evidence": "DEC Health 80/100 Rev Mar $47.8K Micha proyec $3,400 vs PE $4,216 (81%)"
+      "evidence": "DEC Health 80/100 Rev Abr* $57K 50.8% margen | Micha Mar $3,625 (86% PE) Uber OFFLINE Abr"
     },
-    "legal": {
-      "score": 7,
-      "evidence": "Cancilleria Ecuador ENTREVISTA visa activa - accion urgente"
+    "salud": {
+      "score": 4,
+      "evidence": "Sueno 5.38h REM 1.28h Deep 1.13h Ejercicio 27min 2,156 pasos Apr 23"
     },
     "descanso": {
       "score": 4,
-      "evidence": "Stale Apr 20 - Chrome tab ausente Apple Watch no disponible"
+      "evidence": "Sueno 5.38h insuficiente · deep 1.13h (calidad ok) · sin tarde libre"
+    },
+    "inversiones": {
+      "score": 7,
+      "evidence": "NW $343.7K FI 69% TWR +11.3% (23 meses) Apr 17"
+    },
+    "finanzas": {
+      "score": 5,
+      "evidence": "Sueldo via DEC Runway 1.9mo (SEVERO) DEC Health 80/100"
+    },
+    "marian": {
+      "score": 8,
+      "evidence": "Cloze 7d: 140 interacciones 47 llamadas 5 mensajes ult actividad Apr 22"
     },
     "crecimiento": {
       "score": 5,
-      "evidence": "1 actividad Zoom Instagram advertising sin curso formal"
+      "evidence": "0 newsletters Read/Study cal semanal Claude herramientas activas"
+    },
+    "familia": {
+      "score": 7,
+      "evidence": "Sia llamadas Sab/Mar/Jue recurrentes Miguel $313 May 1 sin senal Ecuador"
+    },
+    "legal": {
+      "score": 4,
+      "evidence": "Sin email legal esta semana ciudadania espanola + LITRANSA pendientes"
     }
   },
   "metricsData": {
-    "date": "2026-04-23",
+    "date": "2026-04-24",
     "patrimonio": {
       "nwNeto": 343715,
       "totalBruto": 401602,
       "deuda": 57887,
-      "fiPct": 68.7
+      "fiPct": 69.0
     },
     "retiro": {
       "sepIra": 134858,
@@ -428,7 +428,7 @@
     "salud": {
       "hba1c": 5.9,
       "ldl": 125,
-      "sleepAvg": 5.44,
+      "sleepAvg": 5.38,
       "pesoMeta": 160
     },
     "finanzas": {
@@ -441,31 +441,47 @@
     }
   },
   "stalenessData": {
-    "trabajo": "2026-04-23",
-    "salud": "2026-04-20",
-    "descanso": "2026-04-20",
-    "inversiones": "2026-04-23",
-    "finanzas": "2026-04-23",
-    "marian": "2026-04-23",
-    "crecimiento": "2026-04-23",
-    "familia": "2026-04-23",
-    "legal": "2026-04-23"
+    "trabajo": "2026-04-24",
+    "salud": "2026-04-24",
+    "descanso": "2026-04-24",
+    "inversiones": "2026-04-24",
+    "finanzas": "2026-04-24",
+    "marian": "2026-04-24",
+    "crecimiento": "2026-04-24",
+    "familia": "2026-04-24",
+    "legal": "2026-04-24"
   },
   "familiaNextContacts": [
     {
-      "name": "Sia",
-      "date": "2026-04-24",
-      "note": "Llamada semanal (Sab)"
+      "name": "Sia (llamada larga)",
+      "date": "2026-04-25",
+      "note": "Sábado 2pm ET - 30 min"
     },
     {
-      "name": "Marian",
-      "date": "2026-04-23",
-      "note": "Llamada diaria activa"
+      "name": "Sia (llamada)",
+      "date": "2026-04-28",
+      "note": "Martes 2pm ET - 15 min"
     },
     {
-      "name": "Miguel",
+      "name": "Miguel Autos",
       "date": "2026-05-01",
-      "note": "Miguel Autos follow-up mensual"
+      "note": "Follow-up mensual + $313"
+    }
+  ],
+  "scoreHistory": [
+    {
+      "date": "2026-04-24",
+      "scores": {
+        "trabajo": 6,
+        "salud": 4,
+        "descanso": 4,
+        "inversiones": 7,
+        "finanzas": 5,
+        "marian": 8,
+        "crecimiento": 5,
+        "familia": 7,
+        "legal": 4
+      }
     }
   ]
 }
