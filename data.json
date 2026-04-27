@@ -142,6 +142,20 @@
   },
   "scoreHistoryDaily": [
     {
+      "date": "2026-04-27",
+      "scores": {
+        "trabajo": 6,
+        "salud": 4,
+        "descanso": 4,
+        "inversiones": 7,
+        "finanzas": 5,
+        "marian": 8,
+        "crecimiento": 5,
+        "familia": 7,
+        "legal": 4
+      }
+    },
+    {
       "date": "2026-04-23",
       "scores": {
         "trabajo": 6,
@@ -370,35 +384,35 @@
   "suggested": {
     "trabajo": {
       "score": 6,
-      "evidence": "DEC Health 80/100 Rev Abr* $57K 50.8% margen | Micha Mar $3,625 (86% PE) Uber OFFLINE Abr"
+      "evidence": "DEC: $3.4K/mo salary Health ~80/100 | Micha: $139/dia (86% PE) -$23 vs PE"
     },
     "salud": {
       "score": 4,
-      "evidence": "Sueno 5.38h REM 1.28h Deep 1.13h Ejercicio 27min 2,156 pasos Apr 23"
+      "evidence": "Sueno 5.38h REM 1.28h Deep 1.13h Pasos 1086 sin sleep data fresca Apr 27"
     },
     "descanso": {
       "score": 4,
-      "evidence": "Sueno 5.38h insuficiente \u00b7 deep 1.13h (calidad ok) \u00b7 sin tarde libre"
+      "evidence": "Sueno 5.38h insuficiente deep 1.13h sin tarde libre"
     },
     "inversiones": {
       "score": 7,
-      "evidence": "NW $343.7K FI 69% TWR +11.3% (23 meses) Apr 17"
+      "evidence": "NW $343.8K FI 69% TWR +11.3% (23 meses)"
     },
     "finanzas": {
       "score": 5,
-      "evidence": "Sueldo via DEC Runway 1.9mo (SEVERO) DEC Health 80/100"
+      "evidence": "Sueldo via DEC Runway 1.9mo (SEVERO) DEC Health ~80/100"
     },
     "marian": {
       "score": 8,
-      "evidence": "Cloze 7d: 140 interacciones 47 llamadas 5 mensajes ult actividad Apr 22"
+      "evidence": "Cloze 7d: 100 interacciones 14 meetings ult actividad Apr 26"
     },
     "crecimiento": {
       "score": 5,
-      "evidence": "0 newsletters Read/Study cal semanal Claude herramientas activas"
+      "evidence": "Newsletters: 0 Study cal semanal Claude/Options book ult 7d"
     },
     "familia": {
       "score": 7,
-      "evidence": "Sia llamadas Sab/Mar/Jue recurrentes Miguel $313 May 1 sin senal Ecuador"
+      "evidence": "Sia llamadas Mar/Jue/Sab Miguel prestamo May 1 sin senal Ecuador"
     },
     "legal": {
       "score": 4,
@@ -406,10 +420,10 @@
     }
   },
   "metricsData": {
-    "date": "2026-04-24",
+    "date": "2026-04-27",
     "patrimonio": {
-      "nwNeto": 343715,
-      "totalBruto": 401602,
+      "nwNeto": 343772,
+      "totalBruto": 401659,
       "deuda": 57887,
       "fiPct": 69.0
     },
@@ -441,31 +455,28 @@
     }
   },
   "stalenessData": {
-    "trabajo": "2026-04-24",
+    "trabajo": "2026-04-27",
     "salud": "2026-04-24",
     "descanso": "2026-04-24",
-    "inversiones": "2026-04-24",
-    "finanzas": "2026-04-24",
-    "marian": "2026-04-24",
-    "crecimiento": "2026-04-24",
-    "familia": "2026-04-24",
-    "legal": "2026-04-24"
+    "inversiones": "2026-04-27",
+    "finanzas": "2026-04-27",
+    "marian": "2026-04-27",
+    "crecimiento": "2026-04-27",
+    "familia": "2026-04-27",
+    "legal": "2026-04-27"
   },
   "familiaNextContacts": [
     {
-      "name": "Sia (llamada larga)",
-      "date": "2026-04-25",
-      "note": "S\u00e1bado 2pm ET - 30 min"
+      "name": "Llamada con Sia - Martes",
+      "date": "2026-04-28"
     },
     {
-      "name": "Sia (llamada)",
-      "date": "2026-04-28",
-      "note": "Martes 2pm ET - 15 min"
+      "name": "Llamada con Sia - Jueves",
+      "date": "2026-04-30"
     },
     {
-      "name": "Miguel Autos",
-      "date": "2026-05-01",
-      "note": "Follow-up mensual + $313"
+      "name": "Llamada con Sia - Sabado (sesion larga)",
+      "date": "2026-05-02"
     }
   ],
   "scoreHistory": [
