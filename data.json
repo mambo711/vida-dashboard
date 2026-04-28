@@ -3,9 +3,9 @@
     {
       "id": "salud",
       "label": "Salud",
-      "icon": "\ud83c\udfe5",
+      "icon": "🏥",
       "color": "#3fb950",
-      "defaultNote": "Sleep ~5.3h \u00b7 HbA1c 5.9% \u00b7 LDL 125 \u00b7 Meta: 160 lbs",
+      "defaultNote": "Sleep ~5.3h · HbA1c 5.9% · LDL 125 · Meta: 160 lbs",
       "actions": [
         "Dormir antes de las 11pm",
         "30 min de ejercicio",
@@ -16,22 +16,22 @@
     {
       "id": "trabajo",
       "label": "Trabajo / Negocios",
-      "icon": "\ud83d\udcbc",
+      "icon": "💼",
       "color": "#79c0ff",
       "defaultNote": "DEC + Michalitas Guayaquil",
       "actions": [
         "Revisar metas semanales DEC",
         "Check Michalitas POS y ventas",
-        "Identificar 1 acci\u00f3n de crecimiento"
+        "Identificar 1 acción de crecimiento"
       ],
       "link": "https://mambo711.github.io/dec-dashboard/"
     },
     {
       "id": "inversiones",
       "label": "Inversiones",
-      "icon": "\ud83d\udcc8",
+      "icon": "📈",
       "color": "#58a6ff",
-      "defaultNote": "Net Worth $340,656 \u00b7 Bruto $398,543 \u00b7 FI meta: 68%",
+      "defaultNote": "Net Worth $340,656 · Bruto $398,543 · FI meta: 68%",
       "actions": [
         "Revisar allocations TradeStation",
         "Abrir Macro Wealth dashboard",
@@ -42,9 +42,9 @@
     {
       "id": "finanzas",
       "label": "Finanzas",
-      "icon": "\ud83d\udcb0",
+      "icon": "💰",
       "color": "#f0883e",
-      "defaultNote": "Mazda $10,837 \u00b7 Renta $2,100/mo \u00b7 LOC $47,887",
+      "defaultNote": "Mazda $10,837 · Renta $2,100/mo · LOC $47,887",
       "actions": [
         "Plan para reducir LOC Wells Fargo",
         "Revisar surplus mensual",
@@ -55,9 +55,9 @@
     {
       "id": "marian",
       "label": "Marian & Relaciones",
-      "icon": "\u2764\ufe0f",
+      "icon": "❤️",
       "color": "#f85149",
-      "defaultNote": "Contacto activo \u00b7 Sia \u00b7 Michalitas",
+      "defaultNote": "Contacto activo · Sia · Michalitas",
       "actions": [
         "Llamada o visita esta semana",
         "Tiempo de calidad (no trabajo)",
@@ -68,9 +68,9 @@
     {
       "id": "familia",
       "label": "Familia",
-      "icon": "\ud83d\udc68\u200d\ud83d\udc69\u200d\ud83d\udc67",
+      "icon": "👨‍👩‍👧",
       "color": "#bc8cff",
-      "defaultNote": "Ecuador: Jorge, V\u00edctor, Esperanza \u00b7 Miguel Miami",
+      "defaultNote": "Ecuador: Jorge, Víctor, Esperanza · Miguel Miami",
       "actions": [
         "Llamar a Esperanza (salud)",
         "WhatsApp a hermanos Ecuador",
@@ -81,9 +81,9 @@
     {
       "id": "descanso",
       "label": "Descanso / Ocio",
-      "icon": "\ud83c\udf34",
+      "icon": "🌴",
       "color": "#56d364",
-      "defaultNote": "Hobbies \u00b7 tiempo libre \u00b7 viajes \u00b7 recreaci\u00f3n",
+      "defaultNote": "Hobbies · tiempo libre · viajes · recreación",
       "actions": [
         "Planear 1 actividad recreativa",
         "Desconectarse 1 tarde completa",
@@ -94,11 +94,11 @@
     {
       "id": "crecimiento",
       "label": "Crecimiento Personal",
-      "icon": "\ud83d\udcda",
+      "icon": "📚",
       "color": "#d2a8ff",
-      "defaultNote": "Lectura \u00b7 aprendizaje \u00b7 nuevas habilidades",
+      "defaultNote": "Lectura · aprendizaje · nuevas habilidades",
       "actions": [
-        "Leer 20 min al d\u00eda",
+        "Leer 20 min al día",
         "Identificar 1 habilidad a desarrollar",
         "Podcast o curso esta semana"
       ],
@@ -107,13 +107,13 @@
     {
       "id": "legal",
       "label": "Legal / Ecuador",
-      "icon": "\u2696\ufe0f",
+      "icon": "⚖️",
       "color": "#e3b341",
-      "defaultNote": "Ciudadan\u00eda espa\u00f1ola en tr\u00e1mite \u00b7 LITRANSA \u00b7 INMOROYDU",
+      "defaultNote": "Ciudadanía española en trámite · LITRANSA · INMOROYDU",
       "actions": [
-        "Status ciudadan\u00eda Consulado Miami",
+        "Status ciudadanía Consulado Miami",
         "Revisar estate LITRANSA/INMOROYDU",
-        "Follow-up tr\u00e1mites legales Ecuador"
+        "Follow-up trámites legales Ecuador"
       ],
       "link": null
     }
@@ -378,45 +378,59 @@
         "descanso": 5,
         "crecimiento": 5
       }
+    },
+    {
+      "date": "2026-04-28",
+      "scores": {
+        "trabajo": 6,
+        "salud": 4,
+        "descanso": 4,
+        "inversiones": 7,
+        "finanzas": 5,
+        "marian": 8,
+        "crecimiento": 5,
+        "familia": 7,
+        "legal": 4
+      }
     }
   ],
   "healthLastRealDate": "2026-04-23",
   "suggested": {
     "trabajo": {
       "score": 6,
-      "evidence": "DEC: $3.4K/mo salary Health ~80/100 | Micha: $139/dia (86% PE) -$23 vs PE"
+      "evidence": "DEC operations ongoing; LOC cash position monitored; no new urgent customer escalations."
     },
     "salud": {
       "score": 4,
-      "evidence": "Sueno 5.38h REM 1.28h Deep 1.13h Pasos 1086 sin sleep data fresca Apr 27"
+      "evidence": "Health data unavailable (token issue) — score held from Apr 27. No new concerns flagged."
     },
     "descanso": {
       "score": 4,
-      "evidence": "Sueno 5.38h insuficiente deep 1.13h sin tarde libre"
+      "evidence": "Sleep data unavailable — score held from Apr 27. Recovery pattern assumed similar."
     },
     "inversiones": {
       "score": 7,
-      "evidence": "NW $343.8K FI 69% TWR +11.3% (23 meses)"
+      "evidence": "Portfolio stable; no major adverse moves noted. TradeStation positions monitored."
     },
     "finanzas": {
       "score": 5,
-      "evidence": "Sueldo via DEC Runway 1.9mo (SEVERO) DEC Health ~80/100"
+      "evidence": "SUNBIZ due May 3 ($250 × 2). Horizons West lease renewal due May 1. Windsor.ai trial expired — decision pending."
     },
     "marian": {
       "score": 8,
-      "evidence": "Cloze 7d: 100 interacciones 14 meetings ult actividad Apr 26"
+      "evidence": "Sia call confirmed for today 2 PM. Connection strong."
     },
     "crecimiento": {
       "score": 5,
-      "evidence": "Newsletters: 0 Study cal semanal Claude/Options book ult 7d"
+      "evidence": "No new learning activities flagged. Routine day."
     },
     "familia": {
       "score": 7,
-      "evidence": "Sia llamadas Mar/Jue/Sab Miguel prestamo May 1 sin senal Ecuador"
+      "evidence": "Ecuador family stable. Max Peru streaming bill due Apr 29 — verify autopay."
     },
     "legal": {
       "score": 4,
-      "evidence": "Sin email legal esta semana ciudadania espanola + LITRANSA pendientes"
+      "evidence": "Legal score remains low (delta -3 from prior week). SUNBIZ filings due May 3. Monitor."
     }
   },
   "metricsData": {
@@ -455,15 +469,15 @@
     }
   },
   "stalenessData": {
-    "trabajo": "2026-04-27",
+    "trabajo": "2026-04-28",
     "salud": "2026-04-24",
     "descanso": "2026-04-24",
-    "inversiones": "2026-04-27",
-    "finanzas": "2026-04-27",
-    "marian": "2026-04-27",
-    "crecimiento": "2026-04-27",
-    "familia": "2026-04-27",
-    "legal": "2026-04-27"
+    "inversiones": "2026-04-28",
+    "finanzas": "2026-04-28",
+    "marian": "2026-04-28",
+    "crecimiento": "2026-04-28",
+    "familia": "2026-04-28",
+    "legal": "2026-04-28"
   },
   "familiaNextContacts": [
     {
