@@ -142,16 +142,16 @@
   },
   "scoreHistoryDaily": [
     {
-      "date": "2026-04-27",
+      "date": "2026-05-01",
       "scores": {
-        "trabajo": 6,
-        "salud": 4,
-        "descanso": 4,
+        "trabajo": 5,
+        "salud": 2,
+        "descanso": 5,
         "inversiones": 7,
-        "finanzas": 5,
-        "marian": 8,
-        "crecimiento": 5,
-        "familia": 7,
+        "finanzas": 4,
+        "marian": 9,
+        "crecimiento": 6,
+        "familia": 6,
         "legal": 4
       }
     },
@@ -378,63 +378,49 @@
         "descanso": 5,
         "crecimiento": 5
       }
-    },
-    {
-      "date": "2026-04-28",
-      "scores": {
-        "trabajo": 6,
-        "salud": 4,
-        "descanso": 4,
-        "inversiones": 7,
-        "finanzas": 5,
-        "marian": 8,
-        "crecimiento": 5,
-        "familia": 7,
-        "legal": 4
-      }
     }
   ],
-  "healthLastRealDate": "2026-04-23",
+  "healthLastRealDate": "2026-04-30",
   "suggested": {
     "trabajo": {
-      "score": 6,
-      "evidence": "DEC operations ongoing; LOC cash position monitored; no new urgent customer escalations."
+      "score": 5,
+      "evidence": "DEC: $24.2K rev 50.8% margin Health 69/100 | Michalitas: $3338 (79.2% PE) deficit -$406 proy"
     },
     "salud": {
-      "score": 4,
-      "evidence": "Health data unavailable (token issue) — score held from Apr 27. No new concerns flagged."
+      "score": 2,
+      "evidence": "Pasos 294 HRV 67ms RHR 59bpm sin ejercicio detectado (Apr 30)"
     },
     "descanso": {
-      "score": 4,
-      "evidence": "Sleep data unavailable — score held from Apr 27. Recovery pattern assumed similar."
+      "score": 5,
+      "evidence": "Sueno 5.6h Deep 0.63h REM 1.3h (Apr 30)"
     },
     "inversiones": {
       "score": 7,
-      "evidence": "Portfolio stable; no major adverse moves noted. TradeStation positions monitored."
+      "evidence": "NW $344K FI 69% datos Apr 24"
     },
     "finanzas": {
-      "score": 5,
-      "evidence": "SUNBIZ due May 3 ($250 × 2). Horizons West lease renewal due May 1. Windsor.ai trial expired — decision pending."
+      "score": 4,
+      "evidence": "Sueldo via DEC Runway 1.9mo DEC Health 69/100"
     },
     "marian": {
-      "score": 8,
-      "evidence": "Sia call confirmed for today 2 PM. Connection strong."
+      "score": 9,
+      "evidence": "80 interacciones 7d contacto May 1 (Cloze analytics)"
     },
     "crecimiento": {
-      "score": 5,
-      "evidence": "No new learning activities flagged. Routine day."
+      "score": 6,
+      "evidence": "Claude Course Options book en calendario Zapier AI"
     },
     "familia": {
-      "score": 7,
-      "evidence": "Ecuador family stable. Max Peru streaming bill due Apr 29 — verify autopay."
+      "score": 6,
+      "evidence": "Llamada Sia Sab 2 may programada sin emails fam Ecuador (rodalt offline)"
     },
     "legal": {
       "score": 4,
-      "evidence": "Legal score remains low (delta -3 from prior week). SUNBIZ filings due May 3. Monitor."
+      "evidence": "Sin actividad legal esta semana ciudadania espanola en curso"
     }
   },
   "metricsData": {
-    "date": "2026-04-27",
+    "date": "2026-05-01",
     "patrimonio": {
       "nwNeto": 343772,
       "totalBruto": 401659,
@@ -456,7 +442,7 @@
     "salud": {
       "hba1c": 5.9,
       "ldl": 125,
-      "sleepAvg": 5.38,
+      "sleepAvg": 5.64,
       "pesoMeta": 160
     },
     "finanzas": {
@@ -469,28 +455,34 @@
     }
   },
   "stalenessData": {
-    "trabajo": "2026-04-28",
-    "salud": "2026-04-24",
-    "descanso": "2026-04-24",
-    "inversiones": "2026-04-28",
-    "finanzas": "2026-04-28",
-    "marian": "2026-04-28",
-    "crecimiento": "2026-04-28",
-    "familia": "2026-04-28",
-    "legal": "2026-04-28"
+    "trabajo": "2026-05-01",
+    "salud": "2026-05-01",
+    "descanso": "2026-05-01",
+    "inversiones": "2026-05-01",
+    "finanzas": "2026-05-01",
+    "marian": "2026-05-01",
+    "crecimiento": "2026-05-01",
+    "familia": "2026-05-01",
+    "legal": "2026-05-01"
   },
   "familiaNextContacts": [
     {
-      "name": "Llamada con Sia - Martes",
-      "date": "2026-04-28"
+      "name": "Sia",
+      "date": "2026-05-02",
+      "type": "call",
+      "note": "Llamada sesion larga 2PM EST"
     },
     {
-      "name": "Llamada con Sia - Jueves",
-      "date": "2026-04-30"
+      "name": "Sia",
+      "date": "2026-05-05",
+      "type": "call",
+      "note": "Llamada Martes 2PM EST"
     },
     {
-      "name": "Llamada con Sia - Sabado (sesion larga)",
-      "date": "2026-05-02"
+      "name": "Sia",
+      "date": "2026-05-07",
+      "type": "call",
+      "note": "Llamada Jueves 2PM EST"
     }
   ],
   "scoreHistory": [
