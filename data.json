@@ -142,6 +142,20 @@
   },
   "scoreHistoryDaily": [
     {
+      "date": "2026-05-03",
+      "scores": {
+        "trabajo": 6,
+        "salud": 3,
+        "descanso": 8,
+        "inversiones": 7,
+        "finanzas": 4,
+        "marian": 9,
+        "crecimiento": 6,
+        "familia": 6,
+        "legal": 4
+      }
+    },
+    {
       "date": "2026-05-02",
       "scores": {
         "trabajo": 5,
@@ -394,11 +408,11 @@
       }
     }
   ],
-  "healthLastRealDate": "2026-04-30",
+  "healthLastRealDate": "2026-05-02",
   "suggested": {
     "trabajo": {
-      "score": 5,
-      "evidence": "DEC: $24.2K rev · Health 69/100 (Apr 28) | Michalitas: $3.3K (79% PE) · -$406 deficit proy"
+      "score": 6,
+      "evidence": "DEC: $24.2K rev · Health 69/100 (Apr 28 stale) | Michalitas: $3.46K proj (82% PE) · -$591 deficit"
     },
     "salud": {
       "score": 3,
@@ -406,7 +420,7 @@
     },
     "descanso": {
       "score": 8,
-      "evidence": "Sueño 7.0h · Deep 0.92h · REM 1.38h · Core 4.72h"
+      "evidence": "Sueño 7.01h (May 2) · Deep 0.92h · REM 1.38h · Core 4.72h"
     },
     "inversiones": {
       "score": 7,
@@ -418,23 +432,23 @@
     },
     "marian": {
       "score": 9,
-      "evidence": "77 interacciones 7d (msgs+calls+meetings) · contacto May 1"
+      "evidence": "123 interacciones 7d (Cloze) · pico May 1 (48) · contacto activo"
     },
     "crecimiento": {
       "score": 6,
-      "evidence": "2 items: Reddit Claude thread + Zapier AI workflows"
+      "evidence": "2 items: Reddit r/replit + Zapier weekly summary AI"
     },
     "familia": {
       "score": 6,
-      "evidence": "Sia 3 llamadas programadas semana · sin emails familia esta semana"
+      "evidence": "Sia 3 llamadas programadas · transfer $72 a Miguel · sin emails familia esta semana"
     },
     "legal": {
       "score": 4,
-      "evidence": "Sin actividad legal · ciudadanía España pending review"
+      "evidence": "Sin actividad legal · ciudadanía España pending review · sin Cancillería"
     }
   },
   "metricsData": {
-    "date": "2026-05-02",
+    "date": "2026-05-03",
     "patrimonio": {
       "nwNeto": 343772,
       "totalBruto": 401659,
@@ -469,22 +483,17 @@
     }
   },
   "stalenessData": {
-    "trabajo": "2026-05-02",
-    "salud": "2026-05-02",
-    "descanso": "2026-05-02",
-    "inversiones": "2026-05-02",
-    "finanzas": "2026-05-02",
-    "marian": "2026-05-02",
-    "crecimiento": "2026-05-02",
-    "familia": "2026-05-02",
-    "legal": "2026-05-02"
+    "trabajo": "2026-05-03",
+    "salud": "2026-05-03",
+    "descanso": "2026-05-03",
+    "inversiones": "2026-05-03",
+    "finanzas": "2026-05-03",
+    "marian": "2026-05-03",
+    "crecimiento": "2026-05-03",
+    "familia": "2026-05-03",
+    "legal": "2026-05-03"
   },
   "familiaNextContacts": [
-    {
-      "who": "Sia",
-      "date": "2026-05-02",
-      "what": "Llamada Sábado 2:00 PM EST"
-    },
     {
       "who": "Sia",
       "date": "2026-05-05",
@@ -494,6 +503,11 @@
       "who": "Sia",
       "date": "2026-05-07",
       "what": "Llamada Jueves 2:00 PM EST"
+    },
+    {
+      "who": "Sia",
+      "date": "2026-05-09",
+      "what": "Llamada Sábado 2:00 PM EST (sesión larga)"
     }
   ],
   "scoreHistory": [
