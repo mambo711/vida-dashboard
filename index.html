@@ -692,7 +692,17 @@
 // ── CONFIG ────────────────────────────────────────────────────────────
 // Data constants — loaded from data.json via fetch()
 let AREAS, TARGETS, WEIGHTS, SCORE_HISTORY_DAILY, HEALTH_LAST_REAL_DATE,
-    SUGGESTED, METRICS_DATA, STALENESS_DATA, FAMILIA_NEXT_CONTACTS;
+    SUGGESTED, METRICS_DATA, STALENESS_DATA, FAMILIA_NEXT_CONTACTS,
+    EXPECTED_FRESH_DAYS;
+
+// Default expected refresh cadence per area (9C v2, 2026-05-04).
+// Overridden by data.json `expectedFreshDays` if present.
+// Badge logic: warn when stalenessDays > expected; danger when stalenessDays > 2× expected.
+const DEFAULT_EXPECTED_FRESH_DAYS = {
+  salud: 1, descanso: 1, marian: 1, crecimiento: 1, familia: 1,
+  finanzas: 3, trabajo: 3,
+  legal: 14, inversiones: 7
+};
 
 const KEY = "vida_balance_v2";
 
@@ -1059,16 +1069,20 @@ function buildCards() {
       healthFreshnessHtml = `<div class="freshness ${cls}" style="margin-top:6px">📡 Datos Apple Watch: ${label}</div>`;
     }
 
-    // ── Staleness badge (9C): warn if >1d, danger if >3d since last FRESH value ──
+    // ── Staleness badge (9C v2, 2026-05-04): per-area expected refresh cadence ──
+    // warn when stalenessDays > expected; danger when stalenessDays > 2× expected.
     let staleBadgeHtml = "";
     if (typeof STALENESS_DATA !== 'undefined' && STALENESS_DATA[a.id]) {
       const stDate = new Date(STALENESS_DATA[a.id] + 'T12:00:00');
       const stDays = Math.floor((new Date() - stDate) / 86400000);
-      if (stDays > 3) {
-        staleBadgeHtml = `<span class="stale-badge danger" title="Último valor fresco hace ${stDays} días (${STALENESS_DATA[a.id]})">⏱️ ${stDays}d</span>`;
-      } else if (stDays > 1) {
-        staleBadgeHtml = `<span class="stale-badge warn" title="Último valor fresco hace ${stDays} días (${STALENESS_DATA[a.id]})">⏱️ ${stDays}d</span>`;
+      const expected = (EXPECTED_FRESH_DAYS && EXPECTED_FRESH_DAYS[a.id]) || DEFAULT_EXPECTED_FRESH_DAYS[a.id] || 1;
+      const title = `Último valor fresco hace ${stDays} días (${STALENESS_DATA[a.id]}) · ventana esperada ${expected}d`;
+      if (stDays > expected * 2) {
+        staleBadgeHtml = `<span class="stale-badge danger" title="${title}">⏱️ ${stDays}d</span>`;
+      } else if (stDays > expected) {
+        staleBadgeHtml = `<span class="stale-badge warn" title="${title}">⏱️ ${stDays}d</span>`;
       }
+      // else: within expected window → no badge
     }
 
     const card = document.createElement("div");
@@ -1529,6 +1543,7 @@ fetch('data.json')
     SUGGESTED             = d.suggested;
     METRICS_DATA          = d.metricsData;
     STALENESS_DATA        = d.stalenessData;
+    EXPECTED_FRESH_DAYS   = d.expectedFreshDays || DEFAULT_EXPECTED_FRESH_DAYS;
     FAMILIA_NEXT_CONTACTS = d.familiaNextContacts;
 
     // Fully automatic — load all scores from SUGGESTED (data-driven)
