@@ -539,5 +539,16 @@
         "legal": 4
       }
     }
-  ]
+  ],
+  "expectedFreshDays": {
+    "salud": 1,
+    "descanso": 1,
+    "marian": 1,
+    "crecimiento": 1,
+    "familia": 1,
+    "finanzas": 3,
+    "trabajo": 3,
+    "legal": 14,
+    "inversiones": 7
+  }
 }
