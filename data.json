@@ -142,6 +142,20 @@
   },
   "scoreHistoryDaily": [
     {
+      "date": "2026-05-04",
+      "scores": {
+        "trabajo": 6,
+        "salud": 3,
+        "descanso": 8,
+        "inversiones": 7,
+        "finanzas": 4,
+        "marian": 9,
+        "crecimiento": 6,
+        "familia": 7,
+        "legal": 4
+      }
+    },
+    {
       "date": "2026-05-03",
       "scores": {
         "trabajo": 6,
@@ -412,35 +426,35 @@
   "suggested": {
     "trabajo": {
       "score": 6,
-      "evidence": "DEC: $24.2K rev · Health 69/100 (Apr 28 stale) | Michalitas: $3.46K proj (82% PE) · -$591 deficit"
+      "evidence": "DEC: $24K rev (stale Apr) · Health 69/100 | Michalitas: $4.0K proj (95% PE) · -$218 deficit"
     },
     "salud": {
       "score": 3,
-      "evidence": "Pasos 4889 (May 1) · 9 min ejercicio · HRV 49ms · RHR 66bpm"
+      "evidence": "Pasos 4889 (May 2 stale) · 9 min ejercicio · HRV 49ms · RHR 66bpm"
     },
     "descanso": {
       "score": 8,
-      "evidence": "Sueño 7.01h (May 2) · Deep 0.92h · REM 1.38h · Core 4.72h"
+      "evidence": "Sueño 7.01h (May 2 stale) · Deep 0.92h · REM 1.38h · Core 4.72h"
     },
     "inversiones": {
       "score": 7,
-      "evidence": "NW $344K · FI 69% · Bruto $402K · Deuda $58K"
+      "evidence": "NW $344K · FI 69% · Bruto $402K · Deuda $58K (Apr 24 snapshot)"
     },
     "finanzas": {
       "score": 4,
-      "evidence": "Sueldo vía DEC · Runway ~1.9mo · DEC Health 69/100"
+      "evidence": "Sueldo vía DEC · Runway ~1.9mo (stale) · DEC Health 69/100"
     },
     "marian": {
       "score": 9,
-      "evidence": "123 interacciones 7d (Cloze) · pico May 1 (48) · contacto activo"
+      "evidence": "125 interacciones 7d (Cloze) · pico May 1 (48) · transfer $100"
     },
     "crecimiento": {
       "score": 6,
-      "evidence": "2 items: Reddit r/replit + Zapier weekly summary AI"
+      "evidence": "4 items: Reddit r/Anthropic + r/replit + Visualping TTS + Zapier weekly"
     },
     "familia": {
-      "score": 6,
-      "evidence": "Sia 3 llamadas programadas · transfer $72 a Miguel · sin emails familia esta semana"
+      "score": 7,
+      "evidence": "Sia 3 llamadas semana · transfer $72 a Miguel · 2 miembros activos"
     },
     "legal": {
       "score": 4,
@@ -448,7 +462,7 @@
     }
   },
   "metricsData": {
-    "date": "2026-05-03",
+    "date": "2026-05-04",
     "patrimonio": {
       "nwNeto": 343772,
       "totalBruto": 401659,
@@ -488,26 +502,26 @@
     "descanso": "2026-05-03",
     "inversiones": "2026-05-03",
     "finanzas": "2026-05-03",
-    "marian": "2026-05-03",
-    "crecimiento": "2026-05-03",
-    "familia": "2026-05-03",
-    "legal": "2026-05-03"
+    "marian": "2026-05-04",
+    "crecimiento": "2026-05-04",
+    "familia": "2026-05-04",
+    "legal": "2026-05-04"
   },
   "familiaNextContacts": [
     {
-      "who": "Sia",
+      "name": "Sia",
       "date": "2026-05-05",
-      "what": "Llamada Martes 2:00 PM EST"
+      "type": "llamada"
     },
     {
-      "who": "Sia",
+      "name": "Sia",
       "date": "2026-05-07",
-      "what": "Llamada Jueves 2:00 PM EST"
+      "type": "llamada"
     },
     {
-      "who": "Sia",
+      "name": "Sia",
       "date": "2026-05-09",
-      "what": "Llamada Sábado 2:00 PM EST (sesión larga)"
+      "type": "llamada larga"
     }
   ],
   "scoreHistory": [
