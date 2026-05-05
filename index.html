@@ -307,6 +307,20 @@
   .stale-badge.warn { background: rgba(240,136,62,0.15); color: #f0883e; border: 1px solid rgba(240,136,62,0.3); }
   .stale-badge.danger { background: rgba(248,81,73,0.15); color: #f85149; border: 1px solid rgba(248,81,73,0.35); }
 
+  /* ── STALE CARD DIMMING (9C v3, 2026-05-05) ──
+     When stalenessDays > 2× expectedFreshDays, dim the card so the user can
+     visually distinguish FRESH-confidence scores from STALE-confidence ones.
+     Score numerals stay readable but visibly de-emphasized; hover restores. */
+  .area-card.stale-dim {
+    opacity: 0.55;
+    background: var(--surface);
+    filter: grayscale(0.45);
+    transition: opacity 0.2s, filter 0.2s, background 0.2s;
+  }
+  .area-card.stale-dim:hover { opacity: 0.92; filter: grayscale(0.1); }
+  .area-card.stale-dim .area-note-static,
+  .area-card.stale-dim .target-badge { color: var(--muted); }
+
   /* ── DAY PATTERN ── */
   .day-pattern-card {
     background: var(--surface);
@@ -1071,7 +1085,10 @@ function buildCards() {
 
     // ── Staleness badge (9C v2, 2026-05-04): per-area expected refresh cadence ──
     // warn when stalenessDays > expected; danger when stalenessDays > 2× expected.
+    // (9C v3, 2026-05-05) When in the "danger" band → also visually dim the card via .stale-dim
     let staleBadgeHtml = "";
+    let cardIsStaleDim = false;
+    let cardStaleTooltip = "";
     if (typeof STALENESS_DATA !== 'undefined' && STALENESS_DATA[a.id]) {
       const stDate = new Date(STALENESS_DATA[a.id] + 'T12:00:00');
       const stDays = Math.floor((new Date() - stDate) / 86400000);
@@ -1079,6 +1096,8 @@ function buildCards() {
       const title = `Último valor fresco hace ${stDays} días (${STALENESS_DATA[a.id]}) · ventana esperada ${expected}d`;
       if (stDays > expected * 2) {
         staleBadgeHtml = `<span class="stale-badge danger" title="${title}">⏱️ ${stDays}d</span>`;
+        cardIsStaleDim = true;
+        cardStaleTooltip = `Score basado en datos de hace ${stDays} días — refresh recomendado (ventana esperada ${expected}d)`;
       } else if (stDays > expected) {
         staleBadgeHtml = `<span class="stale-badge warn" title="${title}">⏱️ ${stDays}d</span>`;
       }
@@ -1086,7 +1105,8 @@ function buildCards() {
     }
 
     const card = document.createElement("div");
-    card.className = "area-card";
+    card.className = "area-card" + (cardIsStaleDim ? " stale-dim" : "");
+    if (cardStaleTooltip) card.title = cardStaleTooltip;
     card.style.borderColor = v ? col+"66" : "var(--border)";
     card.innerHTML = `
       <div class="card-top">
