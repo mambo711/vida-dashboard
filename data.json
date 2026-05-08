@@ -564,7 +564,8 @@
     "decRevenue": 24000,
     "decHealth": 69,
     "michalitasMonthRev": 568,
-    "michalitasPePct": 13.5
+    "michalitasPePct": 13.5,
+    "sleepStreakBelowTarget": 2
   },
   "stalenessData": {
     "trabajo": "2026-05-03",
