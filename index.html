@@ -277,6 +277,25 @@
     color: #f0883e;
     margin-left: 6px;
   }
+  /* ── SLEEP STREAK BADGE (9C, 2026-05-08): consecutive nights below sleep target ── */
+  .sleep-streak-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    font-size: 0.62rem;
+    font-weight: 700;
+    color: #f0883e;
+    background: rgba(240,136,62,0.12);
+    border: 1px solid rgba(240,136,62,0.35);
+    border-radius: 4px;
+    padding: 1px 5px;
+    margin-left: 6px;
+  }
+  .sleep-streak-badge.critical {
+    color: #f85149;
+    background: rgba(248,81,73,0.12);
+    border-color: rgba(248,81,73,0.35);
+  }
   .streak-badge.hot { color: #f85149; }
 
   /* ── FRESHNESS ── */
@@ -1128,6 +1147,7 @@ function buildCards() {
       <div style="display:flex;align-items:center;gap:6px;margin-top:4px">
         <span class="auto-badge">🤖 Auto</span>
         ${(() => { const s = getStreak(a.id); return s >= 2 ? `<span class="streak-badge${s>=5?' hot':''}" title="${s} días consecutivos en meta">🔥 ${s}d</span>` : ''; })()}
+        ${a.id === 'descanso' && typeof METRICS_DATA !== 'undefined' && METRICS_DATA && (METRICS_DATA.sleepStreakBelowTarget || 0) >= 2 ? `<span class="sleep-streak-badge${(METRICS_DATA.sleepStreakBelowTarget || 0) >= 5 ? ' critical' : ''}" title="${METRICS_DATA.sleepStreakBelowTarget} noches consecutivas con sueño insuficiente (score ≤4)">😴 ${METRICS_DATA.sleepStreakBelowTarget}n</span>` : ''}
       </div>
       ${target && v ? `<div class="progress-bar-wrap">
         <div class="progress-bar"><div class="progress-bar-fill" style="width:${Math.min(v/target*100,100).toFixed(0)}%;background:${col}"></div></div>
