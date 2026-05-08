@@ -142,6 +142,20 @@
   },
   "scoreHistoryDaily": [
     {
+      "date": "2026-05-08",
+      "scores": {
+        "trabajo": 6,
+        "salud": 5,
+        "descanso": 4,
+        "inversiones": 7,
+        "finanzas": 4,
+        "marian": 9,
+        "crecimiento": 5,
+        "familia": 8,
+        "legal": 4
+      }
+    },
+    {
       "date": "2026-05-07",
       "scores": {
         "trabajo": 6,
@@ -468,43 +482,43 @@
   "suggested": {
     "trabajo": {
       "score": 6,
-      "evidence": "DEC: $24K rev 📡 Apr · Health 69/100 📡 | Michalitas: $488 mayo (11.6% PE · 6d) · déficit -$656"
+      "evidence": "DEC QUICK mode stale May 7 · Michalitas $568 (13.5% PE) · déficit -$654 · last-known 6 stale"
     },
     "salud": {
-      "score": 9,
-      "evidence": "9288 pasos · 53 min ej · HRV 50.6ms · RHR 58bpm (6 may)"
+      "score": 5,
+      "evidence": "Pasos 5369 · 4 min ejercicio · HRV 44ms · RHR 63bpm (7 may)"
     },
     "descanso": {
-      "score": 2,
-      "evidence": "Sueño 4.96h · Deep 0.89h · REM 0.98h · Core 3.09h (6 may) · 2do día <5h"
+      "score": 4,
+      "evidence": "Sueño 5.11h · Deep 0.87h · REM 1.14h · Core 3.10h (7 may)"
     },
     "inversiones": {
       "score": 7,
-      "evidence": "NW $344K 📡 · FI 69% 📡 · Bruto $402K · Deuda $58K (Apr 24 snapshot)"
+      "evidence": "NW $344K · FI 69% stale (24 Abr) · Bruto $402K · Deuda $58K"
     },
     "finanzas": {
       "score": 4,
-      "evidence": "Sueldo vía DEC · Runway ~1.9mo 📡 · DEC Health 69/100 📡 (DEC dashboard QUICK)"
+      "evidence": "Sueldo vía DEC · AR overdue $2,846 stale · DEC QUICK mode · last-known 4 stale"
     },
     "marian": {
       "score": 9,
-      "evidence": "119 interacciones 7d (Cloze) · pico 1 May (47) · sentmails+meetings consistente"
+      "evidence": "107 interacciones 6d Cloze · contacto hoy · Michalitas activo"
     },
     "crecimiento": {
       "score": 5,
-      "evidence": "1-2 items: Visualping news diff · Quora reflexiones · sin curso/libro hoy"
+      "evidence": "Sin cursos/libros 2d · agenda Read-Study May 9 programada"
     },
     "familia": {
-      "score": 7,
-      "evidence": "Sia 3 llamadas semana (jue/sáb/mar) · transfer $50 a Miguel · Mother's Day EC mar 12"
+      "score": 8,
+      "evidence": "Miguel ($50 transfer), Sia (plan vacacional), mamá (seguro BMI $117) · 3+ contactados"
     },
     "legal": {
       "score": 4,
-      "evidence": "Sin Cancillería · DocuSign lease/addendum firmados (5 may) · ciudadanía España pending"
+      "evidence": "Sin actividad Cancillería/Consulado 2d · default"
     }
   },
   "metricsData": {
-    "date": "2026-05-07",
+    "date": "2026-05-08",
     "patrimonio": {
       "nwNeto": 343772,
       "totalBruto": 401659,
@@ -542,42 +556,42 @@
     "deuda": 57887,
     "fiPct": 69,
     "runway": 1.9,
-    "sleepAvg": 4.96,
-    "steps": 9288,
-    "exerciseMin": 53,
-    "hrv": 50.6,
-    "rhr": 58.0,
+    "sleepAvg": 5.11,
+    "steps": 5369,
+    "exerciseMin": 4,
+    "hrv": 43.9,
+    "rhr": 63.0,
     "decRevenue": 24000,
     "decHealth": 69,
-    "michalitasMonthRev": 488,
-    "michalitasPePct": 11.6
+    "michalitasMonthRev": 568,
+    "michalitasPePct": 13.5
   },
   "stalenessData": {
     "trabajo": "2026-05-03",
-    "salud": "2026-05-07",
-    "descanso": "2026-05-07",
+    "salud": "2026-05-08",
+    "descanso": "2026-05-08",
     "inversiones": "2026-05-03",
     "finanzas": "2026-05-03",
-    "marian": "2026-05-07",
-    "crecimiento": "2026-05-07",
-    "familia": "2026-05-07",
-    "legal": "2026-05-07"
+    "marian": "2026-05-08",
+    "crecimiento": "2026-05-08",
+    "familia": "2026-05-08",
+    "legal": "2026-05-08"
   },
   "familiaNextContacts": [
     {
-      "date": "2026-05-07",
-      "name": "Sia",
-      "type": "llamada"
-    },
-    {
       "date": "2026-05-09",
       "name": "Sia",
-      "type": "llamada larga"
+      "type": "llamada larga (25-30 min)"
     },
     {
       "date": "2026-05-12",
       "name": "Esperanza (Día Madre EC)",
       "type": "llamada/regalo"
+    },
+    {
+      "date": "2026-05-12",
+      "name": "Sia",
+      "type": "llamada martes 2pm"
     }
   ],
   "scoreHistory": [
