@@ -145,12 +145,12 @@
       "date": "2026-05-14",
       "scores": {
         "trabajo": 5,
-        "salud": 5,
-        "descanso": 4,
-        "inversiones": 7,
-        "finanzas": 4,
-        "marian": 9,
-        "crecimiento": 5,
+        "salud": 4,
+        "descanso": 5,
+        "inversiones": 8,
+        "finanzas": 5,
+        "marian": 7,
+        "crecimiento": 6,
         "familia": 7,
         "legal": 4
       }
@@ -566,48 +566,48 @@
   "suggested": {
     "trabajo": {
       "score": 5,
-      "evidence": "DEC: Health 58/100 | Michalitas: $139/d\u00eda (86% PE) \u00b7 \u25bc$23 debajo PE"
+      "evidence": "DEC: Health 69/100 (QUICK Thu) | Michalitas: $170/d vs PE $136/d \u00b7 Curfew -May18 \u00b7 Proyec $-315"
     },
     "salud": {
-      "score": 5,
-      "evidence": "Sleep 5.55h \u00b7 Deep 38min \u00b7 REM 1.85h \u00b7 Steps 9,703 \u00b7 Ejercicio detectado \u00b7 Retorno Miami May 13"
+      "score": 4,
+      "evidence": "Sleep 5.55h \u00b7 Deep 38min \u00b7 REM 1.85h \u00b7 Steps 9,703 (May 13)"
     },
     "descanso": {
-      "score": 4,
-      "evidence": "Sleep 5.55h (baja) \u00b7 Deep 38min OK \u00b7 REM 1.85h \u00b7 D\u00eda post-viaje"
+      "score": 5,
+      "evidence": "Sleep 5.55h \u00b7 Deep 38min \u00b7 REM 1.85h (May 13)"
     },
     "inversiones": {
-      "score": 7,
-      "evidence": "NW $344K \u00b7 FI 69% \u00b7 TWR +11.3% \u00b7 Health 58/100 \u00b7 Datos May 12"
+      "score": 8,
+      "evidence": "NW $352.7K \u00b7 FI 71% \u00b7 TWR +12.3% \u00b7 Bruto $410.9K"
     },
     "finanzas": {
-      "score": 4,
-      "evidence": "Sueldo v\u00eda DEC \u00b7 Surplus -$1,681/mo \u00b7 DEC Health 58/100 \u00b7 Runway ~2mo"
+      "score": 5,
+      "evidence": "Sueldo via DEC \u00b7 Runway 2.0mo \u00b7 LOC $47,887 \u00b7 DEC Health 69/100"
     },
     "marian": {
-      "score": 9,
-      "evidence": "Cloze 7d: 198 interacciones \u00b7 20 reuniones \u00b7 May 11-12 muy activa \u00b7 May 13 activa"
+      "score": 7,
+      "evidence": "Cloze 7d: 173 interact \u00b7 sentmails=109 rcvd=47 calls=0 msgs=0 \u00b7 May 13 (email-only cap)"
     },
     "crecimiento": {
-      "score": 5,
-      "evidence": "Newsletters: 1 (PortfolioPilot) \u00b7 Estudio agendado May 16 (opciones book, Claude course)"
+      "score": 6,
+      "evidence": "Newsletters: Trade That Swing (May 13) + PortfolioPilot \u00b7 ultimos 7d"
     },
     "familia": {
       "score": 7,
-      "evidence": "Sia calls: Jue May 14 + Sab May 16 \u00b7 Contacto consistente via calendario"
+      "evidence": "Sia: llamadas Thu/Sat/Tue \u00b7 Miguel: Remitly $500 (May 12) \u00b7 2 contactos familia"
     },
     "legal": {
       "score": 4,
-      "evidence": "Canciller\u00eda: sin se\u00f1al \u00b7 LITRANSA: sin se\u00f1al \u00b7 Ciudadan\u00eda + herencia pendientes"
+      "evidence": "Cancilleria: sin senal \u00b7 LITRANSA: sin senal \u00b7 Ciudadania: pendiente"
     }
   },
   "metricsData": {
     "date": "2026-05-14",
     "patrimonio": {
-      "nwNeto": 343772,
-      "totalBruto": 401659,
-      "deuda": 57887,
-      "fiPct": 69.0
+      "nwNeto": 352743,
+      "totalBruto": 410976,
+      "deuda": 58233,
+      "fiPct": 71.0
     },
     "retiro": {
       "sepIra": 133786,
@@ -664,12 +664,16 @@
   },
   "familiaNextContacts": [
     {
-      "name": "Llamada con Sia \u2014 Jueves",
+      "name": "Llamada con Sia",
       "date": "2026-05-14"
     },
     {
-      "name": "Llamada con Sia \u2014 S\u00e1bado (sesi\u00f3n larga)",
+      "name": "Llamada con Sia (sesion larga)",
       "date": "2026-05-16"
+    },
+    {
+      "name": "Llamada con Sia",
+      "date": "2026-05-19"
     }
   ],
   "scoreHistory": [
