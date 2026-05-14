@@ -152,7 +152,7 @@
         "marian": 7,
         "crecimiento": 6,
         "familia": 7,
-        "legal": 4
+        "legal": 8
       }
     },
     {
@@ -597,8 +597,8 @@
       "evidence": "Sia: llamadas Thu/Sat/Tue \u00b7 Miguel: Remitly $500 (May 12) \u00b7 2 contactos familia"
     },
     "legal": {
-      "score": 4,
-      "evidence": "Cancilleria: sin senal \u00b7 LITRANSA: sin senal \u00b7 Ciudadania: pendiente"
+      "score": 8,
+      "evidence": "Sin asuntos pendientes \u00b7 Carlos Cadena: sin se\u00f1al"
     }
   },
   "metricsData": {
