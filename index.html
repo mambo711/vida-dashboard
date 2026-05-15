@@ -1147,7 +1147,7 @@ function buildCards() {
       <div style="display:flex;align-items:center;gap:6px;margin-top:4px">
         <span class="auto-badge">🤖 Auto</span>
         ${(() => { const s = getStreak(a.id); return s >= 2 ? `<span class="streak-badge${s>=5?' hot':''}" title="${s} días consecutivos en meta">🔥 ${s}d</span>` : ''; })()}
-        ${a.id === 'descanso' && typeof METRICS_DATA !== 'undefined' && METRICS_DATA && (METRICS_DATA.sleepStreakBelowTarget || 0) >= 2 ? `<span class="sleep-streak-badge${(METRICS_DATA.sleepStreakBelowTarget || 0) >= 5 ? ' critical' : ''}" title="${METRICS_DATA.sleepStreakBelowTarget} noches consecutivas con sueño insuficiente (score ≤4)">😴 ${METRICS_DATA.sleepStreakBelowTarget}n</span>` : ''}
+        ${a.id === 'descanso' && typeof METRICS_DATA !== 'undefined' && METRICS_DATA && (METRICS_DATA.sleepStreakBelowTarget || 0) >= 2 ? `<span class="sleep-streak-badge${(METRICS_DATA.sleepStreakBelowTarget || 0) >= 5 ? ' critical' : ''}" title="${METRICS_DATA.sleepStreakBelowTarget} noches consecutivas con sueño insuficiente (score ≤4)">${METRICS_DATA.sleepStreakBelowTarget} noches bajo target 🔴</span>` : ''}
       </div>
       ${target && v ? `<div class="progress-bar-wrap">
         <div class="progress-bar"><div class="progress-bar-fill" style="width:${Math.min(v/target*100,100).toFixed(0)}%;background:${col}"></div></div>
