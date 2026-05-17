@@ -147,7 +147,7 @@
         "trabajo": 5,
         "salud": 3,
         "descanso": 4,
-        "inversiones": 8,
+        "inversiones": 7,
         "finanzas": 5,
         "marian": 7,
         "crecimiento": 6,
@@ -566,48 +566,48 @@
   "suggested": {
     "trabajo": {
       "score": 5,
-      "evidence": "DEC Health 69/100 stale-23d | Michalitas: ~$1,357 (32% PE) mayo-15 stale-2d"
+      "evidence": "DEC: $18,408 MTD Health 69/100 | Michalitas: Abr $3,717 (88% PE) May stale-2d"
     },
     "salud": {
       "score": 3,
-      "evidence": "Sueno 5.08h | Ejercicio 0min | Pasos 15,984 | REM 52min | Deep 41min (2026-05-16)"
+      "evidence": "Sueno 5.08h | Ejercicio 0min | Pasos 78 | REM 52min | Deep 41min (stale 2026-05-16)"
     },
     "descanso": {
       "score": 4,
-      "evidence": "Sueno 5.08h <7h | Deep 41min | REM 52min | Acosto 3:24AM (2026-05-16)"
+      "evidence": "Sueno 5.08h <7h | Deep 41min | REM 52min | sin datos frescos (May-16)"
     },
     "inversiones": {
-      "score": 8,
-      "evidence": "NW $352.7K | FI 71.0% | Bruto $410.9K (May 14)"
+      "score": 7,
+      "evidence": "NW $336.5K | FI 67% | Bruto $409.7K | Health Score 59/100 (MODERADO)"
     },
     "finanzas": {
       "score": 5,
-      "evidence": "Sueldo via DEC | Runway 2.0mo | DEC Health 69/100 stale-23d"
+      "evidence": "Sueldo via DEC | Runway 2.0mo | DEC Health 69/100"
     },
     "marian": {
       "score": 7,
-      "evidence": "Cloze 7d: 137 inter. | sentmails=87 rcvd=35 calls=0 msgs=0 | ultima: 2026-05-13"
+      "evidence": "Cloze 7d: 225 inter. | 12 mtgs | sent=142 rcvd=71 | ultima: May 17"
     },
     "crecimiento": {
       "score": 6,
-      "evidence": "Newsletters: 1 (J.L. Cava) | Options book en progreso | ultimos 7d"
+      "evidence": "Options book Sab May-23 | Claude course en progreso | ultimos 7d"
     },
     "familia": {
       "score": 7,
-      "evidence": "Sia: llamada Sab 16-May + Mar 19 + Jue 21 | Marian: transfer $200 May-15"
+      "evidence": "Sia: llamadas Mar 19 + Jue 21 + Sab 23 | sin senal email (rodalt down)"
     },
     "legal": {
       "score": 8,
-      "evidence": "Sin asuntos pendientes | Carlos Cadena: sin senal"
+      "evidence": "Sin asuntos pendientes | Carlos Cadena: sin senal | rodalt email no disponible"
     }
   },
   "metricsData": {
     "date": "2026-05-17",
     "patrimonio": {
-      "nwNeto": 352743,
-      "totalBruto": 410976,
-      "deuda": 58233,
-      "fiPct": 71.0
+      "nwNeto": 336530,
+      "totalBruto": 409736,
+      "deuda": 72728.75,
+      "fiPct": 67
     },
     "retiro": {
       "sepIra": 138725,
@@ -635,10 +635,10 @@
       "surplus": 0,
       "runway": 2.0
     },
-    "nwNeto": 352743,
-    "totalBruto": 410976,
-    "deuda": 58233,
-    "fiPct": 71.0,
+    "nwNeto": 336530,
+    "totalBruto": 409736,
+    "deuda": 72728.75,
+    "fiPct": 67,
     "runway": 2.0,
     "sleepAvg": 5.08,
     "steps": 510,
@@ -670,6 +670,10 @@
     {
       "name": "Llamada con Sia - Jueves",
       "date": "2026-05-21"
+    },
+    {
+      "name": "Llamada con Sia - Sabado (sesion larga)",
+      "date": "2026-05-23"
     }
   ],
   "scoreHistory": [
