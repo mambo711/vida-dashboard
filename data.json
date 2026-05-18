@@ -142,6 +142,20 @@
   },
   "scoreHistoryDaily": [
     {
+      "date": "2026-05-18",
+      "scores": {
+        "trabajo": 6,
+        "salud": 3,
+        "descanso": 4,
+        "inversiones": 7,
+        "finanzas": 5,
+        "marian": 7,
+        "crecimiento": 6,
+        "familia": 7,
+        "legal": 8
+      }
+    },
+    {
       "date": "2026-05-17",
       "scores": {
         "trabajo": 5,
@@ -546,63 +560,49 @@
         "descanso": 4,
         "crecimiento": 5
       }
-    },
-    {
-      "date": "2026-04-07",
-      "scores": {
-        "salud": 3,
-        "finanzas": 4,
-        "inversiones": 6,
-        "marian": 8,
-        "familia": 4,
-        "trabajo": 6,
-        "legal": 4,
-        "descanso": 4,
-        "crecimiento": 4
-      }
     }
   ],
   "healthLastRealDate": "2026-05-16",
   "suggested": {
     "trabajo": {
-      "score": 5,
-      "evidence": "DEC: $18,408 MTD Health 69/100 | Michalitas: Abr $3,717 (88% PE) May stale-2d"
+      "score": 6,
+      "evidence": "DEC: $18,408 MTD \u00b7 Health 69/100 \ud83d\udce1 | Michalitas: $2,073 (49% PE) \u00b7 proy $4,233 \u00b7 curfew activo"
     },
     "salud": {
       "score": 3,
-      "evidence": "Sueno 5.08h | Ejercicio 0min | Pasos 78 | REM 52min | Deep 41min (stale 2026-05-16)"
+      "evidence": "Sue\u00f1o 5.08h \ud83d\udce1 \u00b7 0 min ejercicio (17 May) \u00b7 HbA1c 5.9%"
     },
     "descanso": {
       "score": 4,
-      "evidence": "Sueno 5.08h <7h | Deep 41min | REM 52min | sin datos frescos (May-16)"
+      "evidence": "Sue\u00f1o 5.08h \ud83d\udce1 \u00b7 deep/REM sin datos \u00b7 ejercicio 0 min"
     },
     "inversiones": {
       "score": 7,
-      "evidence": "NW $336.5K | FI 67% | Bruto $409.7K | Health Score 59/100 (MODERADO)"
+      "evidence": "NW $336,530 \u00b7 FI 67% \u00b7 NW bruto $409,736 \u00b7 deuda $72,729"
     },
     "finanzas": {
       "score": 5,
-      "evidence": "Sueldo via DEC | Runway 2.0mo | DEC Health 69/100"
+      "evidence": "Sueldo v\u00eda DEC \u00b7 Runway 2.0mo \u00b7 DEC Health 69/100"
     },
     "marian": {
       "score": 7,
-      "evidence": "Cloze 7d: 225 inter. | 12 mtgs | sent=142 rcvd=71 | ultima: May 17"
+      "evidence": "Cloze 7d: 176 interacciones \u00b7 10 meetings \u00b7 sentmails=112 rcvd=54 \u00b7 \u00faltima actividad: 2026-05-16"
     },
     "crecimiento": {
       "score": 6,
-      "evidence": "Options book Sab May-23 | Claude course en progreso | ultimos 7d"
+      "evidence": "Newsletters: 2 (Trade That Swing) \u00b7 Libro opciones en calendario \u00b7 \u00faltimos 7d"
     },
     "familia": {
       "score": 7,
-      "evidence": "Sia: llamadas Mar 19 + Jue 21 + Sab 23 | sin senal email (rodalt down)"
+      "evidence": "Sia calls: mar/jue/s\u00e1b esta semana \u00b7 Sin se\u00f1al Miguel/Jorge/Victor"
     },
     "legal": {
       "score": 8,
-      "evidence": "Sin asuntos pendientes | Carlos Cadena: sin senal | rodalt email no disponible"
+      "evidence": "Sin asuntos pendientes \u00b7 Carlos Cadena: sin se\u00f1al"
     }
   },
   "metricsData": {
-    "date": "2026-05-17",
+    "date": "2026-05-18",
     "patrimonio": {
       "nwNeto": 336530,
       "totalBruto": 409736,
@@ -652,27 +652,27 @@
     "sleepStreakBelowTarget": 2
   },
   "stalenessData": {
-    "trabajo": "2026-05-17",
+    "trabajo": "2026-05-18",
     "salud": "2026-05-17",
     "descanso": "2026-05-17",
-    "inversiones": "2026-05-17",
-    "finanzas": "2026-05-17",
-    "marian": "2026-05-17",
-    "crecimiento": "2026-05-17",
-    "familia": "2026-05-17",
-    "legal": "2026-05-17"
+    "inversiones": "2026-05-18",
+    "finanzas": "2026-05-18",
+    "marian": "2026-05-18",
+    "crecimiento": "2026-05-18",
+    "familia": "2026-05-18",
+    "legal": "2026-05-18"
   },
   "familiaNextContacts": [
     {
-      "name": "Llamada con Sia - Martes",
+      "name": "Llamada con Sia \u2014 Martes",
       "date": "2026-05-19"
     },
     {
-      "name": "Llamada con Sia - Jueves",
+      "name": "Llamada con Sia \u2014 Jueves",
       "date": "2026-05-21"
     },
     {
-      "name": "Llamada con Sia - Sabado (sesion larga)",
+      "name": "Llamada con Sia \u2014 S\u00e1bado (larga)",
       "date": "2026-05-23"
     }
   ],
