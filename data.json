@@ -142,6 +142,20 @@
   },
   "scoreHistoryDaily": [
     {
+      "date": "2026-05-20",
+      "scores": {
+        "trabajo": 6,
+        "salud": 1,
+        "descanso": 3,
+        "inversiones": 7,
+        "finanzas": 5,
+        "marian": 6,
+        "crecimiento": 7,
+        "familia": 6,
+        "legal": 8
+      }
+    },
+    {
       "date": "2026-05-19",
       "scores": {
         "trabajo": 6,
@@ -546,55 +560,41 @@
         "descanso": 4,
         "crecimiento": 5
       }
-    },
-    {
-      "date": "2026-04-09",
-      "scores": {
-        "salud": 3,
-        "finanzas": 5,
-        "inversiones": 7,
-        "marian": 7,
-        "familia": 5,
-        "trabajo": 6,
-        "legal": 4,
-        "descanso": 4,
-        "crecimiento": 5
-      }
     }
   ],
   "healthLastRealDate": "2026-05-18",
   "suggested": {
     "trabajo": {
       "score": 6,
-      "evidence": "DEC: $18,408 MTD · Health 69/100 📡 (QUICK) | Michalitas: $2,073 (49% PE) · proy $4,233 · curfew activo"
+      "evidence": "DEC QUICK·esperado martes · $22,278 MTD · Health 69/100 · Michalitas $2,073 (49% PE · proy ≈ PE) · 17May stale"
     },
     "salud": {
       "score": 1,
-      "evidence": "Sueño 4.33h (<5h) · 0 min ejercicio (18 May) · HbA1c 5.9%"
+      "evidence": "Sueño stale (archivo 6.4KB<10KB) · trend <5h 3ra+ noche · last: 4.33h/0ej 18May"
     },
     "descanso": {
       "score": 3,
-      "evidence": "Sueño 4.33h · deep 38min · REM 54min · 0 ejercicio"
+      "evidence": "Sueño stale · deep 38min · REM 54min · 0 ejercicio May 18"
     },
     "inversiones": {
       "score": 7,
-      "evidence": "NW $336,530 · FI 67% · NW bruto $409,736 · deuda $72,729"
+      "evidence": "NW $343,745 · FI 69% · Wealth Health 59/100 · deuda $72.7K"
     },
     "finanzas": {
       "score": 5,
-      "evidence": "Sueldo vía DEC · Runway 2.0mo · DEC Health 69/100 📡"
+      "evidence": "Sueldo vía DEC · Runway 2.0mo · DEC Health 69/100"
     },
     "marian": {
-      "score": 9,
-      "evidence": "Cloze 7d: 278 interacciones · 70 llamadas · 65 mensajes · última actividad: 2026-05-17"
+      "score": 6,
+      "evidence": "Cloze 7d: 0 interacciones (API?) · Email fwd operativo May 19 · email-only cap ≤7 · ANOMALÍA −3"
     },
     "crecimiento": {
       "score": 7,
-      "evidence": "Options book activo · Read-Study calendario · Newsletter 1 · últimos 7d"
+      "evidence": "Read-Study diario · CLAUDE Course + Options book · Barchart screeners · Últimos 7d"
     },
     "familia": {
-      "score": 7,
-      "evidence": "Sia calls mar/jue/sáb · Miguel contacto email+transferencia · $2K recibido"
+      "score": 6,
+      "evidence": "Miguel: email+fwd May 19 · Remitly $439→Jose Miguel May 19 · Sia calls programadas"
     },
     "legal": {
       "score": 8,
@@ -602,7 +602,7 @@
     }
   },
   "metricsData": {
-    "date": "2026-05-19",
+    "date": "2026-05-20",
     "patrimonio": {
       "nwNeto": 336530,
       "totalBruto": 409736,
@@ -636,45 +636,45 @@
       "surplus": 0,
       "runway": 2.0
     },
-    "nwNeto": 336530,
-    "totalBruto": 409736,
+    "nwNeto": 343745,
+    "totalBruto": 401978,
     "deuda": 72728.75,
-    "fiPct": 67,
+    "fiPct": 69,
     "runway": 2.0,
-    "sleepAvg": 5.08,
+    "sleepAvg": 4.33,
     "steps": 510,
     "exerciseMin": 0,
     "hrv": 35.8,
     "rhr": 60,
-    "decRevenue": 24000,
+    "decRevenue": 22278,
     "decHealth": 69,
-    "michalitasMonthRev": 1357.03,
-    "michalitasPePct": 32.2,
+    "michalitasMonthRev": 2073,
+    "michalitasPePct": 49,
     "sleepStreakBelowTarget": 3
   },
   "stalenessData": {
-    "trabajo": "2026-05-19",
-    "salud": "2026-05-19",
-    "descanso": "2026-05-19",
-    "inversiones": "2026-05-19",
-    "finanzas": "2026-05-19",
-    "marian": "2026-05-19",
-    "crecimiento": "2026-05-19",
-    "familia": "2026-05-19",
-    "legal": "2026-05-19"
+    "trabajo": "2026-05-20",
+    "salud": "2026-05-20",
+    "descanso": "2026-05-20",
+    "inversiones": "2026-05-20",
+    "finanzas": "2026-05-20",
+    "marian": "2026-05-20",
+    "crecimiento": "2026-05-20",
+    "familia": "2026-05-20",
+    "legal": "2026-05-20"
   },
   "familiaNextContacts": [
     {
-      "name": "Llamada con Sia — Martes",
-      "date": "2026-05-19"
-    },
-    {
-      "name": "Llamada con Sia — Jueves",
+      "name": "📞 Llamada con Sia — Jueves",
       "date": "2026-05-21"
     },
     {
-      "name": "Llamada con Sia — Sábado (sesión larga)",
+      "name": "📞 Llamada con Sia — Sábado",
       "date": "2026-05-23"
+    },
+    {
+      "name": "📞 Llamada con Sia — Martes",
+      "date": "2026-05-26"
     }
   ],
   "scoreHistory": [
