@@ -783,6 +783,7 @@ function getWeekNum(d) {
 }
 function fmtDate(d) {
   if (typeof d === 'string') {
+    if (d.includes('/')) return d; // ya formateado MM/DD/YYYY
     const [y,m,dy] = d.split('-'); return `${m}/${dy}/${y}`;
   }
   const mo = String(d.getMonth()+1).padStart(2,'0');
@@ -1342,7 +1343,7 @@ function saveWeek(silent) {
   const avg = scored.reduce((a,b)=>a+b,0)/scored.length;
   const curWeek = getWeekNum(today);
   const entry = {
-    date: fmtDate(today),
+    date: today.toISOString().slice(0,10),
     week: curWeek,
     scores: {...data.scores},
     avg: parseFloat(avg.toFixed(1)),
