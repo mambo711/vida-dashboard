@@ -611,16 +611,16 @@
       "twr": null
     },
     "retiro": {
-      "sepIra": 138725,
+      "sepIra": 140932,
       "rothIra": 61658,
       "tradIra": 28187
     },
     "trading": {
       "emergency": 31151,
       "cdsEcuador": 35000,
-      "tacticalEtf": 33597,
-      "options": 17026,
-      "ibkrRhFutures": 13160
+      "tacticalEtf": 34509,
+      "options": 12718,
+      "ibkrRhFutures": 13586
     },
     "salud": {
       "hba1c": 5.9,
@@ -636,10 +636,10 @@
       "surplus": 0,
       "runway": 2.0
     },
-    "nwNeto": 343745,
-    "totalBruto": 401978,
-    "deuda": 72728.75,
-    "fiPct": 69,
+    "nwNeto": 384545,
+    "totalBruto": 455076,
+    "deuda": 70531,
+    "fiPct": 76.9,
     "runway": 2.0,
     "sleepAvg": 4.33,
     "steps": 510,
