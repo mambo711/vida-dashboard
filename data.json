@@ -3,9 +3,9 @@
     {
       "id": "salud",
       "label": "Salud",
-      "icon": "🏥",
+      "icon": "\ud83c\udfe5",
       "color": "#3fb950",
-      "defaultNote": "Sleep ~5.3h · HbA1c 5.9% · LDL 125 · Meta: 160 lbs",
+      "defaultNote": "Sleep ~5.3h \u00b7 HbA1c 5.9% \u00b7 LDL 125 \u00b7 Meta: 160 lbs",
       "actions": [
         "Dormir antes de las 11pm",
         "30 min de ejercicio",
@@ -16,22 +16,22 @@
     {
       "id": "trabajo",
       "label": "Trabajo / Negocios",
-      "icon": "💼",
+      "icon": "\ud83d\udcbc",
       "color": "#79c0ff",
       "defaultNote": "DEC + Michalitas Guayaquil",
       "actions": [
         "Revisar metas semanales DEC",
         "Check Michalitas POS y ventas",
-        "Identificar 1 acción de crecimiento"
+        "Identificar 1 acci\u00f3n de crecimiento"
       ],
       "link": "https://mambo711.github.io/dec-dashboard/"
     },
     {
       "id": "inversiones",
       "label": "Inversiones",
-      "icon": "📈",
+      "icon": "\ud83d\udcc8",
       "color": "#58a6ff",
-      "defaultNote": "Net Worth $340,656 · Bruto $398,543 · FI meta: 68%",
+      "defaultNote": "Net Worth $340,656 \u00b7 Bruto $398,543 \u00b7 FI meta: 68%",
       "actions": [
         "Revisar allocations TradeStation",
         "Abrir Macro Wealth dashboard",
@@ -42,9 +42,9 @@
     {
       "id": "finanzas",
       "label": "Finanzas",
-      "icon": "💰",
+      "icon": "\ud83d\udcb0",
       "color": "#f0883e",
-      "defaultNote": "Mazda $10,837 · Renta $2,100/mo · LOC $47,887",
+      "defaultNote": "Mazda $10,837 \u00b7 Renta $2,100/mo \u00b7 LOC $47,887",
       "actions": [
         "Plan para reducir LOC Wells Fargo",
         "Revisar surplus mensual",
@@ -55,9 +55,9 @@
     {
       "id": "marian",
       "label": "Marian & Relaciones",
-      "icon": "❤️",
+      "icon": "\u2764\ufe0f",
       "color": "#f85149",
-      "defaultNote": "Contacto activo · Sia · Michalitas",
+      "defaultNote": "Contacto activo \u00b7 Sia \u00b7 Michalitas",
       "actions": [
         "Llamada o visita esta semana",
         "Tiempo de calidad (no trabajo)",
@@ -68,9 +68,9 @@
     {
       "id": "familia",
       "label": "Familia",
-      "icon": "👨‍👩‍👧",
+      "icon": "\ud83d\udc68\u200d\ud83d\udc69\u200d\ud83d\udc67",
       "color": "#bc8cff",
-      "defaultNote": "Ecuador: Jorge, Víctor, Esperanza · Miguel Miami",
+      "defaultNote": "Ecuador: Jorge, V\u00edctor, Esperanza \u00b7 Miguel Miami",
       "actions": [
         "Llamar a Esperanza (salud)",
         "WhatsApp a hermanos Ecuador",
@@ -81,9 +81,9 @@
     {
       "id": "descanso",
       "label": "Descanso / Ocio",
-      "icon": "🌴",
+      "icon": "\ud83c\udf34",
       "color": "#56d364",
-      "defaultNote": "Hobbies · tiempo libre · viajes · recreación",
+      "defaultNote": "Hobbies \u00b7 tiempo libre \u00b7 viajes \u00b7 recreaci\u00f3n",
       "actions": [
         "Planear 1 actividad recreativa",
         "Desconectarse 1 tarde completa",
@@ -94,11 +94,11 @@
     {
       "id": "crecimiento",
       "label": "Crecimiento Personal",
-      "icon": "📚",
+      "icon": "\ud83d\udcda",
       "color": "#d2a8ff",
-      "defaultNote": "Lectura · aprendizaje · nuevas habilidades",
+      "defaultNote": "Lectura \u00b7 aprendizaje \u00b7 nuevas habilidades",
       "actions": [
-        "Leer 20 min al día",
+        "Leer 20 min al d\u00eda",
         "Identificar 1 habilidad a desarrollar",
         "Podcast o curso esta semana"
       ],
@@ -107,13 +107,13 @@
     {
       "id": "legal",
       "label": "Legal / Ecuador",
-      "icon": "⚖️",
+      "icon": "\u2696\ufe0f",
       "color": "#e3b341",
-      "defaultNote": "Ciudadanía española en trámite · LITRANSA · INMOROYDU",
+      "defaultNote": "Ciudadan\u00eda espa\u00f1ola en tr\u00e1mite \u00b7 LITRANSA \u00b7 INMOROYDU",
       "actions": [
-        "Status ciudadanía Consulado Miami",
+        "Status ciudadan\u00eda Consulado Miami",
         "Revisar estate LITRANSA/INMOROYDU",
-        "Follow-up trámites legales Ecuador"
+        "Follow-up tr\u00e1mites legales Ecuador"
       ],
       "link": null
     }
@@ -566,39 +566,39 @@
   "suggested": {
     "trabajo": {
       "score": 6,
-      "evidence": "DEC: $32K MTD · Health 69/100 📡28d stale | Michalitas: $449 (10.7% PE, 2d) · prom $224/día +22% hist"
+      "evidence": "DEC: $32K MTD \u00b7 Health 69/100 \ud83d\udce128d stale | Michalitas: $449 (10.7% PE, 2d) \u00b7 prom $224/d\u00eda +22% hist"
     },
     "salud": {
       "score": 3,
-      "evidence": "Sueño 5.67h (+1.63h mejora) · Deep 72min · REM 43min · 0 min ejercicio · 679 pasos"
+      "evidence": "Sue\u00f1o 5.67h (+1.63h mejora) \u00b7 Deep 72min \u00b7 REM 43min \u00b7 0 min ejercicio \u00b7 679 pasos"
     },
     "descanso": {
       "score": 5,
-      "evidence": "Sueño 5.67h · Deep 72min (excelente) · REM 43min · primera mejora tras 5 noches bajo 5h"
+      "evidence": "Sue\u00f1o 5.67h \u00b7 Deep 72min (excelente) \u00b7 REM 43min \u00b7 primera mejora tras 5 noches bajo 5h"
     },
     "inversiones": {
       "score": 7,
-      "evidence": "NW $344K · FI 69% · Bruto $402K · TWR N/A"
+      "evidence": "NW $344K \u00b7 FI 69% \u00b7 Bruto $402K \u00b7 TWR N/A"
     },
     "finanzas": {
       "score": 5,
-      "evidence": "Sueldo vía DEC · Runway 2.0mo · DEC Health 69/100 📡28d stale"
+      "evidence": "Sueldo v\u00eda DEC \u00b7 Runway 2.0mo \u00b7 DEC Health 69/100 \ud83d\udce128d stale"
     },
     "marian": {
       "score": 6,
-      "evidence": "Cloze API=0 (glitch) · Email personal May 21 OK · Zoom Michalitas May 22"
+      "evidence": "Cloze API=0 (glitch) \u00b7 Email personal May 21 OK \u00b7 Zoom Michalitas May 22"
     },
     "crecimiento": {
       "score": 7,
-      "evidence": "Newsletters: 1 (Cava) · Calendario: Read-Study, Claude Course, Options book activos"
+      "evidence": "Newsletters: 1 (Cava) \u00b7 Calendario: Read-Study, Claude Course, Options book activos"
     },
     "familia": {
       "score": 6,
-      "evidence": "Miguel: Zoom May 22 + email threads · Sia: llamada hoy 2pm (sesión larga)"
+      "evidence": "Miguel: Zoom May 22 + email threads \u00b7 Sia: llamada hoy 2pm (sesi\u00f3n larga)"
     },
     "legal": {
       "score": 8,
-      "evidence": "Sin asuntos pendientes · Carlos Cadena: sin señal"
+      "evidence": "Sin asuntos pendientes \u00b7 Carlos Cadena: sin se\u00f1al"
     }
   },
   "metricsData": {
@@ -665,15 +665,15 @@
   },
   "familiaNextContacts": [
     {
-      "name": "Llamada con Sia — Sábado (sesión larga)",
+      "name": "Llamada con Sia \u2014 S\u00e1bado (sesi\u00f3n larga)",
       "date": "2026-05-23"
     },
     {
-      "name": "Llamada con Sia — Martes",
+      "name": "Llamada con Sia \u2014 Martes",
       "date": "2026-05-26"
     },
     {
-      "name": "Llamada con Sia — Jueves",
+      "name": "Llamada con Sia \u2014 Jueves",
       "date": "2026-05-28"
     }
   ],
@@ -703,5 +703,20 @@
     "trabajo": 3,
     "legal": 14,
     "inversiones": 7
+  },
+  "todayActions": {
+    "date": "2026-05-23",
+    "items": [
+      {
+        "text": "Widget \ud83c\udfaf HOY agregado al dashboard \u2014 verificar que se muestra correctamente",
+        "urgency": "radar",
+        "source": "Sistema"
+      },
+      {
+        "text": "Ma\u00f1ana el briefing llenar\u00e1 esta secci\u00f3n autom\u00e1ticamente",
+        "urgency": "radar",
+        "source": "Info"
+      }
+    ]
   }
 }
