@@ -144,14 +144,14 @@
     {
       "date": "2026-05-23",
       "scores": {
-        "trabajo": 6,
+        "trabajo": 5,
         "salud": 3,
         "descanso": 5,
         "inversiones": 7,
         "finanzas": 5,
-        "marian": 6,
+        "marian": 8,
         "crecimiento": 7,
-        "familia": 6,
+        "familia": 7,
         "legal": 8
       }
     },
@@ -565,36 +565,36 @@
   "healthLastRealDate": "2026-05-22",
   "suggested": {
     "trabajo": {
-      "score": 6,
-      "evidence": "DEC: $32K MTD \u00b7 Health 69/100 \ud83d\udce128d stale | Michalitas: $449 (10.7% PE, 2d) \u00b7 prom $224/d\u00eda +22% hist"
+      "score": 5,
+      "evidence": "DEC avg $4,795/mo YTD \u00b7 buffer $47K \u2705 | Michalitas $449 acum. 2d \u00b7 prom $224/d\u00eda (+22%) vs PE $4,216"
     },
     "salud": {
       "score": 3,
-      "evidence": "Sue\u00f1o 5.67h (+1.63h mejora) \u00b7 Deep 72min \u00b7 REM 43min \u00b7 0 min ejercicio \u00b7 679 pasos"
+      "evidence": "Datos Apple Watch no disponibles (sync pendiente) \u00b7 patr\u00f3n 5+ noches <5h sleep (stale)"
     },
     "descanso": {
       "score": 5,
-      "evidence": "Sue\u00f1o 5.67h \u00b7 Deep 72min (excelente) \u00b7 REM 43min \u00b7 primera mejora tras 5 noches bajo 5h"
+      "evidence": "Sin datos Apple Watch frescos \u00b7 descanso score de run anterior (stale)"
     },
     "inversiones": {
       "score": 7,
-      "evidence": "NW $344K \u00b7 FI 69% \u00b7 Bruto $402K \u00b7 TWR N/A"
+      "evidence": "NW $344K \u00b7 FI 69% \u00b7 TWR +10.4%"
     },
     "finanzas": {
       "score": 5,
-      "evidence": "Sueldo v\u00eda DEC \u00b7 Runway 2.0mo \u00b7 DEC Health 69/100 \ud83d\udce128d stale"
+      "evidence": "Sueldo v\u00eda Rodalt \u00b7 Surplus real -$261/mo \u00b7 DEC buffer $47K \u2705 \u00b7 LOC $48K @8.5%"
     },
     "marian": {
-      "score": 6,
-      "evidence": "Cloze API=0 (glitch) \u00b7 Email personal May 21 OK \u00b7 Zoom Michalitas May 22"
+      "score": 8,
+      "evidence": "Cloze 7d: sentmails=297 rcvd=87 calls=11 msgs=9 \u00b7 Email hoy (confirmaciones Michalitas) \u00b7 \u00faltima llamada: May 17"
     },
     "crecimiento": {
       "score": 7,
-      "evidence": "Newsletters: 1 (Cava) \u00b7 Calendario: Read-Study, Claude Course, Options book activos"
+      "evidence": "Newsletters: 1 (Cava/BTC) \u00b7 Calendario estudio: diario (Claude Course, Options book, artifacts) \u00b7 \u00faltimos 7d"
     },
     "familia": {
-      "score": 6,
-      "evidence": "Miguel: Zoom May 22 + email threads \u00b7 Sia: llamada hoy 2pm (sesi\u00f3n larga)"
+      "score": 7,
+      "evidence": "Contactos: Sia (llamada hoy 2PM) + Miguel (Zoom May 22) \u00b7 \u00faltimas se\u00f1ales: May 22-23"
     },
     "legal": {
       "score": 8,
@@ -606,7 +606,7 @@
     "patrimonio": {
       "nwNeto": 344298,
       "totalBruto": 402531,
-      "deuda": 58233,
+      "deuda": 70531,
       "fiPct": 69,
       "twr": null
     },
@@ -634,7 +634,7 @@
       "locRate": 8.5,
       "mazda": 10837,
       "surplus": 0,
-      "runway": 2.0
+      "runway": 7.9
     },
     "nwNeto": 344298,
     "totalBruto": 402531,
@@ -665,16 +665,16 @@
   },
   "familiaNextContacts": [
     {
-      "name": "Llamada con Sia \u2014 S\u00e1bado (sesi\u00f3n larga)",
-      "date": "2026-05-23"
-    },
-    {
       "name": "Llamada con Sia \u2014 Martes",
       "date": "2026-05-26"
     },
     {
       "name": "Llamada con Sia \u2014 Jueves",
       "date": "2026-05-28"
+    },
+    {
+      "name": "Llamada con Sia \u2014 S\u00e1bado",
+      "date": "2026-05-30"
     }
   ],
   "scoreHistory": [
