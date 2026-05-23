@@ -703,35 +703,5 @@
     "trabajo": 3,
     "legal": 14,
     "inversiones": 7
-  },
-  "todayActions": {
-    "date": "2026-05-23",
-    "items": [
-      {
-        "text": "Salud: 30+ min ejercicio hoy \u2014 0 min ayer, 679 pasos. Gap m\u00e1s grande (3\u21927)",
-        "urgency": "urgent",
-        "source": "Salud"
-      },
-      {
-        "text": "Descanso: dormir antes de 11pm \u2014 sue\u00f1o 5.67h mejorando pero lejos del target 7h",
-        "urgency": "urgent",
-        "source": "Descanso"
-      },
-      {
-        "text": "Finanzas: revisar runway DEC (2.0 meses) \u2014 verificar proyecci\u00f3n de cobros pr\u00f3ximos",
-        "urgency": "week",
-        "source": "Finanzas"
-      },
-      {
-        "text": "Marian: llamar o escribir hoy \u2014 Cloze muestra 0 interacciones (posible glitch API)",
-        "urgency": "week",
-        "source": "Marian"
-      },
-      {
-        "text": "Trabajo: actualizar dashboard DEC (28 d\u00edas stale) \u2014 Health Score 69/100",
-        "urgency": "radar",
-        "source": "Trabajo"
-      }
-    ]
   }
 }
