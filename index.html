@@ -341,6 +341,66 @@
   .area-card.stale-dim .target-badge { color: var(--muted); }
 
   /* ── DAY PATTERN ── */
+  /* ── TODAY ACTIONS WIDGET ── */
+  .today-actions-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin-bottom: 20px;
+  }
+  .today-actions-card .card-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  .today-actions-empty {
+    font-size: 0.8rem;
+    color: var(--muted);
+    font-style: italic;
+    padding: 4px 0;
+  }
+  .today-action-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 7px 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.82rem;
+    line-height: 1.4;
+  }
+  .today-action-item:last-child { border-bottom: none; }
+  .action-urgency {
+    flex-shrink: 0;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    font-weight: 700;
+  }
+  .action-urgency.urgent  { background: #da3633; color: #fff; }
+  .action-urgency.week    { background: #d29922; color: #fff; }
+  .action-urgency.radar   { background: #238636; color: #fff; }
+  .action-text { flex: 1; color: var(--text); }
+  .action-source {
+    flex-shrink: 0;
+    font-size: 0.65rem;
+    color: var(--muted);
+    background: var(--surf2);
+    padding: 2px 6px;
+    border-radius: 4px;
+    align-self: center;
+  }
+  .today-actions-date {
+    font-size: 0.65rem;
+    color: var(--muted);
+    float: right;
+    font-weight: 400;
+  }
+
   .day-pattern-card {
     background: var(--surface);
     border: 1px solid var(--border);
@@ -683,6 +743,12 @@
   <span id="freshnessIndicator" class="freshness"></span>
 </div>
 
+<!-- TODAY ACTIONS -->
+<div class="today-actions-card" id="todayActionsCard" style="display:none">
+  <div class="card-title">🎯 Hoy <span class="today-actions-date" id="todayActionsDate"></span></div>
+  <div id="todayActionsBody"></div>
+</div>
+
 <!-- MAIN GRID -->
 <div class="main-grid">
   <div class="areas-grid" id="areasGrid"></div>
@@ -726,7 +792,7 @@
 // Data constants — loaded from data.json via fetch()
 let AREAS, TARGETS, WEIGHTS, SCORE_HISTORY_DAILY, HEALTH_LAST_REAL_DATE,
     SUGGESTED, METRICS_DATA, STALENESS_DATA, FAMILIA_NEXT_CONTACTS,
-    EXPECTED_FRESH_DAYS;
+    EXPECTED_FRESH_DAYS, TODAY_ACTIONS;
 
 // Default expected refresh cadence per area (9C v2, 2026-05-04).
 // Overridden by data.json `expectedFreshDays` if present.
@@ -1052,6 +1118,42 @@ function buildFamiliaNextContact() {
     </div>
     ${rows}
   </div>`;
+}
+
+// ── TODAY ACTIONS WIDGET ──────────────────────────────────────────────
+function buildTodayActions() {
+  const card = document.getElementById('todayActionsCard');
+  const body = document.getElementById('todayActionsBody');
+  const dateEl = document.getElementById('todayActionsDate');
+  if (!TODAY_ACTIONS || !TODAY_ACTIONS.items || !TODAY_ACTIONS.items.length) {
+    card.style.display = 'none';
+    return;
+  }
+  const today = new Date().toISOString().slice(0, 10);
+  // Only show if actions are from today (or yesterday max)
+  const actDate = TODAY_ACTIONS.date || '';
+  if (actDate && actDate < new Date(Date.now() - 2 * 86400000).toISOString().slice(0, 10)) {
+    card.style.display = 'none';
+    return;
+  }
+  card.style.display = 'block';
+  dateEl.textContent = actDate === today ? 'Hoy' : actDate;
+
+  const urgencyMap = {
+    'urgent': { cls: 'urgent', icon: '!' },
+    'week':   { cls: 'week',   icon: '→' },
+    'radar':  { cls: 'radar',  icon: '·' }
+  };
+
+  body.innerHTML = TODAY_ACTIONS.items.map(item => {
+    const u = urgencyMap[item.urgency] || urgencyMap['radar'];
+    const source = item.source ? `<span class="action-source">${item.source}</span>` : '';
+    return `<div class="today-action-item">
+      <span class="action-urgency ${u.cls}">${u.icon}</span>
+      <span class="action-text">${item.text}</span>
+      ${source}
+    </div>`;
+  }).join('');
 }
 
 // ── AREA CARDS ────────────────────────────────────────────────────────
@@ -1585,6 +1687,7 @@ fetch('data.json')
     STALENESS_DATA        = d.stalenessData;
     EXPECTED_FRESH_DAYS   = d.expectedFreshDays || DEFAULT_EXPECTED_FRESH_DAYS;
     FAMILIA_NEXT_CONTACTS = d.familiaNextContacts;
+    TODAY_ACTIONS          = d.todayActions || null;
 
     // Fully automatic — load all scores from SUGGESTED (data-driven)
     Object.entries(SUGGESTED).forEach(([id, {score}]) => {
@@ -1611,6 +1714,7 @@ fetch('data.json')
     }
 
     autoSaveIfNewWeek();
+    buildTodayActions();
     buildCards();
     updateAvg();
     buildRadar();
