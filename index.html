@@ -783,7 +783,19 @@ function getWeekNum(d) {
 }
 function fmtDate(d) {
   if (typeof d === 'string') {
-    const [y,m,dy] = d.split('-'); return `${m}/${dy}/${y}`;
+    // YYYY-MM-DD (ISO) — primary format
+    if (/^\d{4}-\d{2}-\d{2}$/.test(d)) {
+      const [y,m,dy] = d.split('-'); return `${m}/${dy}/${y}`;
+    }
+    // MM/DD/YYYY — legacy localStorage entries
+    if (/^\d{1,2}\/\d{1,2}\/\d{4}$/.test(d)) return d;
+    // DD/MM/YYYY — some older entries saved in locale format
+    const dmy = d.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
+    if (dmy && parseInt(dmy[1]) > 12) return `${dmy[2].padStart(2,'0')}/${dmy[1].padStart(2,'0')}/${dmy[3]}`;
+    // Fallback: try native Date parse
+    const p = new Date(d);
+    if (!isNaN(p)) { const mo=String(p.getMonth()+1).padStart(2,'0'); const dy=String(p.getDate()).padStart(2,'0'); return `${mo}/${dy}/${p.getFullYear()}`; }
+    return d;
   }
   const mo = String(d.getMonth()+1).padStart(2,'0');
   const day = String(d.getDate()).padStart(2,'0');
