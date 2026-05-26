@@ -1054,6 +1054,49 @@ function buildFamiliaNextContact() {
   </div>`;
 }
 
+// ── WATCH WEARING RATE (added 2026-05-26 — detects "watch off" pattern proactively) ──
+function buildWatchWearingRate() {
+  if (!SCORE_HISTORY_DAILY || SCORE_HISTORY_DAILY.length < 1) return '';
+  // Last 7 entries (newest first)
+  const last7 = SCORE_HISTORY_DAILY.slice(0, 7);
+  if (!last7.length) return '';
+  // Compute per-day "worn" flag.
+  // PRIMARY signal: steps > 2000 AND totalSleep > 0 (requires SKILL.md to persist these fields).
+  // FALLBACK: salud score >= 5 as proxy (low salud strongly correlates with "watch off" days).
+  const days = last7.map(entry => {
+    const steps = (entry && (entry.steps ?? (entry.metrics && entry.metrics.steps))) || null;
+    const sleep = (entry && (entry.totalSleep ?? (entry.metrics && entry.metrics.totalSleep))) || null;
+    const salud = entry && entry.scores ? entry.scores.salud : null;
+    let worn;
+    if (steps !== null && sleep !== null) {
+      worn = (steps > 2000 && sleep > 0);
+    } else {
+      worn = salud !== null && salud >= 5;
+    }
+    return { date: entry.date, worn };
+  });
+  const wornCount = days.filter(d => d.worn).length;
+  const pct = Math.round((wornCount / 7) * 100);
+  // Color tier
+  let col, label;
+  if (wornCount >= 6) { col = '#3fb950'; label = 'óptimo'; }
+  else if (wornCount >= 4) { col = '#d4a72c'; label = 'parcial'; }
+  else { col = '#f85149'; label = 'bajo'; }
+  // Day dots — oldest first for left→right reading
+  const dotsHtml = days.slice().reverse().map(d => {
+    const c = d.worn ? '#3fb950' : '#444c56';
+    const tt = `${d.date}: ${d.worn ? 'llevado' : 'fuera'}`;
+    return `<span title="${tt}" style="display:inline-block;width:10px;height:10px;border-radius:50%;background:${c};margin-right:3px"></span>`;
+  }).join('');
+  return `<div class="runway-wrap" style="margin-top:6px">
+    <div class="runway-header" style="margin-bottom:4px">
+      <span class="runway-title">⌚ Watch usage (7d)</span>
+      <span class="runway-badge" style="color:${col};font-weight:600">${wornCount}/7 · ${pct}% · ${label}</span>
+    </div>
+    <div style="padding:2px 0">${dotsHtml}</div>
+  </div>`;
+}
+
 // ── AREA CARDS ────────────────────────────────────────────────────────
 function buildCards() {
   const grid = document.getElementById("areasGrid");
@@ -1158,6 +1201,7 @@ function buildCards() {
       ${a.id === 'finanzas' ? buildRunwayBar(METRICS_DATA.finanzas.runway) : ''}
       ${a.id === 'crecimiento' ? buildCrecimientoStreak() : ''}
                  ${a.id === 'familia' ? buildFamiliaNextContact() : ''}
+      ${a.id === 'salud' ? buildWatchWearingRate() : ''}
       ${healthFreshnessHtml}`;
     grid.appendChild(card);
   });
