@@ -632,6 +632,39 @@
   .metrics-toggle:hover { color: var(--accent); background: var(--surf2); }
   .metrics-body { transition: max-height 0.3s ease, opacity 0.3s ease; overflow: hidden; }
   .metrics-body.collapsed { max-height: 0 !important; opacity: 0; }
+
+  /* ── SLEEP STREAK WIDGET ── */
+  .sleep-streak-summary {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 10px; padding: 8px 10px; border-radius: 8px;
+    background: var(--surf2); font-size: 0.78rem;
+  }
+  .sleep-streak-summary .ssn { font-weight: 700; font-size: 0.92rem; }
+  .sleep-streak-summary .ssn.red { color: #f85149; }
+  .sleep-streak-summary .ssn.yellow { color: #d29922; }
+  .sleep-streak-summary .ssn.green { color: #3fb950; }
+  .sleep-streak-bars { display: flex; flex-direction: column; gap: 3px; }
+  .ssbar-row {
+    display: grid; grid-template-columns: 38px 1fr 42px;
+    align-items: center; gap: 6px; font-size: 0.7rem;
+  }
+  .ssbar-row .ssdate { color: var(--muted); font-size: 0.62rem; font-family: monospace; }
+  .ssbar-row .ssbar-track {
+    position: relative; height: 12px; background: var(--surf2);
+    border-radius: 3px; overflow: hidden;
+  }
+  .ssbar-row .ssbar-fill { height: 100%; border-radius: 3px; transition: width 0.3s; }
+  .ssbar-row .ssbar-fill.red { background: #f85149; }
+  .ssbar-row .ssbar-fill.yellow { background: #d29922; }
+  .ssbar-row .ssbar-fill.green { background: #3fb950; }
+  .ssbar-row .ssbar-fill.unknown { background: #30363d; }
+  .ssbar-row .ssval { font-family: monospace; font-size: 0.65rem; color: var(--text); text-align: right; }
+  .ssbar-row .ssval.muted { color: var(--muted); }
+  /* threshold line at 7h on the 10h scale = 70% */
+  .ssbar-track::after {
+    content: ''; position: absolute; top: 0; bottom: 0; left: 70%;
+    width: 1px; background: rgba(63, 185, 80, 0.4); pointer-events: none;
+  }
 </style>
 </head>
 <body>
@@ -691,6 +724,11 @@
     <div class="radar-card">
       <div class="card-title">Rueda de la Vida</div>
       <div class="radar-wrap"><canvas id="radarChart"></canvas></div>
+    </div>
+
+    <div class="metrics-card" id="sleepStreakCard">
+      <div class="card-title">😴 Sleep Streak (14d)</div>
+      <div id="sleepStreakContent"></div>
     </div>
 
     <div class="metrics-card">
@@ -1188,6 +1226,66 @@ function editNote(id) {
   ta.addEventListener("keydown", e => { if (e.key === "Escape") ta.blur(); });
 }
 
+// buildSleepStreak — 14-day horizontal bar chart of nightly sleep
+// Uses entry.totalSleep when present, falls back to salud-score proxy otherwise.
+// Color thresholds: red <5h, yellow 5–7h, green >7h. Threshold marker at 7h.
+function buildSleepStreak() {
+  const card = document.getElementById("sleepStreakCard");
+  const target = document.getElementById("sleepStreakContent");
+  if (!target) return;
+
+  const history = (typeof SCORE_HISTORY_DAILY !== "undefined" && SCORE_HISTORY_DAILY) ? SCORE_HISTORY_DAILY.slice(0, 14) : [];
+  if (history.length < 1) { card.style.display = "none"; return; }
+
+  // Build each row's (sleep_h, isProxy, salud) tuple
+  const rows = history.map(e => {
+    let h = (typeof e.totalSleep === "number") ? e.totalSleep : null;
+    let proxy = false;
+    if (h == null) {
+      // Proxy from salud score: 1-2→3h, 3-4→4.5h, 5→5.5h, 6→6h, 7→7h, 8→7.5h, 9-10→8h
+      const s = (e.scores && e.scores.salud) || 0;
+      proxy = true;
+      const map = {1:3.0, 2:3.5, 3:4.5, 4:5.0, 5:5.5, 6:6.5, 7:7.0, 8:7.5, 9:8.0, 10:8.5};
+      h = map[s] || null;
+    }
+    return { date: e.date, h, proxy, salud: (e.scores && e.scores.salud) || 0 };
+  });
+
+  // Streak summary: count current streak of <5h nights (starting from most recent)
+  let streak5 = 0, streak7 = 0;
+  for (const r of rows) {
+    if (r.h != null && r.h < 5) streak5++; else break;
+  }
+  for (const r of rows) {
+    if (r.h != null && r.h < 7) streak7++; else break;
+  }
+  const streakClass = streak5 >= 2 ? "red" : (streak7 >= 3 ? "yellow" : "green");
+  const streakLabel = streak5 >= 1
+    ? `<span class="ssn red">${streak5}n <5h</span> · <span class="ssn yellow">${streak7}n <7h</span>`
+    : (streak7 >= 1 ? `<span class="ssn yellow">${streak7}n <7h</span>` : `<span class="ssn green">Sin racha</span>`);
+
+  let html = `<div class="sleep-streak-summary"><span>Racha actual:</span>${streakLabel}</div>`;
+  html += `<div class="sleep-streak-bars">`;
+  for (const r of rows) {
+    if (r.h == null) {
+      html += `<div class="ssbar-row"><span class="ssdate">${r.date.slice(5)}</span>` +
+              `<div class="ssbar-track"><div class="ssbar-fill unknown" style="width:0%"></div></div>` +
+              `<span class="ssval muted">—</span></div>`;
+      continue;
+    }
+    const pct = Math.min(100, Math.round((r.h / 10) * 100));
+    const color = r.h < 5 ? "red" : (r.h < 7 ? "yellow" : "green");
+    const proxyMark = r.proxy ? "≈" : "";
+    html += `<div class="ssbar-row" title="${r.proxy ? 'Estimado de salud='+r.salud : 'Apple Watch'}">` +
+            `<span class="ssdate">${r.date.slice(5)}</span>` +
+            `<div class="ssbar-track"><div class="ssbar-fill ${color}" style="width:${pct}%"></div></div>` +
+            `<span class="ssval${r.proxy ? ' muted' : ''}">${proxyMark}${r.h.toFixed(1)}h</span></div>`;
+  }
+  html += `</div>`;
+  html += `<div style="margin-top:8px;font-size:0.6rem;color:var(--muted);text-align:right">Meta 7h+ · <span style="color:#3fb950">|</span> umbral · ≈ proxy</div>`;
+  target.innerHTML = html;
+}
+
 // toggleMetrics — show/hide Métricas Clave
 // Default is ALWAYS collapsed on page load (no localStorage restore).
 // User clicks to expand during the session; reload resets to collapsed.
@@ -1609,6 +1707,7 @@ fetch('data.json')
     updateCriticalBanner();
     renderHistory();
     buildMetrics();
+    buildSleepStreak();
     updateFreshness();
     buildDayPatterns();
   })
