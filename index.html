@@ -698,7 +698,7 @@
         <div class="card-title" style="margin-bottom:0">Métricas Clave</div>
         <button class="metrics-toggle" id="metricsToggle" onclick="toggleMetrics()" title="Mostrar métricas">👁️‍🗨️</button>
       </div>
-      <div class="metrics-body collapsed" id="metricsBody" style="max-height:0;opacity:0">
+      <div class="metrics-body collapsed" id="metricsBody">
         <div id="metricsContent"></div>
       </div><!-- /metrics-body -->
     </div>
@@ -1188,14 +1188,11 @@ function editNote(id) {
   ta.addEventListener("keydown", e => { if (e.key === "Escape") ta.blur(); });
 }
 
-// toggleMetrics — show/hide Métricas Clave
+// toggleMetrics — show/hide Métricas Clave (class-only, no inline style fights)
 function toggleMetrics() {
   const body = document.getElementById("metricsBody");
   const btn = document.getElementById("metricsToggle");
   const collapsed = body.classList.toggle("collapsed");
-  // Also update inline style — the HTML ships with max-height:0;opacity:0 which would override the un-collapsed state otherwise
-  body.style.maxHeight = collapsed ? "0" : "2000px";
-  body.style.opacity = collapsed ? "0" : "1";
   btn.textContent = collapsed ? "👁️‍🗨️" : "👁️";
   btn.title = collapsed ? "Mostrar métricas" : "Ocultar métricas";
   try { localStorage.setItem("vida_metrics_collapsed", collapsed ? "1" : "0"); } catch(e) {}
@@ -1207,11 +1204,10 @@ function toggleMetrics() {
     const body = document.getElementById("metricsBody");
     const btn = document.getElementById("metricsToggle");
     if (stored === "0") {
-      // User explicitly expanded previously — honor that
-      if (body) { body.classList.remove("collapsed"); body.style.maxHeight = "2000px"; body.style.opacity = "1"; }
+      if (body) body.classList.remove("collapsed");
       if (btn) { btn.textContent = "👁️"; btn.title = "Ocultar métricas"; }
     }
-    // else: keep the HTML default (collapsed), nothing to do
+    // else: keep the HTML default (collapsed) — class is already on the element
   } catch(e) {}
 })();
 
