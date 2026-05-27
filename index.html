@@ -696,9 +696,9 @@
     <div class="metrics-card">
       <div class="metrics-header">
         <div class="card-title" style="margin-bottom:0">Métricas Clave</div>
-        <button class="metrics-toggle" id="metricsToggle" onclick="toggleMetrics()" title="Mostrar/Ocultar métricas">👁️</button>
+        <button class="metrics-toggle" id="metricsToggle" onclick="toggleMetrics()" title="Mostrar métricas">👁️‍🗨️</button>
       </div>
-      <div class="metrics-body" id="metricsBody" style="max-height:2000px;opacity:1">
+      <div class="metrics-body collapsed" id="metricsBody" style="max-height:0;opacity:0">
         <div id="metricsContent"></div>
       </div><!-- /metrics-body -->
     </div>
@@ -1197,15 +1197,18 @@ function toggleMetrics() {
   btn.title = collapsed ? "Mostrar métricas" : "Ocultar métricas";
   try { localStorage.setItem("vida_metrics_collapsed", collapsed ? "1" : "0"); } catch(e) {}
 }
-// Restore metrics toggle state
+// Restore metrics toggle state — DEFAULT is COLLAPSED. Only expand if user explicitly opened it before.
 (function() {
   try {
-    if (localStorage.getItem("vida_metrics_collapsed") === "1") {
-      const body = document.getElementById("metricsBody");
-      const btn = document.getElementById("metricsToggle");
-      if (body) { body.classList.add("collapsed"); body.style.maxHeight = "0"; body.style.opacity = "0"; }
-      if (btn) { btn.textContent = "👁️‍🗨️"; btn.title = "Mostrar métricas"; }
+    const stored = localStorage.getItem("vida_metrics_collapsed");
+    const body = document.getElementById("metricsBody");
+    const btn = document.getElementById("metricsToggle");
+    if (stored === "0") {
+      // User explicitly expanded previously — honor that
+      if (body) { body.classList.remove("collapsed"); body.style.maxHeight = "2000px"; body.style.opacity = "1"; }
+      if (btn) { btn.textContent = "👁️"; btn.title = "Ocultar métricas"; }
     }
+    // else: keep the HTML default (collapsed), nothing to do
   } catch(e) {}
 })();
 
