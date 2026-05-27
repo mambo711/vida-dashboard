@@ -1193,6 +1193,9 @@ function toggleMetrics() {
   const body = document.getElementById("metricsBody");
   const btn = document.getElementById("metricsToggle");
   const collapsed = body.classList.toggle("collapsed");
+  // Also update inline style — the HTML ships with max-height:0;opacity:0 which would override the un-collapsed state otherwise
+  body.style.maxHeight = collapsed ? "0" : "2000px";
+  body.style.opacity = collapsed ? "0" : "1";
   btn.textContent = collapsed ? "👁️‍🗨️" : "👁️";
   btn.title = collapsed ? "Mostrar métricas" : "Ocultar métricas";
   try { localStorage.setItem("vida_metrics_collapsed", collapsed ? "1" : "0"); } catch(e) {}
