@@ -148,7 +148,7 @@
         "salud": 2,
         "descanso": 3,
         "inversiones": 8,
-        "finanzas": 4,
+        "finanzas": 5,
         "marian": 9,
         "crecimiento": 7,
         "familia": 8,
@@ -589,8 +589,8 @@
       "evidence": "NW $393K - FI 79% - TWR +15.2%"
     },
     "finanzas": {
-      "score": 4,
-      "evidence": "Sueldo via DEC - Caja real Xero $44.9K (>umbral $40K) / opex $13.8K/mo = runway 3.3mo - DEC neto +$8.7K/mo (rentable). Score conservador por LOC $47.9K activa."
+      "score": 5,
+      "evidence": "Sueldo via DEC - Caja Xero $44.9K (>umbral $40K) / opex $13.8K/mo = runway 3.3mo - DEC neto +$8.7K/mo (rentable) - DEC Health 28/100 (<50, -1)"
     },
     "marian": {
       "score": 9,
