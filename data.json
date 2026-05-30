@@ -634,7 +634,11 @@
       "hba1c": 5.9,
       "ldl": 125,
       "sleepAvg": 4.8,
-      "pesoMeta": 160
+      "pesoMeta": 160,
+      "steps": 942,
+      "exerciseMin": 0,
+      "hrv": 58.9,
+      "rhr": 53
     },
     "finanzas": {
       "renta": 2100,
@@ -716,5 +720,56 @@
     "legal": 14,
     "inversiones": 7
   },
-  "lastUpdated": "2026-05-27T07:09:09.359857"
+  "lastUpdated": "2026-05-27T07:09:09.359857",
+  "insights": {
+    "updated": "2026-05-30",
+    "window": "30d (2026-04-23 \u2192 2026-05-30)",
+    "palanca": {
+      "area": "legal",
+      "sumR": 2.43
+    },
+    "volatil": {
+      "area": "salud",
+      "std": 2.2
+    },
+    "declive": {
+      "area": "descanso",
+      "from": 5.0,
+      "to": 4.0,
+      "delta": -1.0
+    },
+    "mejora": {
+      "area": "legal",
+      "from": 4.5,
+      "to": 8.0,
+      "delta": 3.5
+    },
+    "topPairs": [
+      {
+        "a": "finanzas",
+        "b": "legal",
+        "r": 0.93,
+        "tipo": "fuerte"
+      },
+      {
+        "a": "crecimiento",
+        "b": "legal",
+        "r": 0.62,
+        "tipo": "moderada"
+      },
+      {
+        "a": "finanzas",
+        "b": "crecimiento",
+        "r": 0.53,
+        "tipo": "moderada"
+      },
+      {
+        "a": "marian",
+        "b": "legal",
+        "r": -0.48,
+        "tipo": "leve"
+      }
+    ],
+    "recomendacion": "Salud es la m\u00e1s vol\u00e1til (\u03c3=2.2) y de alto peso (1.5) \u2014 estabilizar sue\u00f1o y actividad reduce el vaiv\u00e9n de todo el tablero. Descanso viene en declive (5.0\u21924.0). La correlaci\u00f3n finanzas\u2194legal (r=0.93) es alta, pero 'legal' es casi constante, as\u00ed que NO es palanca accionable real: enf\u00f3cate en salud y descanso este mes."
+  }
 }
