@@ -590,7 +590,7 @@
     },
     "finanzas": {
       "score": 4,
-      "evidence": "Sueldo via DEC - Runway 3.0mo (bajo por diseno, plan LOC) - DEC Health 28/100 (<50, -1)"
+      "evidence": "Sueldo via DEC - Caja real Xero $44.9K (>umbral $40K) / opex $13.8K/mo = runway 3.3mo - DEC neto +$8.7K/mo (rentable). Score conservador por LOC $47.9K activa."
     },
     "marian": {
       "score": 9,
@@ -642,7 +642,11 @@
       "locRate": 8.5,
       "mazda": 10837,
       "surplus": 0,
-      "runway": 3.0
+      "runway": 3.3,
+      "cash": 44912,
+      "burn": 13754,
+      "netMonthly": 8693,
+      "locNote": "caja $44.9K > umbral $40K \u2192 reanudar plan LOC (~jul 2026)"
     },
     "nwNeto": 344298,
     "totalBruto": 402531,
