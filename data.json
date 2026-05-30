@@ -129,7 +129,7 @@
     {
       "date": "2026-05-30",
       "scores": {
-        "trabajo": 4,
+        "trabajo": 5,
         "salud": 6,
         "descanso": 1,
         "inversiones": 8,
@@ -552,8 +552,8 @@
   "healthLastRealDate": "2026-05-29",
   "suggested": {
     "trabajo": {
-      "score": 4,
-      "evidence": "DEC Health 3/10 CRITICO (28/100) - MTD $42,791 56.5% - Cash $0 - AR od $860 - Order Fulfillment 0/20, Customer Resp 4/20 | Michalitas $3,838 (91% PE) proy +$228"
+      "score": 5,
+      "evidence": "DEC ~5/10 (recalc real: 2 \u00f3rdenes proc, la +vieja 4d NO 21d stale; carry-overs y deals inflados por auto-notifs+ghosts en state.json) \u00b7 Michalitas 6/10 (91% PE). DEC vende y es rentable."
     },
     "salud": {
       "score": 6,
