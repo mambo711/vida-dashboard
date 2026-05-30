@@ -7,9 +7,9 @@
       "color": "#3fb950",
       "defaultNote": "Sleep ~5.3h \u00b7 HbA1c 5.9% \u00b7 LDL 125 \u00b7 Meta: 160 lbs",
       "actions": [
-        "Dormir antes de las 11pm",
-        "30 min de ejercicio",
-        "Controlar carbohidratos"
+        "Caminar 7,000 pasos o 30 min de ejercicio",
+        "Mantener HRV/RHR con actividad regular",
+        "Chequear HbA1c/LDL"
       ],
       "link": null
     },
@@ -80,14 +80,14 @@
     },
     {
       "id": "descanso",
-      "label": "Descanso / Ocio",
-      "icon": "\ud83c\udf34",
+      "label": "Descanso / Sue\u00f1o",
+      "icon": "\ud83d\ude34",
       "color": "#56d364",
       "defaultNote": "Hobbies \u00b7 tiempo libre \u00b7 viajes \u00b7 recreaci\u00f3n",
       "actions": [
-        "Planear 1 actividad recreativa",
-        "Desconectarse 1 tarde completa",
-        "Tiempo sin pantallas ni trabajo"
+        "Dormir 7h+ esta noche; cortar pantallas 1h antes",
+        "Bloquear hora de dormir fija",
+        "Revisar deep/REM en el Watch"
       ],
       "link": null
     },
@@ -103,19 +103,6 @@
         "Podcast o curso esta semana"
       ],
       "link": null
-    },
-    {
-      "id": "legal",
-      "label": "Legal / Ecuador",
-      "icon": "\u2696\ufe0f",
-      "color": "#e3b341",
-      "defaultNote": "Ciudadan\u00eda espa\u00f1ola en tr\u00e1mite \u00b7 LITRANSA \u00b7 INMOROYDU",
-      "actions": [
-        "Status ciudadan\u00eda Consulado Miami",
-        "Revisar estate LITRANSA/INMOROYDU",
-        "Follow-up tr\u00e1mites legales Ecuador"
-      ],
-      "link": null
     }
   ],
   "targets": {
@@ -125,7 +112,6 @@
     "marian": 8,
     "familia": 7,
     "trabajo": 8,
-    "legal": 6,
     "descanso": 7,
     "crecimiento": 7
   },
@@ -136,7 +122,6 @@
     "marian": 1.2,
     "familia": 1.0,
     "trabajo": 1.4,
-    "legal": 0.7,
     "descanso": 1.0,
     "crecimiento": 0.8
   },
@@ -145,14 +130,13 @@
       "date": "2026-05-30",
       "scores": {
         "trabajo": 4,
-        "salud": 2,
-        "descanso": 3,
+        "salud": 6,
+        "descanso": 1,
         "inversiones": 8,
         "finanzas": 5,
         "marian": 9,
-        "crecimiento": 7,
-        "familia": 8,
-        "legal": 8
+        "crecimiento": 5,
+        "familia": 8
       },
       "steps": 1100,
       "totalSleep": 4.8,
@@ -169,8 +153,7 @@
         "finanzas": 4,
         "marian": 8,
         "crecimiento": 7,
-        "familia": 6,
-        "legal": 8
+        "familia": 6
       },
       "steps": 173,
       "totalSleep": 4.05,
@@ -187,8 +170,7 @@
         "finanzas": 5,
         "marian": 9,
         "crecimiento": 7,
-        "familia": 7,
-        "legal": 8
+        "familia": 7
       },
       "steps": 16104,
       "totalSleep": 5.21,
@@ -205,8 +187,7 @@
         "finanzas": 5,
         "marian": 8,
         "crecimiento": 7,
-        "familia": 6,
-        "legal": 8
+        "familia": 6
       },
       "steps": 2412,
       "totalSleep": 4.63,
@@ -223,8 +204,7 @@
         "finanzas": 5,
         "marian": 9,
         "crecimiento": 7,
-        "familia": 7,
-        "legal": 8
+        "familia": 7
       },
       "hrv": 52.5,
       "rhr": 51.0
@@ -239,8 +219,7 @@
         "finanzas": 5,
         "marian": 7,
         "crecimiento": 7,
-        "familia": 6,
-        "legal": 8
+        "familia": 6
       },
       "hrv": 46.5,
       "rhr": 54.0
@@ -254,7 +233,6 @@
         "marian": 7,
         "crecimiento": 7,
         "familia": 6,
-        "legal": 8,
         "salud": 9,
         "descanso": 6
       },
@@ -270,7 +248,6 @@
         "marian": 7,
         "crecimiento": 7,
         "familia": 6,
-        "legal": 8,
         "salud": 4,
         "descanso": 4
       },
@@ -287,8 +264,7 @@
         "finanzas": 5,
         "marian": 7,
         "crecimiento": 7,
-        "familia": 6,
-        "legal": 8
+        "familia": 6
       },
       "hrv": 69.6,
       "rhr": 51.0
@@ -303,8 +279,7 @@
         "finanzas": 5,
         "marian": 9,
         "crecimiento": 7,
-        "familia": 7,
-        "legal": 8
+        "familia": 7
       },
       "hrv": 58.7,
       "rhr": 50.0
@@ -319,8 +294,7 @@
         "finanzas": 5,
         "marian": 6,
         "crecimiento": 7,
-        "familia": 6,
-        "legal": 8
+        "familia": 6
       },
       "hrv": 45.9,
       "rhr": 54.0
@@ -335,8 +309,7 @@
         "finanzas": 5,
         "marian": 9,
         "crecimiento": 7,
-        "familia": 7,
-        "legal": 8
+        "familia": 7
       },
       "hrv": 51.3,
       "rhr": 52.0
@@ -351,8 +324,7 @@
         "finanzas": 5,
         "marian": 7,
         "crecimiento": 6,
-        "familia": 7,
-        "legal": 8
+        "familia": 7
       }
     },
     {
@@ -365,8 +337,7 @@
         "finanzas": 5,
         "marian": 7,
         "crecimiento": 6,
-        "familia": 7,
-        "legal": 8
+        "familia": 7
       }
     },
     {
@@ -379,8 +350,7 @@
         "finanzas": 5,
         "marian": 7,
         "crecimiento": 5,
-        "familia": 6,
-        "legal": 8
+        "familia": 6
       }
     },
     {
@@ -393,8 +363,7 @@
         "finanzas": 5,
         "marian": 7,
         "crecimiento": 6,
-        "familia": 7,
-        "legal": 8
+        "familia": 7
       }
     },
     {
@@ -407,8 +376,7 @@
         "finanzas": 4,
         "marian": 8,
         "crecimiento": 3,
-        "familia": 5,
-        "legal": 4
+        "familia": 5
       }
     },
     {
@@ -421,8 +389,7 @@
         "finanzas": 4,
         "marian": 7,
         "crecimiento": 5,
-        "familia": 6,
-        "legal": 4
+        "familia": 6
       }
     },
     {
@@ -435,8 +402,7 @@
         "finanzas": 4,
         "marian": 8,
         "crecimiento": 5,
-        "familia": 7,
-        "legal": 4
+        "familia": 7
       }
     },
     {
@@ -449,8 +415,7 @@
         "finanzas": 4,
         "marian": 8,
         "crecimiento": 5,
-        "familia": 7,
-        "legal": 4
+        "familia": 7
       }
     },
     {
@@ -463,8 +428,7 @@
         "finanzas": 4,
         "marian": 9,
         "crecimiento": 5,
-        "familia": 7,
-        "legal": 4
+        "familia": 7
       }
     },
     {
@@ -477,8 +441,7 @@
         "finanzas": 4,
         "marian": 9,
         "crecimiento": 5,
-        "familia": 8,
-        "legal": 4
+        "familia": 8
       }
     },
     {
@@ -491,8 +454,7 @@
         "finanzas": 4,
         "marian": 9,
         "crecimiento": 5,
-        "familia": 7,
-        "legal": 4
+        "familia": 7
       }
     },
     {
@@ -505,8 +467,7 @@
         "finanzas": 4,
         "marian": 9,
         "crecimiento": 7,
-        "familia": 6,
-        "legal": 4
+        "familia": 6
       }
     },
     {
@@ -519,8 +480,7 @@
         "finanzas": 4,
         "marian": 9,
         "crecimiento": 6,
-        "familia": 6,
-        "legal": 4
+        "familia": 6
       }
     },
     {
@@ -533,8 +493,7 @@
         "finanzas": 4,
         "marian": 9,
         "crecimiento": 6,
-        "familia": 7,
-        "legal": 4
+        "familia": 7
       }
     },
     {
@@ -547,8 +506,7 @@
         "finanzas": 4,
         "marian": 9,
         "crecimiento": 6,
-        "familia": 6,
-        "legal": 4
+        "familia": 6
       }
     },
     {
@@ -561,8 +519,7 @@
         "finanzas": 4,
         "marian": 9,
         "crecimiento": 6,
-        "familia": 6,
-        "legal": 4
+        "familia": 6
       }
     },
     {
@@ -575,8 +532,7 @@
         "finanzas": 4,
         "marian": 9,
         "crecimiento": 6,
-        "familia": 6,
-        "legal": 4
+        "familia": 6
       }
     },
     {
@@ -589,8 +545,7 @@
         "finanzas": 5,
         "marian": 8,
         "crecimiento": 5,
-        "familia": 7,
-        "legal": 7
+        "familia": 7
       }
     }
   ],
@@ -601,12 +556,12 @@
       "evidence": "DEC Health 3/10 CRITICO (28/100) - MTD $42,791 56.5% - Cash $0 - AR od $860 - Order Fulfillment 0/20, Customer Resp 4/20 | Michalitas $3,838 (91% PE) proy +$228"
     },
     "salud": {
-      "score": 2,
-      "evidence": "Sueno 4.8h (D-1 2026-05-29) - 0 min ejercicio - 1,100 pasos - 5a noche <5h"
+      "score": 6,
+      "evidence": "HRV 58.9ms (buena) \u00b7 RHR 53bpm (buena) \u00b7 pasos 942 (bajo) \u00b7 ejercicio 0min \u00b7 HbA1c 5.9/LDL 125 \u2014 sin sue\u00f1o (va en Descanso)"
     },
     "descanso": {
-      "score": 3,
-      "evidence": "Sueno 4.8h - Deep 0.65h (39min) - REM 1.45h (87min) - calidad OK pero total muy bajo"
+      "score": 1,
+      "evidence": "Sue\u00f1o 4.8h \u00b7 deep 39min \u00b7 REM 1.45h \u00b7 racha d\u00e9ficit 5 noches <7h"
     },
     "inversiones": {
       "score": 8,
@@ -621,16 +576,12 @@
       "evidence": "Cloze 7d: 312 interacciones - 21 llamadas - 3 mensajes - ultima personal 2026-05-28 (D-2)"
     },
     "crecimiento": {
-      "score": 7,
-      "evidence": "Newsletters 1 (J.L. Cava) - Calendario estudio Read-Study + Options book - ultimos 7d"
+      "score": 5,
+      "evidence": "Se\u00f1ales reales: 1 (newsletter J.L. Cava) \u00b7 calendario NO cuenta \u00b7 \u00faltimos 7d"
     },
     "familia": {
       "score": 8,
       "evidence": "Contactos Marian, Sia, Miguel - Transferencias N - Ultima senal Cloze D-2"
-    },
-    "legal": {
-      "score": 8,
-      "evidence": "Sin asuntos pendientes - Carlos Cadena sin senal"
     }
   },
   "metricsData": {
@@ -700,8 +651,7 @@
     "finanzas": "2026-05-30",
     "marian": "2026-05-30",
     "crecimiento": "2026-05-30",
-    "familia": "2026-05-30",
-    "legal": "2026-05-30"
+    "familia": "2026-05-30"
   },
   "familiaNextContacts": [
     {
@@ -741,7 +691,6 @@
     "familia": 1,
     "finanzas": 3,
     "trabajo": 3,
-    "legal": 14,
     "inversiones": 7
   },
   "lastUpdated": "2026-05-27T07:09:09.359857",
@@ -749,51 +698,45 @@
     "updated": "2026-05-30",
     "window": "30d (2026-04-23 \u2192 2026-05-30)",
     "palanca": {
-      "area": "legal",
-      "sumR": 2.43
+      "area": "finanzas",
+      "sumR": 1.36
     },
     "volatil": {
       "area": "salud",
-      "std": 2.2
+      "std": 2.23
     },
     "declive": {
       "area": "descanso",
       "from": 5.0,
-      "to": 4.0,
-      "delta": -1.0
+      "to": 3.9,
+      "delta": -1.1
     },
     "mejora": {
-      "area": "legal",
-      "from": 4.5,
-      "to": 8.0,
-      "delta": 3.5
+      "area": "crecimiento",
+      "from": 5.4,
+      "to": 6.6,
+      "delta": 1.2
     },
     "topPairs": [
       {
         "a": "finanzas",
-        "b": "legal",
-        "r": 0.93,
-        "tipo": "fuerte"
-      },
-      {
-        "a": "crecimiento",
-        "b": "legal",
-        "r": 0.62,
-        "tipo": "moderada"
+        "b": "marian",
+        "r": -0.47,
+        "tipo": "leve"
       },
       {
         "a": "finanzas",
         "b": "crecimiento",
-        "r": 0.53,
-        "tipo": "moderada"
+        "r": 0.47,
+        "tipo": "leve"
       },
       {
-        "a": "marian",
-        "b": "legal",
-        "r": -0.48,
+        "a": "inversiones",
+        "b": "finanzas",
+        "r": 0.42,
         "tipo": "leve"
       }
     ],
-    "recomendacion": "Salud es la m\u00e1s vol\u00e1til (\u03c3=2.2) y de alto peso (1.5) \u2014 estabilizar sue\u00f1o y actividad reduce el vaiv\u00e9n de todo el tablero. Descanso viene en declive (5.0\u21924.0). La correlaci\u00f3n finanzas\u2194legal (r=0.93) es alta, pero 'legal' es casi constante, as\u00ed que NO es palanca accionable real: enf\u00f3cate en salud y descanso este mes."
+    "recomendacion": "Salud y Descanso ahora miden cosas distintas: hoy Salud 6 (HRV/RHR buenos) pero Descanso 1 (4.8h, 5a noche de d\u00e9ficit) \u2014 el cuerpo aguanta pero el sue\u00f1o es el problema #1. Enf\u00f3cate en dormir 7h+ esta semana; es la palanca m\u00e1s urgente."
   }
 }
