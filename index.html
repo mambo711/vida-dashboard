@@ -1210,7 +1210,7 @@ function buildCards() {
         <div class="progress-bar"><div class="progress-bar-fill" style="width:${Math.min(v/target*100,100).toFixed(0)}%;background:${col}"></div></div>
         <span class="progress-pct" style="color:${col}">${Math.round(v/target*100)}%</span>
       </div>` : ''}
-      ${v && v < (TARGETS[a.id]||10) ? `<div style="font-size:0.72rem;color:var(--accent);margin-top:6px;padding-top:6px;border-top:1px solid var(--border)">💡 ${a.actions[0]}</div>` : ''}
+      ${v && v < (TARGETS[a.id]||10) ? `<div style="font-size:0.72rem;color:${v<=4?'#f85149':'var(--accent)'};font-weight:${v<=4?'600':'400'};margin-top:6px;padding-top:6px;border-top:1px solid var(--border)">${v<=4?'👉 Acción:':'💡'} ${a.actions[0]}</div>` : ''}
       ${SCORE_HISTORY_DAILY.length >= 2 ? `<div class="card-sparkline"><span class="sparkline-label">14d</span>${buildSparkline(a.id)}</div>` : ''}
       ${a.id === 'finanzas' ? buildRunwayBar(METRICS_DATA.finanzas.runway) : ''}
       ${a.id === 'crecimiento' ? buildCrecimientoStreak() : ''}
@@ -1318,6 +1318,27 @@ function toggleMetrics() {
 // Clear any legacy localStorage value from previous behavior so it can't auto-expand
 try { localStorage.removeItem("vida_metrics_collapsed"); } catch(e) {}
 
+// ── COMPOSITE 30d WEIGHTED-AVERAGE TREND (#1, 2026-05-30) ────────────
+function buildAvgTrend() {
+  if (!SCORE_HISTORY_DAILY || SCORE_HISTORY_DAILY.length < 3) return '';
+  const ent = [...SCORE_HISTORY_DAILY].slice(0, 30).reverse(); // oldest → newest
+  const vals = ent.map(e => {
+    let ws = 0, wt = 0;
+    AREAS.forEach(a => { const s = (e.scores || {})[a.id]; if (s > 0) { const w = WEIGHTS[a.id] || 1; ws += s * w; wt += w; } });
+    return wt ? ws / wt : null;
+  }).filter(v => v != null);
+  if (vals.length < 3) return '';
+  const w = 180, h = 34, min = Math.min(...vals), max = Math.max(...vals), rng = (max - min) || 1;
+  const pts = vals.map((v, i) => `${(i / (vals.length - 1) * w).toFixed(1)},${(h - 2 - ((v - min) / rng) * (h - 6)).toFixed(1)}`).join(' ');
+  const first = vals[0], last = vals[vals.length - 1], d = last - first;
+  const col = d > 0.2 ? '#3fb950' : d < -0.2 ? '#f85149' : '#8b949e';
+  const arrow = d > 0.2 ? '▲' : d < -0.2 ? '▼' : '→';
+  return `<div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;padding-bottom:8px;border-bottom:1px solid var(--border)">
+    <svg width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" style="overflow:visible"><polyline points="${pts}" fill="none" stroke="${col}" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/></svg>
+    <div style="font-size:0.7rem;line-height:1.4"><b style="color:${col}">${arrow} ${d >= 0 ? '+' : ''}${d.toFixed(1)}</b><br><span style="color:var(--muted)">tendencia ${vals.length}d</span></div>
+  </div>`;
+}
+
 // ── AVERAGE (weighted) ────────────────────────────────────────────────
 function updateAvg() {
   const active = AREAS.filter(a => (data.scores[a.id] || 0) > 0);
@@ -1358,7 +1379,8 @@ function updateAvg() {
   })).filter(g => g.gap > 0).sort((a,b) => b.gap - a.gap);
   const top3 = gaps.slice(0, 3);
 
-  let html = `<div style="font-size:0.75rem;color:var(--muted);line-height:1.8">`;
+  let html = buildAvgTrend();
+  html += `<div style="font-size:0.75rem;color:var(--muted);line-height:1.8">`;
   html += `<div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:8px">`;
   html += `<span style="color:#3fb950;font-weight:600">✓ En meta: ${onTarget.length}/${active.length}</span>`;
   if (critical.length) html += `<span style="color:#f85149;font-weight:600">⚠ Críticos: ${critical.length}</span>`;
@@ -1611,6 +1633,15 @@ function buildMetrics() {
     if (sa.rhr != null) {
       const rhrCol = sa.rhr <= 60 ? '#3fb950' : sa.rhr <= 70 ? '#d4a72c' : '#f85149';
       html += `<div class="metric-row"><span class="mlbl">RHR</span><span class="mval" style="color:${rhrCol}">${sa.rhr} bpm</span></div>`;
+    }
+    // HRV recovery mini-trend (#3) — accumulates as the briefing logs hrv daily; shows at 3+ days
+    const hrvHist = (SCORE_HISTORY_DAILY || []).filter(e => e.hrv != null).slice(0, 14).reverse().map(e => e.hrv);
+    if (hrvHist.length >= 3) {
+      const w = 110, h = 22, mn = Math.min(...hrvHist), mx = Math.max(...hrvHist), rg = (mx - mn) || 1;
+      const pts = hrvHist.map((v, i) => `${(i / (hrvHist.length - 1) * w).toFixed(1)},${(h - 2 - ((v - mn) / rg) * (h - 4)).toFixed(1)}`).join(' ');
+      const dd = hrvHist[hrvHist.length - 1] - hrvHist[0];
+      const tc = dd >= 0 ? '#3fb950' : '#f85149';
+      html += `<div class="metric-row"><span class="mlbl">HRV recuperación (${hrvHist.length}d)</span><span class="mval"><svg width="${w}" height="${h}" style="vertical-align:middle;overflow:visible"><polyline points="${pts}" fill="none" stroke="${tc}" stroke-width="1.5" stroke-linejoin="round"/></svg></span></div>`;
     }
   }
 
