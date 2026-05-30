@@ -1016,6 +1016,19 @@ function buildRunwayBar(months) {
     <div class="runway-scale">
       <span>0</span><span>1mo</span><span>2mo</span><span>3mo</span><span>4mo+</span>
     </div>
+    ${(function(){
+      var fz = (typeof METRICS_DATA !== 'undefined' && METRICS_DATA.finanzas) ? METRICS_DATA.finanzas : {};
+      if (fz.cash == null || fz.burn == null || fz.burn <= 0) return '';
+      var cashK = (fz.cash/1000).toFixed(1);
+      var burnK = (fz.burn/1000).toFixed(1);
+      var netTxt = (fz.netMonthly != null)
+        ? ' · DEC neto ' + (fz.netMonthly >= 0 ? '+' : '−') + '$' + Math.abs(fz.netMonthly/1000).toFixed(1) + 'K/mo'
+        : '';
+      var locTxt = fz.locNote ? ' · ' + fz.locNote : '';
+      return '<div style="margin-top:7px;font-size:0.62rem;line-height:1.5;color:#8b949e">'
+        + '<b style="color:#c9d1d9">Runway ' + months.toFixed(1) + 'mo</b> = $' + cashK + 'K caja ÷ $' + burnK + 'K/mo opex'
+        + netTxt + locTxt + '</div>';
+    })()}
   </div>`;
 }
 
