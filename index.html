@@ -750,6 +750,12 @@
   <p id="dayPatternInsight" style="font-size:0.72rem;color:var(--accent);margin-top:8px;line-height:1.4"></p>
 </div>
 
+<!-- INSIGHTS / CORRELACIONES (#2, 2026-05-30) -->
+<div class="history-card" id="insightsCard" style="display:none">
+  <div class="card-title">🔗 Insights &amp; Correlaciones</div>
+  <div id="insightsBody"></div>
+</div>
+
 <!-- HISTORY -->
 <div class="history-card">
   <div class="card-title">Historial Semanal</div>
@@ -764,7 +770,7 @@
 // Data constants — loaded from data.json via fetch()
 let AREAS, TARGETS, WEIGHTS, SCORE_HISTORY_DAILY, HEALTH_LAST_REAL_DATE,
     SUGGESTED, METRICS_DATA, STALENESS_DATA, FAMILIA_NEXT_CONTACTS,
-    EXPECTED_FRESH_DAYS;
+    EXPECTED_FRESH_DAYS, INSIGHTS;
 
 // Default expected refresh cadence per area (9C v2, 2026-05-04).
 // Overridden by data.json `expectedFreshDays` if present.
@@ -1582,6 +1588,32 @@ function buildMetrics() {
   html += `<div class="metric-row"><span class="mlbl">Sueño promedio</span><span class="mval" style="color:${sleepCol}">~${d.salud.sleepAvg} h (meta: 7+)</span></div>`;
   html += `<div class="metric-row"><span class="mlbl">Peso meta</span><span class="mval">${d.salud.pesoMeta} lbs</span></div>`;
 
+  // ── Actividad & Recuperación (Watch) — surfaced 2026-05-30 (#1) ──
+  const sa = d.salud;
+  if (sa.steps != null || sa.exerciseMin != null || sa.hrv != null || sa.rhr != null) {
+    const watchAge = HEALTH_LAST_REAL_DATE
+      ? Math.round((Date.now() - new Date(HEALTH_LAST_REAL_DATE + 'T12:00:00')) / 86400000)
+      : null;
+    const ageTxt = watchAge != null ? ` · ⌚ hace ${watchAge}d (${HEALTH_LAST_REAL_DATE})` : '';
+    html += `<div class="metric-section-title">Actividad &amp; Recuperación${ageTxt}</div>`;
+    if (sa.steps != null) {
+      const stCol = sa.steps >= 7000 ? '#3fb950' : sa.steps >= 3000 ? '#d4a72c' : '#f85149';
+      html += `<div class="metric-row"><span class="mlbl">Pasos</span><span class="mval" style="color:${stCol}">${sa.steps.toLocaleString()} (meta 7,000)</span></div>`;
+    }
+    if (sa.exerciseMin != null) {
+      const exCol = sa.exerciseMin >= 30 ? '#3fb950' : sa.exerciseMin > 0 ? '#d4a72c' : '#f85149';
+      html += `<div class="metric-row"><span class="mlbl">Ejercicio</span><span class="mval" style="color:${exCol}">${sa.exerciseMin} min (meta 30)</span></div>`;
+    }
+    if (sa.hrv != null) {
+      const hrvCol = sa.hrv >= 45 ? '#3fb950' : sa.hrv >= 30 ? '#d4a72c' : '#f85149';
+      html += `<div class="metric-row"><span class="mlbl">HRV</span><span class="mval" style="color:${hrvCol}">${sa.hrv} ms</span></div>`;
+    }
+    if (sa.rhr != null) {
+      const rhrCol = sa.rhr <= 60 ? '#3fb950' : sa.rhr <= 70 ? '#d4a72c' : '#f85149';
+      html += `<div class="metric-row"><span class="mlbl">RHR</span><span class="mval" style="color:${rhrCol}">${sa.rhr} bpm</span></div>`;
+    }
+  }
+
   html += `<div class="metric-section-title">Finanzas Personales</div>`;
   html += `<div class="metric-row"><span class="mlbl">Renta mensual</span><span class="mval">${fmt$(d.finanzas.renta)}</span></div>`;
   html += `<div class="metric-row"><span class="mlbl">Wells Fargo LOC</span><span class="mval" style="color:#f85149">${fmt$(d.finanzas.wellsFargoLoc)} @ ${d.finanzas.locRate}%</span></div>`;
@@ -1590,6 +1622,44 @@ function buildMetrics() {
   html += `<div class="metric-row"><span class="mlbl">Surplus mensual</span><span class="mval" style="color:${surplusCol}">${fmt$(d.finanzas.surplus)}</span></div>`;
 
   document.getElementById("metricsContent").innerHTML = html;
+}
+
+// ── INSIGHTS & CORRELACIONES (#2, 2026-05-30) ────────────────────────
+function buildInsights() {
+  const card = document.getElementById('insightsCard');
+  if (!card || !INSIGHTS) return;
+  const I = INSIGHTS;
+  const LBL = { salud:'Salud', trabajo:'Trabajo', inversiones:'Inversiones', finanzas:'Finanzas',
+                marian:'Marian', familia:'Familia', descanso:'Descanso', crecimiento:'Crecimiento', legal:'Legal' };
+  const nm = id => LBL[id] || id;
+  let h = '';
+  if (I.window) h += `<div style="font-size:0.62rem;color:var(--muted);margin:-4px 0 10px">Ventana: ${I.window}${I.updated ? ' · act. ' + I.updated : ''}</div>`;
+  if (I.recomendacion)
+    h += `<div style="background:var(--accent,#58a6ff)11;border:1px solid #58a6ff44;border-radius:8px;padding:9px 11px;font-size:0.74rem;line-height:1.5;margin-bottom:12px">💡 <b>Recomendación:</b> ${I.recomendacion}</div>`;
+  // Signal grid
+  const sig = [];
+  if (I.palanca) sig.push(`🎯 <b>Palanca</b><br><span style="color:var(--muted)">${nm(I.palanca.area)} (Σ|r|=${I.palanca.sumR})</span>`);
+  if (I.volatil) sig.push(`⚡ <b>Más volátil</b><br><span style="color:var(--muted)">${nm(I.volatil.area)} (σ=${I.volatil.std})</span>`);
+  if (I.declive) sig.push(`📉 <b>En declive</b><br><span style="color:var(--muted)">${nm(I.declive.area)} (${I.declive.from}→${I.declive.to})</span>`);
+  if (I.mejora) sig.push(`📈 <b>Mejorando</b><br><span style="color:var(--muted)">${nm(I.mejora.area)} (${I.mejora.from}→${I.mejora.to})</span>`);
+  if (sig.length)
+    h += `<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;margin-bottom:12px">`
+       + sig.map(s => `<div style="background:#ffffff08;border:1px solid #ffffff14;border-radius:8px;padding:8px 10px;font-size:0.7rem;line-height:1.45">${s}</div>`).join('')
+       + `</div>`;
+  // Correlation pairs
+  if (Array.isArray(I.topPairs) && I.topPairs.length) {
+    h += `<div style="font-size:0.66rem;font-weight:700;text-transform:uppercase;letter-spacing:0.5px;color:var(--muted);margin-bottom:6px">Correlaciones (|r| > 0.35)</div>`;
+    I.topPairs.forEach(p => {
+      const neg = p.r < 0;
+      const col = Math.abs(p.r) >= 0.7 ? '#7ee787' : Math.abs(p.r) >= 0.5 ? '#58a6ff' : '#8b949e';
+      const verb = neg ? 'sube, el otro baja' : 'suben juntos';
+      h += `<div class="metric-row"><span class="mlbl">${nm(p.a)} ↔ ${nm(p.b)}</span>`
+         + `<span class="mval" style="color:${col}">r=${p.r} · ${p.tipo}${neg ? ' (inversa)' : ''}</span></div>`;
+    });
+    h += `<div style="font-size:0.6rem;color:var(--muted);margin-top:8px;line-height:1.4">Correlación ≠ causalidad. Áreas casi constantes (p.ej. Legal) pueden dar r alto sin ser palanca accionable.</div>`;
+  }
+  document.getElementById('insightsBody').innerHTML = h;
+  card.style.display = '';
 }
 
 // ── STREAK TRACKER ───────────────────────────────────────────────────
@@ -1688,6 +1758,7 @@ fetch('data.json')
     STALENESS_DATA        = d.stalenessData;
     EXPECTED_FRESH_DAYS   = d.expectedFreshDays || DEFAULT_EXPECTED_FRESH_DAYS;
     FAMILIA_NEXT_CONTACTS = d.familiaNextContacts;
+    INSIGHTS              = d.insights || null;
 
     // Fully automatic — load all scores from SUGGESTED (data-driven)
     Object.entries(SUGGESTED).forEach(([id, {score}]) => {
@@ -1720,6 +1791,7 @@ fetch('data.json')
     updateCriticalBanner();
     renderHistory();
     buildMetrics();
+    buildInsights();
     buildSleepStreak();
     updateFreshness();
     buildDayPatterns();
