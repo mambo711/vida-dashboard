@@ -155,7 +155,9 @@
         "legal": 8
       },
       "steps": 1100,
-      "totalSleep": 4.8
+      "totalSleep": 4.8,
+      "hrv": 58.9,
+      "rhr": 53.0
     },
     {
       "date": "2026-05-29",
@@ -171,7 +173,9 @@
         "legal": 8
       },
       "steps": 173,
-      "totalSleep": 4.05
+      "totalSleep": 4.05,
+      "hrv": 54.8,
+      "rhr": 53.0
     },
     {
       "date": "2026-05-28",
@@ -187,7 +191,9 @@
         "legal": 8
       },
       "steps": 16104,
-      "totalSleep": 5.21
+      "totalSleep": 5.21,
+      "hrv": 55.7,
+      "rhr": 52.0
     },
     {
       "date": "2026-05-27",
@@ -203,7 +209,9 @@
         "legal": 8
       },
       "steps": 2412,
-      "totalSleep": 4.63
+      "totalSleep": 4.63,
+      "hrv": 69.1,
+      "rhr": 49.0
     },
     {
       "date": "2026-05-26",
@@ -217,7 +225,9 @@
         "crecimiento": 7,
         "familia": 7,
         "legal": 8
-      }
+      },
+      "hrv": 52.5,
+      "rhr": 51.0
     },
     {
       "date": "2026-05-25",
@@ -231,7 +241,9 @@
         "crecimiento": 7,
         "familia": 6,
         "legal": 8
-      }
+      },
+      "hrv": 46.5,
+      "rhr": 54.0
     },
     {
       "date": "2026-05-24",
@@ -245,7 +257,9 @@
         "legal": 8,
         "salud": 9,
         "descanso": 6
-      }
+      },
+      "hrv": 54.8,
+      "rhr": 51.0
     },
     {
       "date": "2026-05-23",
@@ -259,7 +273,9 @@
         "legal": 8,
         "salud": 4,
         "descanso": 4
-      }
+      },
+      "hrv": 40.6,
+      "rhr": 52.0
     },
     {
       "date": "2026-05-22",
@@ -273,7 +289,9 @@
         "crecimiento": 7,
         "familia": 6,
         "legal": 8
-      }
+      },
+      "hrv": 69.6,
+      "rhr": 51.0
     },
     {
       "date": "2026-05-21",
@@ -287,7 +305,9 @@
         "crecimiento": 7,
         "familia": 7,
         "legal": 8
-      }
+      },
+      "hrv": 58.7,
+      "rhr": 50.0
     },
     {
       "date": "2026-05-20",
@@ -301,7 +321,9 @@
         "crecimiento": 7,
         "familia": 6,
         "legal": 8
-      }
+      },
+      "hrv": 45.9,
+      "rhr": 54.0
     },
     {
       "date": "2026-05-19",
@@ -315,7 +337,9 @@
         "crecimiento": 7,
         "familia": 7,
         "legal": 8
-      }
+      },
+      "hrv": 51.3,
+      "rhr": 52.0
     },
     {
       "date": "2026-05-18",
