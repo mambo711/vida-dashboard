@@ -129,7 +129,7 @@
     {
       "date": "2026-05-31",
       "scores": {
-        "trabajo": 5,
+        "trabajo": 6,
         "salud": 4,
         "descanso": 5,
         "inversiones": 8,
@@ -556,8 +556,8 @@
   "healthLastRealDate": "2026-05-30",
   "suggested": {
     "trabajo": {
-      "score": 5,
-      "evidence": "DEC Health 28/100 CRITICO (3/10) - MTD $42,791 margen 56.5% - Order Fulfillment 0/20 (2 proc, +viejo 21d), 16 carry-overs sin contestar | Michalitas: proy $4,387 vs PE $4,216 (+$171, primer superavit)"
+      "score": 6,
+      "evidence": "DEC Health 46/100 BAJO (5/10, corregido en vivo: Order Fulfillment 18/20, solo 2 ordenes frescas, #12333 ya completada) - MTD $42,791 margen 56.5% | Michalitas: proy $4,387 > PE $4,216 (+$171)"
     },
     "salud": {
       "score": 4,
