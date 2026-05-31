@@ -1215,6 +1215,17 @@ function buildCards() {
       ${a.id === 'finanzas' ? buildRunwayBar(METRICS_DATA.finanzas.runway) : ''}
       ${a.id === 'crecimiento' ? buildCrecimientoStreak() : ''}
                  ${a.id === 'familia' ? buildFamiliaNextContact() : ''}
+      ${a.id === 'salud' ? (() => {
+        const hv = (SCORE_HISTORY_DAILY || []).filter(e => e.hrv != null).slice(0, 7).reverse().map(e => e.hrv);
+        if (hv.length < 2) return '';
+        const w = 120, h = 24, mn = Math.min(...hv), mx = Math.max(...hv), rg = (mx - mn) || 1;
+        const pts = hv.map((vv, i) => `${(i / (hv.length - 1) * w).toFixed(1)},${(h - 3 - ((vv - mn) / rg) * (h - 6)).toFixed(1)}`).join(' ');
+        const last = hv[hv.length - 1], dd = last - hv[0];
+        const tc = last >= 45 ? '#3fb950' : last >= 30 ? '#d4a72c' : '#f85149';
+        const arrow = dd > 0 ? '▲' : dd < 0 ? '▼' : '▬';
+        const acol = dd > 0 ? '#3fb950' : dd < 0 ? '#f85149' : 'var(--muted)';
+        return `<div class="card-sparkline" title="HRV (variabilidad de frecuencia cardíaca) últimos ${hv.length} días — recuperación: ≥45 buena, <30 fatiga"><span class="sparkline-label">HRV ${hv.length}d</span><svg viewBox="0 0 ${w} ${h}" width="${w}" height="${h}" style="overflow:visible;display:block"><polyline points="${pts}" fill="none" stroke="${tc}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="sparkline-label" style="color:${tc};font-weight:600">${last}ms</span><span class="sparkline-label" style="color:${acol}">${arrow}${Math.abs(Math.round(dd))}</span></div>`;
+      })() : ''}
       ${healthFreshnessHtml}`;
     grid.appendChild(card);
   });
@@ -1636,7 +1647,7 @@ function buildMetrics() {
     }
     // HRV recovery mini-trend (#3) — accumulates as the briefing logs hrv daily; shows at 3+ days
     const hrvHist = (SCORE_HISTORY_DAILY || []).filter(e => e.hrv != null).slice(0, 14).reverse().map(e => e.hrv);
-    if (hrvHist.length >= 3) {
+    if (hrvHist.length >= 2) {
       const w = 110, h = 22, mn = Math.min(...hrvHist), mx = Math.max(...hrvHist), rg = (mx - mn) || 1;
       const pts = hrvHist.map((v, i) => `${(i / (hrvHist.length - 1) * w).toFixed(1)},${(h - 2 - ((v - mn) / rg) * (h - 4)).toFixed(1)}`).join(' ');
       const dd = hrvHist[hrvHist.length - 1] - hrvHist[0];
