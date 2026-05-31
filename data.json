@@ -127,6 +127,23 @@
   },
   "scoreHistoryDaily": [
     {
+      "date": "2026-05-31",
+      "scores": {
+        "trabajo": 5,
+        "salud": 4,
+        "descanso": 5,
+        "inversiones": 8,
+        "finanzas": 5,
+        "marian": 9,
+        "crecimiento": 5,
+        "familia": 7
+      },
+      "steps": 719,
+      "totalSleep": 6.21,
+      "hrv": 28.4,
+      "rhr": 56.0
+    },
+    {
       "date": "2026-05-30",
       "scores": {
         "trabajo": 5,
@@ -534,58 +551,45 @@
         "crecimiento": 6,
         "familia": 6
       }
-    },
-    {
-      "date": "2026-04-23",
-      "scores": {
-        "trabajo": 6,
-        "salud": 3,
-        "descanso": 4,
-        "inversiones": 7,
-        "finanzas": 5,
-        "marian": 8,
-        "crecimiento": 5,
-        "familia": 7
-      }
     }
   ],
-  "healthLastRealDate": "2026-05-29",
+  "healthLastRealDate": "2026-05-30",
   "suggested": {
     "trabajo": {
       "score": 5,
-      "evidence": "DEC ~5/10 (recalc real: 2 \u00f3rdenes proc, la +vieja 4d NO 21d stale; carry-overs y deals inflados por auto-notifs+ghosts en state.json) \u00b7 Michalitas 6/10 (91% PE). DEC vende y es rentable."
+      "evidence": "DEC Health 28/100 CRITICO (3/10) - MTD $42,791 margen 56.5% - Order Fulfillment 0/20 (2 proc, +viejo 21d), 16 carry-overs sin contestar | Michalitas: proy $4,387 vs PE $4,216 (+$171, primer superavit)"
     },
     "salud": {
-      "score": 6,
-      "evidence": "HRV 58.9ms (buena) \u00b7 RHR 53bpm (buena) \u00b7 pasos 942 (bajo) \u00b7 ejercicio 0min \u00b7 HbA1c 5.9/LDL 125 \u2014 sin sue\u00f1o (va en Descanso)"
+      "score": 4,
+      "evidence": "HRV 28.4ms (baja) - RHR 56bpm (buena) - pasos 719 (bajo) - ejercicio 0min - sin labs nuevos - sin sueno (va en Descanso)"
     },
     "descanso": {
-      "score": 1,
-      "evidence": "Sue\u00f1o 4.8h \u00b7 deep 39min \u00b7 REM 1.45h \u00b7 racha d\u00e9ficit 5 noches <7h"
+      "score": 5,
+      "evidence": "Sueno 6.21h - deep 71min - REM 1.18h - racha deficit 6 noches <7h"
     },
     "inversiones": {
       "score": 8,
-      "evidence": "NW $393K - FI 79% - TWR +15.2%"
+      "evidence": "NW $393K - FI 79% - NW bruto $466K - deuda $73K"
     },
     "finanzas": {
       "score": 5,
-      "evidence": "Sueldo via DEC - Caja Xero $44.9K (>umbral $40K) / opex $13.8K/mo = runway 3.3mo - DEC neto +$8.7K/mo (rentable) - DEC Health 28/100 (<50, -1)"
+      "evidence": "Sueldo via DEC - Caja Xero $44.9K / opex $13.8K/mo = runway 3.3mo - DEC neto +$8.7K/mo - DEC Health 28/100"
     },
     "marian": {
       "score": 9,
-      "evidence": "Cloze 7d: 312 interacciones - 21 llamadas - 3 mensajes - ultima personal 2026-05-28 (D-2)"
+      "evidence": "Cloze 7d: 342 interacciones - 5 llamadas - 0 mensajes - ultima personal 2026-05-30 (D-1)"
     },
     "crecimiento": {
       "score": 5,
-      "evidence": "Se\u00f1ales reales: 1 (newsletter J.L. Cava) \u00b7 calendario NO cuenta \u00b7 \u00faltimos 7d"
+      "evidence": "Senales reales: 1 (newsletter J.L. Cava ~7d) - calendario NO cuenta - ultimos 7d"
     },
     "familia": {
-      "score": 8,
-      "evidence": "Contactos Marian, Sia, Miguel - Transferencias N - Ultima senal Cloze D-2"
+      "score": 7,
+      "evidence": "Contactos: Marian (email+Cloze), Sia (llamadas semanales) - Transferencias: N - Ultima senal: Marian 30-may"
     }
   },
   "metricsData": {
-    "date": "2026-05-30",
+    "date": "2026-05-31",
     "patrimonio": {
       "nwNeto": 392932,
       "totalBruto": 466171,
@@ -608,12 +612,12 @@
     "salud": {
       "hba1c": 5.9,
       "ldl": 125,
-      "sleepAvg": 4.8,
+      "sleepAvg": 6.21,
       "pesoMeta": 160,
-      "steps": 942,
+      "steps": 719,
       "exerciseMin": 0,
-      "hrv": 58.9,
-      "rhr": 53
+      "hrv": 28.4,
+      "rhr": 56.0
     },
     "finanzas": {
       "renta": 2100,
@@ -625,7 +629,7 @@
       "cash": 44912,
       "burn": 13754,
       "netMonthly": 8693,
-      "locNote": "caja $44.9K > umbral $40K \u2192 reanudar plan LOC (~jul 2026)"
+      "locNote": "caja $44.9K > umbral $40K -> reanudar plan LOC (~jul 2026)"
     },
     "nwNeto": 344298,
     "totalBruto": 402531,
@@ -641,17 +645,17 @@
     "decHealth": 69,
     "michalitasMonthRev": 3200,
     "michalitasPePct": 65,
-    "sleepStreakBelowTarget": 5
+    "sleepStreakBelowTarget": 6
   },
   "stalenessData": {
-    "trabajo": "2026-05-30",
-    "salud": "2026-05-30",
-    "descanso": "2026-05-30",
-    "inversiones": "2026-05-30",
-    "finanzas": "2026-05-30",
-    "marian": "2026-05-30",
-    "crecimiento": "2026-05-30",
-    "familia": "2026-05-30"
+    "trabajo": "2026-05-31",
+    "salud": "2026-05-31",
+    "descanso": "2026-05-31",
+    "inversiones": "2026-05-31",
+    "finanzas": "2026-05-31",
+    "marian": "2026-05-31",
+    "crecimiento": "2026-05-31",
+    "familia": "2026-05-31"
   },
   "familiaNextContacts": [
     {
