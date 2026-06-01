@@ -127,6 +127,23 @@
   },
   "scoreHistoryDaily": [
     {
+      "date": "2026-06-01",
+      "scores": {
+        "trabajo": 5,
+        "salud": 6,
+        "descanso": 1,
+        "inversiones": 8,
+        "finanzas": 5,
+        "marian": 9,
+        "crecimiento": 5,
+        "familia": 7
+      },
+      "steps": 1114,
+      "totalSleep": 4.1,
+      "hrv": 54.9,
+      "rhr": 54.0
+    },
+    {
       "date": "2026-05-31",
       "scores": {
         "trabajo": 6,
@@ -538,58 +555,45 @@
         "crecimiento": 6,
         "familia": 6
       }
-    },
-    {
-      "date": "2026-05-01",
-      "scores": {
-        "trabajo": 5,
-        "salud": 2,
-        "descanso": 5,
-        "inversiones": 7,
-        "finanzas": 4,
-        "marian": 9,
-        "crecimiento": 6,
-        "familia": 6
-      }
     }
   ],
-  "healthLastRealDate": "2026-05-30",
+  "healthLastRealDate": "2026-05-31",
   "suggested": {
     "trabajo": {
-      "score": 6,
-      "evidence": "DEC Health 46/100 BAJO (5/10, corregido en vivo: Order Fulfillment 18/20, solo 2 ordenes frescas, #12333 ya completada) - MTD $42,791 margen 56.5% | Michalitas: proy $4,387 > PE $4,216 (+$171)"
+      "score": 5,
+      "evidence": "DEC Health 5/10 BAJO (46/100) \u00b7 MTD $42,791 \u00b7 Margin 56.5% \u00b7 Cash $44.9K \u00b7 AR od $860 \u00b7 drivers: Customer Responsiveness 4/20, Draft Execution 4/20 | Michalitas: $4,114 (98% PE) \u00b7 proyecci\u00f3n +$94 surplus"
     },
     "salud": {
-      "score": 4,
-      "evidence": "HRV 28.4ms (baja) - RHR 56bpm (buena) - pasos 719 (bajo) - ejercicio 0min - sin labs nuevos - sin sueno (va en Descanso)"
+      "score": 6,
+      "evidence": "HRV 54.9ms (recuper\u00f3 de 28.4) \u00b7 RHR 54bpm \u00b7 pasos 1,114 (bajo) \u00b7 ejercicio 0min \u00b7 sin labs nuevos \u2014 sin sue\u00f1o (va en Descanso) \u00b7 noche 30\u219231 may"
     },
     "descanso": {
-      "score": 5,
-      "evidence": "Sueno 6.21h - deep 71min - REM 1.18h - racha deficit 6 noches <7h"
+      "score": 1,
+      "evidence": "Sue\u00f1o 4.1h (noche 30\u219231 may) \u00b7 deep 53min \u00b7 REM 0.9h \u00b7 racha d\u00e9ficit 7 noches <7h"
     },
     "inversiones": {
       "score": 8,
-      "evidence": "NW $393K - FI 79% - NW bruto $466K - deuda $73K"
+      "evidence": "NW $393K \u00b7 FI 79% \u00b7 NW bruto $466K \u00b7 deuda $73K \u00b7 TWR +15.2%"
     },
     "finanzas": {
       "score": 5,
-      "evidence": "Sueldo via DEC - Caja Xero $44.9K / opex $13.8K/mo = runway 3.3mo - DEC neto +$8.7K/mo - DEC Health 28/100"
+      "evidence": "Sueldo v\u00eda DEC \u00b7 Caja Xero $44.9K / opex $13.8K/mo = runway 3.3mo \u00b7 DEC neto +$8.7K/mo \u00b7 DEC Health 46/100"
     },
     "marian": {
       "score": 9,
-      "evidence": "Cloze 7d: 342 interacciones - 5 llamadas - 0 mensajes - ultima personal 2026-05-30 (D-1)"
+      "evidence": "Cloze 7d: 302 interacciones \u00b7 0 llamadas \u00b7 0 mensajes \u00b7 \u00faltima actividad personal: 2026-05-30 (D-2)"
     },
     "crecimiento": {
       "score": 5,
-      "evidence": "Senales reales: 1 (newsletter J.L. Cava ~7d) - calendario NO cuenta - ultimos 7d"
+      "evidence": "Se\u00f1ales reales: 1 (Trade That Swing weekly outlook) \u00b7 calendario NO cuenta \u00b7 \u00faltimos 7d"
     },
     "familia": {
       "score": 7,
-      "evidence": "Contactos: Marian (email+Cloze), Sia (llamadas semanales) - Transferencias: N - Ultima senal: Marian 30-may"
+      "evidence": "Contactos: Marian (email+Cloze), Sia (llamadas semanales mar/jue/s\u00e1b) \u00b7 Transferencias: N \u00b7 \u00daltima se\u00f1al: 2026-05-31"
     }
   },
   "metricsData": {
-    "date": "2026-05-31",
+    "date": "2026-06-01",
     "patrimonio": {
       "nwNeto": 392932,
       "totalBruto": 466171,
@@ -612,12 +616,12 @@
     "salud": {
       "hba1c": 5.9,
       "ldl": 125,
-      "sleepAvg": 6.21,
+      "sleepAvg": 4.1,
       "pesoMeta": 160,
-      "steps": 719,
+      "steps": 1114,
       "exerciseMin": 0,
-      "hrv": 28.4,
-      "rhr": 56.0
+      "hrv": 54.9,
+      "rhr": 54.0
     },
     "finanzas": {
       "renta": 2100,
@@ -645,29 +649,29 @@
     "decHealth": 69,
     "michalitasMonthRev": 3200,
     "michalitasPePct": 65,
-    "sleepStreakBelowTarget": 6
+    "sleepStreakBelowTarget": 7
   },
   "stalenessData": {
-    "trabajo": "2026-05-31",
-    "salud": "2026-05-31",
-    "descanso": "2026-05-31",
-    "inversiones": "2026-05-31",
-    "finanzas": "2026-05-31",
-    "marian": "2026-05-31",
-    "crecimiento": "2026-05-31",
-    "familia": "2026-05-31"
+    "trabajo": "2026-06-01",
+    "salud": "2026-06-01",
+    "descanso": "2026-06-01",
+    "inversiones": "2026-06-01",
+    "finanzas": "2026-06-01",
+    "marian": "2026-06-01",
+    "crecimiento": "2026-06-01",
+    "familia": "2026-06-01"
   },
   "familiaNextContacts": [
     {
-      "name": "Llamada con Sia - Martes",
+      "name": "Llamada con Sia \u2014 Martes",
       "date": "2026-06-02"
     },
     {
-      "name": "Llamada con Sia - Jueves",
+      "name": "Llamada con Sia \u2014 Jueves",
       "date": "2026-06-04"
     },
     {
-      "name": "Llamada con Sia - Sabado",
+      "name": "Llamada con Sia \u2014 S\u00e1bado",
       "date": "2026-06-06"
     }
   ],
