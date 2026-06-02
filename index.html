@@ -1154,9 +1154,14 @@ function buildCards() {
     let healthFreshnessHtml = "";
     if ((a.id === 'salud' || a.id === 'descanso') && HEALTH_LAST_REAL_DATE) {
       const daysAgo = Math.floor((new Date() - new Date(HEALTH_LAST_REAL_DATE + 'T12:00:00')) / 86400000);
-      const cls = daysAgo === 0 ? 'fresh' : daysAgo >= 3 ? 'stale' : '';
+      // (2026-06-02) Stale desde D-2: el briefing trata D-2+ como dato viejo. El dashboard
+      // lo marca igual para que una noche vieja NO parezca crisis activa (días-desde-sync visible).
+      const cls = daysAgo === 0 ? 'fresh' : daysAgo >= 2 ? 'stale' : '';
       const label = daysAgo === 0 ? 'hoy' : daysAgo === 1 ? 'ayer' : `hace ${daysAgo} días`;
-      healthFreshnessHtml = `<div class="freshness ${cls}" style="margin-top:6px">📡 Datos Apple Watch: ${label}</div>`;
+      const staleNote = daysAgo >= 2 ? ' — score de la noche previa, sin sync nuevo' : '';
+      const icon = daysAgo >= 2 ? '⚠️⌚' : '📡';
+      const weight = daysAgo >= 2 ? 'font-weight:600;' : '';
+      healthFreshnessHtml = `<div class="freshness ${cls}" style="margin-top:6px;${weight}" title="Último sync del Apple Watch: ${HEALTH_LAST_REAL_DATE}">${icon} Watch sync: ${label}${staleNote}</div>`;
     }
 
     // ── Staleness badge (9C v2, 2026-05-04): per-area expected refresh cadence ──
