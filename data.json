@@ -703,48 +703,54 @@
   },
   "lastUpdated": "2026-05-27T07:09:09.359857",
   "insights": {
-    "updated": "2026-05-30",
-    "window": "30d (2026-04-23 \u2192 2026-05-30)",
+    "updated": "2026-06-01",
+    "window": "30d (2026-05-02 \u2192 2026-06-01)",
     "palanca": {
       "area": "finanzas",
-      "sumR": 1.36
+      "sumR": 2.02
     },
     "volatil": {
       "area": "salud",
-      "std": 2.23
+      "std": 2.25
     },
     "declive": {
       "area": "descanso",
-      "from": 5.0,
-      "to": 3.9,
-      "delta": -1.1
+      "from": 4.93,
+      "to": 3.73,
+      "delta": -1.2
     },
     "mejora": {
       "area": "crecimiento",
       "from": 5.4,
-      "to": 6.6,
-      "delta": 1.2
+      "to": 6.53,
+      "delta": 1.13
     },
     "topPairs": [
       {
         "a": "finanzas",
+        "b": "inversiones",
+        "r": 0.48,
+        "tipo": "leve"
+      },
+      {
+        "a": "crecimiento",
+        "b": "finanzas",
+        "r": 0.43,
+        "tipo": "leve"
+      },
+      {
+        "a": "familia",
         "b": "marian",
-        "r": -0.47,
+        "r": 0.4,
         "tipo": "leve"
       },
       {
         "a": "finanzas",
-        "b": "crecimiento",
-        "r": 0.47,
-        "tipo": "leve"
-      },
-      {
-        "a": "inversiones",
-        "b": "finanzas",
-        "r": 0.42,
+        "b": "marian",
+        "r": -0.37,
         "tipo": "leve"
       }
     ],
-    "recomendacion": "Salud y Descanso ahora miden cosas distintas: hoy Salud 6 (HRV/RHR buenos) pero Descanso 1 (4.8h, 5a noche de d\u00e9ficit) \u2014 el cuerpo aguanta pero el sue\u00f1o es el problema #1. Enf\u00f3cate en dormir 7h+ esta semana; es la palanca m\u00e1s urgente."
+    "recomendacion": "Este mes las correlaciones entre \u00e1reas son d\u00e9biles (ninguna cruza |r|>0.5), as\u00ed que no hay una palanca financiera clara que arrastre a las dem\u00e1s. La se\u00f1al accionable es de comportamiento: el descanso cae con fuerza (4.9 \u2192 3.7) y salud es la m\u00e1s err\u00e1tica del mes (std 2.25, promedio m\u00e1s bajo 3.73). Enf\u00f3cate en descanso \u2014 consistencia de sue\u00f1o \u2014 como el arreglo sistem\u00e1tico del mes; estabilizarlo es lo que m\u00e1s probablemente frene la volatilidad de salud."
   }
 }
