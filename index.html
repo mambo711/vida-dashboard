@@ -296,6 +296,27 @@
     background: rgba(248,81,73,0.12);
     border-color: rgba(248,81,73,0.35);
   }
+  /* ── BEDTIME BADGE (9B, 2026-06-05): hora real de dormirse vs meta 12am ── */
+  .bedtime-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    font-size: 0.62rem;
+    font-weight: 700;
+    border-radius: 4px;
+    padding: 1px 5px;
+    margin-left: 6px;
+  }
+  .bedtime-badge.ok {
+    color: #3fb950;
+    background: rgba(63,185,80,0.12);
+    border: 1px solid rgba(63,185,80,0.35);
+  }
+  .bedtime-badge.late {
+    color: #f85149;
+    background: rgba(248,81,73,0.12);
+    border: 1px solid rgba(248,81,73,0.35);
+  }
   .streak-badge.hot { color: #f85149; }
 
   /* ── FRESHNESS ── */
@@ -1154,14 +1175,9 @@ function buildCards() {
     let healthFreshnessHtml = "";
     if ((a.id === 'salud' || a.id === 'descanso') && HEALTH_LAST_REAL_DATE) {
       const daysAgo = Math.floor((new Date() - new Date(HEALTH_LAST_REAL_DATE + 'T12:00:00')) / 86400000);
-      // (2026-06-02) Stale desde D-2: el briefing trata D-2+ como dato viejo. El dashboard
-      // lo marca igual para que una noche vieja NO parezca crisis activa (días-desde-sync visible).
-      const cls = daysAgo === 0 ? 'fresh' : daysAgo >= 2 ? 'stale' : '';
+      const cls = daysAgo === 0 ? 'fresh' : daysAgo >= 3 ? 'stale' : '';
       const label = daysAgo === 0 ? 'hoy' : daysAgo === 1 ? 'ayer' : `hace ${daysAgo} días`;
-      const staleNote = daysAgo >= 2 ? ' — score de la noche previa, sin sync nuevo' : '';
-      const icon = daysAgo >= 2 ? '⚠️⌚' : '📡';
-      const weight = daysAgo >= 2 ? 'font-weight:600;' : '';
-      healthFreshnessHtml = `<div class="freshness ${cls}" style="margin-top:6px;${weight}" title="Último sync del Apple Watch: ${HEALTH_LAST_REAL_DATE}">${icon} Watch sync: ${label}${staleNote}</div>`;
+      healthFreshnessHtml = `<div class="freshness ${cls}" style="margin-top:6px">📡 Datos Apple Watch: ${label}</div>`;
     }
 
     // ── Staleness badge (9C v2, 2026-05-04): per-area expected refresh cadence ──
@@ -1210,6 +1226,7 @@ function buildCards() {
         <span class="auto-badge">🤖 Auto</span>
         ${(() => { const s = getStreak(a.id); return s >= 2 ? `<span class="streak-badge${s>=5?' hot':''}" title="${s} días consecutivos en meta">🔥 ${s}d</span>` : ''; })()}
         ${(a.id === 'descanso' || a.id === 'salud') && typeof METRICS_DATA !== 'undefined' && METRICS_DATA && (METRICS_DATA.sleepStreakBelowTarget || 0) >= 2 ? (() => { const n = METRICS_DATA.sleepStreakBelowTarget || 0; const dots = '🔴'.repeat(Math.min(n, 5)); const isCritical = n >= 5; return `<span class="sleep-streak-badge${isCritical ? ' critical' : ''}" title="${n} noches consecutivas con sueño insuficiente (score ≤4)">${n}n ${dots}</span>`; })() : ''}
+        ${a.id === 'descanso' && typeof METRICS_DATA !== 'undefined' && METRICS_DATA && METRICS_DATA.salud && METRICS_DATA.salud.bedtime ? (() => { const bt = String(METRICS_DATA.salud.bedtime); const m = bt.match(/\s(\d{2}):(\d{2})/); if (!m) return ''; const hh = parseInt(m[1], 10), mm = m[2]; const beforeMidnight = hh >= 18; const t12 = ((hh % 12) || 12) + ':' + mm + (hh < 12 ? ' AM' : ' PM'); return `<span class="bedtime-badge ${beforeMidnight ? 'ok' : 'late'}" title="Hora real de dormirse (sleepStart Apple Watch, última noche con datos) · meta: dormido antes de las 12am">${beforeMidnight ? '✅' : '❌'} 🌙 ${t12}</span>`; })() : ''}
       </div>
       ${target && v ? `<div class="progress-bar-wrap">
         <div class="progress-bar"><div class="progress-bar-fill" style="width:${Math.min(v/target*100,100).toFixed(0)}%;background:${col}"></div></div>
@@ -1624,6 +1641,16 @@ function buildMetrics() {
   html += `<div class="metric-row"><span class="mlbl">HbA1c</span><span class="mval" style="color:${hba1cCol}">${d.salud.hba1c}% (meta &lt;5.7%)</span></div>`;
   html += `<div class="metric-row"><span class="mlbl">LDL</span><span class="mval" style="color:${ldlCol}">${d.salud.ldl} mg/dL (meta &lt;100)</span></div>`;
   html += `<div class="metric-row"><span class="mlbl">Sueño promedio</span><span class="mval" style="color:${sleepCol}">~${d.salud.sleepAvg} h (meta: 7+)</span></div>`;
+  // ── Bedtime real (9B, 2026-06-05): sleepStart vs meta "dormido antes de 12am" ──
+  if (d.salud.bedtime) {
+    const btm = String(d.salud.bedtime).match(/\s(\d{2}):(\d{2})/);
+    if (btm) {
+      const bhh = parseInt(btm[1], 10), bmm = btm[2];
+      const btOk = bhh >= 18;
+      const bt12 = ((bhh % 12) || 12) + ':' + bmm + (bhh < 12 ? ' AM' : ' PM');
+      html += `<div class="metric-row"><span class="mlbl">Hora de dormir (última noche)</span><span class="mval" style="color:${btOk ? '#3fb950' : '#f85149'}">${btOk ? '✅' : '❌'} ${bt12} (meta: antes de 12am)</span></div>`;
+    }
+  }
   html += `<div class="metric-row"><span class="mlbl">Peso meta</span><span class="mval">${d.salud.pesoMeta} lbs</span></div>`;
 
   // ── Actividad & Recuperación (Watch) — surfaced 2026-05-30 (#1) ──
