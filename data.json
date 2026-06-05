@@ -619,16 +619,16 @@
       "twr": null
     },
     "retiro": {
-      "sepIra": 142123,
+      "sepIra": 138567,
       "rothIra": 61658,
       "tradIra": 28187
     },
     "trading": {
       "emergency": 31151,
       "cdsEcuador": 35000,
-      "tacticalEtf": 35190,
-      "options": 12853,
-      "ibkrRhFutures": 17725
+      "tacticalEtf": 33082,
+      "options": 12949,
+      "ibkrRhFutures": 16975
     },
     "salud": {
       "hba1c": 5.9,
