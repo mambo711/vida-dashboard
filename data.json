@@ -141,8 +141,7 @@
       "steps": 1490,
       "totalSleep": 4.28,
       "hrv": 54.8,
-      "rhr": 54.0,
-      "bedtime": "2026-06-05 17:59:20 -0400"
+      "rhr": 54.0
     },
     {
       "date": "2026-06-06",
@@ -596,7 +595,7 @@
     },
     "descanso": {
       "score": 1,
-      "evidence": "Sue\u00f1o 4.28h \u00b7 dormido a las 17:59 (segmento at\u00edpico \u2014 ver 9A) \u00b7 deep 47min \u00b7 REM 0.9h \u00b7 racha d\u00e9ficit 13 noches"
+      "evidence": "Sue\u00f1o 4.28h \u00b7 hora de dormir: segmento at\u00edpico (sleepStart 17:59, sin segmento nocturno 20:00\u201306:00 \u2014 sin \u2705/\u274c) \u00b7 deep 47min \u00b7 REM 0.9h \u00b7 racha d\u00e9ficit 13 noches"
     },
     "inversiones": {
       "score": 8,
@@ -648,8 +647,7 @@
       "steps": 1490,
       "exerciseMin": 0,
       "hrv": 54.8,
-      "rhr": 54.0,
-      "bedtime": "2026-06-05 17:59:20 -0400"
+      "rhr": 54.0
     },
     "finanzas": {
       "renta": 2100,
