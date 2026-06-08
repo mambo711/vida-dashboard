@@ -127,6 +127,24 @@
   },
   "scoreHistoryDaily": [
     {
+      "date": "2026-06-08",
+      "scores": {
+        "trabajo": 8,
+        "salud": 6,
+        "descanso": 9,
+        "inversiones": 8,
+        "finanzas": 6,
+        "marian": 9,
+        "crecimiento": 3,
+        "familia": 5
+      },
+      "steps": 836,
+      "totalSleep": 8.87,
+      "hrv": 69.0,
+      "rhr": 55.0,
+      "bedtime": "2026-06-07 00:52:34 -0400"
+    },
+    {
       "date": "2026-06-07",
       "scores": {
         "trabajo": 8,
@@ -568,63 +586,50 @@
         "crecimiento": 5,
         "familia": 7
       }
-    },
-    {
-      "date": "2026-05-08",
-      "scores": {
-        "trabajo": 6,
-        "salud": 5,
-        "descanso": 4,
-        "inversiones": 7,
-        "finanzas": 4,
-        "marian": 9,
-        "crecimiento": 5,
-        "familia": 8
-      }
     }
   ],
-  "healthLastRealDate": "2026-06-06",
+  "healthLastRealDate": "2026-06-07",
   "suggested": {
     "trabajo": {
       "score": 8,
-      "evidence": "DEC Health 9/10 BUENO (87/100) \u00b7 MTD $3,151 \u00b7 margen 48.2% \u00b7 Cash $38.6K \u00b7 AR od $0 | Michalitas: $678 (16% PE, 3 d\u00edas op) \u00b7 proyecci\u00f3n $4,974 vs PE $4,216 (+$758)"
+      "evidence": "DEC Health 9/10 BUENO (87/100) \u00b7 MTD $3,151 \u00b7 margen 48.2% \u00b7 Cash $38.6K \u00b7 AR od $0 | Michalitas $968 (23% PE) \u00b7 proy $5,321 sobre PE +$1,105"
     },
     "salud": {
       "score": 6,
-      "evidence": "HRV 54.8ms \u00b7 RHR 54bpm \u00b7 pasos 1,490 \u00b7 ejercicio 0min \u00b7 HbA1c 5.9/LDL 125 \u2014 sin sue\u00f1o (va en Descanso)"
+      "evidence": "HRV 69ms \u00b7 RHR 55bpm \u00b7 pasos 836 (Watch poco usado de dia) \u00b7 ejercicio 0min \u00b7 HbA1c 5.9/LDL 125 \u2014 sin sueno (va en Descanso)"
     },
     "descanso": {
-      "score": 1,
-      "evidence": "Sue\u00f1o 4.28h \u00b7 hora de dormir: segmento at\u00edpico (sleepStart 17:59, sin segmento nocturno 20:00\u201306:00 \u2014 sin \u2705/\u274c) \u00b7 deep 47min \u00b7 REM 0.9h \u00b7 racha d\u00e9ficit 13 noches"
+      "score": 9,
+      "evidence": "Sueno 8.87h \u00b7 dormido 00:52 \u274c (despues de 12am) \u00b7 deep 56min \u00b7 REM 1.12h \u00b7 racha deficit 0 (corto racha de 13 anoche)"
     },
     "inversiones": {
       "score": 8,
-      "evidence": "NW $372K \u00b7 FI 74% \u00b7 TWR n/d (wealth meta) \u00b7 \u25bc$20.5K vs May 29 (sell-off jun 5)"
+      "evidence": "NW $378K \u00b7 FI 76% \u00b7 \u25bc$15.3K vs May 29 (sell-off jun 5, refresh +$5.3K)"
     },
     "finanzas": {
       "score": 6,
-      "evidence": "Sueldo v\u00eda DEC \u00b7 Caja Xero $36.8K / opex $15.0K/mo = runway 2.5mo \u00b7 DEC neto +$9.3K/mo \u00b7 DEC Health 87/100"
+      "evidence": "Sueldo via DEC \u00b7 Caja Xero $36.8K / opex $15.0K/mo = runway 2.5mo \u00b7 DEC neto +$9.3K/mo \u00b7 DEC Health 87/100"
     },
     "marian": {
       "score": 9,
-      "evidence": "Cloze 7d: 338 interacciones \u00b7 59 llamadas \u00b7 46 mensajes \u00b7 \u00faltima actividad personal: 2026-06-06 (D-1) \u00b7 sentmails=164 incluye briefings autom\u00e1ticos"
+      "evidence": "Cloze 7d: 284 interacciones \u00b7 49 llamadas \u00b7 42 mensajes \u00b7 ultima actividad personal: 2026-06-06 (D-2)"
     },
     "crecimiento": {
       "score": 3,
-      "evidence": "Se\u00f1ales reales: 0 \u00b7 calendario NO cuenta \u00b7 \u00faltimos 7d"
+      "evidence": "Senales reales: 0 (HOPLA/J.L.Cava recibido sin abrir) \u00b7 calendario NO cuenta \u00b7 ultimos 7d"
     },
     "familia": {
       "score": 5,
-      "evidence": "Contactos: solo transferencias (Miguel $1,880+$120 \u00b7 Marian $1,000+$750) \u00b7 \u00daltima se\u00f1al: 2026-06-06"
+      "evidence": "Contactos: flores a Ecuador (La Floreria) \u00b7 Sia llamadas semanales \u00b7 Aniversario Papa hoy \u00b7 sin contacto 2-vias directo"
     }
   },
   "metricsData": {
-    "date": "2026-06-07",
+    "date": "2026-06-08",
     "patrimonio": {
-      "nwNeto": 372383,
-      "totalBruto": 445909,
-      "deuda": 73526,
-      "fiPct": 74,
+      "nwNeto": 377659,
+      "totalBruto": 451184,
+      "deuda": 73525,
+      "fiPct": 76,
       "twr": null
     },
     "retiro": {
@@ -642,12 +647,13 @@
     "salud": {
       "hba1c": 5.9,
       "ldl": 125,
-      "sleepAvg": 4.28,
+      "sleepAvg": 8.87,
       "pesoMeta": 160,
-      "steps": 1490,
+      "steps": 836,
       "exerciseMin": 0,
-      "hrv": 54.8,
-      "rhr": 54.0
+      "hrv": 69.0,
+      "rhr": 55.0,
+      "bedtime": "2026-06-07 00:52:34 -0400"
     },
     "finanzas": {
       "renta": 2100,
@@ -659,7 +665,7 @@
       "cash": 36810,
       "burn": 15001,
       "netMonthly": 9317,
-      "locNote": "caja $36.8K < umbral $40K \u2192 sin distribuciones a\u00fan"
+      "locNote": "caja $36.8K < umbral $40K -> sin distribuciones aun"
     },
     "nwNeto": 344298,
     "totalBruto": 402531,
@@ -675,29 +681,29 @@
     "decHealth": 69,
     "michalitasMonthRev": 3200,
     "michalitasPePct": 65,
-    "sleepStreakBelowTarget": 13
+    "sleepStreakBelowTarget": 0
   },
   "stalenessData": {
-    "trabajo": "2026-06-07",
-    "salud": "2026-06-07",
-    "descanso": "2026-06-07",
-    "inversiones": "2026-06-07",
-    "finanzas": "2026-06-07",
-    "marian": "2026-06-07",
-    "crecimiento": "2026-06-07",
-    "familia": "2026-06-07"
+    "trabajo": "2026-06-08",
+    "salud": "2026-06-08",
+    "descanso": "2026-06-08",
+    "inversiones": "2026-06-08",
+    "finanzas": "2026-06-08",
+    "marian": "2026-06-08",
+    "crecimiento": "2026-06-08",
+    "familia": "2026-06-08"
   },
   "familiaNextContacts": [
     {
-      "name": "\ud83d\udcde Llamada con Sia \u2014 Martes",
+      "name": "Llamada con Sia \u2014 Martes",
       "date": "2026-06-09"
     },
     {
-      "name": "\ud83d\udcde Llamada con Sia \u2014 Jueves",
+      "name": "Llamada con Sia \u2014 Jueves",
       "date": "2026-06-11"
     },
     {
-      "name": "\ud83d\udcde Llamada con Sia \u2014 S\u00e1bado (sesi\u00f3n larga)",
+      "name": "Llamada con Sia \u2014 Sabado",
       "date": "2026-06-13"
     }
   ],
