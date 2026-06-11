@@ -799,7 +799,7 @@ let AREAS, TARGETS, WEIGHTS, SCORE_HISTORY_DAILY, HEALTH_LAST_REAL_DATE,
 const DEFAULT_EXPECTED_FRESH_DAYS = {
   salud: 1, descanso: 1, marian: 1, crecimiento: 1, familia: 1,
   finanzas: 3, trabajo: 3,
-  legal: 14, inversiones: 7
+  inversiones: 7
 };
 
 const KEY = "vida_balance_v2";
@@ -885,7 +885,16 @@ function scoreSub(avg) {
 }
 
 // ── DELTA ─────────────────────────────────────────────────────────────
+// (2026-06-11) Delta DIARIO: compara vs ayer (scoreHistoryDaily[1]) en vez de vs
+// la última semana guardada — antes el badge marcaba "—" casi siempre porque
+// history[0] era la semana en curso (mismos scores).
 function getDelta(id) {
+  if (typeof SCORE_HISTORY_DAILY !== 'undefined' && SCORE_HISTORY_DAILY && SCORE_HISTORY_DAILY.length >= 2) {
+    const prev = SCORE_HISTORY_DAILY[1].scores && SCORE_HISTORY_DAILY[1].scores[id];
+    const curr = data.scores[id];
+    if (!prev || !curr) return null;
+    return curr - prev;
+  }
   if (!data.history.length) return null;
   const prev = data.history[0].scores[id];
   const curr = data.scores[id];
@@ -976,6 +985,16 @@ function updateCriticalBanner() {
       </div>`;
   }
 
+  // (2026-06-11) Otras áreas críticas (≤4) además de la más baja — antes el banner
+  // mostraba solo 1 y los demás críticos quedaban enterrados en el grid.
+  const otherCriticals = scored
+    .filter(a => a.id !== lowest.id && sourceScores[a.id] <= 4)
+    .sort((a, b) => sourceScores[a.id] - sourceScores[b.id]);
+  const othersHtml = otherCriticals.length
+    ? `<div style="margin-top:6px;font-size:0.72rem;color:var(--muted)">también críticas: ${otherCriticals.map(a =>
+        `<span style="color:${scoreColor(sourceScores[a.id])};font-weight:600">${a.icon} ${a.label} ${sourceScores[a.id]}/10</span>`).join(' · ')}</div>`
+    : '';
+
   el.innerHTML = `
     <div class="critical-banner ${cls}">
       <span class="critical-icon">${lowest.icon}</span>
@@ -985,6 +1004,7 @@ function updateCriticalBanner() {
         <div class="critical-actions">
           ${lowest.actions.map(a => `<span class="action-chip">→ ${a}</span>`).join("")}
         </div>
+        ${othersHtml}
       </div>
     </div>
     ${runwayAlertHtml}`;
@@ -1174,10 +1194,12 @@ function buildCards() {
 
     let healthFreshnessHtml = "";
     if ((a.id === 'salud' || a.id === 'descanso') && HEALTH_LAST_REAL_DATE) {
+      // (restaurado 2026-06-11; regla 2026-06-02) stale desde D-2 — una noche re-reportada no es crisis activa
       const daysAgo = Math.floor((new Date() - new Date(HEALTH_LAST_REAL_DATE + 'T12:00:00')) / 86400000);
-      const cls = daysAgo === 0 ? 'fresh' : daysAgo >= 3 ? 'stale' : '';
-      const label = daysAgo === 0 ? 'hoy' : daysAgo === 1 ? 'ayer' : `hace ${daysAgo} días`;
-      healthFreshnessHtml = `<div class="freshness ${cls}" style="margin-top:6px">📡 Datos Apple Watch: ${label}</div>`;
+      const cls = daysAgo === 0 ? 'fresh' : daysAgo >= 2 ? 'stale' : '';
+      const label = daysAgo === 0 ? 'hoy' : daysAgo === 1 ? 'ayer' : `hace ${daysAgo}d`;
+      const warn = daysAgo >= 2 ? ` — score de la noche del ${HEALTH_LAST_REAL_DATE.slice(5)}, sin sync nuevo` : '';
+      healthFreshnessHtml = `<div class="freshness ${cls}" style="margin-top:6px${daysAgo >= 2 ? ';font-weight:700' : ''}">⌚ Watch sync: ${label}${warn}</div>`;
     }
 
     // ── Staleness badge (9C v2, 2026-05-04): per-area expected refresh cadence ──
@@ -1226,7 +1248,7 @@ function buildCards() {
         <span class="auto-badge">🤖 Auto</span>
         ${(() => { const s = getStreak(a.id); return s >= 2 ? `<span class="streak-badge${s>=5?' hot':''}" title="${s} días consecutivos en meta">🔥 ${s}d</span>` : ''; })()}
         ${(a.id === 'descanso' || a.id === 'salud') && typeof METRICS_DATA !== 'undefined' && METRICS_DATA && (METRICS_DATA.sleepStreakBelowTarget || 0) >= 2 ? (() => { const n = METRICS_DATA.sleepStreakBelowTarget || 0; const dots = '🔴'.repeat(Math.min(n, 5)); const isCritical = n >= 5; return `<span class="sleep-streak-badge${isCritical ? ' critical' : ''}" title="${n} noches consecutivas con sueño insuficiente (score ≤4)">${n}n ${dots}</span>`; })() : ''}
-        ${a.id === 'descanso' && typeof METRICS_DATA !== 'undefined' && METRICS_DATA && METRICS_DATA.salud && METRICS_DATA.salud.bedtime ? (() => { const bt = String(METRICS_DATA.salud.bedtime); const m = bt.match(/\s(\d{2}):(\d{2})/); if (!m) return ''; const hh = parseInt(m[1], 10), mm = m[2]; const beforeMidnight = hh >= 18; const t12 = ((hh % 12) || 12) + ':' + mm + (hh < 12 ? ' AM' : ' PM'); return `<span class="bedtime-badge ${beforeMidnight ? 'ok' : 'late'}" title="Hora real de dormirse (sleepStart Apple Watch, última noche con datos) · meta: dormido antes de las 12am">${beforeMidnight ? '✅' : '❌'} 🌙 ${t12}</span>`; })() : ''}
+        ${a.id === 'descanso' && typeof METRICS_DATA !== 'undefined' && METRICS_DATA && METRICS_DATA.salud && METRICS_DATA.salud.bedtime ? (() => { const bt = String(METRICS_DATA.salud.bedtime); const m = bt.match(/\s(\d{2}):(\d{2})/); if (!m) return ''; const hh = parseInt(m[1], 10), mm = m[2]; const beforeMidnight = hh >= 20; /* regla 9A 2026-06-07: 20:00–23:59 ✅ · 00:00–05:59 ❌ */ const t12 = ((hh % 12) || 12) + ':' + mm + (hh < 12 ? ' AM' : ' PM'); return `<span class="bedtime-badge ${beforeMidnight ? 'ok' : 'late'}" title="Hora real de dormirse (sleepStart Apple Watch, última noche con datos) · meta: dormido antes de las 12am">${beforeMidnight ? '✅' : '❌'} 🌙 ${t12}</span>`; })() : ''}
       </div>
       ${target && v ? `<div class="progress-bar-wrap">
         <div class="progress-bar"><div class="progress-bar-fill" style="width:${Math.min(v/target*100,100).toFixed(0)}%;background:${col}"></div></div>
@@ -1289,7 +1311,11 @@ function buildSleepStreak() {
   const history = (typeof SCORE_HISTORY_DAILY !== "undefined" && SCORE_HISTORY_DAILY) ? SCORE_HISTORY_DAILY.slice(0, 14) : [];
   if (history.length < 1) { card.style.display = "none"; return; }
 
-  // Build each row's (sleep_h, isProxy, salud) tuple
+  // Build each row's (sleep_h, isProxy, salud) tuple.
+  // (2026-06-11) Dedupe de noches repetidas: si el Watch no sincronizó, la MISMA noche
+  // (mismo healthDate o mismo bedtime) aparece en varios entries — se marca `repeated`
+  // y NO cuenta para la racha (solo noches únicas).
+  let _lastNightKey = null;
   const rows = history.map(e => {
     let h = (typeof e.totalSleep === "number") ? e.totalSleep : null;
     let proxy = false;
@@ -1300,15 +1326,26 @@ function buildSleepStreak() {
       const map = {1:3.0, 2:3.5, 3:4.5, 4:5.0, 5:5.5, 6:6.5, 7:7.0, 8:7.5, 9:8.0, 10:8.5};
       h = map[s] || null;
     }
-    return { date: e.date, h, proxy, salud: (e.scores && e.scores.salud) || 0 };
+    const nightKey = e.healthDate || e.bedtime || null;
+    let repeated = false;
+    if (nightKey != null) {
+      if (nightKey === _lastNightKey) repeated = true;
+      else _lastNightKey = nightKey;
+    } else {
+      _lastNightKey = null;
+    }
+    return { date: e.date, h, proxy, repeated, salud: (e.scores && e.scores.salud) || 0 };
   });
 
   // Streak summary: count current streak of <5h nights (starting from most recent)
+  // Noches repetidas (sin sync) se saltan — no rompen ni inflan la racha.
   let streak5 = 0, streak7 = 0;
   for (const r of rows) {
+    if (r.repeated) continue;
     if (r.h != null && r.h < 5) streak5++; else break;
   }
   for (const r of rows) {
+    if (r.repeated) continue;
     if (r.h != null && r.h < 7) streak7++; else break;
   }
   const streakClass = streak5 >= 2 ? "red" : (streak7 >= 3 ? "yellow" : "green");
@@ -1328,6 +1365,13 @@ function buildSleepStreak() {
     const pct = Math.min(100, Math.round((r.h / 10) * 100));
     const color = r.h < 5 ? "red" : (r.h < 7 ? "yellow" : "green");
     const proxyMark = r.proxy ? "≈" : "";
+    if (r.repeated) {
+      html += `<div class="ssbar-row" style="opacity:0.45" title="Noche repetida — Watch sin sync nuevo este día (mismo dato que el día anterior)">` +
+              `<span class="ssdate">${r.date.slice(5)}</span>` +
+              `<div class="ssbar-track"><div class="ssbar-fill ${color}" style="width:${pct}%;opacity:0.5"></div></div>` +
+              `<span class="ssval muted">= sin sync</span></div>`;
+      continue;
+    }
     html += `<div class="ssbar-row" title="${r.proxy ? 'Estimado de salud='+r.salud : 'Apple Watch'}">` +
             `<span class="ssdate">${r.date.slice(5)}</span>` +
             `<div class="ssbar-track"><div class="ssbar-fill ${color}" style="width:${pct}%"></div></div>` +
@@ -1620,7 +1664,7 @@ function buildMetrics() {
   html += `<div class="metric-row"><span class="mlbl">Net Worth Neto</span><span class="mval" style="color:#58a6ff;font-size:1rem">${fmt$(d.patrimonio.nwNeto)}</span></div>`;
   html += `<div class="metric-row"><span class="mlbl">Total Bruto</span><span class="mval">${fmt$(d.patrimonio.totalBruto)}</span></div>`;
   html += `<div class="metric-row"><span class="mlbl">Deuda total</span><span class="mval" style="color:#f85149">-${fmt$(d.patrimonio.deuda)}</span></div>`;
-  html += `<div class="metric-row"><span class="mlbl">Meta FI ($500K)</span><span class="mval">${d.patrimonio.fiPct}% <span style="color:#3fb950">${fiBar}</span></span></div>`;
+  html += `<div class="metric-row"><span class="mlbl">Meta FI ($${((d.patrimonio.fiTarget || 900000)/1000).toFixed(0)}K)</span><span class="mval">${d.patrimonio.fiPct}% <span style="color:#3fb950">${fiBar}</span></span></div>`;
 
   html += `<div class="metric-section-title">Retiro</div>`;
   html += `<div class="metric-row"><span class="mlbl">SEP IRA (TradeStation)</span><span class="mval">${fmt$(d.retiro.sepIra)}</span></div>`;
@@ -1646,7 +1690,7 @@ function buildMetrics() {
     const btm = String(d.salud.bedtime).match(/\s(\d{2}):(\d{2})/);
     if (btm) {
       const bhh = parseInt(btm[1], 10), bmm = btm[2];
-      const btOk = bhh >= 18;
+      const btOk = bhh >= 20; /* regla 9A 2026-06-07: 20:00–23:59 ✅ · 00:00–05:59 ❌ */
       const bt12 = ((bhh % 12) || 12) + ':' + bmm + (bhh < 12 ? ' AM' : ' PM');
       html += `<div class="metric-row"><span class="mlbl">Hora de dormir (última noche)</span><span class="mval" style="color:${btOk ? '#3fb950' : '#f85149'}">${btOk ? '✅' : '❌'} ${bt12} (meta: antes de 12am)</span></div>`;
     }
