@@ -3,9 +3,9 @@
     {
       "id": "salud",
       "label": "Salud",
-      "icon": "🏥",
+      "icon": "\ud83c\udfe5",
       "color": "#3fb950",
-      "defaultNote": "Sleep ~5.3h · HbA1c 5.9% · LDL 125 · Meta: 160 lbs",
+      "defaultNote": "Sleep ~5.3h \u00b7 HbA1c 5.9% \u00b7 LDL 125 \u00b7 Meta: 160 lbs",
       "actions": [
         "Caminar 7,000 pasos o 30 min de ejercicio",
         "Mantener HRV/RHR con actividad regular",
@@ -16,22 +16,22 @@
     {
       "id": "trabajo",
       "label": "Trabajo / Negocios",
-      "icon": "💼",
+      "icon": "\ud83d\udcbc",
       "color": "#79c0ff",
       "defaultNote": "DEC + Michalitas Guayaquil",
       "actions": [
         "Revisar metas semanales DEC",
         "Check Michalitas POS y ventas",
-        "Identificar 1 acción de crecimiento"
+        "Identificar 1 acci\u00f3n de crecimiento"
       ],
       "link": "https://mambo711.github.io/dec-dashboard/"
     },
     {
       "id": "inversiones",
       "label": "Inversiones",
-      "icon": "📈",
+      "icon": "\ud83d\udcc8",
       "color": "#58a6ff",
-      "defaultNote": "Net Worth $340,656 · Bruto $398,543 · FI meta: 68%",
+      "defaultNote": "Net Worth $340,656 \u00b7 Bruto $398,543 \u00b7 FI meta: 68%",
       "actions": [
         "Revisar allocations TradeStation",
         "Abrir Macro Wealth dashboard",
@@ -42,9 +42,9 @@
     {
       "id": "finanzas",
       "label": "Finanzas",
-      "icon": "💰",
+      "icon": "\ud83d\udcb0",
       "color": "#f0883e",
-      "defaultNote": "Mazda $10,837 · Renta $2,100/mo · LOC $47,887",
+      "defaultNote": "Mazda $10,837 \u00b7 Renta $2,100/mo \u00b7 LOC $47,887",
       "actions": [
         "Plan para reducir LOC Wells Fargo",
         "Revisar surplus mensual",
@@ -55,9 +55,9 @@
     {
       "id": "marian",
       "label": "Marian & Relaciones",
-      "icon": "❤️",
+      "icon": "\u2764\ufe0f",
       "color": "#f85149",
-      "defaultNote": "Contacto activo · Sia · Michalitas",
+      "defaultNote": "Contacto activo \u00b7 Sia \u00b7 Michalitas",
       "actions": [
         "Llamada o visita esta semana",
         "Tiempo de calidad (no trabajo)",
@@ -68,9 +68,9 @@
     {
       "id": "familia",
       "label": "Familia",
-      "icon": "👨‍👩‍👧",
+      "icon": "\ud83d\udc68\u200d\ud83d\udc69\u200d\ud83d\udc67",
       "color": "#bc8cff",
-      "defaultNote": "Ecuador: Jorge, Víctor, Esperanza · Miguel Miami",
+      "defaultNote": "Ecuador: Jorge, V\u00edctor, Esperanza \u00b7 Miguel Miami",
       "actions": [
         "Llamar a Esperanza (salud)",
         "WhatsApp a hermanos Ecuador",
@@ -80,10 +80,10 @@
     },
     {
       "id": "descanso",
-      "label": "Descanso / Sueño",
-      "icon": "😴",
+      "label": "Descanso / Sue\u00f1o",
+      "icon": "\ud83d\ude34",
       "color": "#56d364",
-      "defaultNote": "Hobbies · tiempo libre · viajes · recreación",
+      "defaultNote": "Hobbies \u00b7 tiempo libre \u00b7 viajes \u00b7 recreaci\u00f3n",
       "actions": [
         "Dormir 7h+ esta noche; cortar pantallas 1h antes",
         "Bloquear hora de dormir fija",
@@ -94,11 +94,11 @@
     {
       "id": "crecimiento",
       "label": "Crecimiento Personal",
-      "icon": "📚",
+      "icon": "\ud83d\udcda",
       "color": "#d2a8ff",
-      "defaultNote": "Lectura · aprendizaje · nuevas habilidades",
+      "defaultNote": "Lectura \u00b7 aprendizaje \u00b7 nuevas habilidades",
       "actions": [
-        "Leer 20 min al día",
+        "Leer 20 min al d\u00eda",
         "Identificar 1 habilidad a desarrollar",
         "Podcast o curso esta semana"
       ],
@@ -126,6 +126,25 @@
     "crecimiento": 0.8
   },
   "scoreHistoryDaily": [
+    {
+      "date": "2026-06-11",
+      "scores": {
+        "trabajo": 7,
+        "salud": 8,
+        "descanso": 2,
+        "inversiones": 4,
+        "finanzas": 6,
+        "marian": 7,
+        "crecimiento": 3,
+        "familia": 7
+      },
+      "steps": 4879,
+      "totalSleep": 3.08,
+      "hrv": 45.4,
+      "rhr": 59.0,
+      "healthDate": "2026-06-09",
+      "bedtime": "2026-06-09 02:46:54 -0400"
+    },
     {
       "date": "2026-06-10",
       "scores": {
@@ -583,58 +602,45 @@
         "crecimiento": 5,
         "familia": 6
       }
-    },
-    {
-      "date": "2026-05-11",
-      "scores": {
-        "trabajo": 6,
-        "salud": 2,
-        "descanso": 6,
-        "inversiones": 7,
-        "finanzas": 4,
-        "marian": 8,
-        "crecimiento": 5,
-        "familia": 7
-      }
     }
   ],
   "healthLastRealDate": "2026-06-09",
   "suggested": {
     "trabajo": {
       "score": 7,
-      "evidence": "DEC Health 75/100 BUENO (QUICK 10jun 08:30) · MTD $18.7K 48% · Cash $37.0K · AR od $5.3K | Michalitas: $1,119 (26% PE) · proyección $4,922 > PE $4,216"
+      "evidence": "DEC Health 75/100 BUENO (QUICK 10jun) \u00b7 MTD $18.7K 48% \u00b7 Cash $37.0K \u00b7 AR od $5.3K | Michalitas: $1,213 (29% PE) \u00b7 proyecci\u00f3n $4,450 vs PE $4,216 (+$234)"
     },
     "salud": {
       "score": 8,
-      "evidence": "HRV 45.4ms · RHR 59bpm · pasos 4,879 · ejercicio 64min · HbA1c 5.9/LDL 125 — sin sueño (va en Descanso) (Watch D-1)"
+      "evidence": "HRV 45.4ms \u00b7 RHR 59bpm \u00b7 pasos 4,879 \u00b7 ejercicio 64min \u00b7 HbA1c 5.9/LDL 125 \u2014 sin sue\u00f1o (va en Descanso) (Watch D-2, misma noche 9/jun, sin sync nuevo)"
     },
     "descanso": {
       "score": 2,
-      "evidence": "Sueño 3.08h · dormido a las 02:46 ❌ después de medianoche · deep 44min · REM 0.6h · racha déficit 2 noches (corrección 1→2 por fórmula, misma noche D-1)"
+      "evidence": "Sue\u00f1o 3.08h \u00b7 dormido a las 02:46 \u274c despu\u00e9s de medianoche \u00b7 deep 44min \u00b7 REM 0.6h \u00b7 racha d\u00e9ficit 3 noches (Watch D-2, misma noche, sin sync nuevo)"
     },
     "inversiones": {
       "score": 4,
-      "evidence": "NW $332K neto / $406K bruto · deuda $74K · FI 37% (meta $900K) · TWR n/d"
+      "evidence": "NW $332K neto / $406K bruto \u00b7 deuda $74K \u00b7 FI 37% (meta $900K) \u00b7 TWR n/d"
     },
     "finanzas": {
       "score": 6,
-      "evidence": "Sueldo vía DEC · Caja Xero $39.0K / opex $15.2K/mo = runway 2.6mo · DEC neto +$10.8K/mo · DEC Health 75/100"
+      "evidence": "Sueldo v\u00eda DEC \u00b7 Caja Xero $39.0K / opex $15.2K/mo = runway 2.6mo \u00b7 DEC neto +$10.8K/mo \u00b7 DEC Health 75/100"
     },
     "marian": {
-      "score": 8,
-      "evidence": "Cloze 7d: 222 interacciones (sentmails=167 mayormente automáticos · rcvd=44 · llamadas=1 · msgs=0 · meetings=10) · última actividad personal: 2026-06-09 (D-1)"
+      "score": 7,
+      "evidence": "Cloze 7d: 158 interacciones (sentmails=123 mayormente autom\u00e1ticos \u00b7 rcvd=26 \u00b7 meetings=9 \u00b7 llamadas=0 \u00b7 msgs=0) \u00b7 \u00faltima actividad personal: 2026-06-09 (D-2) \u00b7 cap 7 sin llamadas/msgs \u00b7 Zoom 1h26 con Marian 10jun"
     },
     "crecimiento": {
       "score": 3,
-      "evidence": "Señales reales: 0 (newsletters sin evidencia de lectura) · calendario NO cuenta · últimos 7d"
+      "evidence": "Se\u00f1ales reales: 0 (newsletters sin evidencia de lectura) \u00b7 calendario NO cuenta \u00b7 \u00faltimos 7d"
     },
     "familia": {
       "score": 7,
-      "evidence": "Contactos: Miguel (reporte movilización, respondido 10jun), Sia (llamadas programadas jue/sáb) · Transferencias: N · Última señal: 2026-06-10 (Miguel)"
+      "evidence": "Contactos: Miguel (reporte movilizaci\u00f3n $38.89, confirmado 10jun; pr\u00f3ximo vie 12jun), Sia (llamadas jue/s\u00e1b/mar) \u00b7 Transferencias: N \u00b7 \u00daltima se\u00f1al: 10jun email Miguel"
     }
   },
   "metricsData": {
-    "date": "2026-06-10",
+    "date": "2026-06-11",
     "patrimonio": {
       "nwNeto": 332311,
       "totalBruto": 405837,
@@ -675,7 +681,7 @@
       "cash": 38978,
       "burn": 15229,
       "netMonthly": 10782,
-      "locNote": "caja $39.0K < umbral $40K → sin distribuciones aún"
+      "locNote": "caja $39.0K < umbral $40K \u2192 sin distribuciones a\u00fan"
     },
     "nwNeto": 344298,
     "totalBruto": 402531,
@@ -691,29 +697,29 @@
     "decHealth": 69,
     "michalitasMonthRev": 3200,
     "michalitasPePct": 65,
-    "sleepStreakBelowTarget": 2
+    "sleepStreakBelowTarget": 3
   },
   "stalenessData": {
-    "trabajo": "2026-06-10",
-    "salud": "2026-06-10",
-    "descanso": "2026-06-10",
-    "inversiones": "2026-06-10",
-    "finanzas": "2026-06-10",
-    "marian": "2026-06-10",
-    "crecimiento": "2026-06-10",
-    "familia": "2026-06-10"
+    "trabajo": "2026-06-11",
+    "salud": "2026-06-11",
+    "descanso": "2026-06-11",
+    "inversiones": "2026-06-11",
+    "finanzas": "2026-06-11",
+    "marian": "2026-06-11",
+    "crecimiento": "2026-06-11",
+    "familia": "2026-06-11"
   },
   "familiaNextContacts": [
     {
-      "name": "📞 Llamada con Sia — Jueves",
+      "name": "\ud83d\udcde Llamada con Sia \u2014 Jueves",
       "date": "2026-06-11"
     },
     {
-      "name": "📞 Llamada con Sia — Sábado (sesión larga)",
+      "name": "\ud83d\udcde Llamada con Sia \u2014 S\u00e1bado (sesi\u00f3n larga)",
       "date": "2026-06-13"
     },
     {
-      "name": "📞 Llamada con Sia — Martes",
+      "name": "\ud83d\udcde Llamada con Sia \u2014 Martes",
       "date": "2026-06-16"
     }
   ],
@@ -746,7 +752,7 @@
   "lastUpdated": "2026-05-27T07:09:09.359857",
   "insights": {
     "updated": "2026-06-01",
-    "window": "30d (2026-05-02 → 2026-06-01)",
+    "window": "30d (2026-05-02 \u2192 2026-06-01)",
     "palanca": {
       "area": "finanzas",
       "sumR": 2.02
@@ -793,6 +799,6 @@
         "tipo": "leve"
       }
     ],
-    "recomendacion": "Este mes las correlaciones entre áreas son débiles (ninguna cruza |r|>0.5), así que no hay una palanca financiera clara que arrastre a las demás. La señal accionable es de comportamiento: el descanso cae con fuerza (4.9 → 3.7) y salud es la más errática del mes (std 2.25, promedio más bajo 3.73). Enfócate en descanso — consistencia de sueño — como el arreglo sistemático del mes; estabilizarlo es lo que más probablemente frene la volatilidad de salud."
+    "recomendacion": "Este mes las correlaciones entre \u00e1reas son d\u00e9biles (ninguna cruza |r|>0.5), as\u00ed que no hay una palanca financiera clara que arrastre a las dem\u00e1s. La se\u00f1al accionable es de comportamiento: el descanso cae con fuerza (4.9 \u2192 3.7) y salud es la m\u00e1s err\u00e1tica del mes (std 2.25, promedio m\u00e1s bajo 3.73). Enf\u00f3cate en descanso \u2014 consistencia de sue\u00f1o \u2014 como el arreglo sistem\u00e1tico del mes; estabilizarlo es lo que m\u00e1s probablemente frene la volatilidad de salud."
   }
 }
