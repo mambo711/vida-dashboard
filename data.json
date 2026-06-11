@@ -131,19 +131,19 @@
       "scores": {
         "trabajo": 7,
         "salud": 8,
-        "descanso": 2,
+        "descanso": 1,
         "inversiones": 4,
         "finanzas": 6,
         "marian": 7,
         "crecimiento": 3,
         "familia": 7
       },
-      "steps": 4879,
-      "totalSleep": 3.08,
-      "hrv": 45.4,
-      "rhr": 59.0,
-      "healthDate": "2026-06-09",
-      "bedtime": "2026-06-09 02:46:54 -0400"
+      "steps": 5052,
+      "totalSleep": 4.65,
+      "hrv": 52.2,
+      "rhr": 55.0,
+      "healthDate": "2026-06-10",
+      "bedtime": "2026-06-10 02:25:59 -0400"
     },
     {
       "date": "2026-06-10",
@@ -604,7 +604,7 @@
       }
     }
   ],
-  "healthLastRealDate": "2026-06-09",
+  "healthLastRealDate": "2026-06-10",
   "suggested": {
     "trabajo": {
       "score": 7,
@@ -612,11 +612,11 @@
     },
     "salud": {
       "score": 8,
-      "evidence": "HRV 45.4ms \u00b7 RHR 59bpm \u00b7 pasos 4,879 \u00b7 ejercicio 64min \u00b7 HbA1c 5.9/LDL 125 \u2014 sin sue\u00f1o (va en Descanso) (Watch D-2, misma noche 9/jun, sin sync nuevo)"
+      "evidence": "HRV 52.2ms \u00b7 RHR 55bpm \u00b7 pasos 5,052 \u00b7 ejercicio 89min \u00b7 HbA1c 5.9/LDL 125 \u2014 sin sue\u00f1o (va en Descanso) (noche 10/jun fresca)"
     },
     "descanso": {
-      "score": 2,
-      "evidence": "Sue\u00f1o 3.08h \u00b7 dormido a las 02:46 \u274c despu\u00e9s de medianoche \u00b7 deep 44min \u00b7 REM 0.6h \u00b7 racha d\u00e9ficit 3 noches (Watch D-2, misma noche, sin sync nuevo)"
+      "score": 1,
+      "evidence": "Sue\u00f1o 4.65h \u00b7 dormido a las 02:25 \u274c despu\u00e9s de medianoche \u00b7 deep 0min \u00b7 REM 0h \u00b7 racha d\u00e9ficit 4+ noches \u00fanicas \u00b7 (noche 10/jun, archivo subi\u00f3 5:49am \u2014 corregido mediod\u00eda)"
     },
     "inversiones": {
       "score": 4,
@@ -663,13 +663,13 @@
     "salud": {
       "hba1c": 5.9,
       "ldl": 125,
-      "sleepAvg": 3.08,
+      "sleepAvg": 4.65,
       "pesoMeta": 160,
-      "steps": 4879,
-      "exerciseMin": 64,
-      "hrv": 45.4,
-      "rhr": 59.0,
-      "bedtime": "2026-06-09 02:46:54 -0400"
+      "steps": 5052,
+      "exerciseMin": 89,
+      "hrv": 52.2,
+      "rhr": 55.0,
+      "bedtime": "2026-06-10 02:25:59 -0400"
     },
     "finanzas": {
       "renta": 2100,
