@@ -1270,6 +1270,28 @@ function buildCards() {
         const acol = dd > 0 ? '#3fb950' : dd < 0 ? '#f85149' : 'var(--muted)';
         return `<div class="card-sparkline" title="HRV (variabilidad de frecuencia cardíaca) últimos ${hv.length} días — recuperación: ≥45 buena, <30 fatiga"><span class="sparkline-label">HRV ${hv.length}d</span><svg viewBox="0 0 ${w} ${h}" width="${w}" height="${h}" style="overflow:visible;display:block"><polyline points="${pts}" fill="none" stroke="${tc}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="sparkline-label" style="color:${tc};font-weight:600">${last}ms</span><span class="sparkline-label" style="color:${acol}">${arrow}${Math.abs(Math.round(dd))}</span></div>`;
       })() : ''}
+      ${a.id === 'descanso' ? (() => {
+        // 9B (2026-06-14): sparkline de SUEÑO 7 noches únicas en la card Descanso.
+        // Dedup por noche real (healthDate/bedtime) para no contar noches repetidas sin sync.
+        const seen = new Set(); const sl = [];
+        for (const e of (SCORE_HISTORY_DAILY || [])) {
+          if (e.totalSleep == null) continue;
+          const k = e.healthDate || e.bedtime || e.date;
+          if (seen.has(k)) continue; seen.add(k);
+          sl.push(e.totalSleep);
+          if (sl.length >= 7) break;
+        }
+        sl.reverse(); // oldest -> newest
+        if (sl.length < 2) return '';
+        const w = 120, h = 24, mn = Math.min(...sl, 4), mx = Math.max(...sl, 8), rg = (mx - mn) || 1;
+        const yOf = vv => (h - 3 - ((vv - mn) / rg) * (h - 6));
+        const pts = sl.map((vv, i) => `${(i / (sl.length - 1) * w).toFixed(1)},${yOf(vv).toFixed(1)}`).join(' ');
+        const last = sl[sl.length - 1];
+        const tgtY = yOf(7).toFixed(1);
+        const tc = last >= 7 ? '#3fb950' : last >= 6 ? '#d4a72c' : '#f85149';
+        const below = sl.filter(v => v < 7).length;
+        return `<div class="card-sparkline" title="Horas de sueño por noche, últimas ${sl.length} noches con datos (meta 7h = línea punteada) — ${below}/${sl.length} bajo meta"><span class="sparkline-label">😴 ${sl.length}n</span><svg viewBox="0 0 ${w} ${h}" width="${w}" height="${h}" style="overflow:visible;display:block"><line x1="0" y1="${tgtY}" x2="${w}" y2="${tgtY}" stroke="#3fb950" stroke-width="0.75" stroke-dasharray="3,2" opacity="0.6"/><polyline points="${pts}" fill="none" stroke="${tc}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="sparkline-label" style="color:${tc};font-weight:600">${last.toFixed(1)}h</span></div>`;
+      })() : ''}
       ${healthFreshnessHtml}`;
     grid.appendChild(card);
   });
