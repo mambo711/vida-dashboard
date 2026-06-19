@@ -610,16 +610,16 @@
       "fiPct": 43
     },
     "retiro": {
-      "sepIra": 133786,
-      "rothIra": 61658,
-      "tradIra": 28187
+      "sepIra": 140207,
+      "rothIra": 66371,
+      "tradIra": 28956
     },
     "trading": {
-      "emergency": 31151,
-      "cdsEcuador": 35000,
-      "tacticalEtf": 32847,
-      "options": 16790,
-      "ibkrRhFutures": 12416
+      "emergency": 31317,
+      "cdsEcuador": 36449,
+      "tacticalEtf": 34339,
+      "options": 13063,
+      "ibkrRhFutures": 17834
     },
     "salud": {
       "hba1c": 5.9,
