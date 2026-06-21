@@ -142,6 +142,25 @@
   },
   "scoreHistoryDaily": [
     {
+      "date": "2026-06-21",
+      "scores": {
+        "trabajo": 7,
+        "salud": 6,
+        "descanso": 3,
+        "inversiones": 5,
+        "finanzas": 6,
+        "marian": 9,
+        "crecimiento": 3,
+        "familia": 4
+      },
+      "steps": 921,
+      "totalSleep": 5.0,
+      "hrv": 61.5,
+      "rhr": 56.0,
+      "bedtime": "2026-06-19 02:53:48 -0400",
+      "healthDate": "2026-06-19"
+    },
+    {
       "date": "2026-06-20",
       "scores": {
         "trabajo": 7,
@@ -555,59 +574,45 @@
         "descanso": 4,
         "crecimiento": 5
       }
-    },
-    {
-      "date": "2026-04-07",
-      "scores": {
-        "salud": 3,
-        "finanzas": 4,
-        "inversiones": 6,
-        "marian": 8,
-        "familia": 4,
-        "trabajo": 6,
-        "legal": 4,
-        "descanso": 4,
-        "crecimiento": 4
-      }
     }
   ],
   "healthLastRealDate": "2026-06-19",
   "suggested": {
     "trabajo": {
       "score": 7,
-      "evidence": "DEC Health 8/10 BUENO (80/100) \u00b7 MTD $35.7K \u00b7 Margin 48% \u00b7 Cash $49.4K \u00b7 AR od $4.7K | Michalitas: $2,581 (61% PE) \u00b7 proy $4,367 > PE $4,216"
+      "evidence": "DEC Health 8/10 BUENO (80/100) \u00b7 MTD $35.7K \u00b7 Margen 48% \u00b7 Cash $49.4K \u00b7 AR od $4.7K | Michalitas: $2,762 (66% PE) \u00b7 proyeccion +$124 sobre PE"
     },
     "salud": {
       "score": 6,
-      "evidence": "HRV 61.5ms +1 \u00b7 RHR 56bpm +1 \u00b7 pasos 921 -1 (<3K) \u00b7 ejercicio 0min \u00b7 D-1 Jun 19 Watch"
+      "evidence": "HRV 61.5ms \u00b7 RHR 56.0bpm \u00b7 pasos 921 \u00b7 ejercicio 0min (Watch D-2, Jun 19) - sin sueno (va en Descanso)"
     },
     "descanso": {
       "score": 3,
-      "evidence": "Sue\u00f1o 5.0h \u00b7 acostado 2:53am \u274c \u00b7 deep 55min / REM 1.03h (< 1.5h, no bonus) \u00b7 racha 10+ noches <7h \u2192 -1"
+      "evidence": "Sueno 5.0h \u00b7 dormido a las 02:53 despues de medianoche \u00b7 deep 55min \u00b7 REM 1.03h \u00b7 racha 10+ noches <7h (Watch D-2, Jun 19)"
     },
     "inversiones": {
       "score": 5,
-      "evidence": "NW $390K \u00b7 FI 43% (40-50%) \u00b7 twr N/A"
+      "evidence": "NW $390K \u00b7 FI 43% (target $900K) \u00b7 deuda $74.7K \u00b7 Wealth Health 62 BUENO"
     },
     "finanzas": {
-      "score": 7,
-      "evidence": "Caja Xero $49.4K \u00b7 opex $14.8K/mo = runway 3.3mo \u00b7 DEC neto +$9.1K/mo \u00b7 DEC Health 80/100 \u226575 \u2192 +1 \u00b7 caja > $40K \u2192 reanudar LOC jul 2026"
+      "score": 6,
+      "evidence": "Sueldo via DEC \u00b7 Caja Xero $49.4K / opex $16.8K/mo = runway 2.9mo \u00b7 DEC neto +$11.4K/mo \u00b7 DEC Health 80/100"
     },
     "marian": {
-      "score": 6,
-      "evidence": "Cloze 7d: 235 interacciones \u00b7 10 llamadas \u00b7 48 mensajes \u00b7 \u00faltimo call Jun 16 (D-4)"
+      "score": 9,
+      "evidence": "Cloze 7d: 234 interacciones \u00b7 7 llamadas \u00b7 contacto personal Jun 20 (D-1, 4 meetings)"
     },
     "crecimiento": {
-      "score": 5,
-      "evidence": "Se\u00f1ales reales: 1 (Cava newsletter Jun 19 \u00bfSubida de Tipos?) \u00b7 calendario NO cuenta \u00b7 \u00faltimos 7d"
+      "score": 3,
+      "evidence": "Senales reales: 0 (barchart/JEP newsletters no cuentan) \u00b7 calendario NO cuenta \u00b7 ultimos 7d"
     },
     "familia": {
-      "score": 6,
-      "evidence": "Llamada Sia hoy 2PM (calendar) \u00b7 pr\u00f3xima S\u00e1b 27 Jun \u00b7 sin emails Miguel/Jorge/Victor/Esperanza"
+      "score": 4,
+      "evidence": "Sin contacto directo 7+ dias \u00b7 sin emails de Miguel/Jorge/Victor/Esperanza \u00b7 Sia llamada prox sab 27 jun"
     }
   },
   "metricsData": {
-    "date": "2026-06-20",
+    "date": "2026-06-21",
     "patrimonio": {
       "nwNeto": 390362,
       "totalBruto": 465071,
@@ -643,11 +648,11 @@
       "locRate": 8.5,
       "mazda": 10837,
       "surplus": 0,
-      "runway": 3.3,
+      "runway": 2.9,
       "cash": 49436,
-      "burn": 14815,
-      "netMonthly": 9069,
-      "locNote": "caja $49.4K > umbral $40K \u2192 reanudar plan LOC (~jul 2026)"
+      "burn": 16759,
+      "netMonthly": 11411,
+      "locNote": "caja $49.4K > umbral $40K - reanudar plan LOC (~jul 2026)"
     },
     "nwNeto": 343772,
     "totalBruto": 401659,
@@ -666,23 +671,19 @@
     "sleepStreakBelowTarget": 7
   },
   "stalenessData": {
-    "trabajo": "2026-06-20",
-    "salud": "2026-06-20",
-    "descanso": "2026-06-20",
-    "inversiones": "2026-06-20",
-    "finanzas": "2026-06-20",
-    "marian": "2026-06-20",
-    "crecimiento": "2026-06-20",
-    "familia": "2026-06-20",
+    "trabajo": "2026-06-21",
+    "salud": "2026-06-21",
+    "descanso": "2026-06-21",
+    "inversiones": "2026-06-21",
+    "finanzas": "2026-06-21",
+    "marian": "2026-06-21",
+    "crecimiento": "2026-06-21",
+    "familia": "2026-06-21",
     "legal": "2026-05-13"
   },
   "familiaNextContacts": [
     {
-      "name": "Llamada con Sia",
-      "date": "2026-06-20"
-    },
-    {
-      "name": "Llamada con Sia",
+      "name": "Llamada con Sia - Sabado",
       "date": "2026-06-27"
     }
   ],
