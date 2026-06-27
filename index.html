@@ -1293,8 +1293,10 @@ function buildCards() {
         return `<div class="card-sparkline" title="Horas de sueño por noche, últimas ${sl.length} noches con datos (meta 7h = línea punteada) — ${below}/${sl.length} bajo meta"><span class="sparkline-label">😴 ${sl.length}n</span><svg viewBox="0 0 ${w} ${h}" width="${w}" height="${h}" style="overflow:visible;display:block"><line x1="0" y1="${tgtY}" x2="${w}" y2="${tgtY}" stroke="#3fb950" stroke-width="0.75" stroke-dasharray="3,2" opacity="0.6"/><polyline points="${pts}" fill="none" stroke="${tc}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="sparkline-label" style="color:${tc};font-weight:600">${last.toFixed(1)}h</span></div>`;
       })() : ''}
       ${a.id === 'descanso' ? (() => {
-        // 9B (2026-06-22): Bedtime trend — last 7 unique nights with bedtime hour
-        const seen = new Set(); const bts = [];
+        // 9B v2 (2026-06-27): Binary bedtime dot row — 🔵 before midnight ✅ · 🔴 after midnight ❌
+        // Replaces the Y-axis trend line with a simpler behavioral reinforcement row.
+        // Blue (#388bfd) = dormido antes 12am · Red (#f85149) = dormido después de 12am
+        const seen = new Set(); const nights = [];
         for (const e of (SCORE_HISTORY_DAILY || [])) {
           if (!e.bedtime) continue;
           const k = e.healthDate || e.bedtime;
@@ -1302,29 +1304,31 @@ function buildCards() {
           const m = String(e.bedtime).match(/\s(\d{2}):(\d{2})/);
           if (!m) continue;
           const hh = parseInt(m[1], 10), mm2 = parseInt(m[2], 10);
-          // Extended hour scale: 20–23 = same evening, 0–5 = early morning (+24)
+          // beforeMidnight: hh 20-23 = same evening before 12am
+          const beforeMidnight = hh >= 20;
           const hr = (hh >= 20) ? hh + mm2/60 : hh + mm2/60 + 24;
-          bts.push(hr);
-          if (bts.length >= 7) break;
+          nights.push({ beforeMidnight, hr, label: (() => {
+            const lh = hh % 12 || 12;
+            const lm = String(mm2).padStart(2,'0');
+            return `${lh}:${lm}${hh < 12 ? 'am' : 'pm'}`;
+          })() });
+          if (nights.length >= 7) break;
         }
-        bts.reverse(); // oldest → newest left → right
-        if (bts.length < 2) return '';
-        const W = 120, H = 32, LO = 21.5, HI = 28.0;
-        // SVG: y=0 = top = late bedtime (bad), y=H = bottom = early (good)
-        const yOf = v => (H - 2 - ((v - LO) / (HI - LO)) * (H - 4));
-        const midY = yOf(24).toFixed(1); // midnight reference
-        const lineP = bts.map((v, i) => `${(i/(bts.length-1)*W).toFixed(1)},${yOf(v).toFixed(1)}`).join(' ');
-        const dots  = bts.map((v, i) => {
-          const cx = (i/(bts.length-1)*W).toFixed(1), cy = yOf(v).toFixed(1);
-          return `<circle cx="${cx}" cy="${cy}" r="2.8" fill="${v >= 24 ? '#f85149' : '#3fb950'}"/>`;
+        nights.reverse(); // oldest → newest left → right
+        if (nights.length < 1) return '';
+        const R = 5, GAP = 14, PAD = R + 1;
+        const W = PAD * 2 + (nights.length - 1) * GAP;
+        const H = (R + 1) * 2;
+        const CY = H / 2;
+        const dotSvg = nights.map((n, i) => {
+          const cx = PAD + i * GAP;
+          const col = n.beforeMidnight ? '#388bfd' : '#f85149';
+          return `<circle cx="${cx}" cy="${CY}" r="${R}" fill="${col}" opacity="0.92" title="${n.label}"/>`;
         }).join('');
-        const last = bts[bts.length-1];
-        const lh = Math.floor(last >= 24 ? last - 24 : last);
-        const lm = String(Math.round((last % 1)*60)).padStart(2,'0');
-        const lbl = `${(lh%12)||12}:${lm}${last < 24 ? 'pm' : 'am'}`;
-        const lateN = bts.filter(v => v >= 24).length;
-        const lc = last >= 24 ? '#f85149' : '#3fb950';
-        return `<div class="card-sparkline" title="Hora de acostarse, últimas ${bts.length} noches — línea punteada = medianoche · ${lateN}/${bts.length} noches después de 12am · 🟢 antes 12am · 🔴 después de 12am"><span class="sparkline-label">🌙 ${bts.length}n</span><svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" style="overflow:visible;display:block"><line x1="0" y1="${midY}" x2="${W}" y2="${midY}" stroke="#8b949e" stroke-width="0.8" stroke-dasharray="3,2"/><polyline points="${lineP}" fill="none" stroke="var(--muted)" stroke-width="1" opacity="0.4" stroke-linejoin="round"/>${dots}</svg><span class="sparkline-label" style="color:${lc};font-weight:600">${lbl}</span></div>`;
+        const okN = nights.filter(n => n.beforeMidnight).length;
+        const last = nights[nights.length - 1];
+        const scoreCol = okN >= 6 ? '#388bfd' : okN >= 4 ? '#d4a72c' : '#f85149';
+        return `<div class="card-sparkline" title="Dormido antes de 12am · ${okN}/${nights.length} noches ✅ · 🔵 antes 12am · 🔴 después 12am · última noche: ${last.label}"><span class="sparkline-label">🌙</span><svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" style="overflow:visible;display:block;margin:0 2px">${dotSvg}</svg><span class="sparkline-label" style="color:${scoreCol};font-weight:600">${okN}/${nights.length}✅</span></div>`;
       })() : ''}
       ${healthFreshnessHtml}`;
     grid.appendChild(card);
