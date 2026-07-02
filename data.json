@@ -135,16 +135,36 @@
       "exerciseMin": 0,
       "hrv": 41.9,
       "rhr": 58.0,
-      "bedtime": "2026-07-01 02:52:54 -0400"
+      "bedtime": "2026-07-01 02:52:54 -0400",
+      "hba1c": 5.9,
+      "ldl": 125,
+      "pesoMeta": 160
     },
     "finanzas": {
       "runway": 2.9,
       "cash": 45015,
       "burn": 15260,
       "netMonthly": 8056,
-      "locNote": "caja $45.0K > umbral $40K → reanudar plan LOC (~jul 2026)"
+      "locNote": "caja $45.0K > umbral $40K → reanudar plan LOC (~jul 2026)",
+      "renta": 2100,
+      "wellsFargoLoc": 47887,
+      "locRate": 8.5,
+      "mazda": 10837,
+      "surplus": 0
     },
-    "sleepStreakBelowTarget": 1
+    "sleepStreakBelowTarget": 1,
+    "retiro": {
+      "sepIra": 137827,
+      "rothIra": 66930,
+      "tradIra": 29073
+    },
+    "trading": {
+      "emergency": 31317,
+      "cdsEcuador": 36449,
+      "tacticalEtf": 32178,
+      "options": 12695,
+      "ibkrRhFutures": 17390
+    }
   },
   "scoreHistoryDaily": [
     {
