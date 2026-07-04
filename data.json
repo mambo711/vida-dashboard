@@ -79,53 +79,53 @@
   "suggested": {
     "trabajo": {
       "score": 8,
-      "evidence": "DEC Health 95/100 BUENO · MTD $64K · Margin 37.6% · AR od $0 | Michalitas: $89 (2% PE) · deficit proy $3.2K"
+      "evidence": "DEC Health 99/100 BUENO · MTD $64.1K · Margin 37.6% · Cash $46.8K · AR od $0 | Michalitas: $341 (8% PE, 3d op) · proy $2,499 vs PE $4,216 · sin cocinero"
     },
     "salud": {
       "score": 7,
-      "evidence": "HRV 64.8ms · RHR 53bpm · pasos 3353 · ejercicio 0min (Watch Jul 2) — sin sueno (va en Descanso)"
+      "evidence": "HRV 64.8ms · RHR 53bpm · pasos 3353 · ejercicio 0min (Watch D-2, sin sync nuevo) — sin sueño (va en Descanso)"
     },
     "descanso": {
       "score": 2,
-      "evidence": "Sueno 4.42h · dormido 1:18 AM pos-medianoche · deep 43min · REM 23min · racha deficit 2 noches"
+      "evidence": "Sueño 4.42h · dormido a la 1:18 AM ❌ después de 12am · deep 43min · REM 0.4h · racha déficit 2 noches (Watch D-2, sin sync nuevo)"
     },
     "inversiones": {
       "score": 5,
-      "evidence": "NW $405.8K · FI 45% · bruto $414.7K"
+      "evidence": "NW $405.7K · FI 45% · bruto $414.6K · deuda $8.9K (weekly 3 jul)"
     },
     "finanzas": {
       "score": 7,
-      "evidence": "Caja Xero $46.8K / opex $15.3K/mo = runway 3.1mo · DEC neto +$8.6K/mo · DEC Health 95/100"
+      "evidence": "Sueldo vía DEC · Caja Xero $46.8K / opex $15.3K/mo = runway 3.1mo · DEC neto +$8.6K/mo · DEC Health 99/100 · caja > umbral $40K → plan LOC"
     },
     "marian": {
       "score": 9,
-      "evidence": "Cloze 7d: 177 int · 24 llamadas · ultima personal: 2026-07-02 Zoom (D-1)"
+      "evidence": "Cloze 7d: 194 interacciones · 22 llamadas · 6 mensajes · última actividad personal: 2026-07-02 (D-2)"
     },
     "crecimiento": {
       "score": 5,
-      "evidence": "1 senal real: Zoom trading review con Marian Jul 2 · newsletter J.L.Cava no confirmado · ultimos 7d"
+      "evidence": "Señales reales: 1 (Zoom trading review 2 jul, ventana 7d) · sin señales nuevas · calendario NO cuenta"
     },
     "familia": {
       "score": 5,
-      "evidence": "Remitly x3 $480 Jose Miguel (Produbanco Jul 2) · llamada Sia Jul 4"
+      "evidence": "Transferencias: Remitly Jose Miguel $348 (2 jul) · sin emails directos · Cumpleaños Marisol + llamada Sia hoy"
     }
   },
   "stalenessData": {
-    "trabajo": "2026-07-03",
-    "inversiones": "2026-07-03",
-    "finanzas": "2026-07-03",
-    "marian": "2026-07-03",
-    "crecimiento": "2026-07-03",
-    "familia": "2026-07-03",
-    "salud": "2026-07-03",
-    "descanso": "2026-07-03"
+    "trabajo": "2026-07-04",
+    "inversiones": "2026-07-04",
+    "finanzas": "2026-07-04",
+    "marian": "2026-07-04",
+    "crecimiento": "2026-07-04",
+    "familia": "2026-07-04",
+    "salud": "2026-07-04",
+    "descanso": "2026-07-04"
   },
   "healthLastRealDate": "2026-07-02",
   "metricsData": {
-    "date": "2026-07-03",
+    "date": "2026-07-04",
     "patrimonio": {
-      "nwNeto": 405804,
-      "totalBruto": 414665,
+      "nwNeto": 405706,
+      "totalBruto": 414567,
       "deuda": 8861,
       "fiPct": 45
     },
@@ -145,7 +145,7 @@
       "cash": 46785,
       "burn": 15300,
       "netMonthly": 8596,
-      "locNote": "caja $46.8K > umbral $40K -> reanudar plan LOC (~jul 2026)",
+      "locNote": "caja $46.8K > umbral $40K → reanudar plan LOC (~jul 2026)",
       "renta": 2100,
       "wellsFargoLoc": 47887,
       "locRate": 8.5,
@@ -167,6 +167,25 @@
     }
   },
   "scoreHistoryDaily": [
+    {
+      "date": "2026-07-04",
+      "scores": {
+        "trabajo": 8,
+        "salud": 7,
+        "descanso": 2,
+        "inversiones": 5,
+        "finanzas": 7,
+        "marian": 9,
+        "crecimiento": 5,
+        "familia": 5
+      },
+      "steps": 3353,
+      "totalSleep": 4.42,
+      "hrv": 64.8,
+      "rhr": 53.0,
+      "bedtime": "2026-07-02 01:18:05 -0400",
+      "healthDate": "2026-07-02"
+    },
     {
       "date": "2026-07-03",
       "scores": {
@@ -208,8 +227,16 @@
   ],
   "familiaNextContacts": [
     {
-      "name": "Llamada con Sia — Sabado sesion larga",
+      "name": "📞 Llamada con Sia",
       "date": "2026-07-04"
+    },
+    {
+      "name": "Cumpleaños Marisol",
+      "date": "2026-07-04"
+    },
+    {
+      "name": "📞 Llamada con Sia",
+      "date": "2026-07-11"
     }
   ],
   "areas": [
