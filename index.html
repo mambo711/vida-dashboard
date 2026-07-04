@@ -1716,12 +1716,6 @@ function buildTrend() {
 
 function buildMetrics() {
   const d = METRICS_DATA;
-  // Guard: if static weekly fields are missing, show placeholder and return (CDN lag / fresh deploy)
-  if (!d || !d.retiro || !d.trading || !d.finanzas || !d.finanzas.renta) {
-    const el = document.getElementById("metricsContent");
-    if (el) el.innerHTML = '<div style="color:var(--muted);padding:1rem;text-align:center">⏳ Datos de patrimonio actualizándose...</div>';
-    return;
-  }
   const fmtK = v => v >= 1000 ? '$' + (v/1000).toFixed(v >= 100000 ? 0 : 1) + 'K' : '$' + v.toLocaleString();
   const fmt$ = v => '$' + v.toLocaleString();
   const fiBar = '▰'.repeat(Math.round(d.patrimonio.fiPct/10)) + '░'.repeat(10 - Math.round(d.patrimonio.fiPct/10));
