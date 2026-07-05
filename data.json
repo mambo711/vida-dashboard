@@ -79,19 +79,19 @@
   "suggested": {
     "trabajo": {
       "score": 8,
-      "evidence": "DEC Health 10/10 (99/100) \u00b7 MTD $64K margin 37.6% \u00b7 Cash $46.8K \u00b7 AR od $0 | Michalitas $341 jul (8% PE, 3 dias) \u00b7 proy $2,499 <PE \u00b7 blockers Meta/SRI"
+      "evidence": "DEC Health 10/10 (99/100) BUENO \u00b7 MTD $64K margin 37.6% \u00b7 Cash $46.8K \u00b7 AR od $0 | Michalitas $654 (16% PE) \u00b7 deficit proyectado -$620"
     },
     "salud": {
       "score": 6,
-      "evidence": "HRV 38ms \u00b7 RHR 53bpm (bueno) \u00b7 pasos/ejercicio sin datos (archivo sin workout) \u00b7 sin sueno (va en Descanso)"
+      "evidence": "HRV 38ms \u00b7 RHR 53bpm (bueno) \u00b7 pasos/ejercicio sin datos (Watch no llevado de dia) \u00b7 sin sueno (va en Descanso)"
     },
     "descanso": {
       "score": 6,
-      "evidence": "Sueno 6.05h \u00b7 dormido 3:53 AM \u274c \u00b7 deep 53min \u00b7 REM 1.78h \u00b7 racha deficit >=3 noches"
+      "evidence": "Sueno 6.05h \u00b7 dormido 3:53 AM (X) \u00b7 deep 53min \u00b7 REM 1.78h \u00b7 racha deficit >=3 noches"
     },
     "inversiones": {
       "score": 5,
-      "evidence": "NW $406K \u00b7 FI 45% \u00b7 \u26a0\ufe0f VLV23 margin call + tactico 138.9% apalancado"
+      "evidence": "NW $406K neto \u00b7 FI 45% \u00b7 perf 57 (apalancamiento tactico a vigilar)"
     },
     "finanzas": {
       "score": 7,
@@ -99,7 +99,7 @@
     },
     "marian": {
       "score": 9,
-      "evidence": "Cloze 7d: 242 interacciones \u00b7 35 llamadas \u00b7 ultima actividad personal: 2026-07-04 (D-1)"
+      "evidence": "Cloze 7d: 242 interacciones \u00b7 35 llamadas \u00b7 18 mensajes \u00b7 ultima actividad personal: 2026-07-04 (D-1)"
     },
     "crecimiento": {
       "score": 5,
@@ -107,7 +107,7 @@
     },
     "familia": {
       "score": 5,
-      "evidence": "Transferencias: Remitly $1,000 a Marian (Ecuador) \u00b7 llamada Sia sab 11 \u00b7 sin contacto directo Miguel/Jorge esta semana"
+      "evidence": "Transferencias: Remitly $1,000 a Marian (Ecuador, 3 jul) \u00b7 llamada Sia sab 11 \u00b7 sin contacto directo otros familiares"
     }
   },
   "stalenessData": {
@@ -131,7 +131,7 @@
     },
     "salud": {
       "sleepAvg": 6.05,
-      "steps": 3353,
+      "steps": 0,
       "exerciseMin": 0,
       "hrv": 38.4,
       "rhr": 53.0,
@@ -179,6 +179,7 @@
         "crecimiento": 5,
         "familia": 5
       },
+      "steps": 0,
       "totalSleep": 6.05,
       "hrv": 38.4,
       "rhr": 53.0,
