@@ -152,7 +152,7 @@
       "mazda": 10837,
       "surplus": 0
     },
-    "sleepStreakBelowTarget": 3,
+    "sleepStreakBelowTarget": 17,
     "retiro": {
       "sepIra": 140427,
       "rothIra": 65740,
@@ -242,6 +242,423 @@
       "rhr": 58.0,
       "bedtime": "2026-07-01 02:52:54 -0400",
       "healthDate": "2026-07-01"
+    },
+    {
+      "date": "2026-06-30",
+      "scores": {
+        "trabajo": 7,
+        "salud": 7,
+        "descanso": 1,
+        "inversiones": 5,
+        "finanzas": 8,
+        "marian": 7,
+        "crecimiento": 5,
+        "familia": 5
+      },
+      "steps": 371,
+      "totalSleep": 4.24,
+      "hrv": 69.2,
+      "rhr": 53.0,
+      "bedtime": "2026-06-29 01:54:35 -0400",
+      "healthDate": "2026-06-29"
+    },
+    {
+      "date": "2026-06-29",
+      "scores": {
+        "trabajo": 7,
+        "salud": 7,
+        "descanso": 5,
+        "inversiones": 5,
+        "finanzas": 7,
+        "marian": 9,
+        "crecimiento": 5,
+        "familia": 5
+      },
+      "steps": 270,
+      "totalSleep": 6.0,
+      "hrv": 47.4,
+      "rhr": 55.0,
+      "bedtime": "2026-06-27 03:16:40 -0400",
+      "healthDate": "2026-06-27"
+    },
+    {
+      "date": "2026-06-28",
+      "scores": {
+        "trabajo": 7,
+        "salud": 7,
+        "descanso": 5,
+        "inversiones": 5,
+        "finanzas": 7,
+        "marian": 9,
+        "crecimiento": 5,
+        "familia": 4
+      },
+      "steps": 270,
+      "totalSleep": 6.0,
+      "hrv": 47.4,
+      "rhr": 55.0,
+      "bedtime": "2026-06-27 03:16:40 -0400",
+      "healthDate": "2026-06-27"
+    },
+    {
+      "date": "2026-06-27",
+      "scores": {
+        "trabajo": 7,
+        "salud": 6,
+        "descanso": 3,
+        "inversiones": 5,
+        "finanzas": 7,
+        "marian": 9,
+        "crecimiento": 6,
+        "familia": 6
+      },
+      "steps": 200,
+      "totalSleep": 5.13,
+      "hrv": 62.0,
+      "healthDate": "2026-06-26",
+      "bedtime": "2026-06-26 00:26:28 -0400"
+    },
+    {
+      "date": "2026-06-26",
+      "scores": {
+        "trabajo": 8,
+        "salud": 6,
+        "descanso": 3,
+        "inversiones": 5,
+        "finanzas": 8,
+        "marian": 9,
+        "crecimiento": 5,
+        "familia": 6
+      },
+      "steps": 170,
+      "totalSleep": 5.3,
+      "hrv": 105.6,
+      "healthDate": "2026-06-24"
+    },
+    {
+      "date": "2026-06-25",
+      "scores": {
+        "trabajo": 7,
+        "salud": 6,
+        "descanso": 3,
+        "inversiones": 5,
+        "finanzas": 7,
+        "marian": 9,
+        "crecimiento": 3,
+        "familia": 4
+      },
+      "steps": 170,
+      "totalSleep": 5.3,
+      "hrv": 105.6,
+      "healthDate": "2026-06-24"
+    },
+    {
+      "date": "2026-06-24",
+      "scores": {
+        "trabajo": 7,
+        "salud": 7,
+        "descanso": 3,
+        "inversiones": 5,
+        "finanzas": 7,
+        "marian": 9,
+        "crecimiento": 3,
+        "familia": 5
+      },
+      "steps": 445,
+      "totalSleep": 5.74,
+      "hrv": 53.1,
+      "rhr": 52.0,
+      "bedtime": "2026-06-23 02:07:39 -0400",
+      "healthDate": "2026-06-23"
+    },
+    {
+      "date": "2026-06-23",
+      "scores": {
+        "trabajo": 7,
+        "salud": 5,
+        "descanso": 3,
+        "inversiones": 5,
+        "finanzas": 7,
+        "marian": 8,
+        "crecimiento": 3,
+        "familia": 4
+      },
+      "steps": 69,
+      "totalSleep": 4.79,
+      "hrv": 41.7,
+      "bedtime": "2026-06-22 03:00:10 -0400",
+      "healthDate": "2026-06-22"
+    },
+    {
+      "date": "2026-06-22",
+      "scores": {
+        "trabajo": 7,
+        "salud": 6,
+        "descanso": 3,
+        "inversiones": 5,
+        "finanzas": 6,
+        "marian": 9,
+        "crecimiento": 3,
+        "familia": 4
+      },
+      "steps": 1487,
+      "totalSleep": 4.7,
+      "hrv": 57.5,
+      "rhr": 55.0,
+      "bedtime": "2026-06-20 03:05:23 -0400",
+      "healthDate": "2026-06-20"
+    },
+    {
+      "date": "2026-06-21",
+      "scores": {
+        "trabajo": 7,
+        "salud": 6,
+        "descanso": 3,
+        "inversiones": 5,
+        "finanzas": 6,
+        "marian": 9,
+        "crecimiento": 3,
+        "familia": 4
+      },
+      "steps": 921,
+      "totalSleep": 5.0,
+      "hrv": 61.5,
+      "rhr": 56.0,
+      "bedtime": "2026-06-19 02:53:48 -0400",
+      "healthDate": "2026-06-19"
+    },
+    {
+      "date": "2026-06-20",
+      "scores": {
+        "trabajo": 7,
+        "salud": 6,
+        "descanso": 3,
+        "inversiones": 5,
+        "finanzas": 7,
+        "marian": 6,
+        "crecimiento": 5,
+        "familia": 6
+      },
+      "steps": 921,
+      "totalSleep": 5.0,
+      "hrv": 61.5,
+      "rhr": 56.0,
+      "bedtime": "2026-06-19 02:53:48 -0400",
+      "healthDate": "2026-06-19"
+    },
+    {
+      "date": "2026-06-19",
+      "scores": {
+        "trabajo": 7,
+        "salud": 6,
+        "descanso": 1,
+        "inversiones": 5,
+        "finanzas": 6,
+        "marian": 8,
+        "crecimiento": 3,
+        "familia": 5
+      },
+      "steps": 677,
+      "totalSleep": 4.09,
+      "hrv": 63.0,
+      "rhr": 55.0,
+      "bedtime": "2026-06-18 02:58:46 -0400",
+      "healthDate": "2026-06-18"
+    },
+    {
+      "date": "2026-06-18",
+      "scores": {
+        "trabajo": 6,
+        "salud": 3,
+        "descanso": 1,
+        "inversiones": 5,
+        "finanzas": 5,
+        "marian": 6,
+        "familia": 6,
+        "crecimiento": 4
+      }
+    },
+    {
+      "date": "2026-05-13",
+      "scores": {
+        "trabajo": 5,
+        "salud": 1,
+        "descanso": 5,
+        "inversiones": 7,
+        "finanzas": 4,
+        "marian": 8,
+        "crecimiento": 3,
+        "familia": 5,
+        "legal": 4
+      }
+    },
+    {
+      "date": "2026-05-12",
+      "scores": {
+        "trabajo": 6,
+        "salud": 3,
+        "descanso": 6,
+        "inversiones": 7,
+        "finanzas": 4,
+        "marian": 7,
+        "crecimiento": 5,
+        "familia": 6,
+        "legal": 4
+      }
+    },
+    {
+      "date": "2026-05-11",
+      "scores": {
+        "trabajo": 6,
+        "salud": 2,
+        "descanso": 6,
+        "inversiones": 7,
+        "finanzas": 4,
+        "marian": 8,
+        "crecimiento": 5,
+        "familia": 7,
+        "legal": 4
+      }
+    },
+    {
+      "date": "2026-05-10",
+      "scores": {
+        "trabajo": 6,
+        "salud": 2,
+        "descanso": 4,
+        "inversiones": 7,
+        "finanzas": 4,
+        "marian": 8,
+        "crecimiento": 5,
+        "familia": 7,
+        "legal": 4
+      }
+    },
+    {
+      "date": "2026-05-09",
+      "scores": {
+        "trabajo": 6,
+        "salud": 5,
+        "descanso": 4,
+        "inversiones": 7,
+        "finanzas": 4,
+        "marian": 9,
+        "crecimiento": 5,
+        "familia": 7,
+        "legal": 4
+      }
+    },
+    {
+      "date": "2026-05-08",
+      "scores": {
+        "trabajo": 6,
+        "salud": 5,
+        "descanso": 4,
+        "inversiones": 7,
+        "finanzas": 4,
+        "marian": 9,
+        "crecimiento": 5,
+        "familia": 8,
+        "legal": 4
+      }
+    },
+    {
+      "date": "2026-05-07",
+      "scores": {
+        "trabajo": 6,
+        "salud": 9,
+        "descanso": 2,
+        "inversiones": 7,
+        "finanzas": 4,
+        "marian": 9,
+        "crecimiento": 5,
+        "familia": 7,
+        "legal": 4
+      }
+    },
+    {
+      "date": "2026-05-06",
+      "scores": {
+        "trabajo": 6,
+        "salud": 1,
+        "descanso": 5,
+        "inversiones": 7,
+        "finanzas": 4,
+        "marian": 9,
+        "crecimiento": 7,
+        "familia": 6,
+        "legal": 4
+      }
+    },
+    {
+      "date": "2026-05-05",
+      "scores": {
+        "trabajo": 6,
+        "salud": 3,
+        "descanso": 1,
+        "inversiones": 7,
+        "finanzas": 4,
+        "marian": 9,
+        "crecimiento": 6,
+        "familia": 6,
+        "legal": 4
+      }
+    },
+    {
+      "date": "2026-05-04",
+      "scores": {
+        "trabajo": 6,
+        "salud": 3,
+        "descanso": 8,
+        "inversiones": 7,
+        "finanzas": 4,
+        "marian": 9,
+        "crecimiento": 6,
+        "familia": 7,
+        "legal": 4
+      }
+    },
+    {
+      "date": "2026-05-03",
+      "scores": {
+        "trabajo": 6,
+        "salud": 3,
+        "descanso": 8,
+        "inversiones": 7,
+        "finanzas": 4,
+        "marian": 9,
+        "crecimiento": 6,
+        "familia": 6,
+        "legal": 4
+      }
+    },
+    {
+      "date": "2026-05-02",
+      "scores": {
+        "trabajo": 5,
+        "salud": 3,
+        "descanso": 8,
+        "inversiones": 7,
+        "finanzas": 4,
+        "marian": 9,
+        "crecimiento": 6,
+        "familia": 6,
+        "legal": 4
+      }
+    },
+    {
+      "date": "2026-05-01",
+      "scores": {
+        "trabajo": 5,
+        "salud": 2,
+        "descanso": 5,
+        "inversiones": 7,
+        "finanzas": 4,
+        "marian": 9,
+        "crecimiento": 6,
+        "familia": 6,
+        "legal": 4
+      }
     }
   ],
   "familiaNextContacts": [
