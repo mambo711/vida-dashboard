@@ -12,14 +12,14 @@
     "familia": 4
   },
   "evidence": {
-    "trabajo": "DEC Health 91/100 BUENO (QUICK Tue-normal) \u00b7 MTD $42.7K -14.3% \u00b7 Cash $63K \u00b7 AR $0 | Michalitas: Jul 1 $0 \u00b7 PE $4,216 \u00b7 Alexis cocinero sali\u00f3 28jun \u2014 Marian sola",
-    "salud": "HRV 63.5ms \u00b7 RHR 52bpm \u00b7 pasos 691 \u00b7 ejercicio 1min \u00b7 HbA1c 5.9/LDL 125 \u2014 sin sue\u00f1o (va en Descanso)",
-    "descanso": "Sue\u00f1o 5.37h \u00b7 dormido a las 00:15 \u274c \u00b7 deep 25min \u00b7 REM 0.41h \u00b7 racha d\u00e9ficit 14 noches <7h",
-    "inversiones": "NW $406K \u00b7 FI 45% (meta 60-70%)",
-    "finanzas": "Sueldo v\u00eda DEC \u00b7 Caja Xero $63.1K / opex $14.3K/mo = runway 4.4mo \u00b7 DEC neto +$8.8K/mo \u00b7 DEC Health 91/100",
-    "marian": "Cloze 7d: 105 interacciones (email only) \u00b7 0 llamadas \u00b7 0 msgs \u00b7 Zoom Jun 29 \u00b7 fwd SRI Jun 30 \u00b7 cap email-only",
-    "crecimiento": "Se\u00f1ales reales: 0 \u00b7 calendario NO cuenta \u00b7 \u00faltimos 7d",
-    "familia": "Contactos: ninguno en 7d \u00b7 Sia call pr\u00f3xima Jul 4 \u00b7 Cumplea\u00f1os Marisol Jul 4 \u00b7 sin Bolivariano/Remitly"
+    "trabajo": "DEC Health 91/100 BUENO (QUICK Tue-normal) · MTD $42.7K -14.3% · Cash $63K · AR $0 | Michalitas: Jul 1 $0 · PE $4,216 · Alexis cocinero salió 28jun — Marian sola",
+    "salud": "HRV 63.5ms · RHR 52bpm · pasos 691 · ejercicio 1min · HbA1c 5.9/LDL 125 — sin sueño (va en Descanso)",
+    "descanso": "Sueño 5.37h · dormido a las 00:15 ❌ · deep 25min · REM 0.41h · racha déficit 14 noches <7h",
+    "inversiones": "NW $406K · FI 45% (meta 60-70%)",
+    "finanzas": "Sueldo vía DEC · Caja Xero $63.1K / opex $14.3K/mo = runway 4.4mo · DEC neto +$8.8K/mo · DEC Health 91/100",
+    "marian": "Cloze 7d: 105 interacciones (email only) · 0 llamadas · 0 msgs · Zoom Jun 29 · fwd SRI Jun 30 · cap email-only",
+    "crecimiento": "Señales reales: 0 · calendario NO cuenta · últimos 7d",
+    "familia": "Contactos: ninguno en 7d · Sia call próxima Jul 4 · Cumpleaños Marisol Jul 4 · sin Bolivariano/Remitly"
   },
   "meta": {
     "health_date": "2026-06-30",
@@ -50,14 +50,14 @@
         "familia": 4
       },
       "evidence": {
-        "trabajo": "DEC Health 91/100 BUENO (QUICK Tue-normal) \u00b7 MTD $42.7K -14.3% \u00b7 Cash $63K \u00b7 AR $0 | Michalitas: Jul 1 $0 \u00b7 PE $4,216 \u00b7 Alexis cocinero sali\u00f3 28jun \u2014 Marian sola",
-        "salud": "HRV 63.5ms \u00b7 RHR 52bpm \u00b7 pasos 691 \u00b7 ejercicio 1min \u00b7 HbA1c 5.9/LDL 125 \u2014 sin sue\u00f1o (va en Descanso)",
-        "descanso": "Sue\u00f1o 5.37h \u00b7 dormido a las 00:15 \u274c \u00b7 deep 25min \u00b7 REM 0.41h \u00b7 racha d\u00e9ficit 14 noches <7h",
-        "inversiones": "NW $406K \u00b7 FI 45% (meta 60-70%)",
-        "finanzas": "Sueldo v\u00eda DEC \u00b7 Caja Xero $63.1K / opex $14.3K/mo = runway 4.4mo \u00b7 DEC neto +$8.8K/mo \u00b7 DEC Health 91/100",
-        "marian": "Cloze 7d: 105 interacciones (email only) \u00b7 0 llamadas \u00b7 0 msgs \u00b7 Zoom Jun 29 \u00b7 fwd SRI Jun 30 \u00b7 cap email-only",
-        "crecimiento": "Se\u00f1ales reales: 0 \u00b7 calendario NO cuenta \u00b7 \u00faltimos 7d",
-        "familia": "Contactos: ninguno en 7d \u00b7 Sia call pr\u00f3xima Jul 4 \u00b7 Cumplea\u00f1os Marisol Jul 4 \u00b7 sin Bolivariano/Remitly"
+        "trabajo": "DEC Health 91/100 BUENO (QUICK Tue-normal) · MTD $42.7K -14.3% · Cash $63K · AR $0 | Michalitas: Jul 1 $0 · PE $4,216 · Alexis cocinero salió 28jun — Marian sola",
+        "salud": "HRV 63.5ms · RHR 52bpm · pasos 691 · ejercicio 1min · HbA1c 5.9/LDL 125 — sin sueño (va en Descanso)",
+        "descanso": "Sueño 5.37h · dormido a las 00:15 ❌ · deep 25min · REM 0.41h · racha déficit 14 noches <7h",
+        "inversiones": "NW $406K · FI 45% (meta 60-70%)",
+        "finanzas": "Sueldo vía DEC · Caja Xero $63.1K / opex $14.3K/mo = runway 4.4mo · DEC neto +$8.8K/mo · DEC Health 91/100",
+        "marian": "Cloze 7d: 105 interacciones (email only) · 0 llamadas · 0 msgs · Zoom Jun 29 · fwd SRI Jun 30 · cap email-only",
+        "crecimiento": "Señales reales: 0 · calendario NO cuenta · últimos 7d",
+        "familia": "Contactos: ninguno en 7d · Sia call próxima Jul 4 · Cumpleaños Marisol Jul 4 · sin Bolivariano/Remitly"
       },
       "meta": {
         "health_date": "2026-06-30",
@@ -79,50 +79,50 @@
   "suggested": {
     "trabajo": {
       "score": 6,
-      "evidence": "DEC Health 7/10 MODERADO \u00b7 MTD $29.4K margin 37.6% \u00b7 Cash $43.2K \u00b7 AR od $4.7K | Michalitas: $2,635 (62% PE) \u00b7 proy $4,142 vs PE $4,216 (-$74) \u00b7 Alexis fuera 28jun"
+      "evidence": "DEC Health 7/10 MODERADO (74/100, dash 7/17) · MTD $29.4K margin 37.6% · Cash $43.2K · AR od $4.7K | Michalitas: $2,693 (64% PE) · proy $3,951 vs PE $4,216 (−$265)"
     },
     "salud": {
-      "score": 5,
-      "evidence": "HRV 28.5ms \u00b7 RHR 66bpm \u00b7 pasos 6,100 \u00b7 ejercicio 31min \u00b7 glucosa 159/eGFR 56 (labs 13jul, A1c pendiente) \u2014 sin sueno (va en Descanso)"
+      "score": 4,
+      "evidence": "HRV 34.9ms · RHR 63bpm · pasos 1,990 · ejercicio 0min · glucosa 159/eGFR 56 (A1c pendiente) — sin sueño (va en Descanso)"
     },
     "descanso": {
-      "score": 8,
-      "evidence": "Sueno 7.7h \u00b7 dormido a las 00:40 \u274c despues de 12am \u00b7 deep 40min \u00b7 REM 1.1h \u00b7 racha deficit ROTA (0 noches)"
+      "score": 4,
+      "evidence": "Sueño 5.7h · dormido a las 02:14 ❌ después de 12am · deep 26min · REM 1.4h · racha déficit 1 noche"
     },
     "inversiones": {
       "score": 5,
-      "evidence": "NW $395K \u00b7 FI 44% \u00b7 \u26a0\ufe0f VLV23 margin call, riesgo 38/100"
+      "evidence": "NW $395K · FI 44% · ⚠️ VLV23 margin call, riesgo 38/100"
     },
     "finanzas": {
       "score": 5,
-      "evidence": "Sueldo via DEC \u00b7 Caja Xero $42.8K / opex $17.6K/mo = runway 2.4mo \u00b7 DEC neto +$8.3K/mo \u00b7 DEC Health 74/100"
+      "evidence": "Sueldo vía DEC · Caja Xero $42.8K / opex $17.6K/mo = runway 2.4mo · DEC neto +$8.3K/mo · DEC Health 74/100"
     },
     "marian": {
       "score": 9,
-      "evidence": "Cloze 7d: 202 interacciones \u00b7 0 llamadas \u00b7 20 reuniones \u00b7 ultima actividad personal: 2026-07-18 (D-1)"
+      "evidence": "Cloze 7d: 176 interacciones · 0 llamadas · 15 reuniones · última actividad personal: 2026-07-19 (D-1)"
     },
     "crecimiento": {
       "score": 5,
-      "evidence": "Senales reales: 1 (Barchart pre-market/screeners) \u00b7 calendario NO cuenta \u00b7 ult 7d"
+      "evidence": "Señales reales: 1 (newsletter Every leído) · calendario NO cuenta · últimos 7d"
     },
     "familia": {
       "score": 6,
-      "evidence": "Contactos: Esperanza (FB), Miguel (Remitly $172) \u00b7 Transferencias: Si \u00b7 Prox: Llamada Sia 25 jul"
+      "evidence": "Contactos: Miguel (Remitly $172) · trámite Omnihospital (J. Cadena) · Transferencias: Sí · Próx: Llamada Sia 25 jul"
     }
   },
   "stalenessData": {
-    "trabajo": "2026-07-19",
-    "inversiones": "2026-07-19",
-    "finanzas": "2026-07-19",
-    "marian": "2026-07-19",
-    "crecimiento": "2026-07-19",
-    "familia": "2026-07-19",
-    "salud": "2026-07-19",
-    "descanso": "2026-07-19"
+    "trabajo": "2026-07-20",
+    "inversiones": "2026-07-20",
+    "finanzas": "2026-07-20",
+    "marian": "2026-07-20",
+    "crecimiento": "2026-07-20",
+    "familia": "2026-07-20",
+    "salud": "2026-07-20",
+    "descanso": "2026-07-20"
   },
-  "healthLastRealDate": "2026-07-18",
+  "healthLastRealDate": "2026-07-19",
   "metricsData": {
-    "date": "2026-07-19",
+    "date": "2026-07-20",
     "patrimonio": {
       "nwNeto": 395167,
       "totalBruto": 403365,
@@ -130,12 +130,12 @@
       "fiPct": 44
     },
     "salud": {
-      "sleepAvg": 7.69,
-      "steps": 6100,
-      "exerciseMin": 31,
-      "hrv": 28.5,
-      "rhr": 66.0,
-      "bedtime": "2026-07-18 00:40:08 -0400",
+      "sleepAvg": 5.67,
+      "steps": 1990,
+      "exerciseMin": 0,
+      "hrv": 34.9,
+      "rhr": 63.0,
+      "bedtime": "2026-07-19 02:14:11 -0400",
       "hba1c": 5.9,
       "ldl": 125,
       "pesoMeta": 160
@@ -145,14 +145,14 @@
       "cash": 42827,
       "burn": 17598,
       "netMonthly": 8264,
-      "locNote": "caja $42.8K > umbral $40K -> reanudar plan LOC (~jul 2026)",
+      "locNote": "caja $42.8K > umbral $40K → reanudar plan LOC (~jul 2026)",
       "renta": 2100,
       "wellsFargoLoc": 47887,
       "locRate": 8.5,
       "mazda": 10837,
       "surplus": 0
     },
-    "sleepStreakBelowTarget": 0,
+    "sleepStreakBelowTarget": 1,
     "retiro": {
       "sepIra": 140427,
       "rothIra": 65740,
@@ -167,6 +167,25 @@
     }
   },
   "scoreHistoryDaily": [
+    {
+      "date": "2026-07-20",
+      "scores": {
+        "trabajo": 6,
+        "salud": 4,
+        "descanso": 4,
+        "inversiones": 5,
+        "finanzas": 5,
+        "marian": 9,
+        "crecimiento": 5,
+        "familia": 6
+      },
+      "steps": 1990,
+      "totalSleep": 5.67,
+      "hrv": 34.9,
+      "rhr": 63.0,
+      "bedtime": "2026-07-19 02:14:11 -0400",
+      "healthDate": "2026-07-19"
+    },
     {
       "date": "2026-07-19",
       "scores": {
@@ -697,38 +716,29 @@
       "rhr": 55.0,
       "bedtime": "2026-06-18 02:58:46 -0400",
       "healthDate": "2026-06-18"
-    },
-    {
-      "date": "2026-06-18",
-      "scores": {
-        "trabajo": 6,
-        "salud": 3,
-        "descanso": 1,
-        "inversiones": 5,
-        "finanzas": 5,
-        "marian": 6,
-        "familia": 6,
-        "crecimiento": 4
-      }
     }
   ],
   "familiaNextContacts": [
     {
-      "name": "Miguel Autos Follow up",
+      "name": "Miguel Autos Follow up Weekly",
       "date": "2026-07-20"
     },
     {
-      "name": "Llamada con Sia (sesion larga)",
+      "name": "Llamada con Sia — Sábado",
       "date": "2026-07-25"
+    },
+    {
+      "name": "Miguel Autos Follow up Weekly",
+      "date": "2026-07-27"
     }
   ],
   "areas": [
     {
       "id": "salud",
       "label": "Salud",
-      "icon": "\ud83c\udfe5",
+      "icon": "🏥",
       "color": "#3fb950",
-      "defaultNote": "Sleep ~5.3h \u00b7 HbA1c 5.9% \u00b7 LDL 125 \u00b7 Meta: 160 lbs",
+      "defaultNote": "Sleep ~5.3h · HbA1c 5.9% · LDL 125 · Meta: 160 lbs",
       "actions": [
         "Dormir antes de las 11pm",
         "30 min de ejercicio",
@@ -739,22 +749,22 @@
     {
       "id": "trabajo",
       "label": "Trabajo / Negocios",
-      "icon": "\ud83d\udcbc",
+      "icon": "💼",
       "color": "#79c0ff",
       "defaultNote": "DEC + Michalitas Guayaquil",
       "actions": [
         "Revisar metas semanales DEC",
         "Check Michalitas POS y ventas",
-        "Identificar 1 acci\u00f3n de crecimiento"
+        "Identificar 1 acción de crecimiento"
       ],
       "link": "https://mambo711.github.io/dec-dashboard/"
     },
     {
       "id": "inversiones",
       "label": "Inversiones",
-      "icon": "\ud83d\udcc8",
+      "icon": "📈",
       "color": "#58a6ff",
-      "defaultNote": "Net Worth $340,656 \u00b7 Bruto $398,543 \u00b7 FI meta: 68%",
+      "defaultNote": "Net Worth $340,656 · Bruto $398,543 · FI meta: 68%",
       "actions": [
         "Revisar allocations TradeStation",
         "Abrir Macro Wealth dashboard",
@@ -765,9 +775,9 @@
     {
       "id": "finanzas",
       "label": "Finanzas",
-      "icon": "\ud83d\udcb0",
+      "icon": "💰",
       "color": "#f0883e",
-      "defaultNote": "Mazda $10,837 \u00b7 Renta $2,100/mo \u00b7 LOC $47,887",
+      "defaultNote": "Mazda $10,837 · Renta $2,100/mo · LOC $47,887",
       "actions": [
         "Plan para reducir LOC Wells Fargo",
         "Revisar surplus mensual",
@@ -778,9 +788,9 @@
     {
       "id": "marian",
       "label": "Marian & Relaciones",
-      "icon": "\u2764\ufe0f",
+      "icon": "❤️",
       "color": "#f85149",
-      "defaultNote": "Contacto activo \u00b7 Sia \u00b7 Michalitas",
+      "defaultNote": "Contacto activo · Sia · Michalitas",
       "actions": [
         "Llamada o visita esta semana",
         "Tiempo de calidad (no trabajo)",
@@ -791,9 +801,9 @@
     {
       "id": "familia",
       "label": "Familia",
-      "icon": "\ud83d\udc68\u200d\ud83d\udc69\u200d\ud83d\udc67",
+      "icon": "👨‍👩‍👧",
       "color": "#bc8cff",
-      "defaultNote": "Ecuador: Jorge, V\u00edctor, Esperanza \u00b7 Miguel Miami",
+      "defaultNote": "Ecuador: Jorge, Víctor, Esperanza · Miguel Miami",
       "actions": [
         "Llamar a Esperanza (salud)",
         "WhatsApp a hermanos Ecuador",
@@ -804,9 +814,9 @@
     {
       "id": "descanso",
       "label": "Descanso / Ocio",
-      "icon": "\ud83c\udf34",
+      "icon": "🌴",
       "color": "#56d364",
-      "defaultNote": "Hobbies \u00b7 tiempo libre \u00b7 viajes \u00b7 recreaci\u00f3n",
+      "defaultNote": "Hobbies · tiempo libre · viajes · recreación",
       "actions": [
         "Planear 1 actividad recreativa",
         "Desconectarse 1 tarde completa",
@@ -817,11 +827,11 @@
     {
       "id": "crecimiento",
       "label": "Crecimiento Personal",
-      "icon": "\ud83d\udcda",
+      "icon": "📚",
       "color": "#d2a8ff",
-      "defaultNote": "Lectura \u00b7 aprendizaje \u00b7 nuevas habilidades",
+      "defaultNote": "Lectura · aprendizaje · nuevas habilidades",
       "actions": [
-        "Leer 20 min al d\u00eda",
+        "Leer 20 min al día",
         "Identificar 1 habilidad a desarrollar",
         "Podcast o curso esta semana"
       ],
