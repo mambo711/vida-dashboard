@@ -79,80 +79,80 @@
   "suggested": {
     "trabajo": {
       "score": 6,
-      "evidence": "DEC Health 7/10 MODERADO (74/100, dash 7/17) · MTD $29.4K margin 37.6% · Cash $43.2K · AR od $4.7K | Michalitas: $2,693 (64% PE) · proy $3,951 vs PE $4,216 (−$265)"
+      "evidence": "DEC Health 7/10 MODERADO (74/100, dash 7/17 stale) · MTD $29.4K margin 37.6% · AR $4.7K cobrado 20 jul | Michalitas: $2,693 (64% PE) · proy $3,950 vs PE $4,216 (-$266)"
     },
     "salud": {
-      "score": 4,
-      "evidence": "HRV 34.9ms · RHR 63bpm · pasos 1,990 · ejercicio 0min · glucosa 159/eGFR 56 (A1c pendiente) — sin sueño (va en Descanso)"
+      "score": 6,
+      "evidence": "HRV 33.9ms · RHR 67bpm · pasos 3,484 · ejercicio 97min · glucosa 159/eGFR 56 (A1c pendiente) — sin sueño (va en Descanso)"
     },
     "descanso": {
-      "score": 4,
-      "evidence": "Sueño 5.7h · dormido a las 02:14 ❌ después de 12am · deep 26min · REM 1.4h · racha déficit 1 noche"
+      "score": 1,
+      "evidence": "Sueño 3.2h · dormido a las 02:43 ❌ después de 12am · deep 32min · REM 0.8h · racha déficit 3 noches"
     },
     "inversiones": {
       "score": 5,
-      "evidence": "NW $395K · FI 44% · ⚠️ VLV23 margin call, riesgo 38/100"
+      "evidence": "NW $395.7K · FI 44% · ⚠️ VLV23 margin call, riesgo 38/100"
     },
     "finanzas": {
       "score": 5,
-      "evidence": "Sueldo vía DEC · Caja Xero $42.8K / opex $17.6K/mo = runway 2.4mo · DEC neto +$8.3K/mo · DEC Health 74/100"
+      "evidence": "Sueldo vía DEC · Caja Xero $46.7K / opex $17.6K/mo = runway 2.6mo · DEC neto +$8.7K/mo · DEC Health 74/100"
     },
     "marian": {
       "score": 9,
-      "evidence": "Cloze 7d: 176 interacciones · 0 llamadas · 15 reuniones · última actividad personal: 2026-07-19 (D-1)"
+      "evidence": "Cloze 7d: 197 interacciones · 23 llamadas · 25 mensajes · última actividad personal: 2026-07-20 (D-1)"
     },
     "crecimiento": {
       "score": 5,
-      "evidence": "Señales reales: 1 (newsletter Every leído) · calendario NO cuenta · últimos 7d"
+      "evidence": "Señales reales: 1 (newsletter Every leído ~19 jul) · calendario NO cuenta · últimos 7d"
     },
     "familia": {
       "score": 6,
-      "evidence": "Contactos: Miguel (Remitly $172) · trámite Omnihospital (J. Cadena) · Transferencias: Sí · Próx: Llamada Sia 25 jul"
+      "evidence": "Contactos: Miguel (Remitly $172 entregado) · trámite Omnihospital (S. Coba) · Transferencias: Sí · Próx: Llamada Sia 25 jul"
     }
   },
   "stalenessData": {
-    "trabajo": "2026-07-20",
-    "inversiones": "2026-07-20",
-    "finanzas": "2026-07-20",
-    "marian": "2026-07-20",
-    "crecimiento": "2026-07-20",
-    "familia": "2026-07-20",
-    "salud": "2026-07-20",
-    "descanso": "2026-07-20"
+    "trabajo": "2026-07-21",
+    "inversiones": "2026-07-21",
+    "finanzas": "2026-07-21",
+    "marian": "2026-07-21",
+    "crecimiento": "2026-07-21",
+    "familia": "2026-07-21",
+    "salud": "2026-07-21",
+    "descanso": "2026-07-21"
   },
-  "healthLastRealDate": "2026-07-19",
+  "healthLastRealDate": "2026-07-20",
   "metricsData": {
-    "date": "2026-07-20",
+    "date": "2026-07-21",
     "patrimonio": {
-      "nwNeto": 395167,
-      "totalBruto": 403365,
+      "nwNeto": 395722,
+      "totalBruto": 403920,
       "deuda": 8198,
       "fiPct": 44
     },
     "salud": {
-      "sleepAvg": 5.67,
-      "steps": 1990,
-      "exerciseMin": 0,
-      "hrv": 34.9,
-      "rhr": 63.0,
-      "bedtime": "2026-07-19 02:14:11 -0400",
+      "sleepAvg": 3.23,
+      "steps": 3484,
+      "exerciseMin": 97,
+      "hrv": 33.9,
+      "rhr": 67.0,
+      "bedtime": "2026-07-20 02:43:58 -0400",
       "hba1c": 5.9,
       "ldl": 125,
       "pesoMeta": 160
     },
     "finanzas": {
-      "runway": 2.4,
-      "cash": 42827,
-      "burn": 17598,
-      "netMonthly": 8264,
-      "locNote": "caja $42.8K > umbral $40K → reanudar plan LOC (~jul 2026)",
+      "runway": 2.6,
+      "cash": 46668,
+      "burn": 17635,
+      "netMonthly": 8668,
+      "locNote": "caja $46.7K > umbral $40K → reanudar plan LOC (~jul 2026)",
       "renta": 2100,
       "wellsFargoLoc": 47887,
       "locRate": 8.5,
       "mazda": 10837,
       "surplus": 0
     },
-    "sleepStreakBelowTarget": 1,
+    "sleepStreakBelowTarget": 2,
     "retiro": {
       "sepIra": 140427,
       "rothIra": 65740,
@@ -167,6 +167,25 @@
     }
   },
   "scoreHistoryDaily": [
+    {
+      "date": "2026-07-21",
+      "scores": {
+        "trabajo": 6,
+        "salud": 6,
+        "descanso": 1,
+        "inversiones": 5,
+        "finanzas": 5,
+        "marian": 9,
+        "crecimiento": 5,
+        "familia": 6
+      },
+      "steps": 3484,
+      "totalSleep": 3.23,
+      "hrv": 33.9,
+      "rhr": 67.0,
+      "bedtime": "2026-07-20 02:43:58 -0400",
+      "healthDate": "2026-07-20"
+    },
     {
       "date": "2026-07-20",
       "scores": {
@@ -697,39 +716,12 @@
       "rhr": 56.0,
       "bedtime": "2026-06-19 02:53:48 -0400",
       "healthDate": "2026-06-19"
-    },
-    {
-      "date": "2026-06-19",
-      "scores": {
-        "trabajo": 7,
-        "salud": 6,
-        "descanso": 1,
-        "inversiones": 5,
-        "finanzas": 6,
-        "marian": 8,
-        "crecimiento": 3,
-        "familia": 5
-      },
-      "steps": 677,
-      "totalSleep": 4.09,
-      "hrv": 63.0,
-      "rhr": 55.0,
-      "bedtime": "2026-06-18 02:58:46 -0400",
-      "healthDate": "2026-06-18"
     }
   ],
   "familiaNextContacts": [
     {
-      "name": "Miguel Autos Follow up Weekly",
-      "date": "2026-07-20"
-    },
-    {
-      "name": "Llamada con Sia — Sábado",
+      "name": "📞 Llamada con Sia — Sábado",
       "date": "2026-07-25"
-    },
-    {
-      "name": "Miguel Autos Follow up Weekly",
-      "date": "2026-07-27"
     }
   ],
   "areas": [
