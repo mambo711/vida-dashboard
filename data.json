@@ -79,50 +79,50 @@
   "suggested": {
     "trabajo": {
       "score": 7,
-      "evidence": "DEC Health 9/10 BUENO \u00b7 MTD $34,828 (-11%) \u00b7 Margin 37.6% \u00b7 Cash $50.5K \u00b7 AR od $0 | Michalitas $3,415 (81% PE) \u00b7 proy d\u00e9ficit -$262"
+      "evidence": "DEC Health 9/10 BUENO \u00b7 MTD $36,948 (-33.8%) margin 37.6% \u00b7 Cash $52.6K \u00b7 AR od $0 | Michalitas: $3,415 (81% PE) \u00b7 d\u00e9ficit -$262 proy $3,954"
     },
     "salud": {
-      "score": 6,
-      "evidence": "HRV 50.5ms \u00b7 RHR 52bpm \u00b7 pasos 1044 \u00b7 ejercicio 0min \u00b7 sin sue\u00f1o (va en Descanso)"
+      "score": 8,
+      "evidence": "HRV 54.5ms \u00b7 RHR 57bpm \u00b7 pasos 6,022 \u00b7 ejercicio 150min \u2014 sin sue\u00f1o (va en Descanso)"
     },
     "descanso": {
       "score": 2,
-      "evidence": "Sue\u00f1o 4.13h \u00b7 dormido a las 03:34 \u274c despu\u00e9s de 12am \u00b7 deep 32min \u00b7 REM 0.67h \u00b7 racha d\u00e9ficit 1 noche"
+      "evidence": "Sue\u00f1o 4.46h \u00b7 deep 35min \u00b7 REM 0.89h \u00b7 racha d\u00e9ficit 2 noches"
     },
     "inversiones": {
       "score": 5,
-      "evidence": "NW $398K \u00b7 FI 44% \u00b7 TWR n/a"
+      "evidence": "NW $398K \u00b7 FI 44% \u00b7 deuda $8.9K"
     },
     "finanzas": {
       "score": 7,
-      "evidence": "Sueldo v\u00eda DEC \u00b7 Caja Xero $52.6K / opex $17.6K/mo = runway 3.0mo \u00b7 DEC neto +$9.3K/mo \u00b7 DEC Health 90/100"
+      "evidence": "Sueldo v\u00eda DEC \u00b7 Caja Xero $56.1K / opex $17.7K/mo = runway 3.2mo \u00b7 DEC neto +$9.8K/mo \u00b7 DEC Health 91/100"
     },
     "marian": {
       "score": 9,
-      "evidence": "Cloze 7d: 239 interacciones \u00b7 66 llamadas \u00b7 41 mensajes \u00b7 \u00faltima actividad personal: 2026-07-26 (D-1)"
+      "evidence": "Cloze 7d: 205 interacciones \u00b7 65 llamadas \u00b7 34 mensajes \u00b7 \u00faltima personal: 2026-07-26 (D-2)"
     },
     "crecimiento": {
       "score": 5,
-      "evidence": "Se\u00f1ales reales: 1 (newsletter Every AI/Opus5) \u00b7 calendario NO cuenta \u00b7 \u00faltimos 7d"
+      "evidence": "Se\u00f1ales reales: 1 (newsletters AI/negocios) \u00b7 calendario NO cuenta \u00b7 \u00faltimos 7d"
     },
     "familia": {
       "score": 5,
-      "evidence": "Contactos: transferencia Bolivariano $100 a Marian \u00b7 \u00daltima se\u00f1al: 2026-07-26"
+      "evidence": "Contactos: Marian (cumplea\u00f1os 2 ago) \u00b7 Transferencia Bolivariano $100 \u00b7 \u00daltima se\u00f1al: 2026-07-26"
     }
   },
   "stalenessData": {
-    "trabajo": "2026-07-27",
-    "inversiones": "2026-07-27",
-    "finanzas": "2026-07-27",
-    "marian": "2026-07-27",
-    "crecimiento": "2026-07-27",
-    "familia": "2026-07-27",
-    "salud": "2026-07-27",
-    "descanso": "2026-07-27"
+    "trabajo": "2026-07-28",
+    "inversiones": "2026-07-28",
+    "finanzas": "2026-07-28",
+    "marian": "2026-07-28",
+    "crecimiento": "2026-07-28",
+    "familia": "2026-07-28",
+    "salud": "2026-07-28",
+    "descanso": "2026-07-28"
   },
-  "healthLastRealDate": "2026-07-26",
+  "healthLastRealDate": "2026-07-27",
   "metricsData": {
-    "date": "2026-07-27",
+    "date": "2026-07-28",
     "patrimonio": {
       "nwNeto": 397988,
       "totalBruto": 406849,
@@ -130,29 +130,30 @@
       "fiPct": 44
     },
     "salud": {
-      "sleepAvg": 4.13,
-      "steps": 1044,
-      "exerciseMin": 0,
-      "hrv": 50.5,
-      "rhr": 52.0,
-      "bedtime": "2026-07-26 03:34:11 -0400",
+      "sleepAvg": 4.46,
+      "steps": 6022,
+      "exerciseMin": 150,
+      "hrv": 54.5,
+      "rhr": 57.0,
+      "bedtime": "2026-07-27 00:52:45 -0400",
       "hba1c": 5.9,
       "ldl": 125,
-      "pesoMeta": 160
+      "pesoMeta": 160,
+      "naps": 0.0
     },
     "finanzas": {
-      "runway": 3.0,
-      "cash": 52648,
-      "burn": 17602,
-      "netMonthly": 9305,
-      "locNote": "caja $52.6K > umbral $40K -> reanudar plan LOC (~jul 2026)",
+      "runway": 3.2,
+      "cash": 56123,
+      "burn": 17688,
+      "netMonthly": 9810,
+      "locNote": "caja $56.1K > umbral $40K -> reanudar plan LOC (~jul 2026)",
       "renta": 2100,
       "wellsFargoLoc": 47887,
       "locRate": 8.5,
       "mazda": 10837,
       "surplus": 0
     },
-    "sleepStreakBelowTarget": 1,
+    "sleepStreakBelowTarget": 2,
     "retiro": {
       "sepIra": 140637,
       "rothIra": 67063,
@@ -167,6 +168,26 @@
     }
   },
   "scoreHistoryDaily": [
+    {
+      "date": "2026-07-28",
+      "scores": {
+        "trabajo": 7,
+        "salud": 8,
+        "descanso": 2,
+        "inversiones": 5,
+        "finanzas": 7,
+        "marian": 9,
+        "crecimiento": 5,
+        "familia": 5
+      },
+      "steps": 6022,
+      "totalSleep": 4.46,
+      "naps": 0.0,
+      "hrv": 54.5,
+      "rhr": 57.0,
+      "bedtime": "2026-07-27 00:52:45 -0400",
+      "healthDate": "2026-07-27"
+    },
     {
       "date": "2026-07-27",
       "scores": {
@@ -701,30 +722,9 @@
       "hrv": 62.0,
       "healthDate": "2026-06-26",
       "bedtime": "2026-06-26 00:26:28 -0400"
-    },
-    {
-      "date": "2026-06-26",
-      "scores": {
-        "trabajo": 8,
-        "salud": 6,
-        "descanso": 3,
-        "inversiones": 5,
-        "finanzas": 8,
-        "marian": 9,
-        "crecimiento": 5,
-        "familia": 6
-      },
-      "steps": 170,
-      "totalSleep": 5.3,
-      "hrv": 105.6,
-      "healthDate": "2026-06-24"
     }
   ],
   "familiaNextContacts": [
-    {
-      "name": "Ordenar flores Marian",
-      "date": "2026-07-31"
-    },
     {
       "name": "Pr\u00e9stamo Miguel $313",
       "date": "2026-08-01"
