@@ -155,16 +155,16 @@
     },
     "sleepStreakBelowTarget": 5,
     "retiro": {
-      "sepIra": 140637,
+      "sepIra": 141718,
       "rothIra": 67063,
       "tradIra": 29052
     },
     "trading": {
       "emergency": 31400,
       "cdsEcuador": 37603,
-      "tacticalEtf": 29641,
-      "options": 12348,
-      "ibkrRhFutures": 16105
+      "tacticalEtf": 28950,
+      "options": 12250,
+      "ibkrRhFutures": 15958
     }
   },
   "scoreHistoryDaily": [
