@@ -78,82 +78,82 @@
   ],
   "suggested": {
     "trabajo": {
-      "score": 8,
-      "evidence": "DEC Health 10/10 BUENO - MTD $36.9K margen 37.6% - Cash $28.0K - AR od $0 | Michalitas $3,838 (91% PE) deficit -$378"
+      "score": 7,
+      "evidence": "DEC Health 9/10 BUENO \u00b7 MTD $36.9K margen 37.6% \u00b7 Cash $28.0K \u00b7 AR od $0 | Michalitas Ago $0 (nuevo mes, 0 dias op) \u00b7 PE $4,216 \u00b7 bloqueos: Meta ads, SRI"
     },
     "salud": {
-      "score": 6,
-      "evidence": "HRV 39ms - RHR 58bpm - pasos 621 (parciales, Watch no llevado de dia) - ejercicio 1min - sin sueno (va en Descanso)"
+      "score": 7,
+      "evidence": "HRV 53ms \u00b7 RHR 54bpm \u00b7 pasos 736 (parciales, Watch no llevado de dia) \u00b7 ejercicio 0min \u00b7 sin sueno (va en Descanso)"
     },
     "descanso": {
       "score": 1,
-      "evidence": "Sueno 3.47h - deep 47min - REM 0.69h - racha deficit >=5 noches (se durmio 2:28am)"
+      "evidence": "Sueno 4.43h \u00b7 deep 49min \u00b7 REM 0.8h \u00b7 racha deficit >=6 noches (se durmio 1:00am)"
     },
     "inversiones": {
       "score": 5,
-      "evidence": "NW $398K - FI 44% - TWR n/d"
+      "evidence": "NW $398K \u00b7 FI 44% \u00b7 TWR n/d"
     },
     "finanzas": {
       "score": 5,
-      "evidence": "Sueldo via DEC - Caja Xero $28.0K / opex $16.9K/mo = runway 1.7mo - DEC neto +$3.7K/mo - DEC Health 95/100"
+      "evidence": "Sueldo via DEC \u00b7 Caja Xero $26.0K / opex $16.0K/mo = runway 1.6mo \u00b7 DEC neto +$4.5K/mo \u00b7 DEC Health 90/100"
     },
     "marian": {
-      "score": 8,
-      "evidence": "Cloze 7d: 125 interacciones - 25 llamadas - 7 mensajes - ultima actividad personal: 2026-07-29 (D-2)"
+      "score": 5,
+      "evidence": "Cloze 7d: 109 interacciones \u00b7 4 llamadas \u00b7 0 mensajes \u00b7 ultima actividad personal: 2026-07-26 (D-6)"
     },
     "crecimiento": {
       "score": 5,
-      "evidence": "Senales reales: 1 (newsletter J.L. Cava) - calendario NO cuenta - ultimos 7d"
+      "evidence": "Senales reales: 1 (newsletter J.L. Cava) \u00b7 calendario NO cuenta \u00b7 ultimos 7d"
     },
     "familia": {
-      "score": 6,
-      "evidence": "Contactos: Miguel (prestamo $313 recordatorio) - vuelo GYE en seguimiento - ultima senal: 2026-07-29"
+      "score": 5,
+      "evidence": "Transferencias Bolivariano activas \u00b7 prestamo Miguel en calendario \u00b7 sin contacto directo de familia esta semana"
     }
   },
   "stalenessData": {
-    "trabajo": "2026-07-31",
-    "inversiones": "2026-07-31",
-    "finanzas": "2026-07-31",
-    "marian": "2026-07-31",
-    "crecimiento": "2026-07-31",
-    "familia": "2026-07-31",
-    "salud": "2026-07-31",
-    "descanso": "2026-07-31"
+    "trabajo": "2026-08-01",
+    "inversiones": "2026-08-01",
+    "finanzas": "2026-08-01",
+    "marian": "2026-08-01",
+    "crecimiento": "2026-08-01",
+    "familia": "2026-08-01",
+    "salud": "2026-08-01",
+    "descanso": "2026-08-01"
   },
-  "healthLastRealDate": "2026-07-30",
+  "healthLastRealDate": "2026-07-31",
   "metricsData": {
-    "date": "2026-07-31",
+    "date": "2026-08-01",
     "patrimonio": {
-      "nwNeto": 397988,
-      "totalBruto": 406849,
+      "nwNeto": 398133,
+      "totalBruto": 406994,
       "deuda": 8861,
       "fiPct": 44
     },
     "salud": {
-      "sleepAvg": 3.47,
-      "steps": 621,
-      "exerciseMin": 1,
-      "hrv": 39.3,
-      "rhr": 58.0,
-      "bedtime": "2026-07-30 02:28:12 -0400",
+      "sleepAvg": 4.43,
+      "steps": 736,
+      "exerciseMin": 0,
+      "hrv": 53.3,
+      "rhr": 54.0,
+      "bedtime": "2026-07-31 01:00:16 -0400",
       "hba1c": 5.9,
       "ldl": 125,
       "pesoMeta": 160,
       "naps": 0.0
     },
     "finanzas": {
-      "runway": 1.7,
-      "cash": 28009,
-      "burn": 16940,
-      "netMonthly": 3663,
-      "locNote": "caja $28.0K < umbral $40K -> sin distribuciones aun",
+      "runway": 1.6,
+      "cash": 26046,
+      "burn": 15960,
+      "netMonthly": 4540,
+      "locNote": "caja $26.0K < umbral $40K -> sin distribuciones aun",
       "renta": 2100,
       "wellsFargoLoc": 47887,
       "locRate": 8.5,
       "mazda": 10837,
       "surplus": 0
     },
-    "sleepStreakBelowTarget": 5,
+    "sleepStreakBelowTarget": 6,
     "retiro": {
       "sepIra": 141718,
       "rothIra": 67063,
@@ -168,6 +168,26 @@
     }
   },
   "scoreHistoryDaily": [
+    {
+      "date": "2026-08-01",
+      "scores": {
+        "trabajo": 7,
+        "salud": 7,
+        "descanso": 1,
+        "inversiones": 5,
+        "finanzas": 5,
+        "marian": 5,
+        "crecimiento": 5,
+        "familia": 5
+      },
+      "steps": 736,
+      "totalSleep": 4.43,
+      "naps": 0.0,
+      "hrv": 53.3,
+      "rhr": 54.0,
+      "bedtime": "2026-07-31 01:00:16 -0400",
+      "healthDate": "2026-07-31"
+    },
     {
       "date": "2026-07-31",
       "scores": {
@@ -706,37 +726,9 @@
       "rhr": 58.0,
       "bedtime": "2026-07-01 02:52:54 -0400",
       "healthDate": "2026-07-01"
-    },
-    {
-      "date": "2026-06-30",
-      "scores": {
-        "trabajo": 7,
-        "salud": 7,
-        "descanso": 1,
-        "inversiones": 5,
-        "finanzas": 8,
-        "marian": 7,
-        "crecimiento": 5,
-        "familia": 5
-      },
-      "steps": 371,
-      "totalSleep": 4.24,
-      "hrv": 69.2,
-      "rhr": 53.0,
-      "bedtime": "2026-06-29 01:54:35 -0400",
-      "healthDate": "2026-06-29"
     }
   ],
-  "familiaNextContacts": [
-    {
-      "name": "Ordenar flores Marian",
-      "date": "2026-07-31"
-    },
-    {
-      "name": "Prestamo Miguel $313",
-      "date": "2026-08-01"
-    }
-  ],
+  "familiaNextContacts": [],
   "areas": [
     {
       "id": "salud",
