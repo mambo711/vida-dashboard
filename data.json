@@ -87,7 +87,7 @@
     },
     "descanso": {
       "score": 1,
-      "evidence": "Sin dato de sueno en Watch hoy (D-1) \u00b7 score anterior \u00b7 racha deficit 6 noches <5h hasta 31 jul"
+      "evidence": "SIN DATO de sueno hoy (Watch D-1 sin segmento) \u00b7 score congelado \u00b7 racha real 6 noches <5h hasta 31 jul"
     },
     "inversiones": {
       "score": 5,
@@ -153,7 +153,7 @@
       "mazda": 10837,
       "surplus": 0
     },
-    "sleepStreakBelowTarget": 0,
+    "sleepStreakBelowTarget": 6,
     "retiro": {
       "sepIra": 141718,
       "rothIra": 67063,
